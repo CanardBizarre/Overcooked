@@ -268,6 +268,9 @@
     <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock">
       <UniqueIdentifier>{4e25a884-ce42-42cf-8211-1fa6bd44aa81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock">
+      <UniqueIdentifier>{c0481e29-1385-42cf-ab94-67dee3dce3df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -505,10 +508,13 @@
       <Filter>Overcooked\Core\CustomActor\Prop</Filter>
     </ClCompile>
     <ClCompile Include="KitchenBlock.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="StaticKitchenBlock.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticWorkPlan.cpp">
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -780,10 +786,13 @@
       <Filter>Overcooked\Core\CustomActor\Pawn</Filter>
     </ClInclude>
     <ClInclude Include="KitchenBlock.h">
-      <Filter>Header Files</Filter>
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock</Filter>
     </ClInclude>
     <ClInclude Include="StaticKitchenBlock.h">
-      <Filter>Header Files</Filter>
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticWorkPlan.h">
+      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
