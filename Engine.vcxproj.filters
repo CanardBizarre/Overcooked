@@ -229,11 +229,35 @@
     <Filter Include="Overcooked\Core">
       <UniqueIdentifier>{484e8e0a-608e-42ed-8273-51893152823d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\CustomWidget">
-      <UniqueIdentifier>{faf95579-7650-4ff1-8bf0-1ca561eb7332}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Overcooked\Core\CustomActor">
       <UniqueIdentifier>{e794b560-4cd4-47dd-88c4-d8cf0cf48ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget">
+      <UniqueIdentifier>{08aa038c-1523-4b65-8b85-a14f44038be1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget">
+      <UniqueIdentifier>{faf95579-7650-4ff1-8bf0-1ca561eb7332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Star">
+      <UniqueIdentifier>{91de7e2a-a5bb-4c69-98f1-1c2fa317c5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Piece">
+      <UniqueIdentifier>{9d784e77-1651-48cb-a85c-59f03e84c715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\controller">
+      <UniqueIdentifier>{1ebb0f44-5913-4ec7-a26e-e5fb561ee490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Chrono">
+      <UniqueIdentifier>{c789683f-e65c-4d0f-b5bb-6d75c7e2b43b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Start">
+      <UniqueIdentifier>{98f1f85e-06ec-45d8-8065-803f04d0d697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\ingredient">
+      <UniqueIdentifier>{82ed35d4-ca40-4000-b6ac-61978957b235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Times Up">
+      <UniqueIdentifier>{49382a34-ba5d-40d3-98c7-660ceb0e7ff2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -449,6 +473,30 @@
     </ClCompile>
     <ClCompile Include="DebugLevel.cpp">
       <Filter>Overcooked\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomWidget.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="Chrono.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Ingredient.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\ingredient</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Star</Filter>
+    </ClCompile>
+    <ClCompile Include="Start.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Start</Filter>
+    </ClCompile>
+    <ClCompile Include="TimesUp.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -697,6 +745,30 @@
     </ClInclude>
     <ClInclude Include="DebugLevel.h">
       <Filter>Overcooked\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomWidget.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="Chrono.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Ingredient.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\ingredient</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Start.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Start</Filter>
+    </ClInclude>
+    <ClInclude Include="TimesUp.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
