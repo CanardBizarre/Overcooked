@@ -9,12 +9,26 @@ PlayerPawn::PlayerPawn(Level* _level)
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
 	movement = CreateComponent<PlayerMovementComponent>();
+	carry = CreateComponent<CarryComponent>();
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
+	carry = CreateComponent<CarryComponent>(*_other.carry);
+}
+
+void PlayerPawn::Construct()
+{
+	mesh->SetOriginAtMiddle();
+	CreateSocket("Hand", TransformData(), AT_KEEP_RELATIVE);
+
+}
+
+void PlayerPawn::CarryObject(Actor* _object)
+{
+	carry->Action(_object);
 }
 
 void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
@@ -40,6 +54,7 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 				movement->ProcessInput({1.0f, 0.0f});
 			}),
 
+
 			new Action("RestUp", ActionData(KeyReleased, Z), [&]()
 			{
 				movement->ResetY();
@@ -57,7 +72,12 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 				movement->ResetX();
 			}),
 
-			new Action("Dash", ActionData(KeyPressed, Space), [&]()
+			new Action("Dash", ActionData(KeyHold, Space), [&]()
+			{
+				movement->Dash();
+			}),
+
+			new Action("TakeObject", ActionData(KeyHold, Space), [&]()
 			{
 				movement->Dash();
 			}),

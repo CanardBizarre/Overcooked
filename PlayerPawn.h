@@ -2,9 +2,11 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
+#include "CarryComponent.h"
 class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
+	CarryComponent* carry;
 	PlayerMovementComponent* movement;
 
 public:
@@ -28,7 +30,6 @@ public:
 		Super::SetOrigin(_origin);
 		mesh->GetShape()->SetOrigin(_origin);
 	}
-
 	FORCEINLINE virtual void Move(const Vector2f& _offset) override
 	{
 		Super::Move(_offset);
@@ -50,6 +51,8 @@ public:
 	PlayerPawn(const PlayerPawn& _other);
 
 public:
+	virtual void Construct() override;
+	void CarryObject(Actor* _object);
 	void SetupInputController(Input::InputManager& _inputManager);
 };
 

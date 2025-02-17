@@ -154,6 +154,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="CanvasSlot.cpp" />
     <ClCompile Include="CanvasWidget.cpp" />
+    <ClCompile Include="CarryComponent.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
     <ClCompile Include="CircleActor.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
@@ -230,6 +231,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="CanvasSlot.h" />
     <ClInclude Include="CanvasWidget.h" />
+    <ClInclude Include="CarryComponent.h" />
     <ClInclude Include="CheckBoxWidget.h" />
     <ClInclude Include="CircleActor.h" />
     <ClInclude Include="CollisionComponent.h" />
