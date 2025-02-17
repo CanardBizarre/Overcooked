@@ -2,16 +2,15 @@
 #include "MeshComponent.h"
 #include "LevelManager.h"
 #include "Utilities.h"
+#include "MeshActor.h"
 
 LevelLoader::LevelLoader()
 {
 
 }
 
-void LevelLoader::InterpretString()
+void LevelLoader::InterpretString(const vector<string>& _info)
 {
-	vector<string> _info;
-
 	Vector2f _size;
 	Vector2f _pos;
 	string _type;
@@ -33,11 +32,10 @@ void LevelLoader::InterpretString()
 		getline(_stream, _token, '|');
 		_type = _token;
 
-		//MeshComponent* _mesh = Spawn<MeshComponent>(M_LEVEL.GetCurrentLevel(), RectangleShapeData(Vector2f(_size.x, _size.y), ""));
-		//_mesh->GetShape()->SetPosition(Vector2f(_pos.x, _pos.y));
+		MeshActor* _mesh = M_LEVEL.GetCurrentLevel()->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), ""));
+		_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x, _pos.y));
+
+		cout << "PosX : " << _pos.x << "\nPosY : " << _pos.y << "\nSizeX : " << _size.x << "\nSizeY : " << _size.y << "\nTYPE : " << _type << endl;
 	}
-
-
-	cout << "PosX : " << _pos.x << "\nPosY : " << _pos.y << "\nSizeX : " << _size.x << "\nSizeY : " << _size.y << "\nTYPE : " << _type << endl;
 }
 

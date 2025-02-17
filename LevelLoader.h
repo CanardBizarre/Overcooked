@@ -9,5 +9,5 @@ public:
 	LevelLoader();
 
 public:
-	void InterpretString();
+	void InterpretString(const vector<string>& _info);
 };

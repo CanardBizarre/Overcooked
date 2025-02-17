@@ -7,10 +7,10 @@ class TESTLevel : public Level
 {
 	string path;
 public:
-	/*FORCEINLINE virtual TESTGameMode* GetGameModeRef() override
+	FORCEINLINE virtual TESTGameMode* GetGameModeRef() override
 	{
 		return new TESTGameMode(this);
-	}*/
+	}
 
 public:
 	TESTLevel(const string& _name);

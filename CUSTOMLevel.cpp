@@ -88,6 +88,4 @@ void CUSTOMLevel::InitLevel()
 	SpawnActor<ParticleActor>(1000, 3.0f);
 
 	GetGameMode()->GetHUD()->AddToViewport(canvas);
-
-	M_LEVELLOADER.InterpretString();
 }

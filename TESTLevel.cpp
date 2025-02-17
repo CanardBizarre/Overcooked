@@ -1,5 +1,6 @@
 #include "TESTLevel.h"
 #include "FileManager.h"
+#include "LevelLoader.h"
 
 using namespace File;
 
@@ -12,8 +13,9 @@ TESTLevel::TESTLevel(const string& _name) : Level(_name)
 void TESTLevel::InitLevel()
 {
 	const vector<string>& _texts = M_FILE.ReadFile(path.c_str());
-	for(string _text : _texts)
+	M_LEVELLOADER.InterpretString(_texts);
+	/*for(string _text : _texts)
 	{
 		LOG(Display, _text);
-	}
+	}*/
 }
