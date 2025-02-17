@@ -217,6 +217,24 @@
     <Filter Include="Scripts\Examples\CustomActor">
       <UniqueIdentifier>{f2a2544c-d591-4624-960a-2225b3eb45ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked">
+      <UniqueIdentifier>{d8095de6-aacc-416b-9566-d385093f8166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level">
+      <UniqueIdentifier>{16a8d8aa-bbf9-430b-b192-9e60bda18a51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Gamemode">
+      <UniqueIdentifier>{b66e74fb-d862-494c-b642-794687930937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core">
+      <UniqueIdentifier>{484e8e0a-608e-42ed-8273-51893152823d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\CustomWidget">
+      <UniqueIdentifier>{faf95579-7650-4ff1-8bf0-1ca561eb7332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Core\CustomActor">
+      <UniqueIdentifier>{e794b560-4cd4-47dd-88c4-d8cf0cf48ec2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -428,6 +446,9 @@
     </ClCompile>
     <ClCompile Include="CustomActor.cpp">
       <Filter>Scripts\Examples\CustomActor</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLevel.cpp">
+      <Filter>Overcooked\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -673,6 +694,9 @@
     </ClInclude>
     <ClInclude Include="CustomActor.h">
       <Filter>Scripts\Examples\CustomActor</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLevel.h">
+      <Filter>Overcooked\Level</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

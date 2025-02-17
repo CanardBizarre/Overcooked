@@ -169,6 +169,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMMesh.cpp" />
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
+    <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameMode.cpp" />
@@ -242,6 +243,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMMesh.h" />
     <ClInclude Include="CUSTOMPawn.h" />
     <ClInclude Include="CUSTOMPlayerController.h" />
+    <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Engine.h" />
