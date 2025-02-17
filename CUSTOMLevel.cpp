@@ -15,6 +15,8 @@
 #include "CheckBoxWidget.h"
 #include "PlayerController.h"
 
+#include "LevelLoader.h"
+
 CUSTOMLevel::CUSTOMLevel(const string& _name) : Level(_name)
 {
 	canvas = nullptr;
@@ -86,4 +88,6 @@ void CUSTOMLevel::InitLevel()
 	SpawnActor<ParticleActor>(1000, 3.0f);
 
 	GetGameMode()->GetHUD()->AddToViewport(canvas);
+
+	M_LEVELLOADER.InterpretString();
 }

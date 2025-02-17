@@ -450,6 +450,9 @@
     <ClCompile Include="DebugLevel.cpp">
       <Filter>Overcooked\Level</Filter>
     </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -697,6 +700,9 @@
     </ClInclude>
     <ClInclude Include="DebugLevel.h">
       <Filter>Overcooked\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
