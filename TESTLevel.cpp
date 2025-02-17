@@ -1,6 +1,7 @@
 #include "TESTLevel.h"
 #include "FileManager.h"
 #include "LevelLoader.h"
+#include "MeshActor.h"
 
 using namespace File;
 
@@ -12,10 +13,15 @@ TESTLevel::TESTLevel(const string& _name) : Level(_name)
 
 void TESTLevel::InitLevel()
 {
+	Super::InitLevel();
+
 	const vector<string>& _texts = M_FILE.ReadFile(path.c_str());
 	M_LEVELLOADER.InterpretString(_texts);
 	/*for(string _text : _texts)
 	{
 		LOG(Display, _text);
 	}*/
+
+	player = SpawnActor<PlayerPawn>();
+	player->SetPosition(Vector2f(window.getSize()) / 2.0f);
 }

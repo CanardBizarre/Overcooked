@@ -14,28 +14,31 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 	Vector2f _size;
 	Vector2f _pos;
 	string _type;
+	float _angle;
 
 	string _token;
 
+	Level* _level = M_LEVEL.GetCurrentLevel();
+
 	for (u_int _index = 0; _index < _info.size(); _index++)
 	{
-		stringstream _stream(_info[_index]);
+		stringstream _stream = stringstream(_info[_index]);
 
-		getline(_stream, _token, '|');
-		_pos.x = stof(_token);
-		getline(_stream, _token, '|');
-		_pos.y = stof(_token);
-		getline(_stream, _token, '|');
-		_size.x = stof(_token);
-		getline(_stream, _token, '|');
-		_size.y = stof(_token);
-		getline(_stream, _token, '|');
-		_type = _token;
+		_pos.x = stof(GetStringUntilChar(_stream, '|'));
+		_pos.y = stof(GetStringUntilChar(_stream, '|'));
 
-		MeshActor* _mesh = M_LEVEL.GetCurrentLevel()->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), ""));
-		_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x, _pos.y));
+		_size.x = stof(GetStringUntilChar(_stream, '|'));
+		_size.y = stof(GetStringUntilChar(_stream, '|'));
 
-		cout << "PosX : " << _pos.x << "\nPosY : " << _pos.y << "\nSizeX : " << _size.x << "\nSizeY : " << _size.y << "\nTYPE : " << _type << endl;
+		_angle = stof(GetStringUntilChar(_stream, '|'));
+
+		_type = GetStringUntilChar(_stream, '|');
+
+		
+		MeshActor* _mesh = _level->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), "Ball_2"));
+		_mesh->GetMesh()->SetOriginAtMiddle();
+		_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x * _size.x, _pos.y * _size.y));
+		_mesh->Rotate(Angle(degrees(_angle)));
 	}
 }
 

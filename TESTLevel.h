@@ -2,10 +2,12 @@
 
 #include "Level.h"
 #include "TESTGameMode.h"
+#include "PlayerPawn.h"
 
 class TESTLevel : public Level
 {
 	string path;
+	PlayerPawn* player;
 public:
 	FORCEINLINE virtual TESTGameMode* GetGameModeRef() override
 	{
