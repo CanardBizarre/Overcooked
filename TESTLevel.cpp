@@ -1,0 +1,19 @@
+#include "TESTLevel.h"
+#include "FileManager.h"
+
+using namespace File;
+
+TESTLevel::TESTLevel(const string& _name) : Level(_name)
+{
+	const string& _folders = "LevelsData/";
+	path = _folders + "Level_1-1";
+}
+
+void TESTLevel::InitLevel()
+{
+	const vector<string>& _texts = M_FILE.ReadFile(path.c_str());
+	for(string _text : _texts)
+	{
+		LOG(Display, _text);
+	}
+}

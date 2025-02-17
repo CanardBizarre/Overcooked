@@ -202,6 +202,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SoundSample.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="SquareActor.cpp" />
+    <ClCompile Include="TESTGameMode.cpp" />
+    <ClCompile Include="TESTLevel.cpp" />
     <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
@@ -271,6 +273,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
     <ClInclude Include="SubclassOf.h" />
+    <ClInclude Include="TESTGameMode.h" />
+    <ClInclude Include="TESTLevel.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="TransformableViewer.h" />
     <ClInclude Include="TransformableModifier.h" />
@@ -297,6 +301,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="VertexObject.h" />
     <ClInclude Include="VerticalBox.h" />
     <ClInclude Include="Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Levels\Level_1-1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

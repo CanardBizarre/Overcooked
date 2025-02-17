@@ -40,3 +40,4 @@ void LevelLoader::InterpretString()
 
 	cout << "PosX : " << _pos.x << "\nPosY : " << _pos.y << "\nSizeX : " << _size.x << "\nSizeY : " << _size.y << "\nTYPE : " << _type << endl;
 }
+
