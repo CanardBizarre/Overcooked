@@ -2,10 +2,11 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
-class KeyboardPawn : public Pawn
+class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
 	PlayerMovementComponent* movement;
+
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
 	{
@@ -45,8 +46,8 @@ public:
 	}
 
 public:
-	KeyboardPawn(Level* _level);
-	KeyboardPawn(const KeyboardPawn& _other);
+	PlayerPawn(Level* _level);
+	PlayerPawn(const PlayerPawn& _other);
 
 public:
 	void SetupInputController(Input::InputManager& _inputManager);

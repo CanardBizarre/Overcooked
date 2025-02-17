@@ -1,43 +1,43 @@
-#include "KeyboardPawn.h"
+#include "PlayerPawn.h"
 #include "Level.h"
 #include "InputManager.h"
 
 using namespace Input;
 
-KeyboardPawn::KeyboardPawn(Level* _level) 
+PlayerPawn::PlayerPawn(Level* _level) 
 	: Pawn(_level, "Keyboard")
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
 	movement = CreateComponent<PlayerMovementComponent>();
 }
 
-KeyboardPawn::KeyboardPawn(const KeyboardPawn& _other) : Pawn(_other)
+PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
 }
 
-void KeyboardPawn::SetupInputController(Input::InputManager& _inputManager)
+void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 {
-	ActionMap* _moveInputs = _inputManager.CreateActionMap("PlayerKeyboardMovement");
+	ActionMap* _moveInputs = _inputManager.CreateActionMap("PlayerMovement");
 
 	_moveInputs->AddActions(
 		{
 			new Action("GoUp", ActionData(KeyHold, Z), [&]()
 			{
-				movement->SetDirection({0.0f, -1.0f});
+				movement->ProcessInput({0.0f, -1.0f});
 			}),
 			new Action("GoDown", ActionData(KeyHold, S), [&]()
 			{
-				movement->SetDirection({0.0f, 1.0f});
+				movement->ProcessInput({0.0f, 1.0f});
 			}),
 			new Action("GoLeft", ActionData(KeyHold, Q), [&]()
 			{
-				movement->SetDirection({-1.0f, 0.0f});
+				movement->ProcessInput({-1.0f, 0.0f});
 			}),
 			new Action("GoRight", ActionData(KeyHold, D), [&]()
 			{
-				movement->SetDirection({1.0f, 0.0f});
+				movement->ProcessInput({1.0f, 0.0f});
 			}),
 
 			new Action("RestUp", ActionData(KeyReleased, Z), [&]()

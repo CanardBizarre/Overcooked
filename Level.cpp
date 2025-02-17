@@ -62,6 +62,5 @@ void Level::Unload()
 void Level::InitLevel()
 {
 	CameraActor* _camera = SpawnActor<CameraActor>("DefaultCamera");
-	_camera->GetCamera()->SetActive(true);
 	cameraManager.Register(_camera->GetCamera());
 }

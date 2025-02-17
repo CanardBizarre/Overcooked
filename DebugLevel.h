@@ -1,11 +1,11 @@
 #pragma once
 #include "Level.h"
-#include "KeyboardPawn.h"
+#include "PlayerPawn.h"
 using namespace Camera;
 
 class DebugLevel :  public Level
 {
-	KeyboardPawn* player;
+	PlayerPawn* player;
 public:
 	DebugLevel();
 
