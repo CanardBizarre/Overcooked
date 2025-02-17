@@ -181,6 +181,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Kismet.cpp" />
     <ClCompile Include="LabelWidget.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MeshActor.cpp" />
@@ -201,6 +202,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SoundSample.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="SquareActor.cpp" />
+    <ClCompile Include="TESTGameMode.cpp" />
+    <ClCompile Include="TESTLevel.cpp" />
     <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
@@ -257,6 +260,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="LabelWidget.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MusicSample.h" />
     <ClInclude Include="PanelWidget.h" />
@@ -269,6 +273,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
     <ClInclude Include="SubclassOf.h" />
+    <ClInclude Include="TESTGameMode.h" />
+    <ClInclude Include="TESTLevel.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="TransformableViewer.h" />
     <ClInclude Include="TransformableModifier.h" />
@@ -295,6 +301,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="VertexObject.h" />
     <ClInclude Include="VerticalBox.h" />
     <ClInclude Include="Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Levels\Level_1-1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
