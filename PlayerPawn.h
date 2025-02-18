@@ -2,10 +2,13 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
+#include "CollisionComponent.h"
+
 class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
 	PlayerMovementComponent* movement;
+	CollisionComponent* collision;
 
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -51,5 +54,9 @@ public:
 
 public:
 	void SetupInputController(Input::InputManager& _inputManager);
+
+	virtual void CollisionEnter(const CollisionData& _data);
+	virtual void CollisionUpdate(const CollisionData& _data) {}
+	virtual void CollisionExit(const CollisionData& _data){}
 };
 

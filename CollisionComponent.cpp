@@ -23,6 +23,7 @@ CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent& 
 
 CollisionComponent::~CollisionComponent()
 {
+	delete bounds->GetData();
 	delete bounds;
 }
 

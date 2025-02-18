@@ -15,7 +15,7 @@ public:
 	}
 
 public:
-	TESTLevel(const string& _name);
+	TESTLevel(const string& _name = "TestLevel");
 
 protected:
 	virtual void InitLevel() override;

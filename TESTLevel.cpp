@@ -17,11 +17,7 @@ void TESTLevel::InitLevel()
 
 	const vector<string>& _texts = M_FILE.ReadFile(path.c_str());
 	M_LEVELLOADER.InterpretString(_texts);
-	/*for(string _text : _texts)
-	{
-		LOG(Display, _text);
-	}*/
-
+	
 	player = SpawnActor<PlayerPawn>();
 	player->SetPosition(Vector2f(window.getSize()) / 2.0f);
 }

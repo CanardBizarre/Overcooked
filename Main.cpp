@@ -13,7 +13,7 @@ int main()
 {
 	InitConfig();
 
-	TESTLevel* _level = new TESTLevel("TestLevel");
+	TESTLevel* _level = new TESTLevel();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();
