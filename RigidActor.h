@@ -6,6 +6,7 @@
 
 class RigidActor : public MeshActor
 {
+protected:
 	CollisionComponent* collision;
 	RigidBodyComponent* rigidBody;
 	MovementComponent* movement;

@@ -1,10 +1,9 @@
 #pragma once
-#include "MeshActor.h"
+#include "RigidActor.h"
 #include "CollisionComponent.h"
 
-class TestDummy :  public MeshActor
+class TestDummy :  public RigidActor
 {
-	CollisionComponent* collision;
 
 public:
 	TestDummy(Level* _level);

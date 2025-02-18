@@ -1,6 +1,11 @@
 #include "HandSocket.h"
 #include "Bounds.h"
+#include "RigidBodyComponent.h"
+#include "MovementComponent.h"
+
 using namespace Layer;
+
+
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
 	:Actor(_level, "Hand", 
@@ -44,12 +49,18 @@ void HandSocket::PickUp()
 
 void HandSocket::DropObject()
 {
-	RemoveObject();
 	// TODO Lacher l'objet
+	MovementComponent* _movement = object->GetComponent<MovementComponent>();
+	RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
+
+	_movement->SetDirection(GetParent()->GetComponent<MovementComponent>()->GetDirection());
+	_rigidbody->SetVelocity({ 100.0f, 100.0f });
+	RemoveObject();
 }
 
 void HandSocket::ThrowObject()
 {
+
 	RemoveObject();
 	// TODO Jeter l'objet
 }

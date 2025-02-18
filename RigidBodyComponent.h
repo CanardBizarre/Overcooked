@@ -22,6 +22,11 @@ public:
 		return velocity;
 	}
 
+	FORCEINLINE void SetVelocity(const Vector2f& _velocity )
+	{
+		velocity = _velocity;
+	}
+
 public:
 	RigidBodyComponent(Actor* _owner);
 	RigidBodyComponent(Actor* _owner, const RigidBodyComponent& _other);
