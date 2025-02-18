@@ -1,7 +1,8 @@
 #pragma once
 #include "Actor.h"
 #include "CollisionComponent.h"
-#include "CarryComponent.h"
+#include "MeshComponent.h"
+
 class HandSocket :  public Actor
 {
 	float handOffSet; 
