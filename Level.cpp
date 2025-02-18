@@ -22,6 +22,10 @@ Level::Level(const string& _name)
 	M_LEVEL.RegisterLevel(_name, this);
 }
 
+Level::~Level()
+{
+}
+
 
 void Level::Update(const float _deltaTime)
 {

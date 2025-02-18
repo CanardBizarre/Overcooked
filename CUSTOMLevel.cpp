@@ -16,7 +16,7 @@
 
 //#include "LevelLoader.h"
 
-CUSTOMLevel::CUSTOMLevel(const string& _name) : Level(_name)
+PuteLevel::PuteLevel(const string& _name) : Level(_name)
 {
 	canvas = nullptr;
 	image = nullptr;
@@ -24,7 +24,7 @@ CUSTOMLevel::CUSTOMLevel(const string& _name) : Level(_name)
 }
 
 
-void CUSTOMLevel::InitLevel()
+void PuteLevel::InitLevel()
 {
 	Super::InitLevel();
 

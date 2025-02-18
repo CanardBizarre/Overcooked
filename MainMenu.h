@@ -8,7 +8,7 @@
 class MainMenu :  public Level
 {
 	CanvasWidget* canvas;
-	vector<Widget*> firstScreen;
+	vector<Widget> test;
 
 public:
 	FORCEINLINE virtual MainMenuGameMode* GetGameModeRef() override
@@ -18,6 +18,7 @@ public:
 
 public:
 	MainMenu();
+	virtual ~MainMenu();
 
 public:
 	virtual void InitLevel() override;
