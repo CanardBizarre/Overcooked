@@ -37,7 +37,8 @@ void RigidProp::CollisionUpdate(const CollisionData& _data)
 			if (_data.response == CT_BLOCK)
 			{
 				MovementComponent* _movement = _data.other->GetComponent<MovementComponent>();
-				_movement->SetDirection(-_movement->GetDiretion());
+				//_movement->SetDirection(-_movement->GetDiretion()); 
+				//TODO BOUNDS
 			}
 		}
 	}

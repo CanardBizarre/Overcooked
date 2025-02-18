@@ -119,7 +119,7 @@ void PlayerPawn::CollisionEnter(const CollisionData& _data)
 		{
 			if (_data.response == CT_BLOCK)
 			{
-				movement->SetDirection(-movement->GetDiretion());
+				//movement->SetDirection(-movement->GetDiretion());
 			}
 		}
 	}
