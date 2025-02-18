@@ -256,6 +256,9 @@
     <Filter Include="Overcooked\Actor\TEST">
       <UniqueIdentifier>{c0bc3c76-634a-49db-8c50-3d6b18547851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Custom Manager">
+      <UniqueIdentifier>{e8eb92c0-cd1c-4255-a6d1-0ca2064b8262}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -492,12 +495,6 @@
     <ClCompile Include="Prop.cpp">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
-    <ClCompile Include="StaticKitchenBlock.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticWorkPlan.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
     <ClCompile Include="RigidProp.cpp">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
@@ -509,6 +506,21 @@
     </ClCompile>
     <ClCompile Include="TestDummy.cpp">
       <Filter>Overcooked\Actor\TEST</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkPlan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TESTGameMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TESTLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Overcooked\Custom Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TestProp.cpp">
+      <Filter>Overcooked\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -779,12 +791,6 @@
     <ClInclude Include="Prop.h">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
-    <ClInclude Include="StaticKitchenBlock.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticWorkPlan.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
     <ClInclude Include="RigidProp.h">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
@@ -797,19 +803,24 @@
     <ClInclude Include="TestDummy.h">
       <Filter>Overcooked\Actor\TEST</Filter>
     </ClInclude>
-
+    <ClInclude Include="WorkPlan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTGameMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Overcooked\Custom Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TestProp.h">
+      <Filter>Overcooked\Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="LevelsData\Level_1-1.txt">
-      <Filter>Header Files</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_2-1.txt">
-      <Filter>Header Files</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_3-1.txt">
-      <Filter>Header Files</Filter>
-    </Text>
-
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
