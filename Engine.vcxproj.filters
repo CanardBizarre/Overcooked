@@ -739,5 +739,11 @@
     <Text Include="LevelsData\Level_1-1.txt">
       <Filter>Header Files</Filter>
     </Text>
+    <Text Include="LevelsData\Level_2-1.txt">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="LevelsData\Level_3-1.txt">
+      <Filter>Header Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
