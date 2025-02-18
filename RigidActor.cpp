@@ -18,6 +18,6 @@ void RigidActor::Tick(const float _deltaTime)
 {
 	Super::Tick(_deltaTime);
 	movement->SetVelocity(rigidBody->GetVelocity());
-	LOG(Warning, to_string(rigidBody->GetVelocity().x) + " | " + to_string(rigidBody->GetVelocity().x));
+	LOG(Warning, to_string(rigidBody->GetVelocity().x) + " | " + to_string(rigidBody->GetVelocity().y));
 	rigidBody->SetVelocity(movement->GetVelocity());
 }
