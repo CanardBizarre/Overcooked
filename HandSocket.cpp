@@ -1,5 +1,6 @@
 #include "HandSocket.h"
 #include "Bounds.h"
+#include "TestDummy.h"
 using namespace Layer;
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
@@ -8,7 +9,7 @@ HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOff
 {
 	handOffSet = _handOffSet;
 	collision = CreateComponent<CollisionComponent>();
-	
+	isNearCounter = false;
 	object = nullptr;
 	InitCollision();
 }
@@ -17,6 +18,7 @@ HandSocket::HandSocket(Level* _level, HandSocket* _other)
 	:Actor(_level)
 {
 	handOffSet = _other->handOffSet;
+	isNearCounter = _other->isNearCounter;
 	collision = CreateComponent<CollisionComponent>(*_other->collision);
 	object = _other->object;
 }
@@ -50,7 +52,11 @@ void HandSocket::DropObject()
 
 void HandSocket::ThrowObject()
 {
-	RemoveObject();
+	Actor* _current = RemoveObject();
+	if (TestDummy* _dummy= Cast<TestDummy>(_current))
+	{
+		_dummy->Throw(GetParent()->GetForwardVector());
+	}
 	// TODO Jeter l'objet
 }
 
