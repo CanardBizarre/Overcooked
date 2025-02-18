@@ -7,6 +7,7 @@
 class TESTLevel : public Level
 {
 	string path;
+	string bgPath;
 	PlayerPawn* player;
 public:
 	FORCEINLINE virtual TESTGameMode* GetGameModeRef() override

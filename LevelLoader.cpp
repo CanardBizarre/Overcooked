@@ -17,6 +17,7 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 	Vector2f _size;
 	Vector2f _defaultSize = Vector2f(50.0f, 50.0f);
 	Vector2u _count = Vector2u(1, 1);
+	string _path = "ball_2";
 
 	Level* _level = M_LEVEL.GetCurrentLevel();
 
@@ -45,7 +46,61 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 		{
 			for (u_int _colIndex = 0; _colIndex < _count.y; _colIndex++)
 			{
-				MeshActor* _mesh = _level->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), "Ball_2"));
+				if (_type == "BT_WORK_PLAN")
+				{
+					_path = "Blocks/Sprites/crate";
+				}
+				else if (_type == "BT_PLATE" || _type == "BT_FOOD_SPAWNER")
+				{
+					_path = "Blocks/Sprites/plate_block";
+				}
+				else if (_type == "BT_HEATING_PLATE")
+				{
+					_path = "Blocks/Sprites/HotPlate";
+				}
+				else if (_type == "BT_EXTINGUISHER")
+				{
+					_path = "Blocks/Sprites/fireextinguisher";
+				}
+				else if (_type == "BT_PLANK")
+				{
+					_path = "Blocks/Sprites/knife_station";
+				}
+				else if (_type == "BT_GARBAGE_CAN" || _type == "BT_PLATE_SPAWNER")
+				{
+					_path = "Blocks/Sprites/bin";
+				}
+				else if (_type == "BT_SINK")
+				{
+					_path = "Blocks/Sprites/sink";
+				}
+				else if (_type == "BT_WALL")
+				{
+					_path = "Blocks/wall";
+				}
+				else if (_type == "BT_TABLE")
+				{
+					_path = "Blocks/Table";
+				}
+				else if (_type == "BT_CHAIR")
+				{
+					_path = "Blocks/Chair";
+				}
+				else if (_type == "BT_PLANT")
+				{
+					_path = "Blocks/Plant";
+				}
+				else if (_type == "BT_GROUND")
+				{
+					_path = "Blocks/ground";
+				}
+				else
+				{
+					_path = "ball_2";
+				}
+
+
+				MeshActor* _mesh = _level->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), _path));
 				_mesh->GetMesh()->SetOriginAtMiddle();
 				_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x * _defaultSize.x + _rowIndex * _defaultSize.x,
 																   _pos.y * _defaultSize.y + _colIndex * _defaultSize.y));

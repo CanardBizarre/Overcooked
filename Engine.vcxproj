@@ -323,6 +323,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LevelsData\BackGround_1-1.txt" />
     <Text Include="LevelsData\Level_1-1.txt" />
     <Text Include="LevelsData\Level_4-1.txt" />
     <Text Include="LevelsData\Level_5-1.txt" />

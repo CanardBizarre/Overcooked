@@ -32,4 +32,6 @@ public:
 
 public:
 	void InterpretString(const vector<string>& _info);
+
+	
 };
