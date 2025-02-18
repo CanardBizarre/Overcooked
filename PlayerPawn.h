@@ -2,14 +2,16 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
-#include "CarryComponent.h"
+#include "HandSocket.h"
+
+class Level;
+
 class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
-	CarryComponent* carry;
 	PlayerMovementComponent* movement;
-	float itemOffSet;
-
+	HandSocket* hand;
+	
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
 	{
@@ -51,11 +53,13 @@ public:
 	PlayerPawn(Level* _level);
 	PlayerPawn(const PlayerPawn& _other);
 
+private:
+	Actor* GetHand();
+
 public:
 	virtual void Construct() override;
 	virtual void SetupInputController(Input::InputManager& _inputManager) override;
-	void CarryObject(Actor* _object);
 	void ProcessInput(const Vector2f& _vectorDirection);
-	void ComputeHandPosition();
+	void ComputeRotation();
 };
 

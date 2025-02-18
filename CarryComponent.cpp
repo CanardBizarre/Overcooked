@@ -1,14 +1,13 @@
 #include "CarryComponent.h"
 #include "Actor.h"
+#include "HandSocket.h"
+#include "Level.h"
 //TODO trouver un moyen pour les mettre dans le .h
+
 
 Actor* CarryComponent::GetHand()
 {
-	if (owner->GetChildren().size() == 0)
-	{
-		owner->CreateSocket("Hand", TransformData(), AT_KEEP_RELATIVE);
-	}
-	return owner->GetChildrenAtIndex(0);
+	return nullptr;
 }
 
 bool CarryComponent::IsCarryingAnObject()
@@ -35,13 +34,13 @@ void CarryComponent::RemoveObject()
 CarryComponent::CarryComponent(Actor* _owner)
 	:Component(_owner)
 {
-
+	handOffSet = 20.0f;
 }
 
 CarryComponent::CarryComponent(Actor* _owner, const CarryComponent& _other)
 	:Component(_owner)
 {
-
+	handOffSet = _other.handOffSet;
 }
 
 
@@ -67,12 +66,21 @@ void CarryComponent::Action(Actor* _object)
 {
 	if (IsCarryingAnObject())
 	{
-		DropObject();
+		ThrowObject();
 	}
 	else if(_object)
 	{
 		PickUp(_object);
 	}
+}
+
+void CarryComponent::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+
+	const Vector2f& _foward = owner->GetForwardVector();
+	const Vector2f& _position = owner->GetPosition();
+	GetHand()->SetPosition(_position + handOffSet * _foward);
 }
 
 

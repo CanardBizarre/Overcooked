@@ -5,6 +5,9 @@ class Actor;
 struct TransformData;
 class CarryComponent :  public Component
 {
+	float handOffSet;
+
+public:
 	virtual Component* Clone(Actor* _owner) const
 	{
 		return new CarryComponent(_owner, *this);
@@ -25,5 +28,6 @@ public:
 
 public:
 	void Action(Actor* _object);
+	virtual void Tick(const float _deltaTime) override;
 };
 
