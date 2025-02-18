@@ -7,7 +7,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const Vector2f& 
 {
 	canMove = true;
 	dodgeLaunch = false;
-	dodgeMultiplicater = 1.5;
+	dodgeMultiplicater = 1.5f;
 }
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other)

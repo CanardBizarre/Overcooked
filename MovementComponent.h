@@ -21,7 +21,7 @@ public:
 	{
 		direction = _direction;
 	}
-	FORCEINLINE Vector2f GetDiretion() const 
+	FORCEINLINE Vector2f GetDirection() const 
 	{
 		return direction;
 	}
