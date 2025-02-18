@@ -178,11 +178,11 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
     <ClCompile Include="Kismet.cpp" />
     <ClCompile Include="LabelWidget.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MeshActor.cpp" />
@@ -196,7 +196,11 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PlayerMovement.cpp" />
     <ClCompile Include="ProgressBarWidget.cpp" />
+    <ClCompile Include="Prop.cpp" />
     <ClCompile Include="RectangleActor.cpp" />
+    <ClCompile Include="RigidActor.cpp" />
+    <ClCompile Include="RigidBodyComponent.cpp" />
+    <ClCompile Include="RigidProp.cpp" />
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
@@ -205,8 +209,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SoundSample.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="SquareActor.cpp" />
-    <ClCompile Include="TESTGameMode.cpp" />
-    <ClCompile Include="TESTLevel.cpp" />
+    <ClCompile Include="StaticKitchenBlock.cpp" />
+    <ClCompile Include="StaticWorkPlan.cpp" />
     <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TransformableObject.cpp" />
@@ -259,12 +263,12 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="PlayerPawn.h" />
     <ClInclude Include="Kismet.h" />
     <ClInclude Include="LabelWidget.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="MusicSample.h" />
@@ -274,13 +278,17 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PlayerMovement.h" />
     <ClInclude Include="ProgressBarWidget.h" />
+    <ClInclude Include="Prop.h" />
     <ClInclude Include="RenderType.h" />
+    <ClInclude Include="RigidActor.h" />
+    <ClInclude Include="RigidBodyComponent.h" />
+    <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
+    <ClInclude Include="StaticKitchenBlock.h" />
+    <ClInclude Include="StaticWorkPlan.h" />
     <ClInclude Include="SubclassOf.h" />
-    <ClInclude Include="TESTGameMode.h" />
-    <ClInclude Include="TESTLevel.h" />
     <ClInclude Include="TransformableObject.h" />
     <ClInclude Include="TransformableViewer.h" />
     <ClInclude Include="TransformableModifier.h" />
@@ -307,9 +315,6 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="VertexObject.h" />
     <ClInclude Include="VerticalBox.h" />
     <ClInclude Include="Widget.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="LevelsData\Level_1-1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
