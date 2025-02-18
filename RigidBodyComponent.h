@@ -34,7 +34,7 @@ public:
 public:
 	virtual void Tick(const float _deltaTime) override;
 private:
-	void ComputeVelocity();
+	void ComputeVelocity(const float _deltaTime);
 
 };
 

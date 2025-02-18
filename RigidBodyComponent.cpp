@@ -25,11 +25,10 @@ RigidBodyComponent::RigidBodyComponent(Actor* _owner, const RigidBodyComponent& 
 	velocity = Vector2f();
 }
 
-void RigidBodyComponent::ComputeVelocity()
+void RigidBodyComponent::ComputeVelocity(const float _deltaTime)
 {
-	velocity *= elasticity;
-	velocity.x *= roughness;
-	velocity.y *= roughness;
+	velocity.x *= elasticity + roughness;
+	velocity.y *= elasticity + roughness;
 
 	if (abs(velocity.x) < 1.0f)
 	{
@@ -40,10 +39,11 @@ void RigidBodyComponent::ComputeVelocity()
 	{
 		velocity.y = 0.0f;
 	}
-	velocity *= mass;
+	//velocity *= mass;
+
 }
 
 void RigidBodyComponent::Tick(const float _deltaTime)
 {
-	ComputeVelocity();
+	ComputeVelocity(_deltaTime);
 }

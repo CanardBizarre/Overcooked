@@ -11,4 +11,13 @@ RigidActor::RigidActor(const RigidActor& _other) : MeshActor(_other)
 {
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
 	rigidBody = CreateComponent<RigidBodyComponent>(*_other.rigidBody);
+	movement = CreateComponent<MovementComponent>(*_other.movement);
+}
+
+void RigidActor::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+	movement->SetVelocity(rigidBody->GetVelocity());
+	LOG(Warning, to_string(rigidBody->GetVelocity().x) + " | " + to_string(rigidBody->GetVelocity().x));
+	rigidBody->SetVelocity(movement->GetVelocity());
 }

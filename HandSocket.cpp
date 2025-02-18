@@ -53,7 +53,8 @@ void HandSocket::DropObject()
 	MovementComponent* _movement = object->GetComponent<MovementComponent>();
 	RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
 
-	_movement->SetDirection(GetParent()->GetComponent<MovementComponent>()->GetDirection());
+	Vector2f _forward = GetParent()->GetForwardVector();
+	_movement->SetDirection(_forward);
 	_rigidbody->SetVelocity({ 100.0f, 100.0f });
 	RemoveObject();
 }
@@ -123,6 +124,6 @@ void HandSocket::Tick(const float _deltaTime)
 	const Vector2f& _position = _parent->GetPosition();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition(), { 20.0f, 20.0f });
+	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 20.0f, 20.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
 }
