@@ -74,8 +74,16 @@ void CollisionComponent::ComputeCollisions()
 		if (!responses.contains(_otherName)) continue;
 
 		const CollisionType& _otherResponse = responses.at(_otherName);
-		const CollisionType& _ownerResponse = _otherComponent->responses.at(channelName);
-		if (_otherResponse == CT_NONE) continue;
+
+		CollisionType _ownerResponse;
+		if (_otherComponent->responses.contains(channelName))
+		{
+			_ownerResponse = _otherComponent->responses.at(channelName);
+		}
+		else
+		{
+			_ownerResponse = type;
+		}
 
 		Actor* _other = _otherComponent->owner;
 
@@ -89,18 +97,18 @@ void CollisionComponent::ComputeCollisions()
 
 		else if (othersStep.contains(_otherComponent->owner))
 		{
-			othersStep.erase(_other);
 			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
-			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step };
-			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step };
+			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step, channelName };
+			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
+			othersStep.erase(_other);
 		}
 	}
 }
 
 CollisionStep CollisionComponent::ComputeStep(Actor* _other, const CollisionStep& _step)
 {
-	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER || othersStep[_other] == CS_UPDATE)
+	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER ||_step != CS_EXIT && othersStep[_other] == CS_UPDATE)
 	{
 		othersStep[_other] = CS_UPDATE;
 	}

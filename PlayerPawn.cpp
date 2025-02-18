@@ -22,6 +22,13 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
 }
 
+void PlayerPawn::Construct()
+{
+	Super::Construct();
+	mesh->SetOriginAtMiddle();
+	GetHand();
+}
+
 void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 {
 	ActionMap* _moveInputs = _inputManager.CreateActionMap("PlayerMovement");
@@ -30,20 +37,21 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 		{
 			new Action("GoUp", ActionData(KeyHold, Z), [&]()
 			{
-				movement->ProcessInput({0.0f, -1.0f});
+				ProcessInput({0.0f, -1.0f});
 			}),
 			new Action("GoDown", ActionData(KeyHold, S), [&]()
 			{
-				movement->ProcessInput({0.0f, 1.0f});
+				ProcessInput({0.0f, 1.0f});
 			}),
 			new Action("GoLeft", ActionData(KeyHold, Q), [&]()
 			{
-				movement->ProcessInput({-1.0f, 0.0f});
+				ProcessInput({-1.0f, 0.0f});
 			}),
 			new Action("GoRight", ActionData(KeyHold, D), [&]()
 			{
-				movement->ProcessInput({1.0f, 0.0f});
+				ProcessInput({1.0f, 0.0f});
 			}),
+
 
 			new Action("RestUp", ActionData(KeyReleased, Z), [&]()
 			{
@@ -62,26 +70,42 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 				movement->ResetX();
 			}),
 
-			new Action("Dash", ActionData(KeyPressed, Space), [&]()
+			new Action("Dash", ActionData(KeyHold, Space), [&]()
 			{
 				movement->Dash();
+			}),
+			new Action("TakeObject", ActionData(KeyPressed, E), [&]()
+			{
+				hand->Action();
 			}),
 		});
 	
 	_moveInputs->Enable();
 }
 
-void PlayerPawn::CollisionEnter(const CollisionData& _data)
+void PlayerPawn::ProcessInput(const Vector2f& _vectorDirection)
 {
-	if (_data.other->GetLayerType() == WORLD_STATIC)
-	{
-		if (_data.channelName == "RigidProp")
-		{
-			if (_data.response == CT_BLOCK)
-			{
-				movement->SetDirection(-movement->GetDiretion());
-			}
-		}
-	}
+	movement->ProcessInput(_vectorDirection);
+	ComputeRotation();
 }
 
+void PlayerPawn::ComputeRotation()
+{
+	const Vector2f& _direction = movement->GetDirection();
+	const Vector2f& _pos = GetPosition();
+	if (_direction.x + _direction.y == 0.0f) return;
+	const float _degrees = atan2f(_direction.y, _direction.x);
+	SetRotation(radians(_degrees));
+}
+
+Actor* PlayerPawn::GetHand()
+{
+	if (GetChildren().size() == 0)
+	{
+		const float _handOffSet = 20.0f;
+		const Vector2f& _pos = GetPosition() + GetForwardVector() * _handOffSet;
+		hand = level->SpawnActor<HandSocket>(_pos, _handOffSet);
+		AddChild(hand, AT_KEEP_RELATIVE);
+	}
+	return GetChildrenAtIndex(0);
+}
