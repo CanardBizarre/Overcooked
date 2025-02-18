@@ -10,6 +10,7 @@ PlayerPawn::PlayerPawn(Level* _level)
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
 	movement = CreateComponent<PlayerMovementComponent>();
 	carry = CreateComponent<CarryComponent>();
+	itemOffSet = 20.0f;
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -17,18 +18,19 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
 	carry = CreateComponent<CarryComponent>(*_other.carry);
+	itemOffSet = _other.itemOffSet;
 }
 
 void PlayerPawn::Construct()
 {
 	mesh->SetOriginAtMiddle();
-	CreateSocket("Hand", TransformData(), AT_KEEP_RELATIVE);
-
+	carry->GetHand();
 }
 
 void PlayerPawn::CarryObject(Actor* _object)
 {
 	carry->Action(_object);
+	ComputeHandPosition();
 }
 
 void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
@@ -39,19 +41,23 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 		{
 			new Action("GoUp", ActionData(KeyHold, Z), [&]()
 			{
-				movement->ProcessInput({0.0f, -1.0f});
+					LOG(Warning, "up");
+				ProcessInput({0.0f, -1.0f});
 			}),
 			new Action("GoDown", ActionData(KeyHold, S), [&]()
 			{
-				movement->ProcessInput({0.0f, 1.0f});
+					LOG(Warning, "down");
+				ProcessInput({0.0f, 1.0f});
 			}),
 			new Action("GoLeft", ActionData(KeyHold, Q), [&]()
 			{
-				movement->ProcessInput({-1.0f, 0.0f});
+					LOG(Warning, "left");
+				ProcessInput({-1.0f, 0.0f});
 			}),
 			new Action("GoRight", ActionData(KeyHold, D), [&]()
 			{
-				movement->ProcessInput({1.0f, 0.0f});
+					LOG(Warning, "right");
+				ProcessInput({1.0f, 0.0f});
 			}),
 
 
@@ -84,4 +90,21 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 		});
 	
 	_moveInputs->Enable();
+}
+
+void PlayerPawn::ProcessInput(const Vector2f& _vectorDirection)
+{
+	movement->ProcessInput(_vectorDirection);
+	ComputeHandPosition();
+}
+
+void PlayerPawn::ComputeHandPosition()
+{
+	const Vector2f& _direction = movement->GetDirection();
+	// TODO Rotate Foward
+
+
+	const Vector2f& _foward = GetForwardVector();
+	const Vector2f& _position = GetPosition();
+	carry->GetHand()->SetPosition(_position + itemOffSet * _foward);
 }

@@ -8,6 +8,7 @@ class PlayerPawn : public Pawn
 	MeshComponent* mesh;
 	CarryComponent* carry;
 	PlayerMovementComponent* movement;
+	float itemOffSet;
 
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -52,7 +53,9 @@ public:
 
 public:
 	virtual void Construct() override;
+	virtual void SetupInputController(Input::InputManager& _inputManager) override;
 	void CarryObject(Actor* _object);
-	void SetupInputController(Input::InputManager& _inputManager);
+	void ProcessInput(const Vector2f& _vectorDirection);
+	void ComputeHandPosition();
 };
 
