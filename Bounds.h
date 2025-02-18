@@ -1,7 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
 
-
 class Actor;
 
 struct BoundsData

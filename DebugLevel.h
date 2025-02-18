@@ -6,6 +6,18 @@ using namespace Camera;
 class DebugLevel :  public Level
 {
 	PlayerPawn* player;
+	float gravity;
+
+public:
+	FORCEINLINE float GetGravity() const
+	{
+		return gravity;
+	}
+	FORCEINLINE void SetGravity(const float _gravity)
+	{
+		gravity = _gravity;
+	}
+
 public:
 	DebugLevel();
 
