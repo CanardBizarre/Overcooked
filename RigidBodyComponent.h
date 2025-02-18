@@ -7,9 +7,9 @@ class RigidBodyComponent : public Component
 	float high;
 	float gravity;
 	float roughness;
-	float elacticity;
+	float elasticity;
 	Vector2f velocity;
-
+	Vector2f fallMovement;
 
 public:
 	virtual Component* Clone(Actor* _owner) const override
@@ -19,8 +19,14 @@ public:
 
 
 public:
-
-	RigidBodyComponent(Actor* _owner);
+	RigidBodyComponent(Actor* _owner, const float _mass = 0.0f ,const float _roughness = 0.0f, const float _elacticity = 0.0f);
 	RigidBodyComponent(Actor* _owner, const RigidBodyComponent& _other);
+
+public:
+	Vector2f ComputeVelocity(const RigidBodyComponent& _other);
+private:
+	virtual void Tick(const float _deltaTime) override;
+		
+
 };
 

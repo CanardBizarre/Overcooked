@@ -14,6 +14,7 @@ int main()
 	InitConfig();
 
 	DebugLevel* _level = new DebugLevel();
+	_level->SetGravity(9.81f);
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();

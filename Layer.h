@@ -7,6 +7,7 @@ namespace Layer
 		WORLD_STATIC,
 		WORLD_DYNAMIC,
 		PLAYER,
+		Prop,
 		PROJECTILE,
 		BREAKABLE,
 		RETRIEVABLE,
