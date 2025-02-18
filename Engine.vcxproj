@@ -182,6 +182,11 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MainMenuGameMode.cpp" />
+    <ClCompile Include="MainMenuHUD.cpp" />
+    <ClCompile Include="MainMenuPawn.cpp" />
+    <ClCompile Include="MainMenuPlayerController.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
     <ClCompile Include="Kismet.cpp" />
     <ClCompile Include="LabelWidget.cpp" />
@@ -273,6 +278,11 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MainMenuGameMode.h" />
+    <ClInclude Include="MainMenuHUD.h" />
+    <ClInclude Include="MainMenuPawn.h" />
+    <ClInclude Include="MainMenuPlayerController.h" />
     <ClInclude Include="PlayerPawn.h" />
     <ClInclude Include="Kismet.h" />
     <ClInclude Include="LabelWidget.h" />

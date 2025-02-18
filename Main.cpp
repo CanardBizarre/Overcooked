@@ -2,6 +2,8 @@
 #include "LevelManager.h"
 #include "TESTLevel.h"
 #include "DebugLevel.h"
+#include "MainMenu.h"
+#include "CUSTOMLevel.h"
 
 void InitConfig()
 {
@@ -14,8 +16,8 @@ int main()
 {
 	InitConfig();
 
-	DebugLevel* _level = new DebugLevel();
-	M_LEVEL.SetLevel(_level);
+	MainMenu* _mainMenu = new MainMenu();
+	M_LEVEL.SetLevel(_mainMenu);
 
 	Engine::GetInstance().Start();
 

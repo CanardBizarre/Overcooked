@@ -1,7 +1,6 @@
 #pragma once
 #include "Level.h"
 #include "CUSTOMGameMode.h"
-
 #include "CanvasWidget.h"
 #include "LabelWidget.h"
 #include "ImageWidget.h"
