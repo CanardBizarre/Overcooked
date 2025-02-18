@@ -259,6 +259,12 @@
     <Filter Include="Overcooked\Core\Widget\CustomWidget\Times Up">
       <UniqueIdentifier>{49382a34-ba5d-40d3-98c7-660ceb0e7ff2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\MainMenu">
+      <UniqueIdentifier>{5c368e63-fdaa-476a-8d64-4989bf7d6d5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Hub">
+      <UniqueIdentifier>{68c05bf7-16eb-4fce-9406-14cabbd60483}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -497,6 +503,12 @@
     </ClCompile>
     <ClCompile Include="TimesUp.cpp">
       <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Overcooked\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Hub.cpp">
+      <Filter>Overcooked\Hub</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -769,6 +781,12 @@
     </ClInclude>
     <ClInclude Include="TimesUp.h">
       <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Overcooked\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Hub.h">
+      <Filter>Overcooked\Hub</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
