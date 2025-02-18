@@ -15,6 +15,7 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 	string _type;
 	Vector2f _pos;
 	Vector2f _size;
+	Vector2f _defaultSize = Vector2f(50.0f, 50.0f);
 	Vector2u _count = Vector2u(1, 1);
 
 	Level* _level = M_LEVEL.GetCurrentLevel();
@@ -46,8 +47,8 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 			{
 				MeshActor* _mesh = _level->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(_size.x, _size.y), "Ball_2"));
 				_mesh->GetMesh()->SetOriginAtMiddle();
-				_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x * _size.x + _rowIndex * _size.x,
-																   _pos.y * _size.y + _colIndex * _size.y));
+				_mesh->GetMesh()->GetShape()->SetPosition(Vector2f(_pos.x * _defaultSize.x + _rowIndex * _defaultSize.x,
+																   _pos.y * _defaultSize.y + _colIndex * _defaultSize.y));
 				_mesh->Rotate(Angle(degrees(_angle)));
 			}
 		}
