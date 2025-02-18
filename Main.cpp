@@ -1,6 +1,6 @@
 #include "Engine.h"
 #include "LevelManager.h"
-#include "DebugLevel.h"
+#include "TESTLevel.h"
 
 void InitConfig()
 {
@@ -13,7 +13,7 @@ int main()
 {
 	InitConfig();
 
-	DebugLevel* _level = new DebugLevel();
+	TESTLevel* _level = new TESTLevel();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();

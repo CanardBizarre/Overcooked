@@ -15,6 +15,8 @@
 #include "CheckBoxWidget.h"
 #include "PlayerController.h"
 
+#include "LevelLoader.h"
+
 CUSTOMLevel::CUSTOMLevel(const string& _name) : Level(_name)
 {
 	canvas = nullptr;
