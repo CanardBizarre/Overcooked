@@ -6,6 +6,7 @@ using namespace Camera;
 class DebugLevel :  public Level
 {
 	PlayerPawn* player;
+
 public:
 	DebugLevel();
 

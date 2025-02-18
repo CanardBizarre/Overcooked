@@ -3,6 +3,13 @@
 
 class RigidBodyComponent : public Component
 {
+	float mass;
+	float high;
+	float gravity;
+	float roughness;
+	float elacticity;
+	Vector2f velocity;
+
 
 public:
 	virtual Component* Clone(Actor* _owner) const override
