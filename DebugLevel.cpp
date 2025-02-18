@@ -7,7 +7,7 @@ using namespace File;
 
 DebugLevel::DebugLevel() : Level("Debug")
 {
-
+	player = nullptr;
 }
 
 void DebugLevel::InitLevel()
@@ -15,7 +15,7 @@ void DebugLevel::InitLevel()
 	Super::InitLevel();
 
 	const string& _folders = "LevelsData/";
-	const string& _path = _folders + "Level_5-1";
+	const string& _path = _folders + "Level_1-1";
 	const vector<string>& _texts = M_FILE.ReadFile(_path.c_str());
 	M_LEVELLOADER.InterpretString(_texts);
 
