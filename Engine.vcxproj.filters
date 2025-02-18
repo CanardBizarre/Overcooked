@@ -256,6 +256,36 @@
     <Filter Include="Overcooked\Actor\TEST">
       <UniqueIdentifier>{c0bc3c76-634a-49db-8c50-3d6b18547851}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock">
+      <UniqueIdentifier>{0e982295-1de5-455b-96fa-d32ed08f10e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\ChoppingStation">
+      <UniqueIdentifier>{c8f341d6-61ee-43d7-ba2c-5e0554bd8a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\Conveyor">
+      <UniqueIdentifier>{e43190bc-f068-41e6-9e2b-9b5371a16a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\GarbageCan">
+      <UniqueIdentifier>{bd469d1d-e7ca-4559-ab0d-42f9e4356a34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\FoodSpawner">
+      <UniqueIdentifier>{34f3d812-9a5c-4098-bb4f-58491f572d11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\PlateSpawner">
+      <UniqueIdentifier>{af750f35-9f99-42b0-a702-e896c39aeda7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\Sink">
+      <UniqueIdentifier>{b36326bd-2742-471d-b0f7-5f7200f180b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\Stove">
+      <UniqueIdentifier>{6f51fc99-5250-469f-8909-97bd4001889a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock\WorkPlan">
+      <UniqueIdentifier>{d31d4877-b27b-4ff2-ba10-5add12bc0270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\levelLoader">
+      <UniqueIdentifier>{7a17fd26-04a1-4297-bf6f-8d5d79c10914}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -486,16 +516,7 @@
     <ClCompile Include="HandSocket.cpp">
       <Filter>Overcooked\Actor\Socket</Filter>
     </ClCompile>
-    <ClCompile Include="KitchenBlock.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
     <ClCompile Include="Prop.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticKitchenBlock.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticWorkPlan.cpp">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
     <ClCompile Include="RigidProp.cpp">
@@ -509,6 +530,45 @@
     </ClCompile>
     <ClCompile Include="TestDummy.cpp">
       <Filter>Overcooked\Actor\TEST</Filter>
+    </ClCompile>
+    <ClCompile Include="TestProp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TESTGameMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TESTLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KitchenBlock.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="ChoppingStation.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\ChoppingStation</Filter>
+    </ClCompile>
+    <ClCompile Include="Conveyor.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Conveyor</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodSpawner.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\FoodSpawner</Filter>
+    </ClCompile>
+    <ClCompile Include="GarbageCan.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\GarbageCan</Filter>
+    </ClCompile>
+    <ClCompile Include="PlateSpawner.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\PlateSpawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Sink.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Sink</Filter>
+    </ClCompile>
+    <ClCompile Include="Stove.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Stove</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkPlan.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\WorkPlan</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelLoader.cpp">
+      <Filter>Overcooked\Level\levelLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -773,16 +833,7 @@
     <ClInclude Include="HandSocket.h">
       <Filter>Overcooked\Actor\Socket</Filter>
     </ClInclude>
-    <ClInclude Include="KitchenBlock.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
     <ClInclude Include="Prop.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticKitchenBlock.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticWorkPlan.h">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
     <ClInclude Include="RigidProp.h">
@@ -797,9 +848,48 @@
     <ClInclude Include="TestDummy.h">
       <Filter>Overcooked\Actor\TEST</Filter>
     </ClInclude>
-
+    <ClInclude Include="TestProp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTGameMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TESTLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KitchenBlock.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="ChoppingStation.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\ChoppingStation</Filter>
+    </ClInclude>
+    <ClInclude Include="Conveyor.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Conveyor</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodSpawner.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\FoodSpawner</Filter>
+    </ClInclude>
+    <ClInclude Include="GarbageCan.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\GarbageCan</Filter>
+    </ClInclude>
+    <ClInclude Include="PlateSpawner.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\PlateSpawner</Filter>
+    </ClInclude>
+    <ClInclude Include="Stove.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Stove</Filter>
+    </ClInclude>
+    <ClInclude Include="Sink.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\Sink</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkPlan.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock\WorkPlan</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelLoader.h">
+      <Filter>Overcooked\Level\levelLoader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="TODO.txt" />
     <Text Include="LevelsData\Level_1-1.txt">
       <Filter>Header Files</Filter>
     </Text>
@@ -809,7 +899,15 @@
     <Text Include="LevelsData\Level_3-1.txt">
       <Filter>Header Files</Filter>
     </Text>
-
+    <Text Include="LevelsData\Level_4-1.txt">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="LevelsData\Level_5-1.txt">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="LevelsData\README.txt">
+      <Filter>Header Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

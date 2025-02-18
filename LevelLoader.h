@@ -2,6 +2,7 @@
 #include "Singleton.h"
 #include "CoreMinimal.h"
 #include "Level.h"
+#include "KitchenBlock.h"
 
 
 class LevelLoader : public Singleton<LevelLoader>
@@ -32,4 +33,8 @@ public:
 
 public:
 	void InterpretString(const vector<string>& _info);
+	void SpawnBlockByType(Level* _level, const Vector2f& _size, const Vector2f& _position, 
+		const Angle& _angle = Angle(), const BlockType& _type = BT_COUNT);
+	BlockType GetBlockTypeByText(const string& _text) const;
+	
 };
