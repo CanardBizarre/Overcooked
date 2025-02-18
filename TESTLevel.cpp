@@ -8,7 +8,7 @@ using namespace File;
 TESTLevel::TESTLevel(const string& _name) : Level(_name)
 {
 	const string& _folders = "LevelsData/";
-	path = _folders + "Level_3-1";
+	path = _folders + "Level_4-1";
 }
 
 void TESTLevel::InitLevel()

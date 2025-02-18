@@ -324,6 +324,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
   </ItemGroup>
   <ItemGroup>
     <Text Include="LevelsData\Level_1-1.txt" />
+    <Text Include="LevelsData\Level_4-1.txt" />
+    <Text Include="LevelsData\README.txt" />
     <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
