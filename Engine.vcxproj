@@ -212,8 +212,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SoundSample.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="SquareActor.cpp" />
-    <ClCompile Include="StaticKitchenBlock.cpp" />
-    <ClCompile Include="StaticWorkPlan.cpp" />
+    <ClCompile Include="TestProp.cpp" />
+    <ClCompile Include="WorkPlan.cpp" />
     <ClCompile Include="TestDummy.cpp" />
     <ClCompile Include="TESTGameMode.cpp" />
     <ClCompile Include="TESTLevel.cpp" />
@@ -295,8 +295,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Sample.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
-    <ClInclude Include="StaticKitchenBlock.h" />
-    <ClInclude Include="StaticWorkPlan.h" />
+    <ClInclude Include="TestProp.h" />
+    <ClInclude Include="WorkPlan.h" />
     <ClInclude Include="SubclassOf.h" />
     <ClInclude Include="TestDummy.h" />
     <ClInclude Include="TESTGameMode.h" />

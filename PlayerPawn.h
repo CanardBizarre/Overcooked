@@ -2,6 +2,8 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
+#include "CollisionComponent.h"
+
 #include "HandSocket.h"
 
 class Level;
@@ -10,6 +12,7 @@ class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
 	PlayerMovementComponent* movement;
+	CollisionComponent* collision;
 	HandSocket* hand;
 	
 public:
@@ -61,5 +64,9 @@ public:
 	virtual void SetupInputController(Input::InputManager& _inputManager) override;
 	void ProcessInput(const Vector2f& _vectorDirection);
 	void ComputeRotation();
+
+	virtual void CollisionEnter(const CollisionData& _data);
+	virtual void CollisionUpdate(const CollisionData& _data) {}
+	virtual void CollisionExit(const CollisionData& _data){}
 };
 

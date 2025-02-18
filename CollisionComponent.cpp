@@ -72,10 +72,8 @@ void CollisionComponent::ComputeCollisions()
 
 		const string& _otherName = _otherComponent->GetChannelName();
 		if (!responses.contains(_otherName)) continue;
-
-		const CollisionType& _otherResponse = responses.at(_otherName);
-
 		CollisionType _ownerResponse;
+		const CollisionType& _otherResponse = responses.at(_otherName);
 		if (_otherComponent->responses.contains(channelName))
 		{
 			_ownerResponse = _otherComponent->responses.at(channelName);
@@ -84,6 +82,7 @@ void CollisionComponent::ComputeCollisions()
 		{
 			_ownerResponse = type;
 		}
+		if (_otherResponse == CT_NONE) continue;
 
 		Actor* _other = _otherComponent->owner;
 
@@ -94,7 +93,6 @@ void CollisionComponent::ComputeCollisions()
 			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
-
 		else if (othersStep.contains(_otherComponent->owner))
 		{
 			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);

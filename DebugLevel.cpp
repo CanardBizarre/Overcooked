@@ -1,5 +1,6 @@
 #include "DebugLevel.h"
-#include "StaticWorkPlan.h"
+#include "WorkPlan.h"
+
 #include "TestDummy.h"
 #include "LevelLoader.h"
 #include "FileManager.h"
@@ -23,7 +24,7 @@ void DebugLevel::InitLevel()
 	_dummy->GetMesh()->SetOriginAtMiddle();
 	_dummy->SetPosition((Vector2f(window.getSize()) / 2.0f) + Vector2f(10.0f, 0.0f));
 
-	StaticWorkPlan* _prop = SpawnActor<StaticWorkPlan>(Vector2f(50.0f, 50.0f),Vector2f(100.0f, 100.0f));
+	WorkPlan* _prop = SpawnActor<WorkPlan>(Vector2f(50.0f, 50.0f), Vector2f(100.0f, 100.0f));
 	_prop->SetPosition({ 100.0f, 100.0f });
 	//_prop->SetZOrder(1)
 

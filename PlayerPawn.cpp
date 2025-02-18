@@ -9,6 +9,11 @@ PlayerPawn::PlayerPawn(Level* _level)
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
 	movement = CreateComponent<PlayerMovementComponent>();
+	collision = CreateComponent<CollisionComponent>();
+	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
+	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
+	SetLayerType(WORLD_DYNAMIC);
+	movement->SetVelocity({ 200.0f,200.0f });
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -104,3 +109,18 @@ Actor* PlayerPawn::GetHand()
 	}
 	return GetChildrenAtIndex(0);
 }
+
+void PlayerPawn::CollisionEnter(const CollisionData& _data)
+{
+	if (_data.other->GetLayerType() == WORLD_STATIC)
+	{
+		if (_data.channelName == "RigidProp")
+		{
+			if (_data.response == CT_BLOCK)
+			{
+				//movement->SetDirection(-movement->GetDiretion());
+			}
+		}
+	}
+}
+
