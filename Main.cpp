@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "LevelManager.h"
 #include "DebugLevel.h"
+#include "CUSTOMLevel.h"
 
 void InitConfig()
 {

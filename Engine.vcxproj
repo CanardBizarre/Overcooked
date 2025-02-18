@@ -202,6 +202,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="PlayerMovement.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
     <ClCompile Include="ProgressBarWidget.cpp" />
+    <ClCompile Include="Recipe.cpp" />
     <ClCompile Include="RectangleActor.cpp" />
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
@@ -287,6 +288,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="PlayerMovement.h" />
     <ClInclude Include="PlayerPawn.h" />
     <ClInclude Include="ProgressBarWidget.h" />
+    <ClInclude Include="Recipe.h" />
     <ClInclude Include="RenderType.h" />
     <ClInclude Include="Sample.h" />
     <ClInclude Include="SliderWidget.h" />
