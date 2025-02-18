@@ -218,58 +218,43 @@
       <UniqueIdentifier>{f2a2544c-d591-4624-960a-2225b3eb45ba}</UniqueIdentifier>
     </Filter>
     <Filter Include="Overcooked">
-      <UniqueIdentifier>{d8095de6-aacc-416b-9566-d385093f8166}</UniqueIdentifier>
+      <UniqueIdentifier>{ba8d36a6-68d0-40d1-9472-cccb4877e0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Component">
+      <UniqueIdentifier>{12ee9bd8-2fb6-4c4e-b4fe-4d996b72f794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor">
+      <UniqueIdentifier>{9d4099bf-4bf6-4f8c-96e5-5302765f7467}</UniqueIdentifier>
     </Filter>
     <Filter Include="Overcooked\Level">
-      <UniqueIdentifier>{16a8d8aa-bbf9-430b-b192-9e60bda18a51}</UniqueIdentifier>
+      <UniqueIdentifier>{a558610c-0ad3-428f-83d3-c3f165a54894}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Gamemode">
-      <UniqueIdentifier>{b66e74fb-d862-494c-b642-794687930937}</UniqueIdentifier>
+    <Filter Include="Overcooked\Component\Movement">
+      <UniqueIdentifier>{474baaab-e1d6-4278-b6a1-077852c22f1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core">
-      <UniqueIdentifier>{484e8e0a-608e-42ed-8273-51893152823d}</UniqueIdentifier>
+    <Filter Include="Overcooked\Component\Movement\Player">
+      <UniqueIdentifier>{ef9eda4f-67fc-4e98-b224-aeb2ecf881c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\CustomWidget">
-      <UniqueIdentifier>{faf95579-7650-4ff1-8bf0-1ca561eb7332}</UniqueIdentifier>
+    <Filter Include="Overcooked\Component\DISCARDED">
+      <UniqueIdentifier>{2c01e501-4eca-4146-8d2b-a2f381309c2b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\CustomActor">
-      <UniqueIdentifier>{e794b560-4cd4-47dd-88c4-d8cf0cf48ec2}</UniqueIdentifier>
+    <Filter Include="Overcooked\Component\Rigidbody">
+      <UniqueIdentifier>{fa918e01-4d6f-4b01-ab06-6c96bbd0cb4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\RigidActor">
-      <UniqueIdentifier>{0c54600d-19db-4685-886e-ce6b86ac4de6}</UniqueIdentifier>
+    <Filter Include="Overcooked\Actor\Socket">
+      <UniqueIdentifier>{aeeb68ef-e82c-4ba4-8078-4f88abc10a86}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop">
-      <UniqueIdentifier>{0ae82ac2-b23d-48c7-bcc8-8db25b367e0c}</UniqueIdentifier>
+    <Filter Include="Overcooked\Actor\Prop">
+      <UniqueIdentifier>{19f8aca9-0857-4e9e-8ee4-30c5f75a3054}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\Component">
-      <UniqueIdentifier>{72d94ed1-f0c8-446e-9e7f-5efe274bbd73}</UniqueIdentifier>
+    <Filter Include="Overcooked\Actor\Pawn">
+      <UniqueIdentifier>{0f2ae9d6-f836-4df7-a0b9-56cdd4d7965d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\Component\Movement">
-      <UniqueIdentifier>{b5ca68ea-4ee0-4ac4-9393-28a500960ec9}</UniqueIdentifier>
+    <Filter Include="Overcooked\Actor\RigidActor">
+      <UniqueIdentifier>{074072e9-a40b-4876-b039-c63f3c5a5121}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Core\Component\Movement\PlayerMovement">
-      <UniqueIdentifier>{283da66a-43cb-46e5-a9f8-a32f52755903}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\Component\RigidBody">
-      <UniqueIdentifier>{a2f6e787-fb2f-429d-8670-902bdea11906}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp">
-      <UniqueIdentifier>{0581011d-9ed3-45ab-95c9-410263827871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Pawn">
-      <UniqueIdentifier>{79e22cde-7524-454a-9aba-707149bb76f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock">
-      <UniqueIdentifier>{99383375-4bb6-49a9-8cbc-b795f9612c3e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\DynamicKitchenBlock">
-      <UniqueIdentifier>{69c1722e-2cf7-4139-9d31-c17ba2625ebe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock">
-      <UniqueIdentifier>{4e25a884-ce42-42cf-8211-1fa6bd44aa81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock">
-      <UniqueIdentifier>{c0481e29-1385-42cf-ab94-67dee3dce3df}</UniqueIdentifier>
+    <Filter Include="Overcooked\Actor\TEST">
+      <UniqueIdentifier>{c0bc3c76-634a-49db-8c50-3d6b18547851}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -486,35 +471,44 @@
     <ClCompile Include="DebugLevel.cpp">
       <Filter>Overcooked\Level</Filter>
     </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Overcooked\Core\Component\Movement</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerMovement.cpp">
-      <Filter>Overcooked\Core\Component\Movement\PlayerMovement</Filter>
+      <Filter>Overcooked\Component\Movement\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CarryComponent.cpp">
+      <Filter>Overcooked\Component\DISCARDED</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Overcooked\Component\Movement</Filter>
     </ClCompile>
     <ClCompile Include="RigidBodyComponent.cpp">
-      <Filter>Overcooked\Core\Component\RigidBody</Filter>
+      <Filter>Overcooked\Component\Rigidbody</Filter>
     </ClCompile>
-    <ClCompile Include="RigidActor.cpp">
-      <Filter>Overcooked\Core\CustomActor\RigidActor</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidProp.cpp">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerPawn.cpp">
-      <Filter>Overcooked\Core\CustomActor\Pawn</Filter>
-    </ClCompile>
-    <ClCompile Include="Prop.cpp">
-      <Filter>Overcooked\Core\CustomActor\Prop</Filter>
+    <ClCompile Include="HandSocket.cpp">
+      <Filter>Overcooked\Actor\Socket</Filter>
     </ClCompile>
     <ClCompile Include="KitchenBlock.cpp">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="Prop.cpp">
+      <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
     <ClCompile Include="StaticKitchenBlock.cpp">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
     <ClCompile Include="StaticWorkPlan.cpp">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidProp.cpp">
+      <Filter>Overcooked\Actor\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPawn.cpp">
+      <Filter>Overcooked\Actor\Pawn</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidActor.cpp">
+      <Filter>Overcooked\Actor\RigidActor</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDummy.cpp">
+      <Filter>Overcooked\Actor\TEST</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -765,34 +759,46 @@
       <Filter>Overcooked\Level</Filter>
     </ClInclude>
     <ClInclude Include="MovementComponent.h">
-      <Filter>Overcooked\Core\Component\Movement</Filter>
+      <Filter>Overcooked\Component\Movement</Filter>
     </ClInclude>
     <ClInclude Include="PlayerMovement.h">
-      <Filter>Overcooked\Core\Component\Movement\PlayerMovement</Filter>
+      <Filter>Overcooked\Component\Movement\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CarryComponent.h">
+      <Filter>Overcooked\Component\DISCARDED</Filter>
     </ClInclude>
     <ClInclude Include="RigidBodyComponent.h">
-      <Filter>Overcooked\Core\Component\RigidBody</Filter>
+      <Filter>Overcooked\Component\Rigidbody</Filter>
     </ClInclude>
-    <ClInclude Include="RigidActor.h">
-      <Filter>Overcooked\Core\CustomActor\RigidActor</Filter>
-    </ClInclude>
-    <ClInclude Include="Prop.h">
-      <Filter>Overcooked\Core\CustomActor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidProp.h">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerPawn.h">
-      <Filter>Overcooked\Core\CustomActor\Pawn</Filter>
+    <ClInclude Include="HandSocket.h">
+      <Filter>Overcooked\Actor\Socket</Filter>
     </ClInclude>
     <ClInclude Include="KitchenBlock.h">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="Prop.h">
+      <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
     <ClInclude Include="StaticKitchenBlock.h">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
     <ClInclude Include="StaticWorkPlan.h">
-      <Filter>Overcooked\Core\CustomActor\Prop\RigidProp\KitchenBlock\StaticKitchenBlock\StaticPlanBlock</Filter>
+      <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
+    <ClInclude Include="RigidProp.h">
+      <Filter>Overcooked\Actor\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPawn.h">
+      <Filter>Overcooked\Actor\Pawn</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidActor.h">
+      <Filter>Overcooked\Actor\RigidActor</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDummy.h">
+      <Filter>Overcooked\Actor\TEST</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
