@@ -1,5 +1,5 @@
 #include "DebugLevel.h"
-#include "StaticWorkPlan.h"
+#include "WorkPlan.h"
 DebugLevel::DebugLevel() : Level("Debug")
 {
 

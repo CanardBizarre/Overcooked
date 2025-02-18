@@ -2,11 +2,13 @@
 #include "MeshActor.h"
 #include "CollisionComponent.h"
 #include "RigidBodyComponent.h"
+#include "MovementComponent.h"
 
 class RigidActor : public MeshActor
 {
 	CollisionComponent* collision;
 	RigidBodyComponent* rigidBody;
+	MovementComponent* movement;
 
 public:
 	FORCEINLINE CollisionComponent* GetCollision() const
@@ -16,6 +18,10 @@ public:
 	FORCEINLINE RigidBodyComponent* GetRigidBody() const
 	{
 		return rigidBody;
+	}
+	FORCEINLINE MovementComponent* GetMovement() const
+	{
+		return movement;
 	}
 
 
