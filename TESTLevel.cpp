@@ -15,8 +15,6 @@ void TESTLevel::InitLevel()
 {
 	Super::InitLevel();
 
-	const vector<string>& _texts = M_FILE.ReadFile(path.c_str());
-	M_LEVELLOADER.InterpretString(_texts);
 	
 	player = SpawnActor<PlayerPawn>();
 	player->SetPosition(Vector2f(window.getSize()) / 2.0f);
