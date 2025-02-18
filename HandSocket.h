@@ -21,10 +21,11 @@ public:
 		if (!IsCarryingAnObject()) return nullptr;
 		return GetChildrenAtIndex(0);
 	}
-	void RemoveObject()
+	Actor* RemoveObject()
 	{
 		Actor* _current = GetCarriedObject();
 		RemoveChild(_current);
+		return _current;
 	}
 
 

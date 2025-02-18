@@ -20,7 +20,6 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
 }
 
 void PlayerPawn::Construct()
