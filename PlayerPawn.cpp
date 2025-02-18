@@ -13,6 +13,7 @@ PlayerPawn::PlayerPawn(Level* _level)
 	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
 	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
 	SetLayerType(WORLD_DYNAMIC);
+	movement->SetVelocity({ 200.0f,200.0f });
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)

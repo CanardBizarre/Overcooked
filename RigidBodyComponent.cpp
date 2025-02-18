@@ -2,14 +2,14 @@
 #include "Actor.h"
 #include "DebugLevel.h"
 
-RigidBodyComponent::RigidBodyComponent(Actor* _owner, const float _mass, const float _roughness, const float _elacticity) : Component(_owner)
+RigidBodyComponent::RigidBodyComponent(Actor* _owner) : Component(_owner)
 {
-	mass = _mass;
+	mass = 20.0f;
 	high = 1.0f;
 	DebugLevel* _level = Cast<DebugLevel>(owner->GetLevel());
 	gravity = _level->GetGravity();
-	roughness = _roughness;
-	elasticity = _elacticity;
+	roughness = 0.5f;
+	elasticity = 0.5f;
 	velocity = Vector2f();
 }
 
@@ -25,11 +25,11 @@ RigidBodyComponent::RigidBodyComponent(Actor* _owner, const RigidBodyComponent& 
 	velocity = Vector2f();
 }
 
-Vector2f RigidBodyComponent::ComputeVelocity(const RigidBodyComponent& _other)
+void RigidBodyComponent::ComputeVelocity()
 {
-	velocity *= (elasticity + _other.elasticity) / 2;
-	velocity.x *= roughness + _other.roughness;
-	velocity.y *= roughness + _other.roughness;
+	velocity *= elasticity;
+	velocity.x *= roughness;
+	velocity.y *= roughness;
 
 	if (abs(velocity.x) < 1.0f)
 	{
@@ -40,10 +40,10 @@ Vector2f RigidBodyComponent::ComputeVelocity(const RigidBodyComponent& _other)
 	{
 		velocity.y = 0.0f;
 	}
-	return velocity;
+	velocity *= mass;
 }
 
 void RigidBodyComponent::Tick(const float _deltaTime)
 {
-
+	ComputeVelocity();
 }

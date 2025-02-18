@@ -17,16 +17,19 @@ public:
 		return new RigidBodyComponent(_owner, *this);
 	}
 
+	FORCEINLINE Vector2f GetVelocity() const
+	{
+		return velocity;
+	}
 
 public:
-	RigidBodyComponent(Actor* _owner, const float _mass = 0.0f ,const float _roughness = 0.0f, const float _elacticity = 0.0f);
+	RigidBodyComponent(Actor* _owner);
 	RigidBodyComponent(Actor* _owner, const RigidBodyComponent& _other);
 
 public:
-	Vector2f ComputeVelocity(const RigidBodyComponent& _other);
-private:
 	virtual void Tick(const float _deltaTime) override;
-		
+private:
+	void ComputeVelocity();
 
 };
 
