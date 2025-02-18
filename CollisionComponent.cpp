@@ -93,14 +93,13 @@ void CollisionComponent::ComputeCollisions()
 			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
-
 		else if (othersStep.contains(_otherComponent->owner))
 		{
-			othersStep.erase(_other);
 			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
 			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step };
 			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step };
 			_collisionManager->Collide(_ownerData, _otherData);
+			othersStep.erase(_other);
 		}
 	}
 }
