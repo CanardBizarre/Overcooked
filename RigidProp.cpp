@@ -30,17 +30,6 @@ void RigidProp::CollisionEnter(const CollisionData& _data)
 
 void RigidProp::CollisionUpdate(const CollisionData& _data)
 {
-	if (_data.other->GetLayerType() == WORLD_STATIC)
-	{
-		if (_data.channelName == "playerPawn")
-		{
-			if (_data.response == CT_BLOCK)
-			{
-				MovementComponent* _movement = _data.other->GetComponent<MovementComponent>();
-				_movement->SetDirection(-_movement->GetDiretion());
-			}
-		}
-	}
 }
 
 void RigidProp::CollisionExit(const CollisionData& _data)

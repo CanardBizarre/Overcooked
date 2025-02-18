@@ -9,17 +9,12 @@ PlayerPawn::PlayerPawn(Level* _level)
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
 	movement = CreateComponent<PlayerMovementComponent>();
-	collision = CreateComponent<CollisionComponent>();
-	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
-	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
-	SetLayerType(WORLD_DYNAMIC);
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
 }
 
 void PlayerPawn::Construct()
