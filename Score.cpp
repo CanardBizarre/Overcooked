@@ -12,7 +12,7 @@ Score::Score(HUD* _hud)
 
 void Score::InitScore( const Vector2f& _windowSize)
 {
-	canvasScore = hud->SpawnWidget<CanvasWidget>("Canvas");
+	canvasScore = hud->SpawnWidget<CanvasWidget>("CanvasScore");
 	canvasScore->SetSize(Vector2f(_windowSize.x / 50, _windowSize.y - _windowSize.y / 4));
 	//_canvasScore->SetScale(Vector2f(50, 50));
 
@@ -41,24 +41,6 @@ void Score::InitScore( const Vector2f& _windowSize)
 void Score::AddScore(const int _offset)
 {
 	score += _offset;
-
-	CanvasWidget* _canvas = hud->SpawnWidget<CanvasWidget>("Canvas");
-
-	addLabel = hud->SpawnWidget<LabelWidget>(to_string(_offset));
-	_canvas->AddChild(addLabel);
-	addLabel->SetFillColor(Color::Green);
-	addLabel->SetFont("Score", TTF);
-	addLabel->SetOriginAtMiddle();
-	addLabel->SetZOrder(5);
-	addLabel->SetCharacterSize(75);
-	addLabel->SetPosition(Vector2f(-190, -80));
-
-	new Timer([&]() {AddAnimation(); }, seconds(0.2), true, true);
-
 	scoreLabel->SetText(to_string(score));
 }
 
-void Score::AddAnimation()
-{
-	addLabel->Move(Vector2f(0, -5));
-}

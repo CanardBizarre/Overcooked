@@ -19,6 +19,5 @@ public:
 
 	void InitScore(const Vector2f& _windowSize);
 	void AddScore(const int _offset);
-	void AddAnimation();
 };
 
