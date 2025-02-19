@@ -1,6 +1,0 @@
-PlayerPawn Class Mère
-
-P1 hérite de PlayerPawn
-P2 hérite de PlayerPawn
-
-P1 et P2 ont des inputs séparé
