@@ -47,9 +47,10 @@ CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _positio
 }
 
 
-Bounds::Bounds(BoundsData* _data)
+Bounds::Bounds(BoundsData* _data, const bool _isUpdated)
 {
 	data = _data;
+	isUpdated = _isUpdated;
 }
 
 Bounds::Bounds(const Bounds& _bounds)
@@ -62,7 +63,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 {
 	if (!((int)_data->rotation.asDegrees() % 90))
 	{
-		return FloatRect(_data->position - _data->size / 2.0f, _data->size).contains(_point);
+		return FloatRect(_data->position + _data->size / 2.0f, _data->size).contains(_point);
 	}
 
 	const vector<Vector2f>& _cornerPoints = GetPoints();
@@ -279,6 +280,7 @@ bool Bounds::CheckIfInAboveTheTopLeftTangent(const Vector2f& _point, const Vecto
 
 void Bounds::UpdateBounds(Actor* _actor)
 {
+	if (!isUpdated) return;
 	if (MeshComponent* _meshComponent = _actor->GetComponent<MeshComponent>())
 	{
 		const Vector2f& _pos = _meshComponent->GetOwner()->GetPosition();
@@ -290,7 +292,6 @@ void Bounds::UpdateBounds(Actor* _actor)
 		}
 		if (_meshComponent->GetShape()->GetData().type == SOT_RECTANGLE)
 		{
-
 			const Vector2f& _size = _meshComponent->GetShape()->GetData().data.rectangleData->size;
 			const Angle& _rotation = _meshComponent->GetOwner()->GetRotation();
 			SetBoundsData(new RectangleBoundsData({ _pos, _size }, _rotation));

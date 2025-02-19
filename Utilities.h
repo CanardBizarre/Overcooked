@@ -11,6 +11,7 @@ float Lerp_Constant(const float _start, const float _end, const float _time);
 float DotProduct(const Vector2f& _direction, const Vector2f& _normal);
 float EaseOutQuart(const float _time);
 Vector2f ComputeNormal(const FloatRect& _rect);
+float easeOutBounce(float _number);
 float Length(const Vector2f& _vector);
 void Normalize(Vector2f& _vector);
 float Distance(const float _first, const float _second);

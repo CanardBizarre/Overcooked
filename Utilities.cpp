@@ -49,6 +49,29 @@ float EaseInQuart(const float _time)
 {
     return _time * _time * _time * _time;
 }
+float easeOutBounce(float _number)
+{
+    const float n1 = 7.5625f;
+    const float d1 = 2.75f;
+
+    if (_number < 1 / d1)
+    {
+        return n1 * _number * _number;
+    }
+    else if (_number < 2 / d1)
+    {
+      return n1 * (_number -= 1.5f / d1) * _number + 0.75f;
+    }
+     else if (_number < 2.5f / d1)
+    {
+      return n1 * (_number -= 2.25f / d1) * _number + 0.9375f;
+    }
+     else
+    {
+      return n1 * (_number -= 2.625f / d1) * _number + 0.984375f;
+    }
+}
+
 
 float Length(const Vector2f& _vector)
 {

@@ -44,6 +44,7 @@ struct CircleBoundsData : public BoundsData
 class Bounds
 {
 	BoundsData* data;
+	bool isUpdated;
 
 public:
 	FORCEINLINE void SetBoundsData(BoundsData* _data)
@@ -90,10 +91,14 @@ public:
 	{
 		return data;
 	}
+	FORCEINLINE void SetIsUpdated(const bool _isUpdated)
+	{
+		isUpdated = _isUpdated;
+	}
 
 public:
 	Bounds() = default;
-	Bounds(BoundsData* _data);
+	Bounds(BoundsData* _data, const bool _isUpdated = true);
 	Bounds(const Bounds& _bounds);
 
 private:

@@ -36,7 +36,7 @@ void HandSocket::InitCollision()
 	};
 	collision->AddResponses(_reponses);
 	SetLayerType(PLAYER);
-
+	collision->GetBounds()->SetIsUpdated(false);
 }
 
 void HandSocket::PickUp()
@@ -44,6 +44,9 @@ void HandSocket::PickUp()
 	if (object)
 	{
 		AddChild(object, AT_SNAP_TO_TARGET);
+		RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
+		_rigidbody->SetIsFall(false);
+		_rigidbody->SetHigh(100.0f);
 	}
 }
 
@@ -55,7 +58,8 @@ void HandSocket::DropObject()
 
 	Vector2f _forward = GetParent()->GetForwardVector();
 	_movement->SetDirection(_forward);
-	_rigidbody->SetVelocity({ 100.0f, 100.0f });
+	_rigidbody->SetVelocity({ 200.0f, 200.0f });
+	_rigidbody->SetIsFall(true);
 	RemoveObject();
 }
 

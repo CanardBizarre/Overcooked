@@ -5,11 +5,12 @@ class RigidBodyComponent : public Component
 {
 	float mass;
 	float high;
+	bool isFall;
 	float gravity;
 	float roughness;
 	float elasticity;
 	Vector2f velocity;
-	Vector2f fallMovement;
+	Vector2f ownerScale;
 
 public:
 	virtual Component* Clone(Actor* _owner) const override
@@ -26,6 +27,18 @@ public:
 	{
 		velocity = _velocity;
 	}
+	FORCEINLINE float GetHigh() const
+	{
+		return high;
+	}
+	FORCEINLINE void SetHigh(const float _high)
+	{
+		high = _high;
+	}
+	FORCEINLINE void SetIsFall(const bool _fall)
+	{
+		isFall = _fall;
+	}
 
 public:
 	RigidBodyComponent(Actor* _owner);
@@ -33,8 +46,13 @@ public:
 
 public:
 	virtual void Tick(const float _deltaTime) override;
+	void ApplyBounce(const Vector2f& _normal, const Vector2f& _otherVelocity);
 private:
 	void ComputeVelocity(const float _deltaTime);
+
+	void DiscreaseHigh(const float _deltaTime);
+
+	void Rescale();
 
 };
 

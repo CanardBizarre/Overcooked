@@ -13,6 +13,10 @@ int main()
 {
 	InitConfig();
 
+	//LOG(Display, to_string(easeOutBounce(0.2)));
+
+	//return 1;
+
 	DebugLevel* _level = new DebugLevel();
 	_level->SetGravity(9.81f);
 	M_LEVEL.SetLevel(_level);
