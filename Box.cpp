@@ -35,3 +35,13 @@ void UI::Box::RemoveWidget(Widget* _widget)
 
 	hud->RemoveFromViewport(_widget);
 }
+
+void UI::Box::BindViewport()
+{
+	Super::BindViewport();
+
+	for (Widget* _widget : widgets)
+	{
+		_widget->BindViewport();
+	}
+}

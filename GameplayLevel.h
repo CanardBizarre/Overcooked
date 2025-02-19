@@ -1,8 +1,8 @@
 #pragma once
-
 #include "Level.h"
 #include "PlayerPawn.h"
 #include "CanvasWidget.h"
+
 using namespace Camera;
 
 class GameplayLevel : public Level

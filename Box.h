@@ -46,5 +46,8 @@ namespace UI
 	public:
 		void AddWidget(Widget* _widget);
 		void RemoveWidget(Widget* _widget);
+
+		virtual void BindViewport() override;
+		
 	};
 }
