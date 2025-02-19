@@ -7,9 +7,13 @@
 GameplayLevel::GameplayLevel(const string& _name, const float _time, const int _maxScore)
 	: Level(_name)
 {
+	canvas = nullptr;
+	player1 = nullptr;
+	player2 = nullptr;
 	time = _time;
 	maxScore = _maxScore;
-
+	gravity = 9.8f;
+	currentScore = 0;
 }
 
 void GameplayLevel::InitLevel()
