@@ -14,7 +14,7 @@ enum ScreenType
 	ST_CREDIT,
 };
 
-class MainMenu :  public Level
+class MainMenuLevel :  public Level
 {
 	using IteratorOption = vector<Widget*>::iterator;
 	using IteratorAllScreen = map<ScreenType, vector<Widget*>>::iterator;
@@ -46,8 +46,8 @@ public:
 	}
 
 public:
-	MainMenu();
-	virtual ~MainMenu();
+	MainMenuLevel();
+	virtual ~MainMenuLevel();
 
 private:
 	void ChangeScreen(const int _increment = 1);

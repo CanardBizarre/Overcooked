@@ -283,6 +283,9 @@
     <Filter Include="Overcooked\Level\GameplayLevel">
       <UniqueIdentifier>{c5636b47-338c-48d6-8920-e08acc0e0344}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Level\GameplayLevel\World 1">
+      <UniqueIdentifier>{f8c34be3-8508-4b3c-ba51-43728178f953}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -570,9 +573,6 @@
     <ClCompile Include="FoodSpawner.cpp">
       <Filter>Overcooked</Filter>
     </ClCompile>
-    <ClCompile Include="GameplayLevel.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
     <ClCompile Include="GarbageCan.cpp">
       <Filter>Overcooked</Filter>
     </ClCompile>
@@ -585,20 +585,23 @@
     <ClCompile Include="Stove.cpp">
       <Filter>Overcooked</Filter>
     </ClCompile>
-    <ClCompile Include="Level_1_1.cpp">
+    <ClCompile Include="GameplayLevel.cpp">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_1_1.cpp">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_2_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_3_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_4_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_5_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -920,9 +923,6 @@
     <ClInclude Include="FoodSpawner.h">
       <Filter>Overcooked</Filter>
     </ClInclude>
-    <ClInclude Include="GameplayLevel.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
     <ClInclude Include="GarbageCan.h">
       <Filter>Overcooked</Filter>
     </ClInclude>
@@ -935,20 +935,23 @@
     <ClInclude Include="Stove.h">
       <Filter>Overcooked</Filter>
     </ClInclude>
-    <ClInclude Include="Level_1_1.h">
+    <ClInclude Include="GameplayLevel.h">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_1_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
     <ClInclude Include="Level_2_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
     <ClInclude Include="Level_3_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
     <ClInclude Include="Level_4_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
     <ClInclude Include="Level_5_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

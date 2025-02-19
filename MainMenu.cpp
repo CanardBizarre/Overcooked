@@ -10,16 +10,16 @@
 #include "LevelManager.h"
 
 
-MainMenu::MainMenu() : Level("Main Menu")
+MainMenuLevel::MainMenuLevel() : Level("Main Menu")
 {
 	canvas = nullptr;
 }
 
-MainMenu::~MainMenu()
+MainMenuLevel::~MainMenuLevel()
 {
 }
 
-void MainMenu::ChangeScreen(const int _increment)
+void MainMenuLevel::ChangeScreen(const int _increment)
 {
 	if (_increment > 0)
 	{
@@ -45,7 +45,7 @@ void MainMenu::ChangeScreen(const int _increment)
 	}
 }
 
-void MainMenu::ChangeOption(const int _increment)
+void MainMenuLevel::ChangeOption(const int _increment)
 {
 	if (_increment > 0)
 	{
@@ -85,7 +85,7 @@ void MainMenu::ChangeOption(const int _increment)
 	}
 }
 
-void MainMenu::SetupFirstScreen()
+void MainMenuLevel::SetupFirstScreen()
 {
 	allScreen.insert(make_pair(ST_FIRST, firstScreen));
 	allScreen.insert(make_pair(ST_SECOND, secondScreen));
@@ -95,13 +95,13 @@ void MainMenu::SetupFirstScreen()
 	ChangeScreen(0);
 }
 
-void MainMenu::SetupOption()
+void MainMenuLevel::SetupOption()
 {
 	currentChoice = choices.begin();
 	ChangeOption(0);
 }
 
-void MainMenu::InitLevel()
+void MainMenuLevel::InitLevel()
 {
 	Super::InitLevel();
 	SpawnActor<MainMenuPawn>();
@@ -123,7 +123,7 @@ void MainMenu::InitLevel()
 	GetGameMode()->GetHUD()->AddToViewport(canvas);
 }
 
-void MainMenu::InitFirstScreen(HUD* _hud)
+void MainMenuLevel::InitFirstScreen(HUD* _hud)
 {
 	ImageWidget* _firstBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "Ui/Menu/Background", JPG));
 	canvas->AddChild(_firstBackGround);
@@ -150,7 +150,7 @@ void MainMenu::InitFirstScreen(HUD* _hud)
 	firstScreen.push_back(_pressToPlay);
 }
 
-void MainMenu::InitSecondScreen(HUD* _hud)
+void MainMenuLevel::InitSecondScreen(HUD* _hud)
 {
 	ImageWidget* _secondBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "Ui/Menu/Table", JPG));
 	canvas->AddChild(_secondBackGround);
@@ -225,7 +225,7 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 
 }
 
-void MainMenu::InitCampaign(HUD* _hud)
+void MainMenuLevel::InitCampaign(HUD* _hud)
 {
 	LabelWidget* _continue = _hud->SpawnWidget<LabelWidget>("CONTINUE");
 	canvas->AddChild(_continue);
@@ -245,7 +245,7 @@ void MainMenu::InitCampaign(HUD* _hud)
 	thirdScreen.push_back(_newGame);
 }
 
-void MainMenu::ChooseScreen(const int _index)
+void MainMenuLevel::ChooseScreen(const int _index)
 {
 	if ((*currentScreen).first == ST_FIRST && _index < 0) return;
 	if ((*currentScreen).first == ST_CAMPAIGN)
@@ -259,7 +259,7 @@ void MainMenu::ChooseScreen(const int _index)
 	ChangeOption(0);
 }
 
-void MainMenu::ChooseChoices(const int _index)
+void MainMenuLevel::ChooseChoices(const int _index)
 {
 	if ((*currentScreen).first == ST_SECOND)
 	{
