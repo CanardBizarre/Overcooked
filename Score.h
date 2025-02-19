@@ -10,8 +10,8 @@ class Score
 {
 	LabelWidget* scoreLabel;
 	LabelWidget* addLabel;
-	CanvasWidget* canvasScore;
 	ImageWidget* coin;
+	CanvasWidget* canvasScore;
 	int score;
 	HUD* hud;
 

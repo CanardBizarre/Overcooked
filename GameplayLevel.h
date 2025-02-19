@@ -13,6 +13,8 @@ class GameplayLevel : public Level
 	PlayerPawn* player2;
 	Chronometer* chrono;
 	LabelWidget* label;
+	LabelWidget* scoreLabel;
+	ImageWidget* coin;
 	float gravity;
 	float time;
 	int currentScore;
@@ -35,6 +37,7 @@ public:
 protected:
 	virtual void InitLevel() override;
 	void InitWidgetForChrono(HUD* _hud, const float _time);
-
+	void InitScore(HUD* _hud);
+	void AddScore(const int _scoreToAdd);
 };
 

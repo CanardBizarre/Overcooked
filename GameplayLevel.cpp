@@ -3,6 +3,7 @@
 #include "LabelWidget.h"
 #include "ImageWidget.h"
 #include "TimerManager.h"
+#include "Score.h"
 
 GameplayLevel::GameplayLevel(const string& _name, const float _time, const int _maxScore)
 	: Level(_name)
@@ -33,6 +34,7 @@ void GameplayLevel::InitLevel()
 	currentScore = 0;
 
 	InitWidgetForChrono(_hud, time);
+	InitScore(_hud);
 
 	TestDummy* _dummy = SpawnActor<TestDummy>();
 	_dummy->GetMesh()->SetOriginAtMiddle();
@@ -70,5 +72,33 @@ void GameplayLevel::InitWidgetForChrono(HUD* _hud, const float _time)
 			label->SetText(chrono->GetTime()); 
 		}, seconds(1), true, true);
 
+}
+
+void GameplayLevel::InitScore(HUD* _hud)
+{
+	const Vector2f& _windowSize = GetWindowSize();
+	
+	coin = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(62.0f, 62.0f), "UI/Level/coin"));
+	canvas->AddChild(coin);
+	coin->SetOriginAtMiddle();
+	coin->SetPosition(Vector2f(_windowSize.x * 0.1f, _windowSize.y *0.8f));
+
+
+	scoreLabel = _hud->SpawnWidget<LabelWidget>(to_string(currentScore));
+	canvas->AddChild(scoreLabel);
+	scoreLabel->SetFillColor(Color(77, 88, 105));
+	scoreLabel->SetFont("Overcooked", TTF);
+	scoreLabel->SetZOrder(2);
+	scoreLabel->SetCharacterSize(32);
+	scoreLabel->SetOriginAtMiddle();
+	scoreLabel->SetPosition(coin->GetPosition());
+}
+
+void GameplayLevel::AddScore(const int _scoreToAdd)
+{
+	currentScore += _scoreToAdd;
+	scoreLabel->SetText(to_string(currentScore));
+	scoreLabel->SetOriginAtMiddle();
+	scoreLabel->SetPosition(coin->GetPosition());
 }
 

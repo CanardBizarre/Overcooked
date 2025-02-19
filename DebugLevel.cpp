@@ -45,12 +45,12 @@ void DebugLevel::InitLevel()
 	_image->SetPosition(Vector2f(400.0f, 400.0f));
 	_canvas->AddChild(_image);
 
-	label = _hud->SpawnWidget<LabelWidget>(chrono->GetTime());
-	label->SetFillColor(Color::White);
-	label->SetFont("Overcooked", TTF);
-	label->SetOriginAtMiddle();
-	label->SetPosition(Vector2f(400.0f, 400.0f));
-	label->SetZOrder(1);
+	//label = _hud->SpawnWidget<LabelWidget>(chrono->GetTime());
+	//label->SetFillColor(Color::White);
+	//label->SetFont("Overcooked", TTF);
+	//label->SetOriginAtMiddle();
+	//label->SetPosition(Vector2f(400.0f, 400.0f));
+	//label->SetZOrder(1);
 
 
 	Score* _score = new Score(GetGameMode()->GetHUD());

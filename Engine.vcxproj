@@ -332,6 +332,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Sink.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
