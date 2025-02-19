@@ -2,18 +2,19 @@
 #include "TimerManager.h"
 #include "Actor.h"
 
-PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const Vector2f& _velocity, const Vector2f& _direction)
-	: MovementComponent(_owner, _velocity, _direction)
+PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const float _speed, const Vector2f& _direction)
+	: MovementComponent(_owner, _speed, _direction)
 {
 	canMove = true;
 	dodgeLaunch = false;
-	dodgeMultiplicater = 1.5f;
+	dodgeMultiplicater = 1.5;
 }
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other)
-	: MovementComponent(_owner, _other)
+	: MovementComponent(_owner)
 {
 	canMove = _other.canMove;
+	speed = _other.speed;
 	direction = _other.direction;
 }
 
@@ -45,7 +46,7 @@ void PlayerMovementComponent::Move(const float _deltaTime)
 	}
 	if(dodgeLaunch)
 	{
-		const Vector2f& _offset = Vector2f(direction.x * velocity.x * _deltaTime * dodgeMultiplicater, direction.y * velocity.y * _deltaTime* dodgeMultiplicater );
+		const Vector2f& _offset = direction * speed * _deltaTime * dodgeMultiplicater;
 		owner->Move(_offset);
 		return;
 	}

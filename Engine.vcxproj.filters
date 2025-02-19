@@ -218,70 +218,64 @@
       <UniqueIdentifier>{f2a2544c-d591-4624-960a-2225b3eb45ba}</UniqueIdentifier>
     </Filter>
     <Filter Include="Overcooked">
-      <UniqueIdentifier>{ba8d36a6-68d0-40d1-9472-cccb4877e0b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Component">
-      <UniqueIdentifier>{12ee9bd8-2fb6-4c4e-b4fe-4d996b72f794}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Overcooked\Actor">
-      <UniqueIdentifier>{9d4099bf-4bf6-4f8c-96e5-5302765f7467}</UniqueIdentifier>
+      <UniqueIdentifier>{d8095de6-aacc-416b-9566-d385093f8166}</UniqueIdentifier>
     </Filter>
     <Filter Include="Overcooked\Level">
-      <UniqueIdentifier>{a558610c-0ad3-428f-83d3-c3f165a54894}</UniqueIdentifier>
+      <UniqueIdentifier>{16a8d8aa-bbf9-430b-b192-9e60bda18a51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Component\Movement">
-      <UniqueIdentifier>{474baaab-e1d6-4278-b6a1-077852c22f1e}</UniqueIdentifier>
+    <Filter Include="Overcooked\Gamemode">
+      <UniqueIdentifier>{b66e74fb-d862-494c-b642-794687930937}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Component\Movement\Player">
-      <UniqueIdentifier>{ef9eda4f-67fc-4e98-b224-aeb2ecf881c4}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core">
+      <UniqueIdentifier>{484e8e0a-608e-42ed-8273-51893152823d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Component\DISCARDED">
-      <UniqueIdentifier>{2c01e501-4eca-4146-8d2b-a2f381309c2b}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\CustomActor">
+      <UniqueIdentifier>{e794b560-4cd4-47dd-88c4-d8cf0cf48ec2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Component\Rigidbody">
-      <UniqueIdentifier>{fa918e01-4d6f-4b01-ab06-6c96bbd0cb4c}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget">
+      <UniqueIdentifier>{08aa038c-1523-4b65-8b85-a14f44038be1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Actor\Socket">
-      <UniqueIdentifier>{aeeb68ef-e82c-4ba4-8078-4f88abc10a86}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget">
+      <UniqueIdentifier>{faf95579-7650-4ff1-8bf0-1ca561eb7332}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Actor\Prop">
-      <UniqueIdentifier>{19f8aca9-0857-4e9e-8ee4-30c5f75a3054}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Star">
+      <UniqueIdentifier>{91de7e2a-a5bb-4c69-98f1-1c2fa317c5bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Actor\Pawn">
-      <UniqueIdentifier>{0f2ae9d6-f836-4df7-a0b9-56cdd4d7965d}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Piece">
+      <UniqueIdentifier>{9d784e77-1651-48cb-a85c-59f03e84c715}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Actor\RigidActor">
-      <UniqueIdentifier>{074072e9-a40b-4876-b039-c63f3c5a5121}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\controller">
+      <UniqueIdentifier>{1ebb0f44-5913-4ec7-a26e-e5fb561ee490}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Actor\TEST">
-      <UniqueIdentifier>{c0bc3c76-634a-49db-8c50-3d6b18547851}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Chrono">
+      <UniqueIdentifier>{c789683f-e65c-4d0f-b5bb-6d75c7e2b43b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Custom Manager">
-      <UniqueIdentifier>{e8eb92c0-cd1c-4255-a6d1-0ca2064b8262}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Start">
+      <UniqueIdentifier>{98f1f85e-06ec-45d8-8065-803f04d0d697}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\Debug">
-      <UniqueIdentifier>{4bfeafd9-e818-4234-969d-282e991523ba}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\ingredient">
+      <UniqueIdentifier>{82ed35d4-ca40-4000-b6ac-61978957b235}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\MainMenu">
-      <UniqueIdentifier>{99871d55-6f00-4512-9365-f850730cf8c2}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Times Up">
+      <UniqueIdentifier>{49382a34-ba5d-40d3-98c7-660ceb0e7ff2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\MainMenu\GameMode">
-      <UniqueIdentifier>{bc9df67e-2ff6-4d0e-82b0-c41f264f9760}</UniqueIdentifier>
+    <Filter Include="Overcooked\MainMenu">
+      <UniqueIdentifier>{5c368e63-fdaa-476a-8d64-4989bf7d6d5b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\MainMenu\HUD">
-      <UniqueIdentifier>{1ed651b0-85f1-491e-9b8c-5b72c26ab31c}</UniqueIdentifier>
+    <Filter Include="Overcooked\Hub">
+      <UniqueIdentifier>{68c05bf7-16eb-4fce-9406-14cabbd60483}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\MainMenu\GameController">
-      <UniqueIdentifier>{a06f1e8f-87db-487e-a283-86a6d2f5b63d}</UniqueIdentifier>
+    <Filter Include="Scripts\Engine\Managers\Timer\Chronometer">
+      <UniqueIdentifier>{10b0ee8b-43f4-4f50-b2e1-aa3f6c8a3b46}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\Debug\GameMode">
-      <UniqueIdentifier>{b7cd5dd4-38b3-4795-a33a-76fc67b92780}</UniqueIdentifier>
+    <Filter Include="Scripts\Engine\Managers\Timer\Chronometer\CustomChrono">
+      <UniqueIdentifier>{7c706b4e-8789-4d30-aede-cd40704212c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\MainMenu\Pawn">
-      <UniqueIdentifier>{ccb2d7fd-30c4-475a-99e0-9833d8ec5de7}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Recipe">
+      <UniqueIdentifier>{a36c897f-8879-4e15-a52a-7b534954780d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Overcooked\Level\GameplayLevel">
-      <UniqueIdentifier>{c5636b47-338c-48d6-8920-e08acc0e0344}</UniqueIdentifier>
+    <Filter Include="Overcooked\Core\Widget\CustomWidget\Recipe\IngredientWidget">
+      <UniqueIdentifier>{5c948976-6d59-4853-9c8c-85708ed9a7f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -495,110 +489,56 @@
     <ClCompile Include="CustomActor.cpp">
       <Filter>Scripts\Examples\CustomActor</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerMovement.cpp">
-      <Filter>Overcooked\Component\Movement\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="CarryComponent.cpp">
-      <Filter>Overcooked\Component\DISCARDED</Filter>
-    </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Overcooked\Component\Movement</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidBodyComponent.cpp">
-      <Filter>Overcooked\Component\Rigidbody</Filter>
-    </ClCompile>
-    <ClCompile Include="HandSocket.cpp">
-      <Filter>Overcooked\Actor\Socket</Filter>
-    </ClCompile>
-    <ClCompile Include="KitchenBlock.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="Prop.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidProp.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerPawn.cpp">
-      <Filter>Overcooked\Actor\Pawn</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidActor.cpp">
-      <Filter>Overcooked\Actor\RigidActor</Filter>
-    </ClCompile>
-    <ClCompile Include="TestDummy.cpp">
-      <Filter>Overcooked\Actor\TEST</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelLoader.cpp">
-      <Filter>Overcooked\Custom Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkPlan.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
     <ClCompile Include="DebugLevel.cpp">
-      <Filter>Overcooked\Level\Debug</Filter>
+      <Filter>Overcooked\Level</Filter>
     </ClCompile>
-    <ClCompile Include="TESTLevel.cpp">
-      <Filter>Overcooked\Level\Debug</Filter>
+    <ClCompile Include="CustomWidget.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget</Filter>
     </ClCompile>
-    <ClCompile Include="TestProp.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
+    <ClCompile Include="Chrono.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Star</Filter>
+    </ClCompile>
+    <ClCompile Include="Start.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Start</Filter>
+    </ClCompile>
+    <ClCompile Include="TimesUp.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>Overcooked\Level\MainMenu</Filter>
+      <Filter>Overcooked\MainMenu</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuGameMode.cpp">
-      <Filter>Overcooked\Level\MainMenu\GameMode</Filter>
+    <ClCompile Include="Hub.cpp">
+      <Filter>Overcooked\Hub</Filter>
     </ClCompile>
-    <ClCompile Include="TESTGameMode.cpp">
-      <Filter>Overcooked\Level\Debug\GameMode</Filter>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuHUD.cpp">
-      <Filter>Overcooked\Level\MainMenu\HUD</Filter>
+    <ClCompile Include="PlayerMovement.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuPawn.cpp">
-      <Filter>Overcooked\Level\MainMenu\Pawn</Filter>
+    <ClCompile Include="PlayerPawn.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuPlayerController.cpp">
-      <Filter>Overcooked\Level\MainMenu\GameController</Filter>
+    <ClCompile Include="Chronometer.cpp">
+      <Filter>Scripts\Engine\Managers\Timer\Chronometer</Filter>
     </ClCompile>
-    <ClCompile Include="ChoppingStation.cpp">
-      <Filter>Overcooked</Filter>
+    <ClCompile Include="CustomChrono.cpp">
+      <Filter>Scripts\Engine\Managers\Timer\Chronometer\CustomChrono</Filter>
     </ClCompile>
-    <ClCompile Include="Conveyor.cpp">
-      <Filter>Overcooked</Filter>
+    <ClCompile Include="RecipeWidget.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Recipe</Filter>
     </ClCompile>
-    <ClCompile Include="FoodSpawner.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="GameplayLevel.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="GarbageCan.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="PlateSpawner.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="Sink.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="Stove.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="Level_1_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClCompile>
-    <ClCompile Include="Level_2_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClCompile>
-    <ClCompile Include="Level_3_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClCompile>
-    <ClCompile Include="Level_4_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClCompile>
-    <ClCompile Include="Level_5_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClCompile Include="IngredientWidget.cpp">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Recipe\IngredientWidget</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -845,116 +785,59 @@
     <ClInclude Include="CustomActor.h">
       <Filter>Scripts\Examples\CustomActor</Filter>
     </ClInclude>
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Overcooked\Component\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerMovement.h">
-      <Filter>Overcooked\Component\Movement\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="CarryComponent.h">
-      <Filter>Overcooked\Component\DISCARDED</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidBodyComponent.h">
-      <Filter>Overcooked\Component\Rigidbody</Filter>
-    </ClInclude>
-    <ClInclude Include="HandSocket.h">
-      <Filter>Overcooked\Actor\Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="KitchenBlock.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="Prop.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidProp.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerPawn.h">
-      <Filter>Overcooked\Actor\Pawn</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidActor.h">
-      <Filter>Overcooked\Actor\RigidActor</Filter>
-    </ClInclude>
-    <ClInclude Include="TestDummy.h">
-      <Filter>Overcooked\Actor\TEST</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelLoader.h">
-      <Filter>Overcooked\Custom Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="WorkPlan.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
     <ClInclude Include="DebugLevel.h">
-      <Filter>Overcooked\Level\Debug</Filter>
+      <Filter>Overcooked\Level</Filter>
     </ClInclude>
-    <ClInclude Include="TESTLevel.h">
-      <Filter>Overcooked\Level\Debug</Filter>
+    <ClInclude Include="CustomWidget.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget</Filter>
     </ClInclude>
-    <ClInclude Include="TestProp.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
+    <ClInclude Include="Chrono.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Chrono</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Start.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Start</Filter>
+    </ClInclude>
+    <ClInclude Include="TimesUp.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Times Up</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>Overcooked\Level\MainMenu</Filter>
+      <Filter>Overcooked\MainMenu</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuGameMode.h">
-      <Filter>Overcooked\Level\MainMenu\GameMode</Filter>
+    <ClInclude Include="Hub.h">
+      <Filter>Overcooked\Hub</Filter>
     </ClInclude>
-    <ClInclude Include="TESTGameMode.h">
-      <Filter>Overcooked\Level\Debug\GameMode</Filter>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuHUD.h">
-      <Filter>Overcooked\Level\MainMenu\HUD</Filter>
+    <ClInclude Include="PlayerMovement.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuPawn.h">
-      <Filter>Overcooked\Level\MainMenu\Pawn</Filter>
+    <ClInclude Include="PlayerPawn.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuPlayerController.h">
-      <Filter>Overcooked\Level\MainMenu\GameController</Filter>
+    <ClInclude Include="Chronometer.h">
+      <Filter>Scripts\Engine\Managers\Timer\Chronometer</Filter>
     </ClInclude>
-    <ClInclude Include="ChoppingStation.h">
-      <Filter>Overcooked</Filter>
+    <ClInclude Include="CustomChrono.h">
+      <Filter>Scripts\Engine\Managers\Timer\Chronometer\CustomChrono</Filter>
     </ClInclude>
-    <ClInclude Include="Conveyor.h">
-      <Filter>Overcooked</Filter>
+    <ClInclude Include="RecipeWidget.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Recipe</Filter>
     </ClInclude>
-    <ClInclude Include="FoodSpawner.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="GameplayLevel.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="GarbageCan.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="PlateSpawner.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="Sink.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="Stove.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="Level_1_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="Level_2_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="Level_3_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="Level_4_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="Level_5_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClInclude Include="IngredientWidget.h">
+      <Filter>Overcooked\Core\Widget\CustomWidget\Recipe\IngredientWidget</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

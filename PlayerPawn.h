@@ -2,19 +2,11 @@
 #include "Pawn.h"
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
-#include "CollisionComponent.h"
-
-#include "HandSocket.h"
-
-class Level;
-
 class PlayerPawn : public Pawn
 {
 	MeshComponent* mesh;
 	PlayerMovementComponent* movement;
-	CollisionComponent* collision;
-	HandSocket* hand;
-	
+
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
 	{
@@ -36,6 +28,7 @@ public:
 		Super::SetOrigin(_origin);
 		mesh->GetShape()->SetOrigin(_origin);
 	}
+
 	FORCEINLINE virtual void Move(const Vector2f& _offset) override
 	{
 		Super::Move(_offset);
@@ -56,18 +49,7 @@ public:
 	PlayerPawn(Level* _level);
 	PlayerPawn(const PlayerPawn& _other);
 
-private:
-	Actor* GetHand();
-
 public:
-	void InitCollision();
-	virtual void Construct() override;
-	virtual void SetupInputController(Input::InputManager& _inputManager) override;
-	void ProcessInput(const Vector2f& _vectorDirection);
-	void ComputeRotation();
-
-	virtual void CollisionEnter(const CollisionData& _data);
-	virtual void CollisionUpdate(const CollisionData& _data);
-	virtual void CollisionExit(const CollisionData& _data){}
+	void SetupInputController(Input::InputManager& _inputManager);
 };
 

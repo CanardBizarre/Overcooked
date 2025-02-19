@@ -23,7 +23,6 @@ CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent& 
 
 CollisionComponent::~CollisionComponent()
 {
-	delete bounds->GetData();
 	delete bounds;
 }
 
@@ -62,26 +61,19 @@ void CollisionComponent::ComputeCollisions()
 
 	CollisionManager* _collisionManager = &owner->GetLevel()->GetCollisionManager();
 	const set<CollisionComponent*>& _allComponent = _collisionManager->GetAllCollisionComponents();
-	UpdateBounds();
 
 	for (CollisionComponent* _otherComponent : _allComponent)
 	{
+		UpdateBounds();
 		_otherComponent->UpdateBounds();
 		if (_otherComponent == this) continue;
 		if (_collisionManager->ContainsPair(owner, _otherComponent->owner)) continue;
 
 		const string& _otherName = _otherComponent->GetChannelName();
 		if (!responses.contains(_otherName)) continue;
-		CollisionType _ownerResponse;
+
 		const CollisionType& _otherResponse = responses.at(_otherName);
-		if (_otherComponent->responses.contains(channelName))
-		{
-			_ownerResponse = _otherComponent->responses.at(channelName);
-		}
-		else
-		{
-			_ownerResponse = type;
-		}
+		const CollisionType& _ownerResponse = _otherComponent->responses.at(channelName);
 		if (_otherResponse == CT_NONE) continue;
 
 		Actor* _other = _otherComponent->owner;
@@ -93,20 +85,21 @@ void CollisionComponent::ComputeCollisions()
 			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
+
 		else if (othersStep.contains(_otherComponent->owner))
 		{
-			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
-			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step, channelName };
-			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step, _otherComponent->channelName };
-			_collisionManager->Collide(_ownerData, _otherData);
 			othersStep.erase(_other);
+			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
+			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step };
+			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step };
+			_collisionManager->Collide(_ownerData, _otherData);
 		}
 	}
 }
 
 CollisionStep CollisionComponent::ComputeStep(Actor* _other, const CollisionStep& _step)
 {
-	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER ||_step != CS_EXIT && othersStep[_other] == CS_UPDATE)
+	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER || othersStep[_other] == CS_UPDATE)
 	{
 		othersStep[_other] = CS_UPDATE;
 	}

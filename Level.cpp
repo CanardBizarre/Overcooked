@@ -22,10 +22,6 @@ Level::Level(const string& _name)
 	M_LEVEL.RegisterLevel(_name, this);
 }
 
-Level::~Level()
-{
-}
-
 
 void Level::Update(const float _deltaTime)
 {
@@ -66,6 +62,5 @@ void Level::Unload()
 void Level::InitLevel()
 {
 	CameraActor* _camera = SpawnActor<CameraActor>("DefaultCamera");
-	_camera->GetCamera()->SetActive(true);
 	cameraManager.Register(_camera->GetCamera());
 }
