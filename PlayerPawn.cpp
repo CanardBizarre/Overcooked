@@ -34,8 +34,6 @@ void PlayerPawn::InitCollision()
 		{ "RigidProp", CT_BLOCK },
 	});
 	SetLayerType(WORLD_DYNAMIC);
-	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
-	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
 }
 
 void PlayerPawn::Construct()
@@ -150,7 +148,7 @@ void PlayerPawn::CollisionEnter(const CollisionData& _data)
 			if (_data.response == CT_BLOCK)
 			{
 				LOG(Warning, "Collision");
-				Move(movement->GetDirection() * -1.5f);
+				Move(movement->GetDiretion() * -1.5f);
 			}
 		}
 	}
@@ -165,7 +163,7 @@ void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 			if (_data.response == CT_BLOCK)
 			{
 				LOG(Warning, "Collision");
-				Move(movement->GetDirection() * -1.5f);
+				Move(movement->GetDiretion() * -1.5f);
 			}
 		}
 	}

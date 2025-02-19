@@ -61,7 +61,7 @@ public:
 		return channelName;
 	}
 
-	FORCEINLINE Bounds* GetBounds() const
+	FORCEINLINE Bounds* GetBounds()
 	{
 		return bounds;
 	}

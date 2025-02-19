@@ -38,6 +38,7 @@ protected:
 	virtual void InitLevel() override;
 	void InitWidgetForChrono(HUD* _hud, const float _time);
 	void InitScore(HUD* _hud);
+	void InitRecette(HUD* _hud);
 	void AddScore(const int _scoreToAdd);
 };
 

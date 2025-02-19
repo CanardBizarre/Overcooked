@@ -57,6 +57,10 @@ Bounds::Bounds(const Bounds& _bounds)
 	data = _bounds.data;
 }
 
+Bounds::~Bounds()
+{
+}
+
 
 bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 {

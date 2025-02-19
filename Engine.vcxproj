@@ -166,6 +166,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Conveyor.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="CustomActor.cpp" />
+    <ClCompile Include="CustomChrono.cpp" />
     <ClCompile Include="CustomException.cpp" />
     <ClCompile Include="CUSTOMGameMode.cpp" />
     <ClCompile Include="CUSTOMHUD.cpp" />
@@ -185,6 +186,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="HorizontalBox.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
+    <ClCompile Include="IngredientWidget.cpp" />
+    <ClCompile Include="IngredientWidgetB.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
@@ -217,6 +220,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="PlayerMovement.cpp" />
     <ClCompile Include="ProgressBarWidget.cpp" />
     <ClCompile Include="Prop.cpp" />
+    <ClCompile Include="RecipeWidget.cpp" />
     <ClCompile Include="RectangleActor.cpp" />
     <ClCompile Include="RigidActor.cpp" />
     <ClCompile Include="RigidBodyComponent.cpp" />
@@ -275,6 +279,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Core.h" />
     <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="CustomActor.h" />
+    <ClInclude Include="CustomChrono.h" />
     <ClInclude Include="CustomException.h" />
     <ClInclude Include="CUSTOMGameMode.h" />
     <ClInclude Include="CUSTOMHUD.h" />
@@ -295,6 +300,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="HorizontalBox.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
+    <ClInclude Include="IngredientType.h" />
+    <ClInclude Include="IngredientWidget.h" />
+    <ClInclude Include="IngredientWidgetB.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="LevelLoader.h" />
@@ -324,6 +332,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="PlayerMovement.h" />
     <ClInclude Include="ProgressBarWidget.h" />
     <ClInclude Include="Prop.h" />
+    <ClInclude Include="RecipeType.h" />
+    <ClInclude Include="RecipeWidget.h" />
     <ClInclude Include="RenderType.h" />
     <ClInclude Include="RigidActor.h" />
     <ClInclude Include="RigidBodyComponent.h" />

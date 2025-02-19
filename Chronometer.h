@@ -35,6 +35,7 @@ public:
 	}
 
 	Chronometer(const int _minutes, const int _seconds);
+	Chronometer(const int _seconds);
 
 private:
 	void ComputeTime();

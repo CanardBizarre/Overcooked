@@ -2,8 +2,6 @@
 #include "Chronometer.h"
 #include "CanvasWidget.h"
 #include "ImageWidget.h"
-#include "CustomWidget.h"
-#include "ImageWidget.h"
 #include "MeshActor.h"
 #include "LabelWidget.h"
 #include "TimerManager.h"

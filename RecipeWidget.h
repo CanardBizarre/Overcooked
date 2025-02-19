@@ -2,28 +2,12 @@
 #include "Chronometer.h"
 #include "CanvasWidget.h"
 #include "ImageWidget.h"
-#include "CustomWidget.h"
 #include "MeshActor.h"
 #include "TimerManager.h"
 #include "ProgressBarWidget.h"
 #include "IngredientWidget.h"
+#include "RecipeType.h"
 
-enum RecipeType
-{
-	RT_SALAD_LETTUCE = 0,
-	RT_SALAD_LETTUCE_AND_TOMATO,
-	RT_SALAD_LETTUCE_TOMATO_AND_CUCUMBER,
-	RT_SUSHI_FISH,
-	RT_SUSHI_FISH_AND_PRAWN,
-	RT_SUSHI_CUCUMBER,
-	RT_SUSHI_FISH_AND_CUCUMBER,
-	RT_MUSHROOM_BURRITO,
-	RT_CHICKEN_BURRITO,
-	RT_BEEF_BURRITO,
-	RT_BURGER,
-	RT_CHOCOLATE_CAKE,
-	RT_COUNT,
-};
 
 class RecipeWidget
 {

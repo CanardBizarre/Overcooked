@@ -5,10 +5,9 @@ class MovementComponent : public Component
 protected:
 	float speed; 
 	Vector2f direction;
+	Vector2f velocity;
 
 public:
-
-
 	FORCEINLINE float GetSpeed() const
 	{
 		return speed;
@@ -17,9 +16,13 @@ public:
 	{
 		speed = _speed;
 	}
-	FORCEINLINE void SetDirection(Vector2f _direction)
+	FORCEINLINE void SetDirection(const Vector2f& _direction)
 	{
 		direction = _direction;
+	}
+	FORCEINLINE void SetVelocity(const Vector2f& _velocity)
+	{
+		velocity = _velocity;
 	}
 	FORCEINLINE Vector2f GetDiretion() const 
 	{

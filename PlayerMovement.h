@@ -1,6 +1,6 @@
 #pragma once
 #include "MovementComponent.h"
-class PlayerMovementComponent :  public MovementComponent
+class PlayerMovementComponent : public MovementComponent
 {
 	bool canMove;
 	bool dodgeLaunch;
@@ -43,7 +43,6 @@ public:
 	{
 		return new PlayerMovementComponent(_owner, *this);
 	}
-
 
 public:
 	PlayerMovementComponent(Actor* _owner, const float _speed = 200.0f,

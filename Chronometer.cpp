@@ -9,6 +9,11 @@ Chronometer::Chronometer(const int _minutes, const int _seconds)
 	
 }
 
+Chronometer::Chronometer(const int _seconds)
+{
+	Chronometer(0, _seconds);
+}
+
 void Chronometer::ComputeTime()
 {
 	const int _minutes = currentTime / 60;

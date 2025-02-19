@@ -7,7 +7,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const float _spe
 {
 	canMove = true;
 	dodgeLaunch = false;
-	dodgeMultiplicater = 1.5;
+	dodgeMultiplicater = 1.25f;
 }
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other)
@@ -34,7 +34,7 @@ void PlayerMovementComponent::Dash()
 				SetCanMoveState(true);
 				ResetX();
 				ResetY();
-			}, seconds(0.7f), true, false);
+			}, seconds(0.2f), true, false);
 	}
 }
 

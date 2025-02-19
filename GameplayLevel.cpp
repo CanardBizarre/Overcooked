@@ -3,6 +3,12 @@
 #include "LabelWidget.h"
 #include "ImageWidget.h"
 #include "TimerManager.h"
+#include "ProgressBarWidget.h"
+#include "IngredientWidgetB.h"
+
+
+#include "IngredientType.h"
+#include "RecipeType.h"
 
 GameplayLevel::GameplayLevel(const string& _name, const float _time, const int _maxScore)
 	: Level(_name)
@@ -33,6 +39,7 @@ void GameplayLevel::InitLevel()
 
 	InitWidgetForChrono(_hud, time);
 	InitScore(_hud);
+	InitRecette(_hud);
 
 	TestDummy* _dummy = SpawnActor<TestDummy>();
 	_dummy->GetMesh()->SetOriginAtMiddle();
@@ -90,6 +97,25 @@ void GameplayLevel::InitScore(HUD* _hud)
 	scoreLabel->SetCharacterSize(32);
 	scoreLabel->SetOriginAtMiddle();
 	scoreLabel->SetPosition(coin->GetPosition());
+}
+
+void GameplayLevel::InitRecette(HUD* _hud)
+{
+	const Vector2f& _windowSize = GetWindowSize();
+	
+	IngredientWidgetB* _ingredient = _hud->SpawnWidget<IngredientWidgetB>(IT_MEAT);
+	canvas->AddChild(_ingredient);
+	_ingredient->SetPosition(Vector2f(_windowSize.x * 0.1f, _windowSize.y * 0.1f));
+
+	//IntRect(Vector2i(124 * RT_BURGER, 0), Vector2i(124, 124));
+	//ProgressBarWidget* _progressBar = _hud->SpawnWidget<ProgressBarWidget>(to_string(currentScore));
+	//ImageWidget* _image = _hud->SpawnWidget<ImageWidget>(to_string(currentScore));
+	//ImageWidget* _recipeSlide = _hud->SpawnWidget<ImageWidget>(to_string(currentScore));
+
+	//vector<ImageWidget*> _ingredientsImage;
+	//vector<IngredientType> _ingredientsArray;
+	//RecipeType _recipeType;
+	
 }
 
 void GameplayLevel::AddScore(const int _scoreToAdd)
