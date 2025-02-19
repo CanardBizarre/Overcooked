@@ -31,6 +31,5 @@ public:
 
 private:
 	void ComputeTime();
-	void ComputeImage();
 	void ResetTime();
 };

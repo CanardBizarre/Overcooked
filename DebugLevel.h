@@ -1,14 +1,14 @@
 #pragma once
 #include "Level.h"
-#include "Chronometer.h"
+#include "CustomChrono.h"
 #include "PlayerPawn.h"
 using namespace Camera;
 
 class DebugLevel :  public Level
 {
+	CustomChrono* chronoWidget;
+	HUD* hud;
 	PlayerPawn* player;
-	Chronometer* chrono;
-	LabelWidget* label;
 public:
 	DebugLevel();
 	~DebugLevel();

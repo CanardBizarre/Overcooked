@@ -8,38 +8,22 @@
 
 DebugLevel::DebugLevel() : Level("Debug")
 {
-	chrono = new Chronometer(1, 30);
+	hud = GetGameMode()->GetHUD();
+	chronoWidget = new CustomChrono(hud->SpawnWidget<LabelWidget>("null"),
+									hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide")),
+									hud->SpawnWidget<CanvasWidget>("Canvas"));
+	chronoWidget->GetLabel()->SetText(chronoWidget->GetChrono()->GetTime());
+	hud->AddToViewport(chronoWidget->GetCanvas());
 }
 
 DebugLevel::~DebugLevel()
 {
-	delete chrono;
+	delete chronoWidget;
+	delete hud;
 }
 
 void DebugLevel::InitLevel()
 {
 	Super::InitLevel();
-
-	HUD* _hud = GetGameMode()->GetHUD();
-	CanvasWidget* _canvas = _hud->SpawnWidget<CanvasWidget>("Canvas");
-
-	ImageWidget* _image = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide"));
-	_image->SetOriginAtMiddle();
-	_image->SetPosition(Vector2f(400.0f, 400.0f));
-	_canvas->AddChild(_image);
-
-	label = _hud->SpawnWidget<LabelWidget>(chrono->GetTime());
-	label->SetFillColor(Color::White);
-	label->SetFont("Overcooked", TTF);
-	label->SetOriginAtMiddle();
-	label->SetPosition(Vector2f(400.0f, 400.0f));
-	label->SetZOrder(1);
 	
-	
-	new Timer([&]() {chrono->DecrementCurrentTime(); LOG(Warning, to_string(chrono->GetCurrentTime()));
-					 label->SetText(chrono->GetTime()); }, seconds(1), true, true);
-	_canvas->AddChild(label);
-	_canvas->SetPosition(Vector2f(400.0f, 400.0f));
-	_hud->AddToViewport(_canvas);
-	_canvas = _hud->SpawnWidget<CanvasWidget>();
 }
