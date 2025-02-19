@@ -1,16 +1,19 @@
 #include "HandSocket.h"
 #include "Bounds.h"
 #include "TestDummy.h"
+#include "Actor.h"
 using namespace Layer;
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
-	:Actor(_level, "Hand", 
-		TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
+	:Actor(_level, "Hand", TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
 {
 	handOffSet = _handOffSet;
 	collision = CreateComponent<CollisionComponent>();
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(40.0f, 40.0f), 
+		"Characters/Hands/spritesheet_opened", PNG, false, IntRect(Vector2i(),Vector2i(124,124))));
 	isNearCounter = false;
 	object = nullptr;
+
 	InitCollision();
 }
 
@@ -20,6 +23,7 @@ HandSocket::HandSocket(Level* _level, HandSocket* _other)
 	handOffSet = _other->handOffSet;
 	isNearCounter = _other->isNearCounter;
 	collision = CreateComponent<CollisionComponent>(*_other->collision);
+	mesh = CreateComponent<MeshComponent>(*_other->mesh);
 	object = _other->object;
 }
 
@@ -30,6 +34,8 @@ void HandSocket::InitCollision()
 	vector<pair<string, CollisionType>> _reponses
 	{
 		{"Test", CT_OVERLAP},
+		{"Counter", CT_OVERLAP},
+		{"KitchenBlock", CT_OVERLAP},
 	};
 	collision->AddResponses(_reponses);
 	SetLayerType(PLAYER);
@@ -83,6 +89,7 @@ void HandSocket::CollisionEnter(const CollisionData& _data)
 		}
 		if (_data.channelName == "Counter")
 		{
+			object = _data.other;
 			isNearCounter = true;
 		}
 	}
@@ -120,4 +127,13 @@ void HandSocket::Tick(const float _deltaTime)
 
 	const FloatRect& _rect = FloatRect(GetPosition(), { 20.0f, 20.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
+}
+
+void HandSocket::Construct()
+{
+	Super::Construct();
+
+	SetZOrder(3);
+	mesh->SetOriginAtMiddle();
+	mesh->GetShape()->SetRotation(Angle(degrees(90)));
 }

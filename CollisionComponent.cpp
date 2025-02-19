@@ -62,10 +62,10 @@ void CollisionComponent::ComputeCollisions()
 
 	CollisionManager* _collisionManager = &owner->GetLevel()->GetCollisionManager();
 	const set<CollisionComponent*>& _allComponent = _collisionManager->GetAllCollisionComponents();
+	UpdateBounds();
 
 	for (CollisionComponent* _otherComponent : _allComponent)
 	{
-		UpdateBounds();
 		_otherComponent->UpdateBounds();
 		if (_otherComponent == this) continue;
 		if (_collisionManager->ContainsPair(owner, _otherComponent->owner)) continue;

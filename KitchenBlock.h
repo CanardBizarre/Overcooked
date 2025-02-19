@@ -32,5 +32,14 @@ public:
 public:
 	KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const BlockType& _type, const string& _name = "KitchenBlock");
 	KitchenBlock(const KitchenBlock& _other);
+
+public:
+	void InitCollision();
+
+	virtual void CollisionEnter(const CollisionData& _data) override;
+	virtual void CollisionUpdate(const CollisionData& _data) override;
+	virtual void CollisionExit(const CollisionData& _data) override;
+
+	virtual void Construct() override;
 };
 
