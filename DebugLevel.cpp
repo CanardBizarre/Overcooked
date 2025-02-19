@@ -1,10 +1,10 @@
 #include "DebugLevel.h"
 #include "CanvasWidget.h"
 #include "ImageWidget.h"
-#include "CustomWidget.h"
 #include "MeshActor.h"
 #include "LabelWidget.h"
 #include "TimerManager.h"
+#include "Score.h"
 
 DebugLevel::DebugLevel() : Level("Debug")
 {
@@ -23,6 +23,7 @@ void DebugLevel::InitLevel()
 	HUD* _hud = GetGameMode()->GetHUD();
 	CanvasWidget* _canvas = _hud->SpawnWidget<CanvasWidget>("Canvas");
 
+
 	ImageWidget* _image = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide"));
 	_image->SetOriginAtMiddle();
 	_image->SetPosition(Vector2f(400.0f, 400.0f));
@@ -34,12 +35,17 @@ void DebugLevel::InitLevel()
 	label->SetOriginAtMiddle();
 	label->SetPosition(Vector2f(400.0f, 400.0f));
 	label->SetZOrder(1);
+
+
+	Score* _score = new Score(GetGameMode()->GetHUD());
+	_score->InitScore(GetWindowSize());
+
+	//new Timer([&]() {_score.AddScore(5); }, seconds(1), true, true);
 	
-	
-	new Timer([&]() {chrono->DecrementCurrentTime(); LOG(Warning, to_string(chrono->GetCurrentTime()));
+	/*new Timer([&]() {chrono->DecrementCurrentTime(); LOG(Warning, to_string(chrono->GetCurrentTime()));
 					 label->SetText(chrono->GetTime()); }, seconds(1), true, true);
 	_canvas->AddChild(label);
 	_canvas->SetPosition(Vector2f(400.0f, 400.0f));
 	_hud->AddToViewport(_canvas);
-	_canvas = _hud->SpawnWidget<CanvasWidget>();
+	_canvas = _hud->SpawnWidget<CanvasWidget>();*/
 }

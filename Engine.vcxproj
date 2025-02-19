@@ -155,6 +155,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CanvasSlot.cpp" />
     <ClCompile Include="CanvasWidget.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
+    <ClCompile Include="Chronometer.cpp" />
     <ClCompile Include="CircleActor.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -198,6 +199,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="RectangleActor.cpp" />
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="SliderWidget.cpp" />
     <ClCompile Include="Slot.cpp" />
@@ -231,6 +233,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CanvasSlot.h" />
     <ClInclude Include="CanvasWidget.h" />
     <ClInclude Include="CheckBoxWidget.h" />
+    <ClInclude Include="Chronometer.h" />
     <ClInclude Include="CircleActor.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -272,6 +275,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="ProgressBarWidget.h" />
     <ClInclude Include="RenderType.h" />
     <ClInclude Include="Sample.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
     <ClInclude Include="SubclassOf.h" />
@@ -301,6 +305,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="VertexObject.h" />
     <ClInclude Include="VerticalBox.h" />
     <ClInclude Include="Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
