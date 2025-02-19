@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Level.h"
 #include "KitchenBlock.h"
+#include "DecorBlock.h"
 
 
 class LevelLoader : public Singleton<LevelLoader>

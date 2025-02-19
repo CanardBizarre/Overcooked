@@ -155,6 +155,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CanvasSlot.cpp" />
     <ClCompile Include="CanvasWidget.cpp" />
     <ClCompile Include="CarryComponent.cpp" />
+    <ClCompile Include="Chair.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
     <ClCompile Include="ChoppingStation.cpp" />
     <ClCompile Include="CircleActor.cpp" />
@@ -173,6 +174,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
+    <ClCompile Include="DecorBlock.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FoodSpawner.cpp" />
@@ -180,6 +182,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="GameplayLevel.cpp" />
     <ClCompile Include="GarbageCan.cpp" />
     <ClCompile Include="GIFWidget.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="HandSocket.cpp" />
     <ClCompile Include="HorizontalBox.cpp" />
     <ClCompile Include="HUD.cpp" />
@@ -197,6 +200,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="MainMenuHUD.cpp" />
     <ClCompile Include="MainMenuPawn.cpp" />
     <ClCompile Include="MainMenuPlayerController.cpp" />
+    <ClCompile Include="Plant.cpp" />
     <ClCompile Include="PlateSpawner.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
     <ClCompile Include="Kismet.cpp" />
@@ -230,7 +234,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="SquareActor.cpp" />
     <ClCompile Include="Stove.cpp" />
+    <ClCompile Include="Table.cpp" />
     <ClCompile Include="TestProp.cpp" />
+    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WorkPlan.cpp" />
     <ClCompile Include="TestDummy.cpp" />
     <ClCompile Include="TESTGameMode.cpp" />
@@ -262,6 +268,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CanvasSlot.h" />
     <ClInclude Include="CanvasWidget.h" />
     <ClInclude Include="CarryComponent.h" />
+    <ClInclude Include="Chair.h" />
     <ClInclude Include="CheckBoxWidget.h" />
     <ClInclude Include="ChoppingStation.h" />
     <ClInclude Include="CircleActor.h" />
@@ -281,6 +288,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMPawn.h" />
     <ClInclude Include="CUSTOMPlayerController.h" />
     <ClInclude Include="DebugLevel.h" />
+    <ClInclude Include="DecorBlock.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Engine.h" />
@@ -289,6 +297,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="GameplayLevel.h" />
     <ClInclude Include="GarbageCan.h" />
     <ClInclude Include="GIFWidget.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="HandSocket.h" />
     <ClInclude Include="HorizontalBox.h" />
     <ClInclude Include="HUD.h" />
@@ -306,6 +315,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="MainMenuHUD.h" />
     <ClInclude Include="MainMenuPawn.h" />
     <ClInclude Include="MainMenuPlayerController.h" />
+    <ClInclude Include="Plant.h" />
     <ClInclude Include="PlateSpawner.h" />
     <ClInclude Include="PlayerPawn.h" />
     <ClInclude Include="Kismet.h" />
@@ -331,7 +341,9 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
     <ClInclude Include="Stove.h" />
+    <ClInclude Include="Table.h" />
     <ClInclude Include="TestProp.h" />
+    <ClInclude Include="Wall.h" />
     <ClInclude Include="WorkPlan.h" />
     <ClInclude Include="SubclassOf.h" />
     <ClInclude Include="TestDummy.h" />
@@ -368,6 +380,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LevelsData\BackGround_1-1.txt" />
     <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
