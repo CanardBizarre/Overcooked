@@ -157,6 +157,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CarryComponent.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
     <ClCompile Include="ChoppingStation.cpp" />
+    <ClCompile Include="Chronometer.cpp" />
     <ClCompile Include="CircleActor.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -217,7 +218,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="PlayerMovement.cpp" />
     <ClCompile Include="ProgressBarWidget.cpp" />
     <ClCompile Include="Prop.cpp" />
-    <ClCompile Include="RecipeWidget.cpp" />
+    <ClCompile Include="OrderWidget.cpp" />
     <ClCompile Include="RectangleActor.cpp" />
     <ClCompile Include="RigidActor.cpp" />
     <ClCompile Include="RigidBodyComponent.cpp" />
@@ -266,6 +267,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CarryComponent.h" />
     <ClInclude Include="CheckBoxWidget.h" />
     <ClInclude Include="ChoppingStation.h" />
+    <ClInclude Include="Chronometer.h" />
     <ClInclude Include="CircleActor.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -327,7 +329,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="ProgressBarWidget.h" />
     <ClInclude Include="Prop.h" />
     <ClInclude Include="RecipeType.h" />
-    <ClInclude Include="RecipeWidget.h" />
+    <ClInclude Include="OrderWidget.h" />
     <ClInclude Include="RenderType.h" />
     <ClInclude Include="RigidActor.h" />
     <ClInclude Include="RigidBodyComponent.h" />

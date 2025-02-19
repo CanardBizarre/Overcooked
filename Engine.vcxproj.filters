@@ -298,6 +298,9 @@
     <Filter Include="Overcooked\Actor\Widget\Ingredient">
       <UniqueIdentifier>{a56e99c6-0420-4d7e-8293-c33ed75fab5f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Utilities">
+      <UniqueIdentifier>{91381789-bd5a-40e8-adb2-1a1d3798cb9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -615,11 +618,14 @@
     <ClCompile Include="GameplayLevel.cpp">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="RecipeWidget.cpp">
+    <ClCompile Include="OrderWidget.cpp">
       <Filter>Overcooked\Actor\Widget\Recipe</Filter>
     </ClCompile>
     <ClCompile Include="IngredientWidget.cpp">
       <Filter>Overcooked\Actor\Widget\Ingredient</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometer.cpp">
+      <Filter>Overcooked\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -971,7 +977,7 @@
     <ClInclude Include="GameplayLevel.h">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
     </ClInclude>
-    <ClInclude Include="RecipeWidget.h">
+    <ClInclude Include="OrderWidget.h">
       <Filter>Overcooked\Actor\Widget\Recipe</Filter>
     </ClInclude>
     <ClInclude Include="IngredientWidget.h">
@@ -982,6 +988,9 @@
     </ClInclude>
     <ClInclude Include="IngredientType.h">
       <Filter>Overcooked</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometer.h">
+      <Filter>Overcooked\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

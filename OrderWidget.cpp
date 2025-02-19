@@ -1,7 +1,8 @@
-#include "RecipeWidget.h"
+#include "OrderWidget.h"
 #include "Level.h"
+#include "TimerManager.h"
 
-RecipeWidget::RecipeWidget(Level* _level, HUD* _hud, vector<IngredientType> _ingredient, const float _time)
+OrderWidget::OrderWidget(Level* _level, HUD* _hud, vector<IngredientType> _ingredient, const float _time)
 	:VerticalBox(_level, BoxData(Vector2f(_time * CAST(int, _ingredient.size()), 85.0f), 15.0f))
 {
 	const int _ingredienSize = CAST(int,_ingredient.size());
@@ -20,10 +21,29 @@ RecipeWidget::RecipeWidget(Level* _level, HUD* _hud, vector<IngredientType> _ing
 
 	AddWidget(_ingredients);
 
+	chrono = new Chronometer(_time);
+	new Timer([&]() 
+	{
+			chrono->DecrementCurrentTime(); 
+			progressBar->SetValue(chrono->GetCurrentTime());
+			if (chrono->GetCurrentTime() < ((chrono->GetMaxTime() * 2) / 3))  progressBar->GetForeground()->SetFillColor(Color::Yellow);
+			if (chrono->GetCurrentTime() < chrono->GetMaxTime() / 3)  progressBar->GetForeground()->SetFillColor(Color::Red); 
+	}, seconds(1), true, true);
 }
 
-RecipeWidget::RecipeWidget(const RecipeWidget& _other)
+OrderWidget::OrderWidget(const OrderWidget& _other)
 	:VerticalBox(_other)
 {
+
+}
+
+OrderWidget::~OrderWidget()
+{
+	delete chrono;
+}
+
+void OrderWidget::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
 
 }

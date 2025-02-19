@@ -2,7 +2,7 @@
 #include "TestDummy.h"
 
 #include "IngredientWidget.h"
-#include "RecipeWidget.h"
+#include "OrderWidget.h"
 
 GameplayLevel::GameplayLevel(const string& _name) : Level(_name)
 {
@@ -24,7 +24,7 @@ void GameplayLevel::InitLevel()
 	//canvas->AddChild(_ingredient);
 
 	vector<IngredientType> _ingredients = { IT_APPLE, IT_BACON, IT_BANANA, IT_BANANA };
-	RecipeWidget* _recipe = _hud->SpawnWidget<RecipeWidget>(_hud, _ingredients);
+	OrderWidget* _recipe = _hud->SpawnWidget<OrderWidget>(_hud, _ingredients);
 
 	canvas->AddChild(_recipe);
 	_recipe->SetPosition(Vector2f(window.getSize()) / 2.0f);
