@@ -11,7 +11,8 @@ class Score
 	LabelWidget* scoreLabel;
 	LabelWidget* addLabel;
 	CanvasWidget* canvasScore;
-	u_int score;
+	ImageWidget* coin;
+	int score;
 	HUD* hud;
 
 public:
