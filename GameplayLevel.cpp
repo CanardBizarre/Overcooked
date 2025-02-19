@@ -29,7 +29,6 @@ void GameplayLevel::InitLevel()
 
 	HUD* _hud = GetGameMode()->GetHUD();
 	canvas = _hud->SpawnWidget<CanvasWidget>();
-	canvas->SetDebugMode(true);
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 	currentScore = 0;
 
