@@ -2,14 +2,16 @@
 #include "Level.h"
 
 UI::ProgressBarWidget::ProgressBarWidget(Level* _level, const ProgressType& _type, const RectangleShapeData& _data,
-                                         const float _maxValue, const string _name, const RenderType& _renderType)
-                                       : ImageWidget(_level, _data, _name, _renderType)
+    const float _maxValue, const string _name, const RenderType& _renderType)
+    : ImageWidget(_level, _data, _name, _renderType)
 {
     currentValue = 0.0f;
     maxValue = _maxValue;
     size = _data.size;
     type = _type;
     foreground = hud->SpawnWidget<ImageWidget>(_data, _name + "_Foreground", _renderType);
+    foreground->SetZOrder(zOrder + 1);
+    AddChild(foreground, AT_KEEP_RELATIVE);
     UpdateOriginAndPosition(size);
 }
 
@@ -44,8 +46,8 @@ void UI::ProgressBarWidget::UpdateOriginAndPosition(const Vector2f& _size)
 
     if (type == PT_LEFT)
     {
-        _fgShape->setOrigin(_fgShape->getOrigin() - Vector2f(_size.x / 2.0f, 0.0f) - _originOffset);
-        _fgShape->setPosition(_barPosition - Vector2f(_size.x / 2.0f, 0.0f));
+        //_fgShape->setOrigin(_fgShape->getOrigin() - Vector2f(_size.x / 2.0f, 0.0f) - _originOffset);
+        //_fgShape->setPosition(_barPosition - Vector2f(_size.x / 2.0f, 0.0f));
     }
 
     else if (type == PT_RIGHT)
@@ -66,11 +68,11 @@ void UI::ProgressBarWidget::UpdateOriginAndPosition(const Vector2f& _size)
         _fgShape->setPosition(_barPosition + Vector2f(0.0f, _size.y / 2.0f));
     }
 
-	else if (type == PT_CENTER)
-	{
+    else if (type == PT_CENTER)
+    {
         foreground->SetOriginAtMiddle();
-		_fgShape->setPosition(_barPosition + _originOffset);
-	}
+        _fgShape->setPosition(_barPosition + _originOffset);
+    }
 }
 
 IntRect UI::ProgressBarWidget::MakeRect(const float _percent)
@@ -82,7 +84,7 @@ IntRect UI::ProgressBarWidget::MakeRect(const float _percent)
     if (type == PT_CENTER)
     {
         const Vector2f& _position = Vector2f((_textureSize.x - _percent * _textureSize.x) / 2.0f,
-                                             (_textureSize.x - _percent * _textureSize.x) / 2.0f);
+            (_textureSize.x - _percent * _textureSize.x) / 2.0f);
         const Vector2f& _size = Vector2f(_percent * _textureSize.x, _percent * _textureSize.y);
         _rect = FloatRect(_position, _size);
     }
@@ -91,7 +93,7 @@ IntRect UI::ProgressBarWidget::MakeRect(const float _percent)
     {
         const Vector2f& _position = Vector2f(0.0f, 0.0f);
         const Vector2f& _size = Vector2f(_textureSize.x * (type == PT_LEFT ? _percent : 1.0f),
-                                         _textureSize.y * (type == PT_TOP ? _percent : 1.0f));
+            _textureSize.y * (type == PT_TOP ? _percent : 1.0f));
         _rect = FloatRect(_position, _size);
     }
 
@@ -118,5 +120,5 @@ void UI::ProgressBarWidget::Render(RenderWindow& _window)
     if (visibility == Hidden) return;
 
     Super::Render(_window);
-	foreground->Render(_window);
+    foreground->Render(_window);
 }

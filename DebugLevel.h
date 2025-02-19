@@ -1,25 +1,18 @@
 #pragma once
 #include "Level.h"
-#include "GameplayLevel.h"
+#include "CustomChrono.h"
 #include "PlayerPawn.h"
+#include "CanvasWidget.h"
+#include "RecipeWidget.h"
 using namespace Camera;
 
-class DebugLevel : public GameplayLevel
+class DebugLevel :  public Level
 {
+	CustomChrono* chronoWidget;
+	vector<RecipeWidget*> recipe;
+	CanvasWidget* canva;
 	HUD* hud;
 	PlayerPawn* player;
-	float gravity;
-
-public:
-	FORCEINLINE float GetGravity() const
-	{
-		return gravity;
-	}
-	FORCEINLINE void SetGravity(const float _gravity)
-	{
-		gravity = _gravity;
-	}
-
 public:
 	DebugLevel();
 	~DebugLevel();

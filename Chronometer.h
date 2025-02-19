@@ -8,6 +8,7 @@ class Chronometer
 {
 	int timerCount;
 	int currentTime;
+	int maxTime;
 	string time;
 
 public:
@@ -21,6 +22,12 @@ public:
 		if (currentTime <= 0) return;
 		--currentTime;
 	}
+
+	FORCEINLINE int GetMaxTime()
+	{
+		return maxTime;
+	}
+
 	FORCEINLINE string GetTime()
 	{
 		ComputeTime();
@@ -28,7 +35,6 @@ public:
 	}
 
 	Chronometer(const int _minutes, const int _seconds);
-	Chronometer(const int _seconds);
 
 private:
 	void ComputeTime();

@@ -160,7 +160,6 @@ public:
 
 public:
 	Level(const string& _name);
-	virtual ~Level();
 
 public:
 	void Update(const float _deltaTime);

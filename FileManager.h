@@ -12,7 +12,7 @@ namespace File
 			if (!_stream.is_open())
 			{
 				const string& _filePath = string(_path);
-				const string& _finalFileName = "Impossible to read the file : " + (_filePath.empty() ? "Unknown" : _filePath);
+				const string& _finalFileName = "Impossible to read the file : " + _filePath.empty() ? "Unknown" : _filePath;
 				LOG(Fatal, _finalFileName);
 				throw CustomException(string("Impossible to read the file : " + _finalFileName).c_str());
 			}

@@ -2,17 +2,11 @@
 
 Chronometer::Chronometer(const int _minutes, const int _seconds)
 {
-	timerCount = (_minutes * 60) + _seconds;
+	maxTime = (_minutes * 60) + _seconds;
+	timerCount = maxTime;
 	currentTime = timerCount;
 	time = "";
 	
-}
-
-Chronometer::Chronometer(const int _seconds)
-{
-	timerCount = _seconds;
-	currentTime = timerCount;
-	time = "";
 }
 
 void Chronometer::ComputeTime()

@@ -1,6 +1,5 @@
-PlayerPawn Class Mère
+- Pawn
+	- CreatePawn Template Args...
 
-P1 hérite de PlayerPawn
-P2 hérite de PlayerPawn
-
-P1 et P2 ont des inputs séparé
+- Img Extension marche pas pour JPG
+	

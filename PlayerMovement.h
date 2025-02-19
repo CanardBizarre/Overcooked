@@ -46,7 +46,7 @@ public:
 
 
 public:
-	PlayerMovementComponent(Actor* _owner, const Vector2f& _velocity = Vector2f(),
+	PlayerMovementComponent(Actor* _owner, const float _speed = 200.0f,
 		const Vector2f& _direction = Vector2f());
 	PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other);
 

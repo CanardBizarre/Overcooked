@@ -1,18 +1,18 @@
 #include "MovementComponent.h"
 #include "Actor.h"
 
-MovementComponent::MovementComponent(Actor* _owner, const Vector2f& _velocity,
+MovementComponent::MovementComponent(Actor* _owner, const float _speed,
 	const Vector2f& _direction)
 	: Component(_owner)
 {
-	velocity = _velocity;
+	speed = _speed;
 	direction = _direction;
 }
 
 MovementComponent::MovementComponent(Actor* _owner, const MovementComponent& _other)
-	: Component(_owner, _other)
+	: Component(_owner)
 {
-	velocity = _other.velocity;
+	speed = _other.speed;
 	direction = _other.direction;
 }
 
@@ -22,7 +22,7 @@ MovementComponent::~MovementComponent()
 
 void MovementComponent::Move(const float _deltaTime)
 {
-	const Vector2f& _offset = { direction.x * velocity.x * _deltaTime, direction.y * velocity.y * _deltaTime };
+	const Vector2f& _offset = direction * speed * _deltaTime;
 	owner->Move(_offset);
 }
 
