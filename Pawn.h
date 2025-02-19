@@ -26,4 +26,5 @@ protected:
 
 public:
 	virtual void Construct() override;
+	virtual void Tick(const float _deltaTime) override;
 };

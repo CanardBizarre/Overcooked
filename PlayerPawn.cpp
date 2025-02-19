@@ -1,6 +1,7 @@
 #include "PlayerPawn.h"
 #include "Level.h"
 #include "InputManager.h"
+#include "Utilities.h"
 
 using namespace Input;
 
@@ -12,6 +13,8 @@ PlayerPawn::PlayerPawn(Level* _level)
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
+	rotationVelocity = 0.0f;
+	smoothTime = 0.1f;
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -99,17 +102,31 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 
 void PlayerPawn::ProcessInput(const Vector2f& _vectorDirection)
 {
+	direction = _vectorDirection;
 	movement->ProcessInput(_vectorDirection);
-	ComputeRotation();
+
 }
 
-void PlayerPawn::ComputeRotation()
+void PlayerPawn::Rotate(const float _deltaTime)
 {
-	const Vector2f& _direction = movement->GetDirection();
-	const Vector2f& _pos = GetPosition();
-	if (_direction.x + _direction.y == 0.0f) return;
-	const float _degrees = atan2f(_direction.y, _direction.x);
-	SetRotation(radians(_degrees));
+	if (direction.x == 0.0f && direction.y == 0.0f) return;
+
+	float _targetAngle = atan2f(direction.y, direction.x) * (180.0f / pi);
+	float _currentAngle = mesh->GetShape()->GetDrawable()->getRotation().asDegrees();
+	float _deltaAngle = _targetAngle - _currentAngle;
+
+	//Secu pour pas tourner a l'infini
+	if (_deltaAngle > 180.0f)
+	{
+		_deltaAngle -= 360.0f;
+	}
+	else if (_deltaAngle < -180.0f)
+	{
+		_deltaAngle += 360.0f;
+	}
+
+	float _newAngle = _currentAngle + _deltaAngle * _deltaTime * 8;
+	SetRotation(degrees(_newAngle));
 }
 
 Actor* PlayerPawn::GetHand()
@@ -152,5 +169,12 @@ void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 			}
 		}
 	}
+}
+
+void PlayerPawn::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+
+	Rotate(_deltaTime);
 }
 

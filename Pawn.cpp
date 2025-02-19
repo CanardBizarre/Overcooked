@@ -20,3 +20,8 @@ void Pawn::Construct()
 	Input::InputManager& _inputManager = controller->GetInputManager();
 	SetupInputController(_inputManager);
 }
+
+void Pawn::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+}
