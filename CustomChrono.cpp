@@ -2,7 +2,7 @@
 
 CustomChrono::CustomChrono(LabelWidget* _label, ImageWidget* _image, CanvasWidget* _canvas)
 {
-	chrono = new Chronometer(1, 65);
+	chrono = new Chronometer(0, 30);
 	label = _label;
 	image = _image;
 	canvas = _canvas;
@@ -31,5 +31,7 @@ void CustomChrono::InitChrono()
 	canvas->AddChild(label);
 	label->SetOriginAtMiddle();
 	label->SetPosition({ 990.0f, 500.0f });
-	new Timer([&]() {chrono->DecrementCurrentTime(); label->SetText(chrono->GetTime()); if (chrono->GetCurrentTime() == 30) label->SetFillColor(Color::Red); }, seconds(1), true, true);
+	new Timer([&]() {chrono->DecrementCurrentTime(); label->SetText(chrono->GetTime());
+	if (chrono->GetCurrentTime() < ((chrono->GetMaxTime() * 2) / 3))  label->SetFillColor(Color::Yellow);
+	if (chrono->GetCurrentTime() < chrono->GetMaxTime() / 3)  label->SetFillColor(Color::Red); }, seconds(1), true, true);
 }
