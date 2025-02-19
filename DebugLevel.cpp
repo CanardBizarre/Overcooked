@@ -1,30 +1,29 @@
 #include "DebugLevel.h"
 #include "CanvasWidget.h"
 #include "ImageWidget.h"
-#include "CustomWidget.h"
 #include "MeshActor.h"
 #include "LabelWidget.h"
 #include "TimerManager.h"
 
-DebugLevel::DebugLevel() : Level("Debug")
 #include "WorkPlan.h"
 
 #include "TestDummy.h"
 #include "LevelLoader.h"
 #include "FileManager.h"
+
 using namespace File;
 
 DebugLevel::DebugLevel() : GameplayLevel("Debug")
 {
 	hud = GetGameMode()->GetHUD();
-	chronoWidget = new CustomChrono(hud->SpawnWidget<LabelWidget>("null"),
-									hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide")),
-									hud->SpawnWidget<CanvasWidget>("Canvas"));
+	hud->SpawnWidget<LabelWidget>("null");
+	hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide"));
+	hud->SpawnWidget<CanvasWidget>("Canvas");
+
 	chronoWidget->GetLabel()->SetText(chronoWidget->GetChrono()->GetTime());
-	hud->AddToViewport(chronoWidget->GetCanvas());
+	player = nullptr;
 }
 
-	player = nullptr;
 DebugLevel::~DebugLevel()
 {
 	delete chronoWidget;

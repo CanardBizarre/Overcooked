@@ -3,6 +3,7 @@
 #include "Level.h"
 #include "PlayerPawn.h"
 #include "CanvasWidget.h"
+#include "Chronometer.h"
 using namespace Camera;
 
 class GameplayLevel : public Level
@@ -10,6 +11,8 @@ class GameplayLevel : public Level
 	CanvasWidget* canvas; 
 	PlayerPawn* player1;
 	PlayerPawn* player2;
+	Chronometer* chrono;
+	LabelWidget* label;
 	float gravity;
 	float time;
 	int currentScore;
@@ -26,11 +29,12 @@ public:
 	}
 public:
 	GameplayLevel(const string& _name, const float _time = 180.0f, const int _maxScore = 60);
+	~GameplayLevel();
 	
 
 protected:
 	virtual void InitLevel() override;
-	void InitWidget(const float _time);
+	void InitWidgetForChrono(HUD* _hud, const float _time);
 
 };
 

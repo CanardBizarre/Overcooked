@@ -2,18 +2,16 @@
 #include "Chronometer.h"
 #include "CanvasWidget.h"
 #include "ImageWidget.h"
-#include "CustomWidget.h"
 #include "ImageWidget.h"
 #include "MeshActor.h"
 #include "LabelWidget.h"
 #include "TimerManager.h"
 
-class CustomChrono
+class CustomChrono : Widget
 {
 	Chronometer* chrono;
 	LabelWidget* label;
 	ImageWidget* image;
-	CanvasWidget* canvas;
 
 public :
 	FORCEINLINE Chronometer* GetChrono()
@@ -28,15 +26,13 @@ public :
 	{
 		return image;
 	}
-	FORCEINLINE CanvasWidget* GetCanvas()
-	{
-		return canvas;
-	}
-
+	
 public:
-	CustomChrono(LabelWidget* _label, ImageWidget* _image, CanvasWidget* _canvas);
+	CustomChrono(Level* _level, const float _time);
 	~CustomChrono();
 
+public:
+	virtual void Render(RenderWindow& _window);
 	void InitChrono();
 };
 

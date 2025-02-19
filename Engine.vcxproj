@@ -157,6 +157,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CarryComponent.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
     <ClCompile Include="ChoppingStation.cpp" />
+    <ClCompile Include="Chronometer.cpp" />
     <ClCompile Include="CircleActor.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -165,6 +166,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Conveyor.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="CustomActor.cpp" />
+    <ClCompile Include="CustomChrono.cpp" />
     <ClCompile Include="CustomException.cpp" />
     <ClCompile Include="CUSTOMGameMode.cpp" />
     <ClCompile Include="CUSTOMHUD.cpp" />
@@ -264,6 +266,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CarryComponent.h" />
     <ClInclude Include="CheckBoxWidget.h" />
     <ClInclude Include="ChoppingStation.h" />
+    <ClInclude Include="Chronometer.h" />
     <ClInclude Include="CircleActor.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -273,6 +276,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Core.h" />
     <ClInclude Include="CoreMinimal.h" />
     <ClInclude Include="CustomActor.h" />
+    <ClInclude Include="CustomChrono.h" />
     <ClInclude Include="CustomException.h" />
     <ClInclude Include="CUSTOMGameMode.h" />
     <ClInclude Include="CUSTOMHUD.h" />
