@@ -112,11 +112,10 @@ void PlayerPawn::Rotate(const float _deltaTime)
 	if (direction.x == 0.0f && direction.y == 0.0f) return;
 
 	float _targetAngle = atan2f(direction.y, direction.x) * (180.0f / pi);
-
 	float _currentAngle = mesh->GetShape()->GetDrawable()->getRotation().asDegrees();
-
 	float _deltaAngle = _targetAngle - _currentAngle;
 
+	//Secu pour pas tourner a l'infini
 	if (_deltaAngle > 180.0f)
 	{
 		_deltaAngle -= 360.0f;
@@ -127,7 +126,6 @@ void PlayerPawn::Rotate(const float _deltaTime)
 	}
 
 	float _newAngle = _currentAngle + _deltaAngle * _deltaTime * 8;
-
 	SetRotation(degrees(_newAngle));
 }
 
