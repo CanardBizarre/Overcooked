@@ -3,6 +3,7 @@
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
+#include "Particle.h"
 
 #include "HandSocket.h"
 

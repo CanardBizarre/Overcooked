@@ -11,3 +11,9 @@ Sink::Sink(const Sink& _other)
 {
 	SetTextureRect(IntRect(Vector2i(124 * BT_SINK, 0), Vector2i(124 * 2, 124)));
 }
+
+void Sink::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+}
+

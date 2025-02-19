@@ -1,7 +1,7 @@
 #include "TestDummy.h"
 
 TestDummy::TestDummy(Level* _level)
-	:MeshActor(_level, RectangleShapeData(Vector2f(20.0f,20.0f), "Ball", PNG))
+	:MeshActor(_level, RectangleShapeData(Vector2f(40.0f,40.0f), "Props/PropsSpritesheet", PNG, false, IntRect(Vector2i(), Vector2i(124,124))))
 {
 	collision = CreateComponent<CollisionComponent>();
 	move = CreateComponent<MovementComponent>();

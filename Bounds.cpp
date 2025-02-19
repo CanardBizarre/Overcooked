@@ -6,15 +6,12 @@
 BoundsData::BoundsData()
 {
 	position = Vector2f();
-	origin = Vector2f();
 }
 
-BoundsData::BoundsData(const Vector2f& _position, const Vector2f& _origin)
+BoundsData::BoundsData(const Vector2f& _position)
 {
 	position = _position;
-	origin = _origin;
 }
-
 
 RectangleBoundsData::RectangleBoundsData()
 {
@@ -22,21 +19,18 @@ RectangleBoundsData::RectangleBoundsData()
 	rotation = Angle();
 }
 
-
-RectangleBoundsData::RectangleBoundsData(const Vector2f& _position, const Vector2f& _origin, const Vector2f& _size, 
-	const Angle& _rotation) : BoundsData(_position, _origin)
+RectangleBoundsData::RectangleBoundsData(const Vector2f& _position, const Vector2f& _size, const Angle& _rotation) : BoundsData(_position)
 {
 	size = _size;
 	rotation = _rotation;
 }
 
-RectangleBoundsData::RectangleBoundsData(const FloatRect& _rect, const Vector2f& _origin, const Angle& _rotation) 
-	: BoundsData(_rect.position, _origin)
+RectangleBoundsData::RectangleBoundsData(const FloatRect& _rect, const Angle& _rotation) 
+	: BoundsData(_rect.position)
 {
 	size = _rect.size;
 	rotation = _rotation;
 }
-
 
 CircleBoundsData::CircleBoundsData()
 {
@@ -45,43 +39,33 @@ CircleBoundsData::CircleBoundsData()
 	pointsCount = 0;
 }
 
-CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _position, const Vector2f& _origin, const int _pointsCount)
-	: BoundsData(_position, _origin)
+CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _position, const int _pointsCount)
+	: BoundsData(_position)
 {
 	radius = _radius;
 	pointsCount = _pointsCount;
 }
 
-
 Bounds::Bounds()
 {
-	data = new RectangleBoundsData();
-	meshActor = nullptr;
+	data = nullptr;
 }
 
 Bounds::Bounds(BoundsData* _data)
 {
 	data = _data;
-	if (RectangleBoundsData* _rectData = Cast<RectangleBoundsData>(data))
-	{
-		meshActor = M_LEVEL.GetCurrentLevel()->SpawnActor<MeshActor>(RectangleShapeData(_rectData->size));
-		meshActor->SetPosition(_rectData->position);
-		meshActor->SetRotation(_rectData->rotation);
-	}
 }
 
 Bounds::Bounds(const Bounds& _bounds)
 {
 	data = _bounds.data;
-	meshActor = _bounds.meshActor;
 }
-
 
 bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 {
 	if (!((int)_data->rotation.asDegrees() % 90))
 	{
-		return FloatRect(_data->position - _data->origin / 2.0f, _data->size).contains(_point);
+		return FloatRect(_data->position - _data->size / 2.0f, _data->size).contains(_point);
 	}
 
 	const vector<Vector2f>& _cornerPoints = GetPoints();
@@ -301,22 +285,17 @@ void Bounds::UpdateBounds(Actor* _actor)
 	if (MeshComponent* _meshComponent = _actor->GetComponent<MeshComponent>())
 	{
 		const Vector2f& _pos = _meshComponent->GetOwner()->GetPosition();
-		const Vector2f& _origin = _meshComponent->GetOwner()->GetOrigin();
 		if (_meshComponent->GetShape()->GetData().type == SOT_CIRCLE)
 		{
 			const float _radius = _meshComponent->GetShape()->GetData().data.circleData->radius;
 			const u_int& _pointCount = CAST(u_int, _meshComponent->GetShape()->GetData().data.circleData->pointCount);
-			SetBoundsData(new CircleBoundsData(_radius, _pos, _origin, _pointCount));
+			SetBoundsData(new CircleBoundsData(_radius, _pos, _pointCount));
 		}
 		if (_meshComponent->GetShape()->GetData().type == SOT_RECTANGLE)
 		{
-
 			const Vector2f& _size = _meshComponent->GetShape()->GetData().data.rectangleData->size;
 			const Angle& _rotation = _meshComponent->GetOwner()->GetRotation();
-			const Vector2f& _origin = _meshComponent->GetOwner()->GetOrigin();
-			SetBoundsData(new RectangleBoundsData({ _pos /*+ _size / 2.0f*/, _size }, _origin, _rotation));
-	
-		
+			SetBoundsData(new RectangleBoundsData({ _pos /*+ _size / 2.0f*/, _size }, _rotation));
 		}
 	}
 }

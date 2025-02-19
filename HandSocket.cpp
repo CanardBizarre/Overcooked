@@ -47,13 +47,18 @@ void HandSocket::PickUp()
 	if (object)
 	{
 		AddChild(object, AT_SNAP_TO_TARGET);
+
+		if (isNearCounter) nearestBlock->RemoveChild(object);
 	}
 }
 
 void HandSocket::DropObject()
 {
+	if (!object) return;
+
+	nearestBlock->DoAction(object);
 	RemoveObject();
-	// TODO Lacher l'objet
+	isNearCounter = false;
 }
 
 void HandSocket::ThrowObject()
@@ -66,7 +71,7 @@ void HandSocket::ThrowObject()
 	// TODO Jeter l'objet
 }
 
-void HandSocket::Action()
+void HandSocket::HandAction()
 {
 	if (IsCarryingAnObject())
 	{
@@ -81,23 +86,35 @@ void HandSocket::Action()
 
 void HandSocket::CollisionEnter(const CollisionData& _data)
 {
+	/*if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "Test")
+		{
+			object = _data.other;
+		}
+		if (_data.channelName == "KitchenBlock")
+		{
+			nearestBlock = Cast<KitchenBlock>(_data.other);
+			isNearCounter = true;
+		}
+
+	}*/
+}
+
+void HandSocket::CollisionUpdate(const CollisionData& _data)
+{
 	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "Test")
 		{
 			object = _data.other;
 		}
-		if (_data.channelName == "Counter")
+		if (_data.channelName == "KitchenBlock")
 		{
-			object = _data.other;
+			nearestBlock = Cast<KitchenBlock>(_data.other);
 			isNearCounter = true;
 		}
 	}
-}
-
-void HandSocket::CollisionUpdate(const CollisionData& _data)
-{
-
 }
 
 void HandSocket::CollisionExit(const CollisionData& _data)
@@ -109,12 +126,11 @@ void HandSocket::CollisionExit(const CollisionData& _data)
 		{
 			object = nullptr;
 		}
-		if (_data.channelName == "Counter")
+		if (_data.channelName == "KitchenBlock")
 		{
 			isNearCounter = false;
 		}
 	}
-	
 }
 
 void HandSocket::Tick(const float _deltaTime)
