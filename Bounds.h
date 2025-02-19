@@ -3,6 +3,7 @@
 
 
 class Actor;
+class MeshActor;
 
 struct BoundsData
 {
@@ -92,7 +93,7 @@ public:
 	}
 
 public:
-	Bounds() = default;
+	Bounds();
 	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
 	~Bounds();

@@ -2,14 +2,16 @@
 #include "Actor.h"
 #include "CollisionComponent.h"
 #include "MeshComponent.h"
+#include "KitchenBlock.h"
 
-class HandSocket :  public Actor
+class HandSocket : public Actor
 {
 	float handOffSet; 
 	bool isNearCounter; 
 	MeshComponent* mesh;
 	CollisionComponent* collision;
 	Actor* object;
+	KitchenBlock* nearestBlock;
 
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -75,7 +77,7 @@ private:
 
 public:
 	void InitCollision();
-	void Action();
+	void HandAction();
 
 	virtual void CollisionEnter(const CollisionData& _data) override;
 	virtual void CollisionUpdate(const CollisionData& _data)  override;

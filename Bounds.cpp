@@ -1,6 +1,7 @@
 #include "Bounds.h"
 #include "MeshComponent.h"
-#include "Actor.h"
+#include "MeshActor.h"
+#include "LevelManager.h"
 
 BoundsData::BoundsData()
 {
@@ -12,13 +13,11 @@ BoundsData::BoundsData(const Vector2f& _position)
 	position = _position;
 }
 
-
 RectangleBoundsData::RectangleBoundsData()
 {
 	size = Vector2f();
 	rotation = Angle();
 }
-
 
 RectangleBoundsData::RectangleBoundsData(const Vector2f& _position, const Vector2f& _size, const Angle& _rotation) : BoundsData(_position)
 {
@@ -26,12 +25,12 @@ RectangleBoundsData::RectangleBoundsData(const Vector2f& _position, const Vector
 	rotation = _rotation;
 }
 
-RectangleBoundsData::RectangleBoundsData(const FloatRect& _rect, const Angle& _rotation) : BoundsData(_rect.position)
+RectangleBoundsData::RectangleBoundsData(const FloatRect& _rect, const Angle& _rotation) 
+	: BoundsData(_rect.position)
 {
 	size = _rect.size;
 	rotation = _rotation;
 }
-
 
 CircleBoundsData::CircleBoundsData()
 {
@@ -40,12 +39,17 @@ CircleBoundsData::CircleBoundsData()
 	pointsCount = 0;
 }
 
-CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _position, const int _pointsCount) : BoundsData(_position)
+CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _position, const int _pointsCount)
+	: BoundsData(_position)
 {
 	radius = _radius;
 	pointsCount = _pointsCount;
 }
 
+Bounds::Bounds()
+{
+	data = nullptr;
+}
 
 Bounds::Bounds(BoundsData* _data)
 {
@@ -56,11 +60,6 @@ Bounds::Bounds(const Bounds& _bounds)
 {
 	data = _bounds.data;
 }
-
-Bounds::~Bounds()
-{
-}
-
 
 bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 {
@@ -89,7 +88,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInUnderTheDownLeftTangent(_point, _bottom, _left))
 		{
-			return false;
+			return true;
 		}
 	}
 
@@ -97,7 +96,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInUnderTheDownRightTangent(_point, _bottom, _right))
 		{
-			return false;
+			return true;
 		}
 	}
 
@@ -105,7 +104,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInAboveTheTopRightTangent(_point, _top, _right))
 		{
-			return false;
+			return true;
 		}
 	}
 
@@ -113,11 +112,11 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInAboveTheTopLeftTangent(_point, _top, _left))
 		{
-			return false;
+			return true;
 		}
 	}
 
-	return true;
+	return false;
 }
 
 bool Bounds::Contains(const Vector2f& _point, CircleBoundsData* _data) const
@@ -294,10 +293,9 @@ void Bounds::UpdateBounds(Actor* _actor)
 		}
 		if (_meshComponent->GetShape()->GetData().type == SOT_RECTANGLE)
 		{
-
 			const Vector2f& _size = _meshComponent->GetShape()->GetData().data.rectangleData->size;
 			const Angle& _rotation = _meshComponent->GetOwner()->GetRotation();
-			SetBoundsData(new RectangleBoundsData({ _pos, _size }, _rotation));
+			SetBoundsData(new RectangleBoundsData({ _pos /*+ _size / 2.0f*/, _size }, _rotation));
 		}
 	}
 }

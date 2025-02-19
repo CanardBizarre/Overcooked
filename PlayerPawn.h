@@ -3,6 +3,7 @@
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
+#include "Particle.h"
 
 #include "HandSocket.h"
 
@@ -75,5 +76,6 @@ public:
 	virtual void CollisionExit(const CollisionData& _data){}
 
 	virtual void Tick(const float _deltaTime) override;
+	virtual void CollisionExit(const CollisionData& _data);
 };
 
