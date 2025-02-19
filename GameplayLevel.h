@@ -2,10 +2,12 @@
 
 #include "Level.h"
 #include "PlayerPawn.h"
+#include "CanvasWidget.h"
 using namespace Camera;
 
 class GameplayLevel : public Level
 {
+	CanvasWidget* canvas; 
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;

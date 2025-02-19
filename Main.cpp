@@ -2,6 +2,7 @@
 #include "LevelManager.h"
 #include "TESTLevel.h"
 #include "DebugLevel.h"
+#include "MainMenu.h"
 #include "Level_1_1.h"
 #include "Level_2_1.h"
 #include "Level_3_1.h"
@@ -19,7 +20,7 @@ int main()
 {
 	InitConfig();
 
-	Level_1_1* _level = new Level_1_1();
+	MainMenu* _level = new MainMenu();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();
