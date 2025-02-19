@@ -7,24 +7,38 @@ using namespace Input;
 PlayerPawn::PlayerPawn(Level* _level) 
 	: Pawn(_level, "Keyboard")
 {
-	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(50.0f, 50.0f), "/Characters/Clothes/spritesheet", PNG, false, IntRect(Vector2i(), Vector2i(124,124))));
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(50.0f, 50.0f), "/Characters/Clothes/spritesheeta", PNG, false, IntRect(Vector2i(), Vector2i(124,124))));
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
-	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
-	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
-	SetLayerType(WORLD_DYNAMIC);
 	movement->SetVelocity({ 200.0f,200.0f });
+	InitCollision();
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
+	collision = CreateComponent<CollisionComponent>(*_other.collision);
+
+}
+
+void PlayerPawn::InitCollision()
+{
+	collision->SetInformation("Player", IS_ALL, CT_BLOCK);
+	collision->AddResponses(
+	{ 
+		{ "KitchenBlock", CT_BLOCK },
+		{ "RigidProp", CT_BLOCK },
+	});
+	SetLayerType(WORLD_DYNAMIC);
+	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
+	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
 }
 
 void PlayerPawn::Construct()
 {
 	Super::Construct();
+	SetZOrder(2);
 	mesh->SetOriginAtMiddle();
 	GetHand();
 }
@@ -112,13 +126,29 @@ Actor* PlayerPawn::GetHand()
 
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
 {
-	if (_data.other->GetLayerType() == WORLD_STATIC)
+	if (_data.other->GetLayerType() == PROP)
 	{
-		if (_data.channelName == "RigidProp")
+		if (_data.channelName == "KitchenBlock")
 		{
 			if (_data.response == CT_BLOCK)
 			{
-				//movement->SetDirection(-movement->GetDiretion());
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
+			}
+		}
+	}
+}
+
+void PlayerPawn::CollisionUpdate(const CollisionData& _data)
+{
+	if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "KitchenBlock")
+		{
+			if (_data.response == CT_BLOCK)
+			{
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
 			}
 		}
 	}
