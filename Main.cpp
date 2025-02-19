@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "LevelManager.h"
+#include "TESTLevel.h"
 #include "DebugLevel.h"
 #include "Level_1_1.h"
 #include "Level_2_1.h"
@@ -19,7 +20,6 @@ int main()
 	InitConfig();
 
 	DebugLevel* _level = new DebugLevel();
-	_level->SetGravity(9.81f);
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();

@@ -8,7 +8,7 @@ using namespace File;
 
 DebugLevel::DebugLevel() : GameplayLevel("Debug")
 {
-
+	player = nullptr;
 }
 
 void DebugLevel::InitLevel()
