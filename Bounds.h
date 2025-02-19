@@ -96,7 +96,6 @@ public:
 	Bounds();
 	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
-	~Bounds();
 
 private:
 	bool Contains(const Vector2f& _point, RectangleBoundsData* _data) const;

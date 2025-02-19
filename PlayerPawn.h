@@ -76,6 +76,6 @@ public:
 	virtual void CollisionExit(const CollisionData& _data){}
 
 	virtual void Tick(const float _deltaTime) override;
-	virtual void CollisionExit(const CollisionData& _data);
+
 };
 

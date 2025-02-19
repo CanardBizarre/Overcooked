@@ -179,20 +179,23 @@ void PlayerPawn::Tick(const float _deltaTime)
 			}
 		}
 	}*/
+
+	//if (_data.other->GetLayerType() == PROP)
+//{
+//	if (_data.channelName == "KitchenBlock")
+//	{
+//		if (_data.response == CT_BLOCK)
+//		{
+//			LOG(Error, "Exit");
+//			//Move(movement->GetDirection() * -1.5f);
+//		}
+//	}
+//}
 }
 
-void PlayerPawn::CollisionExit(const CollisionData& _data)
+void PlayerPawn::Tick(const float _deltaTime)
 {
-	//if (_data.other->GetLayerType() == PROP)
-	//{
-	//	if (_data.channelName == "KitchenBlock")
-	//	{
-	//		if (_data.response == CT_BLOCK)
-	//		{
-	//			LOG(Error, "Exit");
-	//			//Move(movement->GetDirection() * -1.5f);
-	//		}
-	//	}
-	//}
 }
+
+
 

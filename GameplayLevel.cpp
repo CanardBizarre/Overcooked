@@ -48,8 +48,8 @@ void GameplayLevel::InitLevel()
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
-	player1->SetZOrder(0);
 	GetGameMode()->GetHUD()->AddToViewport(canvas);
+	player1->SetZOrder(0);
 }
 
 void GameplayLevel::InitWidgetForChrono(HUD* _hud, const float _time)
