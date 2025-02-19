@@ -4,6 +4,11 @@
 #include "MainMenuPawn.h"
 #include "MainMenuHUD.h"
 
+#include "DebugLevel.h"
+
+#include "LevelManager.h"
+
+
 MainMenu::MainMenu() : Level("Main Menu")
 {
 	canvas = nullptr;
@@ -17,30 +22,105 @@ void MainMenu::ChangeScreen(const int _increment)
 {
 	if (_increment > 0)
 	{
-		for (int _index = 0; _index < _increment; _index++)currentScreen++;
+		for (int _index = 0; _index < _increment; _index++) currentScreen++;
 
 	}
-
-	for (vector<Widget*> _currentScreen : allScreen)
+	else
 	{
-		VisibilityType _visibility = Hidden; 
-		if (_currentScreen == (*currentScreen)) _visibility = VisibilityType::Visible;
-		for (Widget* _currentWidget : _currentScreen)
+		for (int _index = 0; _index > _increment; _index--) currentScreen--;
+	}
+
+	for (pair<ScreenType, vector<Widget*>> _currentScreen : allScreen)
+	{
+		for (Widget* _currentWidget : _currentScreen.second)
 		{
-			_currentWidget->SetVisibility(_visibility);
+			_currentWidget->SetVisibility(Hidden);
 		}
+	}
+	
+	for (Widget* _currentWidget : (*currentScreen).second)
+	{
+		_currentWidget->SetVisibility(Visible);
+	}
+}
+
+void MainMenu::ChangeOption(const int _increment)
+{
+	if (_increment > 0)
+	{
+		for (int _index = 0; _index < _increment; _index++)
+		{
+			if (IsLastChoice())
+			{
+				currentChoice = choices.begin();
+				continue;
+			}
+			currentChoice++;
+		}
+
+	}
+	else if(_increment < 0)
+	{
+		for (int _index = 0; _index > _increment; _index--)
+		{
+			if (IsFirstChoice())
+			{
+				currentChoice = --choices.end();
+				continue;
+
+			}
+			currentChoice--;
+		}
+	}
+
+	for (Widget* _option : choices)
+	{
+		VisibilityType _visibility = Hidden;
+		if (_option == (*currentChoice))
+		{
+			_visibility = Visible;
+		}
+		_option->SetVisibility(_visibility);
 	}
 }
 
 void MainMenu::SetupFirstScreen()
 {
-	allScreen.push_back(firstScreen);
-	allScreen.push_back(secondScreen);
+	allScreen.insert(make_pair(ST_FIRST, firstScreen));
+	allScreen.insert(make_pair(ST_SECOND, secondScreen));
+	allScreen.insert(make_pair(ST_CAMPAIGN, thirdScreen));
 
 	currentScreen = allScreen.begin();
 	ChangeScreen(0);
 }
 
+void MainMenu::SetupOption()
+{
+	currentChoice = choices.begin();
+	ChangeOption(0);
+}
+
+void MainMenu::InitLevel()
+{
+	Super::InitLevel();
+	SpawnActor<MainMenuPawn>();
+
+	HUD* _hud = GetGameMode()->GetHUD();
+
+	canvas = _hud->SpawnWidget<CanvasWidget>();
+	canvas->SetDebugMode(true);
+	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
+
+	// Init all screen
+	InitFirstScreen(_hud);
+	InitSecondScreen(_hud);
+	InitCampaign(_hud);
+
+	SetupOption();
+	SetupFirstScreen();
+
+	GetGameMode()->GetHUD()->AddToViewport(canvas);
+}
 
 void MainMenu::InitFirstScreen(HUD* _hud)
 {
@@ -78,7 +158,7 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 	ImageWidget* _book = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(800.0f, 541.4f), "Ui/Menu/Book"));
 	canvas->AddChild(_book);
 	_book->SetOriginAtMiddle();
-	_book->SetPosition(Vector2f(GetWindowSize().x / 2.0f - 100.0f, GetWindowSize().y /2.0f));
+	_book->SetPosition(Vector2f(GetWindowSize().x / 2.0f - 100.0f, GetWindowSize().y / 2.0f));
 	_book->Rotate(degrees(30.0f));
 	_book->SetZOrder(1);
 
@@ -104,7 +184,7 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 	_credits->SetZOrder(2);
 
 
-	ImageWidget* _option1 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f,22.5f), "Ui/Menu/Arrow"));
+	ImageWidget* _option1 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "Ui/Menu/Arrow"));
 	canvas->AddChild(_option1);
 	_option1->SetOriginAtMiddle();
 	_option1->SetPosition(Vector2f(GetWindowSize().x * 0.45f, GetWindowSize().y * 0.23f));
@@ -133,40 +213,61 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 	secondScreen.push_back(_option2);
 	secondScreen.push_back(_option3);
 
+	thirdScreen.push_back(_book);
+	thirdScreen.push_back(_secondBackGround);
+
 	// option Vector
-	options.push_back(_option1);
-	options.push_back(_option2);
-	options.push_back(_option3);
+	choices.push_back(_option1);
+	choices.push_back(_option2);
+	choices.push_back(_option3);
 
-	currentOption = options.begin();
 
 }
 
-void MainMenu::ChooseScreen(const ScreenType& _screen)
+void MainMenu::InitCampaign(HUD* _hud)
 {
-	currentScreen = allScreen.begin();
-	ChangeScreen(_screen);
+	LabelWidget* _continue = _hud->SpawnWidget<LabelWidget>("CONTINUE");
+	canvas->AddChild(_continue);
+	_continue->SetFont("segoe-ui-black", TTF);
+	_continue->SetFillColor(Color(77, 88, 105));
+	_continue->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.2f));
+	_continue->SetZOrder(2);
+
+	LabelWidget* _newGame = _hud->SpawnWidget<LabelWidget>("NEW GAME");
+	canvas->AddChild(_newGame);
+	_newGame->SetFont("segoe-ui-black", TTF);
+	_newGame->SetFillColor(Color(77, 88, 105));
+	_newGame->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.3f));
+	_newGame->SetZOrder(2);
+
+	thirdScreen.push_back(_continue);
+	thirdScreen.push_back(_newGame);
 }
 
-
-void MainMenu::InitLevel()
+void MainMenu::ChooseScreen(const int _index)
 {
-	Super::InitLevel();
-	SpawnActor<MainMenuPawn>();
+	if ((*currentScreen).first == ST_FIRST && _index < 0) return;
+	if ((*currentScreen).first == ST_CAMPAIGN)
+	{
+		DebugLevel* _mainMenu = new DebugLevel();
+		M_LEVEL.SetLevel(_mainMenu);
+		return;
+	}
 
-	HUD* _hud = GetGameMode()->GetHUD();
-
-	canvas = _hud->SpawnWidget<CanvasWidget>();
-	canvas->SetDebugMode(true);
-	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
-
-	// Init all screen
-	InitFirstScreen(_hud);
-	InitSecondScreen(_hud);
-
-
-
-	SetupFirstScreen();
-
-	GetGameMode()->GetHUD()->AddToViewport(canvas);
+	ChangeScreen(_index);
+	ChangeOption(0);
 }
+
+void MainMenu::ChooseChoices(const int _index)
+{
+	if ((*currentScreen).first == ST_SECOND)
+	{
+		ChangeOption(_index);
+	}
+	if ((*currentScreen).first == ST_CAMPAIGN)
+	{
+		ChangeOption(_index);
+	}
+}
+
+
