@@ -7,12 +7,11 @@ using namespace Input;
 PlayerPawn::PlayerPawn(Level* _level) 
 	: Pawn(_level, "Keyboard")
 {
-	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(50.0f, 50.0f), "/Characters/Clothes/spritesheet", PNG, false, IntRect(Vector2i(), Vector2i(124,124))));
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
-	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
-	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
-	SetLayerType(WORLD_DYNAMIC);
+	movement->SetVelocity({ 200.0f,200.0f });
+	InitCollision();
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -20,6 +19,28 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
+
+}
+
+void PlayerPawn::InitCollision()
+{
+	collision->SetInformation("Player", IS_ALL, CT_BLOCK);
+	collision->AddResponses(
+	{ 
+		{ "KitchenBlock", CT_BLOCK },
+		{ "RigidProp", CT_BLOCK },
+	});
+	SetLayerType(WORLD_DYNAMIC);
+	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
+	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
+}
+
+void PlayerPawn::Construct()
+{
+	Super::Construct();
+	SetZOrder(2);
+	mesh->SetOriginAtMiddle();
+	GetHand();
 }
 
 void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
@@ -30,20 +51,21 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 		{
 			new Action("GoUp", ActionData(KeyHold, Z), [&]()
 			{
-				movement->ProcessInput({0.0f, -1.0f});
+				ProcessInput({0.0f, -1.0f});
 			}),
 			new Action("GoDown", ActionData(KeyHold, S), [&]()
 			{
-				movement->ProcessInput({0.0f, 1.0f});
+				ProcessInput({0.0f, 1.0f});
 			}),
 			new Action("GoLeft", ActionData(KeyHold, Q), [&]()
 			{
-				movement->ProcessInput({-1.0f, 0.0f});
+				ProcessInput({-1.0f, 0.0f});
 			}),
 			new Action("GoRight", ActionData(KeyHold, D), [&]()
 			{
-				movement->ProcessInput({1.0f, 0.0f});
+				ProcessInput({1.0f, 0.0f});
 			}),
+
 
 			new Action("RestUp", ActionData(KeyReleased, Z), [&]()
 			{
@@ -62,24 +84,71 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 				movement->ResetX();
 			}),
 
-			new Action("Dash", ActionData(KeyPressed, Space), [&]()
+			new Action("Dash", ActionData(KeyHold, Space), [&]()
 			{
 				movement->Dash();
+			}),
+			new Action("TakeObject", ActionData(KeyPressed, E), [&]()
+			{
+				hand->Action();
 			}),
 		});
 	
 	_moveInputs->Enable();
 }
 
+void PlayerPawn::ProcessInput(const Vector2f& _vectorDirection)
+{
+	movement->ProcessInput(_vectorDirection);
+	ComputeRotation();
+}
+
+void PlayerPawn::ComputeRotation()
+{
+	const Vector2f& _direction = movement->GetDirection();
+	const Vector2f& _pos = GetPosition();
+	if (_direction.x + _direction.y == 0.0f) return;
+	const float _degrees = atan2f(_direction.y, _direction.x);
+	SetRotation(radians(_degrees));
+}
+
+Actor* PlayerPawn::GetHand()
+{
+	if (GetChildren().size() == 0)
+	{
+		const float _handOffSet = 20.0f;
+		const Vector2f& _pos = GetPosition() + GetForwardVector() * _handOffSet;
+		hand = level->SpawnActor<HandSocket>(_pos, _handOffSet);
+		AddChild(hand, AT_KEEP_RELATIVE);
+	}
+	return GetChildrenAtIndex(0);
+}
+
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
 {
-	if (_data.other->GetLayerType() == WORLD_STATIC)
+	if (_data.other->GetLayerType() == PROP)
 	{
-		if (_data.channelName == "RigidProp")
+		if (_data.channelName == "KitchenBlock")
 		{
 			if (_data.response == CT_BLOCK)
 			{
-				movement->SetDirection(-movement->GetDiretion());
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
+			}
+		}
+	}
+}
+
+void PlayerPawn::CollisionUpdate(const CollisionData& _data)
+{
+	if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "KitchenBlock")
+		{
+			if (_data.response == CT_BLOCK)
+			{
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
 			}
 		}
 	}

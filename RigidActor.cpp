@@ -4,6 +4,7 @@ RigidActor::RigidActor(Level* _level, const RectangleShapeData& _data, const str
 {
 	collision = CreateComponent<CollisionComponent>();
 	rigidBody = CreateComponent<RigidBodyComponent>();
+	movement = CreateComponent<MovementComponent>();
 }
 
 RigidActor::RigidActor(const RigidActor& _other) : MeshActor(_other)
