@@ -603,6 +603,21 @@
     <ClCompile Include="Level_5_1.cpp">
       <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerPawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometer.cpp">
+      <Filter>Overcooked</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -953,6 +968,26 @@
     <ClInclude Include="Level_5_1.h">
       <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerPawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometer.h">
+      <Filter>Overcooked</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt">
+      <Filter>Overcooked</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
