@@ -20,7 +20,7 @@ int main()
 {
 	InitConfig();
 
-	MainMenuLevel* _level = new MainMenuLevel();
+	Level_1_1* _level = new Level_1_1();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();
