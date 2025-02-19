@@ -3,7 +3,6 @@
 #include "LabelWidget.h"
 #include "ImageWidget.h"
 #include "TimerManager.h"
-#include "Score.h"
 
 GameplayLevel::GameplayLevel(const string& _name, const float _time, const int _maxScore)
 	: Level(_name)

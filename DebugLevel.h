@@ -1,13 +1,11 @@
 #pragma once
 #include "Level.h"
-#include "CustomChrono.h"
 #include "GameplayLevel.h"
 #include "PlayerPawn.h"
 using namespace Camera;
 
 class DebugLevel : public GameplayLevel
 {
-	CustomChrono* chronoWidget;
 	HUD* hud;
 	PlayerPawn* player;
 	float gravity;

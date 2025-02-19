@@ -4,7 +4,6 @@
 #include "MeshActor.h"
 #include "LabelWidget.h"
 #include "TimerManager.h"
-#include "Score.h"
 
 #include "WorkPlan.h"
 
@@ -21,13 +20,11 @@ DebugLevel::DebugLevel() : GameplayLevel("Debug")
 	hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(300.0f, 150.0f), "UI/timer_slide"));
 	hud->SpawnWidget<CanvasWidget>("Canvas");
 
-	chronoWidget->GetLabel()->SetText(chronoWidget->GetChrono()->GetTime());
 	player = nullptr;
 }
 
 DebugLevel::~DebugLevel()
 {
-	delete chronoWidget;
 	delete hud;
 }
 
@@ -51,10 +48,6 @@ void DebugLevel::InitLevel()
 	//label->SetOriginAtMiddle();
 	//label->SetPosition(Vector2f(400.0f, 400.0f));
 	//label->SetZOrder(1);
-
-
-	Score* _score = new Score(GetGameMode()->GetHUD());
-	_score->InitScore(GetWindowSize());
 
 	//new Timer([&]() {_score.AddScore(5); }, seconds(1), true, true);
 	
