@@ -31,7 +31,7 @@ public:
 
 	virtual void Tick(const float _deltaTime) override
 	{
-
+		Super::Tick(_deltaTime);
 	}
 };
 

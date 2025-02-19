@@ -5,8 +5,9 @@ KitchenBlock::KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f&
 	: RigidProp(_level, RectangleShapeData(_size, "/Blocks/BlocksSpritesheet", PNG), _name)
 {
 	type = _type;
-	
+
 	SetPosition(_position);
+	mesh->SetOriginAtMiddle();
 	SetRotation(_angle);
 
 	InitCollision();
@@ -15,8 +16,10 @@ KitchenBlock::KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f&
 KitchenBlock::KitchenBlock(const KitchenBlock& _other) : RigidProp(_other)
 {
 	type = _other.type;
+
 	SetPosition(_other.GetPosition());
 	SetRotation(_other.GetRotation());
+	mesh->SetOriginAtMiddle();
 }
 
 void KitchenBlock::InitCollision()
@@ -47,5 +50,4 @@ void KitchenBlock::Construct()
 {
 	Super::Construct();
 
-	//mesh->SetOriginAtMiddle()
 }

@@ -68,6 +68,6 @@ public:
 
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data);
-	virtual void CollisionExit(const CollisionData& _data){}
+	virtual void CollisionExit(const CollisionData& _data);
 };
 

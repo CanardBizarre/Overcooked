@@ -135,5 +135,4 @@ void HandSocket::Construct()
 
 	SetZOrder(3);
 	mesh->SetOriginAtMiddle();
-	mesh->GetShape()->SetRotation(Angle(degrees(90)));
 }

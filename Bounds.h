@@ -2,13 +2,15 @@
 #include "CoreMinimal.h"
 
 class Actor;
+class MeshActor;
 
 struct BoundsData
 {
 	Vector2f position;
+	Vector2f origin;
 
 	BoundsData();
-	BoundsData(const Vector2f& _position);
+	BoundsData(const Vector2f& _position, const Vector2f& _origin);
 	virtual Vector2f GetPosition() const = 0;
 };
 
@@ -18,8 +20,8 @@ struct RectangleBoundsData : public BoundsData
 	Angle rotation;
 
 	RectangleBoundsData();
-	RectangleBoundsData(const Vector2f& _position, const Vector2f& _size, const Angle& _rotation);
-	RectangleBoundsData(const FloatRect& _rect, const Angle& _rotation);
+	RectangleBoundsData(const Vector2f& _position, const Vector2f& _origin, const Vector2f& _size, const Angle& _rotation);
+	RectangleBoundsData(const FloatRect& _rect, const Vector2f& _origin, const Angle& _rotation);
 
 	virtual Vector2f GetPosition() const override
 	{
@@ -33,7 +35,7 @@ struct CircleBoundsData : public BoundsData
 	int pointsCount;
 
 	CircleBoundsData();
-	CircleBoundsData(const float _radius, const Vector2f& _position, const int _pointsCount = 30);
+	CircleBoundsData(const float _radius, const Vector2f& _position, const Vector2f& _origin, const int _pointsCount = 30);
 
 	virtual Vector2f GetPosition() const override
 	{
@@ -44,6 +46,7 @@ struct CircleBoundsData : public BoundsData
 class Bounds
 {
 	BoundsData* data;
+	MeshActor* meshActor;
 
 public:
 	FORCEINLINE void SetBoundsData(BoundsData* _data)
@@ -55,15 +58,7 @@ public:
 
 	FORCEINLINE void SetPosition(const Vector2f& _position)
 	{
-		if (RectangleBoundsData* _data = Cast<RectangleBoundsData>(data))
-		{
-			_data->position = _position;
-			return;
-		}
-		if (CircleBoundsData* _data = Cast<CircleBoundsData>(data))
-		{
-			_data->position = _position;
-		}
+		data->position = _position;
 	}
 	FORCEINLINE void SetSize(const Vector2f& _size)
 	{
@@ -100,7 +95,7 @@ public:
 	}
 
 public:
-	Bounds() = default;
+	Bounds();
 	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
 
