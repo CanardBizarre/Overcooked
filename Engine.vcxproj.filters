@@ -286,6 +286,21 @@
     <Filter Include="Overcooked\Level\levelLoader">
       <UniqueIdentifier>{7a17fd26-04a1-4297-bf6f-8d5d79c10914}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Level\1-1">
+      <UniqueIdentifier>{10ed5c24-3e90-4956-a6f1-7b4f57f8b93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\2-1">
+      <UniqueIdentifier>{affff8c8-38ce-4e2c-969b-07d4014d0edf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\3-1">
+      <UniqueIdentifier>{7301d126-b5d3-4dab-8d2a-7a16c6e86b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\4-1">
+      <UniqueIdentifier>{81ae2786-44e3-4319-ac79-0c022fcc75ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\5-1">
+      <UniqueIdentifier>{488e6c6b-162f-412f-96ff-f9f377e862ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -569,6 +584,24 @@
     </ClCompile>
     <ClCompile Include="LevelLoader.cpp">
       <Filter>Overcooked\Level\levelLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_5_1.cpp">
+      <Filter>Overcooked\Level\5-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_1_1.cpp">
+      <Filter>Overcooked\Level\1-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_2_1.cpp">
+      <Filter>Overcooked\Level\2-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_3_1.cpp">
+      <Filter>Overcooked\Level\3-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_4_1.cpp">
+      <Filter>Overcooked\Level\4-1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -886,6 +919,24 @@
     </ClInclude>
     <ClInclude Include="LevelLoader.h">
       <Filter>Overcooked\Level\levelLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_5_1.h">
+      <Filter>Overcooked\Level\5-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_4_1.h">
+      <Filter>Overcooked\Level\4-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_3_1.h">
+      <Filter>Overcooked\Level\3-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_2_1.h">
+      <Filter>Overcooked\Level\2-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_1_1.h">
+      <Filter>Overcooked\Level\1-1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

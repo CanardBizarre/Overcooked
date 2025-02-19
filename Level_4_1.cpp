@@ -1,22 +1,21 @@
-#include "DebugLevel.h"
-#include "WorkPlan.h"
+#include "Level_4_1.h"
 
-#include "TestDummy.h"
-#include "LevelLoader.h"
 #include "FileManager.h"
+#include "LevelLoader.h"
+
 using namespace File;
 
-DebugLevel::DebugLevel() : GameplayLevel("Debug")
+Level_4_1::Level_4_1() : GameplayLevel("Level 4-1")
 {
 
 }
 
-void DebugLevel::InitLevel()
+void Level_4_1::InitLevel()
 {
 	Super::InitLevel();
 
 	const string& _folders = "LevelsData/";
-	const string& _path = _folders + "DebugLevel";
+	const string& _path = _folders + "Level_4-1";
 
 	const vector<string>& _texts = M_FILE.ReadFile(_path.c_str());
 

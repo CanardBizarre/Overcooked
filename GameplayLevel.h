@@ -1,13 +1,14 @@
 #pragma once
-#include "GameplayLevel.h"
+
+#include "Level.h"
 #include "PlayerPawn.h"
 using namespace Camera;
 
-class DebugLevel : public GameplayLevel
+class GameplayLevel : public Level
 {
-	PlayerPawn* player;
+	PlayerPawn* player1;
+	PlayerPawn* player2;
 	float gravity;
-
 public:
 	FORCEINLINE float GetGravity() const
 	{
@@ -17,9 +18,9 @@ public:
 	{
 		gravity = _gravity;
 	}
-
 public:
-	DebugLevel();
+	GameplayLevel(const string& _name);
+
 
 protected:
 	virtual void InitLevel() override;

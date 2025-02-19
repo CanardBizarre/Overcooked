@@ -1,6 +1,11 @@
 #include "Engine.h"
 #include "LevelManager.h"
 #include "DebugLevel.h"
+#include "Level_1_1.h"
+#include "Level_2_1.h"
+#include "Level_3_1.h"
+#include "Level_4_1.h"
+#include "Level_5_1.h"
 
 void InitConfig()
 {
