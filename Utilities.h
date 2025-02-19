@@ -52,3 +52,9 @@ bool InstanceOf(K _object)
 {
     return is_same<T, decltype(_object)>::value;
 }
+
+Vector2f SmoothDamp(const Vector2f& _current, Vector2f _target, Vector2f& _currentVelocity,
+    float _smoothTime, const float _deltaTime, const float _maxSpeed);
+
+Vector2f SmoothDampDirection(const Vector2f& _current, const Vector2f& _target, Vector2f& _currentVelocity,
+    float _smoothTime, float _deltaTime, float _maxSpeed);

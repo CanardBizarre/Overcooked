@@ -14,6 +14,9 @@ class PlayerPawn : public Pawn
 	PlayerMovementComponent* movement;
 	CollisionComponent* collision;
 	HandSocket* hand;
+	Vector2f direction;
+	float rotationVelocity;
+	float smoothTime;
 	
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -64,10 +67,13 @@ public:
 	virtual void Construct() override;
 	virtual void SetupInputController(Input::InputManager& _inputManager) override;
 	void ProcessInput(const Vector2f& _vectorDirection);
-	void ComputeRotation();
+	void Rotate(const float _deltaTime);
+
 
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data);
 	virtual void CollisionExit(const CollisionData& _data){}
+
+	virtual void Tick(const float _deltaTime) override;
 };
 
