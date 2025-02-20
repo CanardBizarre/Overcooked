@@ -11,8 +11,8 @@ class GameplayLevel : public Level
 {
 	HUD* hud;
 	CanvasWidget* canvas; 
-	HorizontalBox* order;
-
+	HorizontalBox* orders;
+	vector<OrderWidget*> _order;
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;

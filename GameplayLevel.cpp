@@ -2,6 +2,7 @@
 #include "TestDummy.h"
 #include "IngredientWidget.h"
 #include "TimerManager.h"
+#include "Box.h"
 
 
 
@@ -21,10 +22,18 @@ void GameplayLevel::InitLevel()
 	canvas->SetDebugMode(true);
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 
-	order = hud->SpawnWidget<HorizontalBox>(BoxData(Vector2f(GetWindowSize().x, 85.0f)));
-	canvas->AddChild(order);
+	vector<IngredientType> _food = { IngredientType::IT_APPLE, IngredientType::IT_BACON };
+	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, DT_BEEF_BURRITO, _food, "Order_" + to_string(0));
+	canvas->AddChild(_recipe);
 
-	new Timer([&]() { MakeOrderWidget(DT_BEEF_BURRITO, vector<IngredientType>(IngredientType::IT_APPLE, IngredientType::IT_BACON)); }, seconds(1.0f), true, true);
+	//new Timer([&]()
+	//	{
+	//	
+
+
+	//	MakeOrderWidget(DT_BEEF_BURRITO, _food);
+	//	}, seconds(1.0f), true, true);
+
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
 
@@ -33,6 +42,7 @@ void GameplayLevel::InitLevel()
 
 void GameplayLevel::MakeOrderWidget(const DishType& _dish, const vector<IngredientType>& _ingredients)
 {
-	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, _dish, _ingredients);
-	order->AddWidget(_recipe);
+	const int _orderSize = (int)_order.size();
+	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, _dish, _ingredients, "Order_" + to_string(_orderSize));
+	orders->AddWidget(_recipe);
 }

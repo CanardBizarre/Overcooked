@@ -2,12 +2,11 @@
 #include "Level.h"
 #include "HUD.h"
 
-UI::Box::Box(Level* _level, const BoxData& _data) : Widget(_level, "Widget")
+UI::Box::Box(Level* _level, const BoxData& _data, const string& _name) : Widget(_level, _name)
 {
 	widgets = vector<Widget*>();
 	data = _data;
 }
-
 
 void UI::Box::AddWidget(Widget* _widget)
 {
@@ -40,8 +39,16 @@ void UI::Box::BindViewport()
 {
 	Super::BindViewport();
 
-	for (Widget* _widget : widgets)
+	for (Actor* _actor : GetChildren())
 	{
-		_widget->BindViewport();
+		if (Widget* _widget = Cast<Widget>(_actor))
+		{
+			_widget->BindViewport();
+		}
 	}
+}
+
+void UI::Box::Render(RenderWindow& _window)
+{
+	
 }

@@ -38,7 +38,7 @@ namespace UI
 		}
 
 	public:
-		Box(Level* _level, const BoxData& _data);
+		Box(Level* _level, const BoxData& _data, const string& _name = "Box");
 
 	protected:
 		virtual void Update() = 0;
@@ -47,7 +47,7 @@ namespace UI
 		void AddWidget(Widget* _widget);
 		void RemoveWidget(Widget* _widget);
 
+		virtual void Render(RenderWindow& _window) override;
 		virtual void BindViewport() override;
-		
 	};
 }
