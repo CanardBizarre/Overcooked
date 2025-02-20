@@ -30,6 +30,10 @@ void GameplayLevel::InitLevel()
 {
 	Super::InitLevel();
 
+	TestDummy* _dummy = SpawnActor<TestDummy>();
+	_dummy->GetMesh()->SetOriginAtMiddle();
+	_dummy->SetPosition((Vector2f(window.getSize()) / 2.0f) + Vector2f(10.0f, 0.0f));
+	_dummy->SetZOrder(1);
 
 	hud = GetGameMode()->GetHUD();
 
@@ -42,6 +46,7 @@ void GameplayLevel::InitLevel()
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
+	player1->SetZOrder(2);
 
 	
 	const vector<IngredientType>& _ingredient = { IngredientType::IT_APPLE, IngredientType::IT_BACON };
