@@ -63,10 +63,10 @@ Bounds::Bounds(const Bounds& _bounds)
 
 bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data)
 {
-	//if (!((int)_data->rotation.asDegrees() % 90))
-	//{
-	//	return FloatRect(_data->position + _data->size / 2.0f, _data->size).contains(_point);
-	//}
+	if (!((int)_data->rotation.asDegrees() % 90))
+	{
+		return FloatRect(_data->position + _data->size / 2.0f, _data->size).contains(_point);
+	}
 
 	const vector<Vector2f>& _cornerPoints = GetPoints();
 

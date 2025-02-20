@@ -8,8 +8,8 @@ PlayerPawn::PlayerPawn(Level* _level)
 	: Pawn(_level, "Keyboard")
 {
 
-	mesh = CreateComponent<MeshComponent>(CircleShapeData(25.0f, "/Characters/Clothes/spritesheet", IntRect(Vector2i(), Vector2i(124, 124))));
-	//mesh = CreateComponent<MeshComponent>(RectangleShapeData({ 50.0f,50.0f }, "/Characters/Clothes/spritesheeta", PNG, false ,IntRect(Vector2i(), Vector2i(124, 124))));
+	//mesh = CreateComponent<MeshComponent>(CircleShapeData(25.0f, "/Characters/Clothes/spritesheet", IntRect(Vector2i(), Vector2i(124, 124))));
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData({ 50.0f,50.0f }, "/Characters/Clothes/spritesheeta", PNG, false ,IntRect(Vector2i(), Vector2i(124, 124))));
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
@@ -126,46 +126,46 @@ Actor* PlayerPawn::GetHand()
 
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
 {
-	/*if (_data.other->GetLayerType() == PROP)
+	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
 			if (_data.response == CT_BLOCK)
 			{
 				LOG(Warning, "Collision");
-				Move(movement->GetDirection() * -1.5f);
+				//Move(movement->GetDirection() * -1.5f);
 			}
 		}
-	}*/
+	}
 }
 
 void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 {
-	/*if (_data.other->GetLayerType() == PROP)
+	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
 			if (_data.response == CT_BLOCK)
 			{
 				LOG(Warning, "Collision");
-				Move(movement->GetDirection() * -1.5f);
+				//Move(movement->GetDirection() * -1.5f);
 			}
 		}
-	}*/
+	}
 }
 
 void PlayerPawn::CollisionExit(const CollisionData& _data)
 {
-	//if (_data.other->GetLayerType() == PROP)
-	//{
-	//	if (_data.channelName == "KitchenBlock")
-	//	{
-	//		if (_data.response == CT_BLOCK)
-	//		{
-	//			LOG(Error, "Exit");
-	//			//Move(movement->GetDirection() * -1.5f);
-	//		}
-	//	}
-	//}
+	if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "KitchenBlock")
+		{
+			if (_data.response == CT_BLOCK)
+			{
+				LOG(Error, "Exit");
+				//Move(movement->GetDirection() * -1.5f);
+			}
+		}
+	}
 }
 

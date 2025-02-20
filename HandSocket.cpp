@@ -49,13 +49,13 @@ void HandSocket::InitCollision()
 
 void HandSocket::PickUp()
 {
+	LOG(Display, "PickUp");
 	if (object)
 	{
 		AddChild(object, AT_SNAP_TO_TARGET);
 		RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
 		_rigidbody->SetIsFall(false);
 		_rigidbody->SetHigh(100.0f);
-
 		if (isNearCounter) nearestBlock->RemoveChild(object);
 	}
 }
@@ -84,13 +84,16 @@ void HandSocket::HandAction()
 {
 	if (IsCarryingAnObject())
 	{
+		LOG(Display, "Carrying");
 		if (isNearCounter) return DropObject();
 		ThrowObject();
 	}
 	else if (object)
 	{
+		LOG(Display, "object");
 		PickUp();
 	}
+	LOG(Display, "nothing");
 }
 
 void HandSocket::CollisionEnter(const CollisionData& _data)
@@ -99,6 +102,7 @@ void HandSocket::CollisionEnter(const CollisionData& _data)
 	{
 		if (_data.channelName == "Test")
 		{
+			LOG(Display, "addObject");
 			object = _data.other;
 		}
 		if (_data.channelName == "KitchenBlock")

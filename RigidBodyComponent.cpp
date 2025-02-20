@@ -64,10 +64,6 @@ void RigidBodyComponent::Rescale()
 void RigidBodyComponent::Tick(const float _deltaTime)
 {
 	ComputeVelocity(_deltaTime);
-	if (owner->GetName() == "RigidActor")
-	{
-		LOG(Warning, "ball : " + to_string(high));
-	}
 	Rescale();
 }
 
