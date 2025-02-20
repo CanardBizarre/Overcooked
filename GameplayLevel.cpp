@@ -22,12 +22,15 @@ void GameplayLevel::InitLevel()
 	canvas->SetDebugMode(true);
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 
-	vector<IngredientType> _food = { IngredientType::IT_MEAT, IngredientType::IT_TORTILLA };
+	vector<IngredientType> _food = { IngredientType::IT_MEAT, IngredientType::IT_TORTILLA, IngredientType::IT_RICE, IngredientType::IT_MUSHROOM };
 	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, DT_BEEF_BURRITO, _food, "Order_" + to_string(0));
 	canvas->AddChild(_recipe);
 
-	HourglassWidget* _hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
-	canvas->AddChild(_hourglass);
+	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
+	canvas->AddChild(hourglass);
+
+	score = hud->SpawnWidget<ScoreWidget>(hud, "Score");
+	canvas->AddChild(score);
 
 	//new Timer([&]()
 	//	{
@@ -45,7 +48,7 @@ void GameplayLevel::InitLevel()
 
 void GameplayLevel::MakeOrderWidget(const DishType& _dish, const vector<IngredientType>& _ingredients)
 {
-	const int _orderSize = (int)_order.size();
+	const int _orderSize = (int)order.size();
 	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, _dish, _ingredients, "Order_" + to_string(_orderSize));
 	orders->AddWidget(_recipe);
 }

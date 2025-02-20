@@ -2,6 +2,7 @@
 #include "Level.h"
 #include "PlayerPawn.h"
 #include "CanvasWidget.h"
+#include "ScoreWidget.h"
 #include "OrderWidget.h"
 #include "HorizontalBox.h"
 #include "HourglassWidget.h"
@@ -13,8 +14,9 @@ class GameplayLevel : public Level
 	HUD* hud;
 	CanvasWidget* canvas; 
 	HorizontalBox* orders;
-	vector<OrderWidget*> _order;
-	HourglassWidget* _hourglass;
+	vector<OrderWidget*> order;
+	HourglassWidget* hourglass;
+	ScoreWidget* score;
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;

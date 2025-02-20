@@ -227,6 +227,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="RigidProp.cpp" />
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="ScoreWidget.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="Sink.cpp" />
     <ClCompile Include="SliderWidget.cpp" />
@@ -339,6 +340,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
+    <ClInclude Include="ScoreWidget.h" />
     <ClInclude Include="Sink.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />

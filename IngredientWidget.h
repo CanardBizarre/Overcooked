@@ -7,6 +7,7 @@ class IngredientWidget : public ImageWidget
 {
 	IngredientType type;
 	IngredientState state;
+	bool isCookable;
 
 public:
 	FORCEINLINE void IsRaw()
@@ -29,5 +30,8 @@ public:
 public:
 	IngredientWidget(Level* _level, const IngredientType& _type);
 	IngredientWidget(const IngredientWidget& _other);
+
+private:
+	void InitState();
 };
 

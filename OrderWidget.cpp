@@ -5,26 +5,36 @@
 OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, vector<IngredientType> _ingredient, const string& _name, const float _time)
 	:CanvasWidget(_level, _name)
 {
-	const int _ingredienSize = CAST(int,_ingredient.size());
+	const int _ingredientSize = CAST(int,_ingredient.size());
 
-	progressBar = _hud->SpawnWidget<ProgressBarWidget>(PT_LEFT, RectangleShapeData(Vector2f(_time * _ingredienSize / 1.75f, 10.0f), "/UI/progress_bar"), _time);
+	progressBar = _hud->SpawnWidget<ProgressBarWidget>(PT_LEFT, RectangleShapeData(Vector2f(100.0f, 10.0f), "/UI/progress_bar"), _time);
 	progressBar->SetZOrder(10);
-	progressBar->SetPosition({ 10.0f, 10.0f });
+	progressBar->SetPosition({ 100.0f, 100.0f });
 	progressBar->GetForeground()->SetFillColor(Color::Green);
 	AddChild(progressBar);
 
 	DishWidget* _dishWidget = _hud->SpawnWidget<DishWidget>(_dishType);
 	AddChild(_dishWidget);
-	_dishWidget->SetPosition(_dishWidget->GetPosition() + Vector2f(_time * _ingredienSize / 3.5f, 30.0f));
+	_dishWidget->SetPosition(Vector2f(48.0f,30.0f));
+	_dishWidget->SetZOrder(9);
 
 	for (IngredientType _currentType : _ingredient)
 	{
 		const int _ingredientSize = CAST(int, ingredient.size());
 		IngredientWidget* _ingredientWidget = _hud->SpawnWidget<IngredientWidget>(_currentType);
 		AddChild(_ingredientWidget);
-		_ingredientWidget->SetPosition(Vector2f(25.0f * _ingredientSize, 62.0f));
+		_ingredientWidget->SetPosition(Vector2f(15.0f + (18.0f * _ingredientSize), 54.0f));
+		_ingredientWidget->SetZOrder(9);
 		ingredient.push_back(_ingredientWidget);
 	}
+
+	slider = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(100.0f, 100.0f), "/UI/recipe", PNG));
+	AddChild(slider);
+
+	progressBar->SetZOrder(10);
+	progressBar->SetPosition({ 10.0f, 10.0f });
+	progressBar->GetForeground()->SetFillColor(Color::Green);
+	AddChild(progressBar);
 
 	chrono = new Chronometer(_time);
 	new Timer([&]() 
