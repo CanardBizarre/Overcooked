@@ -2,6 +2,7 @@
 
 #include "FileManager.h"
 #include "LevelLoader.h"
+#include "LevelManager.h"
 
 using namespace File;
 
@@ -23,4 +24,7 @@ void Level_1_1::InitLevel()
 
 	M_LEVELLOADER.InterpretString(_textsBg);
 	M_LEVELLOADER.InterpretString(_texts);
+
+	
+
 }
