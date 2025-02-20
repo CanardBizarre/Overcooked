@@ -2,7 +2,7 @@
 #include "Level.h"
 #include "TimerManager.h"
 
-OrderWidget::OrderWidget(Level* _level, HUD* _hud, vector<IngredientType> _ingredient, const float _time)
+OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, vector<IngredientType> _ingredient, const float _time)
 	:VerticalBox(_level, BoxData(Vector2f(_time * CAST(int, _ingredient.size()), 85.0f), 15.0f))
 {
 	const int _ingredienSize = CAST(int,_ingredient.size());
@@ -11,6 +11,9 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, vector<IngredientType> _ingre
 	progressBar->GetForeground()->SetFillColor(Color::Green);
 	AddWidget(progressBar);
 
+	DishWidget* _dishWidget = _hud->SpawnWidget<DishWidget>(_dishType);
+	AddWidget(_dishWidget);
+	_dishWidget->SetPosition(_dishWidget->GetPosition() + Vector2f(_time * _ingredienSize / 3.5f, 10.0f));
 
 	HorizontalBox* _ingredients = _hud->SpawnWidget<HorizontalBox>(BoxData(Vector2f(_time * 2.0f, 85.0f), 15.0f));
 	for (IngredientType _currentType : _ingredient)

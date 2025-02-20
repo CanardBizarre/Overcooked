@@ -174,6 +174,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
+    <ClCompile Include="DishWidget.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FoodSpawner.cpp" />
@@ -285,6 +286,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMPawn.h" />
     <ClInclude Include="CUSTOMPlayerController.h" />
     <ClInclude Include="DebugLevel.h" />
+    <ClInclude Include="DishWidget.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Engine.h" />
@@ -328,7 +330,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="PlayerMovement.h" />
     <ClInclude Include="ProgressBarWidget.h" />
     <ClInclude Include="Prop.h" />
-    <ClInclude Include="RecipeType.h" />
+    <ClInclude Include="DishType.h" />
     <ClInclude Include="OrderWidget.h" />
     <ClInclude Include="RenderType.h" />
     <ClInclude Include="RigidActor.h" />

@@ -301,6 +301,9 @@
     <Filter Include="Overcooked\Utilities">
       <UniqueIdentifier>{91381789-bd5a-40e8-adb2-1a1d3798cb9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Actor\Widget\Dish">
+      <UniqueIdentifier>{7dcfa37c-84a2-4cc8-ae42-ec6baa9d94ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -626,6 +629,9 @@
     </ClCompile>
     <ClCompile Include="Chronometer.cpp">
       <Filter>Overcooked\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="DishWidget.cpp">
+      <Filter>Overcooked\Actor\Widget\Dish</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -983,7 +989,7 @@
     <ClInclude Include="IngredientWidget.h">
       <Filter>Overcooked\Actor\Widget\Ingredient</Filter>
     </ClInclude>
-    <ClInclude Include="RecipeType.h">
+    <ClInclude Include="DishType.h">
       <Filter>Overcooked</Filter>
     </ClInclude>
     <ClInclude Include="IngredientType.h">
@@ -991,6 +997,9 @@
     </ClInclude>
     <ClInclude Include="Chronometer.h">
       <Filter>Overcooked\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="DishWidget.h">
+      <Filter>Overcooked\Actor\Widget\Dish</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

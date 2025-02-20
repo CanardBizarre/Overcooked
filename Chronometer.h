@@ -12,6 +12,11 @@ class Chronometer
 	string time;
 
 public:
+	FORCEINLINE bool IsEnd() const
+	{
+		return currentTime == 0;
+	}
+
 	FORCEINLINE int GetCurrentTime()
 	{
 		return currentTime;
