@@ -1,7 +1,7 @@
 #include "DebugLevel.h"
 #include "TestDummy.h"
 #include "WorkPlan.h"
-#include "IngredientSpawner.h"
+#include "FoodSpawner.h"
 DebugLevel::DebugLevel() : Level("Debug")
 {
 
@@ -11,22 +11,14 @@ void DebugLevel::InitLevel()
 {
 	Super::InitLevel();
 
-	//IngredientSpawner* spawner = new IngredientSpawner()));
+	FoodSpawner* _spawner = SpawnActor<FoodSpawner>(Vector2f(50.0f, 50.0f), 
+		Vector2f(GetWindowSize() / 2.0f) , Angle(degrees(0)), BT_FOOD_SPAWNER, "IngredientSpawner");
 
-	SpawnActor<MeshActor>(RectangleShapeData(Vector2f(125.0f, 125.0f), "default", PNG));
-	//Ingredient* appleSpawner = spawner->SpawnIngredient(IT_APPLE);
+	Ingredient* appleSpawner = _spawner->SpawnIngredient(IT_TORTILLA, IS_RAW, "Tortilla");
 
-	//appleSpawner->Draw(window);
-
-
-	SpawnActor<MeshActor>(RectangleShapeData(GetWindowSize(), "BackGround_2", JPG), "BackGround");
 	TestDummy* _dummy = SpawnActor<TestDummy>();
 	_dummy->GetMesh()->SetOriginAtMiddle();
 	_dummy->SetPosition((Vector2f(window.getSize()) / 2.0f) + Vector2f(10.0f, 0.0f));
-
-	WorkPlan* _prop = SpawnActor<WorkPlan>(Vector2f(50.0f, 50.0f),Vector2f(100.0f, 100.0f));
-	_prop->SetPosition({ 100.0f, 100.0f });
-	//_prop->SetZOrder(1)
 
 	player = SpawnActor<PlayerPawn>();
 	player->SetPosition(Vector2f(window.getSize()) / 2.0f);
