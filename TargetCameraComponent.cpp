@@ -7,7 +7,6 @@ Camera::TargetCameraComponent::TargetCameraComponent(Actor* _owner, Actor* _targ
 {
 	player = _target;
 	smoothTime = 0.15f;
-	mousePos = Vector2f();
 	refVel = Vector2f();
 	maxRange = 200;
 	minRange = -200;
@@ -17,7 +16,6 @@ Camera::TargetCameraComponent::TargetCameraComponent(Actor* _owner, const Target
 	:CameraComponent(_owner, _other)
 {
 	player = _other.player;
-	mousePos = _other.mousePos;
 	smoothTime = _other.smoothTime;
 	maxRange = _other.maxRange;
 	minRange = _other.minRange;
@@ -25,25 +23,37 @@ Camera::TargetCameraComponent::TargetCameraComponent(Actor* _owner, const Target
 
 Vector2f Camera::TargetCameraComponent::UpdateTargetPos()
 {
-	const Vector2f& _childPos = player->GetPosition();
-	Vector2f _ret = Vector2f(mousePos - _childPos) / 2.5f;
-	_ret.x = clamp(_ret.x, minRange, maxRange);
-	_ret.y = clamp(_ret.y, minRange / 2.0f, maxRange / 2.0f);
-	return _ret;
+	Vector2f _childPos = player->GetPosition();
+	_childPos.x = clamp(_childPos.x, minRange, maxRange);
+	_childPos.y = clamp(_childPos.y, minRange / 2.0f, maxRange / 2.0f);
+	return _childPos;
 }
 
 void Camera::TargetCameraComponent::UpdateCameraPosition(const float _delta)
 {
 	const Vector2f& _tempVector = SmoothDamp(owner->GetPosition(), player->GetPosition() + targetPos,
-		refVel, smoothTime, _delta);
+		refVel, smoothTime, _delta, 200.0f);
 	owner->SetPosition(_tempVector);
 }
 
 void Camera::TargetCameraComponent::ComputeCameraPos(const float _deltaTime)
 {
-	CaptureMousePos(player->GetLevel()->GetPixelTooCoords());
 	targetPos = UpdateTargetPos();
-	UpdateCameraPosition(_deltaTime);
+	if (!IsOutOfLimit())
+	{
+		UpdateCameraPosition(_deltaTime);
+	}
 }
+
+bool Camera::TargetCameraComponent::IsOutOfLimit()
+{
+	if (owner->GetPosition().x - 500 < min.x || owner->GetPosition().x + 500 > max.x 
+		|| owner->GetPosition().y - 250 < min.y || owner->GetPosition().y + 250 > max.y)
+	{
+		return true;
+	}
+	return false;
+}
+
 
 

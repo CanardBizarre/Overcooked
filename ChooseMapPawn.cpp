@@ -13,6 +13,7 @@ ChooseMapPawn::ChooseMapPawn(Level* _level) : Pawn(_level, "Car")
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
 
+	SetZOrder(2);
 	currentTriggerBox = nullptr;
 }
 

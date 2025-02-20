@@ -6,18 +6,20 @@ namespace Camera
 	class TargetCameraComponent : public CameraComponent
 	{
 		class Actor* player;
-		Vector2f mousePos;
 		Vector2f targetPos;
 		Vector2f refVel;
-		float smoothTime;
+		Vector2f min;
+		Vector2f max;
 
+		float smoothTime;
 		float maxRange;
 		float minRange;
 
 	public:
-		FORCEINLINE void CaptureMousePos(const Vector2f& _mousePos)
+		FORCEINLINE void SetMaxAndMinCameraPosition(const Vector2f& _min, const Vector2f& _max)
 		{
-			mousePos = _mousePos;
+			min = _min;
+			max = _max;
 		}
 
 	public:
@@ -30,6 +32,7 @@ namespace Camera
 
 	public:
 		void ComputeCameraPos(const float _deltaTime);
+		bool IsOutOfLimit();
 	};
 }
 

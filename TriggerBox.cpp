@@ -2,6 +2,7 @@
 
 TriggerBox::TriggerBox(Level* _level, function<void()> _callback, const RectangleShapeData& _data, const string& _name) : MeshActor(_level, _data, _name)
 {
+	mesh->SetOriginAtMiddle();
 	callback = _callback;
 	collision = CreateComponent<CollisionComponent>();
 	collision->SetInformation("TriggerBox", IS_ALL, CT_OVERLAP);
@@ -11,6 +12,7 @@ TriggerBox::TriggerBox(Level* _level, function<void()> _callback, const Rectangl
 		});
 	SetLayerType(PLAYER);
 	SetLayerType(WORLD_STATIC);
+	SetZOrder(0);
 }
 
 TriggerBox::TriggerBox(const TriggerBox& _other) : MeshActor(_other)

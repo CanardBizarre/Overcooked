@@ -21,8 +21,8 @@ int main()
 {
 	InitConfig();
 
-	//MainMenu* _level = new MainMenu();
-	ChooseMapLevel* _level = new ChooseMapLevel();
+	MainMenu* _level = new MainMenu();
+	//ChooseMapLevel* _level = new ChooseMapLevel();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();
