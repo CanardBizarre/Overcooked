@@ -173,6 +173,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
+    <ClCompile Include="Dish.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FoodSpawner.cpp" />
@@ -228,6 +229,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SquareActor.cpp" />
     <ClCompile Include="Stove.cpp" />
     <ClCompile Include="TestProp.cpp" />
+    <ClCompile Include="Utensil.cpp" />
     <ClCompile Include="WorkPlan.cpp" />
     <ClCompile Include="TestDummy.cpp" />
     <ClCompile Include="TESTGameMode.cpp" />
@@ -278,6 +280,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMPawn.h" />
     <ClInclude Include="CUSTOMPlayerController.h" />
     <ClInclude Include="DebugLevel.h" />
+    <ClInclude Include="Dish.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Engine.h" />
@@ -326,6 +329,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Slot.h" />
     <ClInclude Include="Stove.h" />
     <ClInclude Include="TestProp.h" />
+    <ClInclude Include="Utensil.h" />
     <ClInclude Include="WorkPlan.h" />
     <ClInclude Include="SubclassOf.h" />
     <ClInclude Include="TestDummy.h" />
@@ -362,6 +366,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="LevelsData\DebugLevel.txt" />
     <Text Include="LevelsData\Level_1-1.txt" />
     <Text Include="LevelsData\Level_2-1.txt" />
     <Text Include="LevelsData\Level_3-1.txt" />
