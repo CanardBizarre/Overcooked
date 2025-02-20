@@ -639,6 +639,12 @@
     <ClCompile Include="Seizable.cpp">
       <Filter>Overcooked</Filter>
     </ClCompile>
+    <ClCompile Include="HourglassWidget.cpp">
+      <Filter>Overcooked\Actor\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreWidget.cpp">
+      <Filter>Overcooked\Actor\Widget</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -1012,6 +1018,12 @@
     </ClInclude>
     <ClInclude Include="Seizable.h">
       <Filter>Overcooked</Filter>
+    </ClInclude>
+    <ClInclude Include="HourglassWidget.h">
+      <Filter>Overcooked\Actor\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreWidget.h">
+      <Filter>Overcooked\Actor\Widget</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
