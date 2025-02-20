@@ -17,3 +17,12 @@ void Sink::Tick(const float _deltaTime)
 	Super::Tick(_deltaTime);
 }
 
+bool Sink::EnterAction(Actor* _object, const bool _isDish)
+{
+	if (!_isDish) return false;
+
+	AddChild(_object, AT_KEEP_RELATIVE);
+	_object->SetPosition(GetPosition());
+
+	return true;
+}

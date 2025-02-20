@@ -9,6 +9,7 @@ public:
 	WorkPlan(const WorkPlan& _other);
 
 public:
-	virtual void DoAction(Actor* _object) override;
+	virtual bool EnterAction(Actor* _object, const bool _isDish) override;
+	virtual bool ExitAction(Actor* _object) override;
 };
 

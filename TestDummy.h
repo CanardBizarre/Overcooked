@@ -1,9 +1,9 @@
 #pragma once
-#include "MeshActor.h"
+#include "RigidActor.h"
 #include "CollisionComponent.h"
 #include "MovementComponent.h"
 
-class TestDummy :  public MeshActor
+class TestDummy :  public RigidActor
 {
 	CollisionComponent* collision;
 	MovementComponent* move; 

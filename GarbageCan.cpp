@@ -11,3 +11,11 @@ GarbageCan::GarbageCan(const GarbageCan& _other)
 {
 	SetTextureRect(IntRect(Vector2i(124 * BT_GARBAGE_CAN, 0), Vector2i(124, 124)));
 }
+
+
+bool GarbageCan::EnterAction(Actor* _object, const bool _isDish)
+{
+	_object->SetToDelete();
+
+	return true;
+}

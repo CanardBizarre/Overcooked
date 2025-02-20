@@ -187,6 +187,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="HourglassWidget.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
+    <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="IngredientWidget.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
@@ -228,6 +229,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
     <ClCompile Include="ScoreWidget.cpp" />
+    <ClCompile Include="Seizable.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="Sink.cpp" />
     <ClCompile Include="SliderWidget.cpp" />
@@ -302,6 +304,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="HourglassWidget.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
+    <ClInclude Include="Ingredient.h" />
     <ClInclude Include="IngredientType.h" />
     <ClInclude Include="IngredientWidget.h" />
     <ClInclude Include="InputManager.h" />
@@ -341,6 +344,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
     <ClInclude Include="ScoreWidget.h" />
+    <ClInclude Include="Seizable.h" />
     <ClInclude Include="Sink.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />

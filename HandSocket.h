@@ -6,8 +6,9 @@
 
 class HandSocket : public Actor
 {
-	float handOffSet; 
-	bool isNearCounter; 
+	float handOffSet;
+	bool isNearCounter;
+	bool isDish;
 	MeshComponent* mesh;
 	CollisionComponent* collision;
 	Actor* object;
@@ -73,9 +74,9 @@ public:
 private:
 	void PickUp();
 	void DropObject();
-	void ThrowObject();
 
 public:
+	void ThrowObject();
 	void InitCollision();
 	void HandAction();
 
@@ -86,4 +87,3 @@ public:
 	void Tick(const float _deltaTime);
 	virtual void Construct() override;
 };
-
