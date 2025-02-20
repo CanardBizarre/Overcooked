@@ -179,6 +179,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="HorizontalBox.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
+    <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
@@ -206,6 +207,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
+    <ClCompile Include="Sizeable.cpp" />
     <ClCompile Include="SliderWidget.cpp" />
     <ClCompile Include="Slot.cpp" />
     <ClCompile Include="SoundSample.cpp" />
@@ -267,6 +269,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="HorizontalBox.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
+    <ClInclude Include="Ingredient.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="PlayerPawn.h" />
@@ -289,6 +292,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
+    <ClInclude Include="Sizeable.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />
     <ClInclude Include="TestProp.h" />
