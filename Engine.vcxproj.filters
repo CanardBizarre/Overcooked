@@ -600,6 +600,9 @@
     <ClCompile Include="Level_5_1.cpp">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
     </ClCompile>
+    <ClCompile Include="DashEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -949,6 +952,9 @@
     </ClInclude>
     <ClInclude Include="Level_5_1.h">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="DashEffect.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

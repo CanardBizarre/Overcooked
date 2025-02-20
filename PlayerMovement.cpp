@@ -1,13 +1,16 @@
 #include "PlayerMovement.h"
 #include "TimerManager.h"
 #include "Actor.h"
+#include "LevelManager.h"
+#include "DashEffect.h"
+
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const Vector2f& _velocity, const Vector2f& _direction)
 	: MovementComponent(_owner, _velocity, _direction)
 {
 	canMove = true;
 	dodgeLaunch = false;
-	dodgeMultiplicater = 1.5f;
+	dodgeMultiplicater = 2.0f;
 }
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other)
@@ -25,6 +28,7 @@ void PlayerMovementComponent::Dash()
 {
 	if (!dodgeLaunch && !IsDirectionNull())
 	{
+		SpawnDashEffect();
 		SetLaunchState(true);
 		SetCanMoveState(false);
 		new Timer([&]()
@@ -33,7 +37,7 @@ void PlayerMovementComponent::Dash()
 				SetCanMoveState(true);
 				ResetX();
 				ResetY();
-			}, seconds(0.7f), true, false);
+			}, seconds(0.2f), true, false);
 	}
 }
 
@@ -67,3 +71,13 @@ void PlayerMovementComponent::ProcessInput(const Vector2f& _inputOffSet)
 	}
 
 }
+
+void PlayerMovementComponent::SpawnDashEffect()
+{
+	Level* _level = M_LEVEL.GetCurrentLevel();
+
+	DashEffect* _effect = _level->SpawnActor<DashEffect>(RectangleShapeData(Vector2f(100,100), "Effects/DashEffect"), "dash");
+	_effect->SetPosition(GetOwner()->GetPosition());
+	_effect->SetRotation(GetOwner()->GetRotation());
+}
+

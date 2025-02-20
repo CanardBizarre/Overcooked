@@ -56,5 +56,6 @@ public:
 	void Dash();
 	virtual void Move(const float _deltaTime);
 	virtual void ProcessInput(const Vector2f& _inputOffSet); 
+	void SpawnDashEffect();
 };
 

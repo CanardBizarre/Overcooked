@@ -11,6 +11,7 @@ class ParticleActor : public VertexActor
 {
 	float maxLifeTime;
 	vector<Particle> particles;
+	bool isEmitting;
 
 public:
 	ParticleActor(Level* _level, const u_int& _count, const float _maxLifeTime = 1.0f,
@@ -19,6 +20,16 @@ public:
 
 	virtual void Tick(const float _deltaTime) override;
 
-private:
+	void StartEmitting()
+	{
+		isEmitting = true;
+	}
+
+	void StopEmitting()
+	{
+		isEmitting = false;
+	}
+
+public:
 	void Reset(Particle& _particle);
 };

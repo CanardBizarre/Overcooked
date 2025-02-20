@@ -1,6 +1,8 @@
 #include "PlayerPawn.h"
 #include "Level.h"
 #include "InputManager.h"
+#include "LevelManager.h"
+#include "TimerManager.h"
 
 using namespace Input;
 
