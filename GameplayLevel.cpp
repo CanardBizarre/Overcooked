@@ -22,9 +22,12 @@ void GameplayLevel::InitLevel()
 	canvas->SetDebugMode(true);
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 
-	vector<IngredientType> _food = { IngredientType::IT_APPLE, IngredientType::IT_BACON };
+	vector<IngredientType> _food = { IngredientType::IT_MEAT, IngredientType::IT_TORTILLA };
 	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, DT_BEEF_BURRITO, _food, "Order_" + to_string(0));
 	canvas->AddChild(_recipe);
+
+	HourglassWidget* _hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
+	canvas->AddChild(_hourglass);
 
 	//new Timer([&]()
 	//	{

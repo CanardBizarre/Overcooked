@@ -4,6 +4,7 @@
 #include "CanvasWidget.h"
 #include "OrderWidget.h"
 #include "HorizontalBox.h"
+#include "HourglassWidget.h"
 
 using namespace Camera;
 
@@ -13,6 +14,7 @@ class GameplayLevel : public Level
 	CanvasWidget* canvas; 
 	HorizontalBox* orders;
 	vector<OrderWidget*> _order;
+	HourglassWidget* _hourglass;
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;

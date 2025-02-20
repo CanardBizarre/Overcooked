@@ -304,6 +304,9 @@
     <Filter Include="Overcooked\Actor\Widget\Dish">
       <UniqueIdentifier>{7dcfa37c-84a2-4cc8-ae42-ec6baa9d94ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Actor\Widget\Hourglass">
+      <UniqueIdentifier>{9530e057-2036-476d-8ce5-a9ba8746eae7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -632,6 +635,9 @@
     </ClCompile>
     <ClCompile Include="DishWidget.cpp">
       <Filter>Overcooked\Actor\Widget\Dish</Filter>
+    </ClCompile>
+    <ClCompile Include="HourglassWidget.cpp">
+      <Filter>Overcooked\Actor\Widget\Hourglass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1000,6 +1006,9 @@
     </ClInclude>
     <ClInclude Include="DishWidget.h">
       <Filter>Overcooked\Actor\Widget\Dish</Filter>
+    </ClInclude>
+    <ClInclude Include="HourglassWidget.h">
+      <Filter>Overcooked\Actor\Widget\Hourglass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
