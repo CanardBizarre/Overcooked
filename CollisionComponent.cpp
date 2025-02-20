@@ -12,13 +12,13 @@ CollisionComponent::CollisionComponent(Actor* _owner, const string& _channelName
 	bounds = new Bounds();
 }
 
-CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent& _other) : Component(_owner)
+CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent* _other) : Component(_owner)
 {
-	channelName = _other.channelName;
-	type = _other.type;
-	status = _other.status;
-	responses = _other.responses;
-	*bounds = *_other.bounds;
+	channelName = _other->channelName;
+	type = _other->type;
+	status = _other->status;
+	responses = _other->responses;
+	bounds = new Bounds(*_other->bounds);
 }
 
 CollisionComponent::~CollisionComponent()
@@ -62,18 +62,19 @@ void CollisionComponent::ComputeCollisions()
 
 	CollisionManager* _collisionManager = &owner->GetLevel()->GetCollisionManager();
 	const set<CollisionComponent*>& _allComponent = _collisionManager->GetAllCollisionComponents();
-	UpdateBounds();
 
 	for (CollisionComponent* _otherComponent : _allComponent)
 	{
+		UpdateBounds();
 		_otherComponent->UpdateBounds();
 		if (_otherComponent == this) continue;
 		if (_collisionManager->ContainsPair(owner, _otherComponent->owner)) continue;
 
 		const string& _otherName = _otherComponent->GetChannelName();
 		if (!responses.contains(_otherName)) continue;
-		CollisionType _ownerResponse;
+
 		const CollisionType& _otherResponse = responses.at(_otherName);
+		CollisionType _ownerResponse;
 		if (_otherComponent->responses.contains(channelName))
 		{
 			_ownerResponse = _otherComponent->responses.at(channelName);
@@ -93,6 +94,7 @@ void CollisionComponent::ComputeCollisions()
 			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
+
 		else if (othersStep.contains(_otherComponent->owner))
 		{
 			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
@@ -106,7 +108,7 @@ void CollisionComponent::ComputeCollisions()
 
 CollisionStep CollisionComponent::ComputeStep(Actor* _other, const CollisionStep& _step)
 {
-	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER ||_step != CS_EXIT && othersStep[_other] == CS_UPDATE)
+	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER || _step != CS_EXIT && othersStep[_other] == CS_UPDATE)
 	{
 		othersStep[_other] = CS_UPDATE;
 	}

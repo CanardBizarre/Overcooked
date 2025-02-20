@@ -8,6 +8,7 @@ PlayerPawn::PlayerPawn(Level* _level)
 	: Pawn(_level, "Keyboard")
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(50.0f, 50.0f), "/Characters/Clothes/spritesheet", PNG, false, IntRect(Vector2i(), Vector2i(124,124))));
+	mesh->SetOriginAtMiddle();
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
@@ -18,7 +19,7 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
+	collision = CreateComponent<CollisionComponent>(_other.collision);
 
 }
 
@@ -31,8 +32,6 @@ void PlayerPawn::InitCollision()
 		{ "RigidProp", CT_BLOCK },
 	});
 	SetLayerType(PLAYER);
-	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
-	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
 }
 
 void PlayerPawn::Construct()

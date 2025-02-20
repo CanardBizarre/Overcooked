@@ -11,7 +11,7 @@ TestDummy::TestDummy(Level* _level)
 TestDummy::TestDummy(const TestDummy& _other)
 	:MeshActor(_other)
 {
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
+	collision = CreateComponent<CollisionComponent>(_other.collision);
 	move = CreateComponent<MovementComponent>(* _other.move);
 }
 

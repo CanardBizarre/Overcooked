@@ -7,6 +7,7 @@ using namespace Input;
 ChooseMapPawn::ChooseMapPawn(Level* _level) : Pawn(_level, "Car")
 {
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(100.0f, 50.0f), "Car", PNG));
+	mesh->SetOriginAtMiddle();
 	movement = CreateComponent<CarMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
@@ -19,7 +20,7 @@ ChooseMapPawn::ChooseMapPawn(const ChooseMapPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<CarMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
+	collision = CreateComponent<CollisionComponent>(_other.collision);
 
 	currentTriggerBox = _other.currentTriggerBox;
 }

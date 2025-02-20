@@ -238,6 +238,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="SquareActor.cpp" />
     <ClCompile Include="Stove.cpp" />
     <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TargetCamera.cpp" />
+    <ClCompile Include="TargetCameraComponent.cpp" />
     <ClCompile Include="TestProp.cpp" />
     <ClCompile Include="TriggerBox.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -349,6 +351,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Slot.h" />
     <ClInclude Include="Stove.h" />
     <ClInclude Include="Table.h" />
+    <ClInclude Include="TargetCamera.h" />
+    <ClInclude Include="TargetCameraComponent.h" />
     <ClInclude Include="TestProp.h" />
     <ClInclude Include="TriggerBox.h" />
     <ClInclude Include="Wall.h" />

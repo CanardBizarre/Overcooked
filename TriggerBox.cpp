@@ -16,5 +16,5 @@ TriggerBox::TriggerBox(Level* _level, function<void()> _callback, const Rectangl
 TriggerBox::TriggerBox(const TriggerBox& _other) : MeshActor(_other)
 {
 	callback = _other.callback;
-	collision = CreateComponent<CollisionComponent>(*_other.collision);
+	collision = CreateComponent<CollisionComponent>(_other.collision);
 }
