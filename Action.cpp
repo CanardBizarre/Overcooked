@@ -1,4 +1,5 @@
 #include "Action.h"
+#include "ActionMap.h"
 #include "InputManager.h"
 
 Input::Action::Action(const string& _name, const ActionData& _data, const function<void(const Vector2f& _parameter)>& _callback)
@@ -99,6 +100,12 @@ Input::TypeIndex Input::Action::ComputeTypeIndexByActionType(const ActionType& _
 	return _actionsTypes[_actionType]();
 }
 
+Input::InputManager& Input::Action::GetInputManager()
+{
+	if (!actionMap) throw CustomException("Invalid Input Manager Initialisation");
+	return actionMap->GetInputManager();
+}
+
 void Input::Action::TryToExecute(const EventInfo& _event)
 {
 	_event->visit([&](auto&& _element)
@@ -109,18 +116,16 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 			{
 #pragma region Keyboard
 
-
+				using Iterator = multimap<TypeIndex, ActionData>::iterator;
 				if (_event->is<PressedKey>())
 				{
-					const bool _isKeyHolding = /*isKeyHolding*/ M_INPUT.GetIsKeyHolding();
-					using Iterator = multimap<TypeIndex, ActionData>::iterator;
 					const pair <Iterator, Iterator>& _actionsType = allData.equal_range(_elementType);
 					for (Iterator _it = _actionsType.first; _it != _actionsType.second; ++_it)
 					{
-						if (Keyboard::isKeyPressed(CAST(Key, _it->second.key)))
+						const Key& _key = CAST(Key, _it->second.key);
+						if (Keyboard::isKeyPressed(_key))
 						{
-							if (_it->second.type == KeyHold ||
-								(!_isKeyHolding && _it->second.type == KeyPressed))
+							if (!GetInputManager().GetIsKeyHolding(_key))
 							{
 								(*callback.digitalCallback.get())();
 								break;
@@ -129,7 +134,7 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 					}
 				}
 
-				if (const ReleasedKey* _key = _event->getIf<ReleasedKey>())
+				else if (const ReleasedKey* _key = _event->getIf<ReleasedKey>())
 				{
 					if (IsInAllData(_elementType, CAST(const int, _key->code)))
 					{
@@ -145,15 +150,14 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 
 				else if (_event->is<PressedMouseButton>())
 				{
-					const bool _isButtonHolding = M_INPUT.GetIsButtonHolding();
-					using Iterator = multimap<TypeIndex, ActionData>::iterator;
 					const pair <Iterator, Iterator>& _actionsType = allData.equal_range(_elementType);
 					for (Iterator _it = _actionsType.first; _it != _actionsType.second; ++_it)
 					{
-						if (Mouse::isButtonPressed(CAST(Mouse::Button, _it->second.key)))
+						const Button& _mouseButton = CAST(Button, _it->second.key);
+
+						if (Mouse::isButtonPressed(_mouseButton))
 						{
-							if ( _it->second.type == MouseButtonHold ||
-								(!_isButtonHolding && _it->second.type == MouseButtonPressed))
+							if (!GetInputManager().GetIsMouseButtonHolding(_mouseButton))
 							{
 								(*callback.digitalCallback.get())();
 								break;
@@ -224,19 +228,17 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 				{
 					if (HasJoystickIDInAllData(_elementType, _key->joystickId))
 					{
-						const bool _isJoystickButtonHolding = M_INPUT.GetIsJoystickButtonHolding();
-						using Iterator = multimap<TypeIndex, ActionData>::iterator;
 						const pair <Iterator, Iterator>& _actionsType = allData.equal_range(_elementType);
 						for (Iterator _it = _actionsType.first; _it != _actionsType.second; ++_it)
 						{
-							if (Joystick::isButtonPressed(_key->joystickId, _it->second.key))
+							const int _joystickID = _key->joystickId;
+							const int _joystickButton = _it->second.key;
+							if (Joystick::isButtonPressed(_joystickID, _joystickButton))
 							{
-								if (_it->second.type == JoystickButtonHold ||
-									(!_isJoystickButtonHolding
-										&& _it->second.type == JoystickButtonPressed))
+								if (!GetInputManager().GetIsJoystickButtonHolding(_joystickID, _joystickButton))
 								{
 									(*callback.digitalCallback.get())();
-									break;
+									break; 
 								}
 							}
 						}
@@ -244,7 +246,7 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 				}
 				else if (const ControllerJoystickReleased* _key = _event->getIf<ControllerJoystickReleased>())
 				{
-					if (HasJoystickIDInAllData(_elementType, _key->joystickId) && 
+					if (HasJoystickIDInAllData(_elementType, _key->joystickId) &&
 						IsInAllData(_elementType, _key->button))
 					{
 						(*callback.digitalCallback.get())();
@@ -290,6 +292,33 @@ void Input::Action::TryToExecute(const EventInfo& _event)
 				}
 #pragma endregion
 
+				const pair <Iterator, Iterator>& _keyActions = allData.equal_range(TYPE_ID(PressedKey));
+				for (Iterator _it = _keyActions.first; _it != _keyActions.second; ++_it)
+				{
+					if (_it->second.type == KeyHold && GetInputManager().GetIsKeyHolding(CAST(Key, _it->second.key)))
+					{
+						(*callback.digitalCallback.get())();
+						break;
+					}
+				}
+				const pair <Iterator, Iterator>& _mouseButtonActions = allData.equal_range(TYPE_ID(PressedMouseButton));
+				for (Iterator _it = _mouseButtonActions.first; _it != _mouseButtonActions.second; ++_it)
+				{
+					if (_it->second.type == MouseButtonHold && GetInputManager().GetIsMouseButtonHolding(CAST(Button, _it->second.key)))
+					{
+						(*callback.digitalCallback.get())();
+						break;
+					}
+				}
+				const pair <Iterator, Iterator>& _joystickButtonActions = allData.equal_range(TYPE_ID(ControllerJoystickPressed));
+				for (Iterator _it = _joystickButtonActions.first; _it != _joystickButtonActions.second; ++_it)
+				{
+					if (_it->second.type == JoystickButtonHold && GetInputManager().GetIsJoystickButtonHolding(_it->second.joystickId, _it->second.key))
+					{
+						(*callback.digitalCallback.get())();
+						break;
+					}
+				}
 			}
 		});
 }

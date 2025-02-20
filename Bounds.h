@@ -1,8 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
 
+
 class Actor;
-class MeshActor;
 
 struct BoundsData
 {
@@ -93,7 +93,7 @@ public:
 	}
 
 public:
-	Bounds();
+	Bounds() = default;
 	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
 

@@ -23,7 +23,8 @@ int main()
 	MainMenu* _level = new MainMenu();
 	M_LEVEL.SetLevel(_level);
 
-	Engine::GetInstance().Start();
+	Engine _engine;
+	_engine.Start();
 
 	return EXIT_SUCCESS;
 }

@@ -14,7 +14,7 @@ class Level
 	bool isLoaded;
 	string name;
 	ActorManager actorManager;
-	CameraManager cameraManager;
+	Camera::CameraManager cameraManager;
 	CollisionManager collisionManager;
 	AudioManager audioManager;
 
@@ -48,7 +48,7 @@ public:
 	{
 		return actorManager;
 	}
-	FORCEINLINE CameraManager& GetCameraManager()
+	FORCEINLINE Camera::CameraManager& GetCameraManager()
 	{
 		return cameraManager;
 	}
@@ -129,16 +129,18 @@ public:
 		const Time& _time = Time(), const Time& _duration = Time())
 	{
 		const string& _finalPath = _path + audioManager.GetExtension(_type);
-		Sample* _sample = audioManager.GetAvailable(_finalPath);
+		Type* _sample = audioManager.GetAvailable(_finalPath);
 
 		if (_sample)
 		{
-			audioManager.PlaySample(_sample);
+			audioManager.PlaySample(_sample, _time, _duration);
 			return _sample;
 		}
 
 		_sample = SpawnActor<Type>(_finalPath);
 		audioManager.RegisterSample(_sample);
+		_sample->Stop();
+		audioManager.PlaySample(_sample, _time, _duration);
 		return _sample;
 	}
 
@@ -162,12 +164,14 @@ public:
 	Level(const string& _name);
 	virtual ~Level();
 
-public:
-	void Update(const float _deltaTime);
+private:
 	void UpdateWindow();
-	virtual void Load();
-	virtual void Unload();
 
 protected:
 	virtual void InitLevel();
+
+public:
+	void Update(const float _deltaTime);
+	virtual void Load();
+	virtual void Unload();
 };
