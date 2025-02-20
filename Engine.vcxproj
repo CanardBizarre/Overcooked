@@ -180,6 +180,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
     <ClCompile Include="Ingredient.cpp" />
+    <ClCompile Include="IngredientSpawner.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
@@ -270,6 +271,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
     <ClInclude Include="Ingredient.h" />
+    <ClInclude Include="IngredientSpawner.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="PlayerPawn.h" />

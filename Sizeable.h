@@ -3,5 +3,7 @@
 
 class Sizeable : public RigidProp
 {
+public: 
+	Sizeable() = default;
 };
 

@@ -1,6 +1,7 @@
 #include "DebugLevel.h"
 #include "TestDummy.h"
 #include "WorkPlan.h"
+#include "IngredientSpawner.h"
 DebugLevel::DebugLevel() : Level("Debug")
 {
 
@@ -9,6 +10,15 @@ DebugLevel::DebugLevel() : Level("Debug")
 void DebugLevel::InitLevel()
 {
 	Super::InitLevel();
+
+	//IngredientSpawner* spawner = new IngredientSpawner()));
+
+	SpawnActor<MeshActor>(RectangleShapeData(Vector2f(125.0f, 125.0f), "default", PNG));
+	//Ingredient* appleSpawner = spawner->SpawnIngredient(IT_APPLE);
+
+	//appleSpawner->Draw(window);
+
+
 	SpawnActor<MeshActor>(RectangleShapeData(GetWindowSize(), "BackGround_2", JPG), "BackGround");
 	TestDummy* _dummy = SpawnActor<TestDummy>();
 	_dummy->GetMesh()->SetOriginAtMiddle();
