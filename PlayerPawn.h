@@ -3,6 +3,7 @@
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
+#include "Particle.h"
 
 #include "HandSocket.h"
 
@@ -68,6 +69,6 @@ public:
 
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data);
-	virtual void CollisionExit(const CollisionData& _data){}
+	virtual void CollisionExit(const CollisionData& _data);
 };
 

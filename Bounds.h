@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 
 class Actor;
+class MeshActor;
 
 struct BoundsData
 {
@@ -55,15 +56,7 @@ public:
 
 	FORCEINLINE void SetPosition(const Vector2f& _position)
 	{
-		if (RectangleBoundsData* _data = Cast<RectangleBoundsData>(data))
-		{
-			_data->position = _position;
-			return;
-		}
-		if (CircleBoundsData* _data = Cast<CircleBoundsData>(data))
-		{
-			_data->position = _position;
-		}
+		data->position = _position;
 	}
 	FORCEINLINE void SetSize(const Vector2f& _size)
 	{
@@ -100,7 +93,7 @@ public:
 	}
 
 public:
-	Bounds() = default;
+	Bounds();
 	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
 
