@@ -1,14 +1,14 @@
 #include "DebugLevel.h"
 #include "WorkPlan.h"
-
 #include "TestDummy.h"
 #include "LevelLoader.h"
 #include "FileManager.h"
+#include "FoodSpawner.h"
+
 using namespace File;
 
-DebugLevel::DebugLevel() : GameplayLevel("Debug")
+DebugLevel::DebugLevel() : GameplayLevel("DebugLevel")
 {
-	player = nullptr;
 }
 
 void DebugLevel::InitLevel()
@@ -21,4 +21,11 @@ void DebugLevel::InitLevel()
 	const vector<string>& _texts = M_FILE.ReadFile(_path.c_str());
 
 	M_LEVELLOADER.InterpretString(_texts);
+
+	for (FoodSpawner* _foodSpawner : foodSpawners)
+	{
+		_foodSpawner->SetType(IT_MUSHROOM);
+	}
+
+	//Ingredient* appleSpawner = _spawner->SpawnIngredient(IT_TORTILLA, "Tortilla");
 }

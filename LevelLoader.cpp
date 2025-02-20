@@ -9,7 +9,7 @@
 #include "Sink.h"
 #include "Stove.h"
 #include "PlateSpawner.h"
-#include "FoodSpawner.h"
+#include "GameplayLevel.h"
 #include "Conveyor.h"
 
 LevelLoader::LevelLoader()
@@ -63,8 +63,18 @@ void LevelLoader::InterpretString(const vector<string>& _info)
 	}
 }
 
+void LevelLoader::AddFoodSpawner(Level* _level, FoodSpawner* _foodSpawner)
+{
+	if (GameplayLevel* _gameplayLevel = Cast<GameplayLevel>(_level))
+	{
+		_gameplayLevel->AddFoodSpawner(_foodSpawner);
+	}
+}
+
 void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const BlockType& _type)
 {
+	FoodSpawner* _foodSpawner = nullptr;
+
 	switch (_type)
 	{
 	case BT_WORK_PLAN:
@@ -80,7 +90,8 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 		_level->SpawnActor<Stove>(_size, _position, _angle);
 		break;
 	case BT_FOOD_SPAWNER:
-		_level->SpawnActor<FoodSpawner>(_size, _position, _angle);
+		_foodSpawner = _level->SpawnActor<FoodSpawner>(_size, _position, _angle);
+		AddFoodSpawner(_level, _foodSpawner);
 		break;
 	case BT_PLATE_SPAWNER:
 		_level->SpawnActor<PlateSpawner>(_size, _position, _angle);
@@ -97,20 +108,6 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 		return;
 	}
 
-	/*const vector<BlockType>& _verbosityColors =
-	{
-		BT_WORK_PLAN,
-		BT_GARBAGE_CAN,
-		BT_CHOPPING_STATION,
-		BT_STOVE,
-		BT_FOOD_SPAWNER,
-		BT_PLATE_SPAWNER,
-		BT_CONVEYOR,
-		BT_SINK,
-		BT_COUNT
-	};
-
-	_level->SpawnActor<_verbosityColors[_type]>(_size, _position, _angle);*/
 }
 
 BlockType LevelLoader::GetBlockTypeByText(const string& _text) const
