@@ -6,6 +6,10 @@
 
 #include "DebugLevel.h"
 #include "Level_1_1.h"
+#include "Level_2_1.h"
+#include "Level_3_1.h"
+#include "Level_4_1.h"
+#include "Level_5_1.h"
 
 #include "LevelManager.h"
 
@@ -250,7 +254,7 @@ void MainMenu::ChooseScreen(const int _index)
 	if ((*currentScreen).first == ST_FIRST && _index < 0) return;
 	if ((*currentScreen).first == ST_CAMPAIGN)
 	{
-		Level_1_1* _mainMenu = new Level_1_1();
+		Level_2_1* _mainMenu = new Level_2_1();
 		M_LEVEL.SetLevel(_mainMenu);
 		return;
 	}

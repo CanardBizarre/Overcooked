@@ -20,7 +20,7 @@ public:
 
 public:
 	DebugLevel();
-
+	virtual ~DebugLevel(){}
 protected:
 	virtual void InitLevel() override;
 };

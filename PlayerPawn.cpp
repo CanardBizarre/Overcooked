@@ -30,7 +30,7 @@ void PlayerPawn::InitCollision()
 		{ "KitchenBlock", CT_BLOCK },
 		{ "RigidProp", CT_BLOCK },
 	});
-	SetLayerType(WORLD_DYNAMIC);
+	SetLayerType(PLAYER);
 	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
 	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
 }
