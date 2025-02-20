@@ -56,6 +56,12 @@ void GameplayLevel::InitLevel()
 	const vector<IngredientType>& _ingredient3 = { IngredientType::IT_APPLE, IngredientType::IT_BACON, IngredientType::IT_APPLE, IngredientType::IT_APPLE };
 	MakeOrderWidget(DT_BEEF_BURRITO, _ingredient3);
 		
+	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
+	canvas->AddChild(hourglass);
+
+	score = hud->SpawnWidget<ScoreWidget>(hud, "Score");
+	canvas->AddChild(score);
+
 
 
 	GetGameMode()->GetHUD()->AddToViewport(canvas);

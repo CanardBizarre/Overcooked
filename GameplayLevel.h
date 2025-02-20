@@ -2,8 +2,10 @@
 #include "Level.h"
 #include "PlayerPawn.h"
 #include "CanvasWidget.h"
+#include "ScoreWidget.h"
 #include "OrderWidget.h"
 #include "HorizontalBox.h"
+#include "HourglassWidget.h"
 
 using namespace Camera;
 
@@ -12,6 +14,9 @@ class GameplayLevel : public Level
 	HUD* hud;
 	CanvasWidget* canvas; 
 	unordered_set<OrderWidget*> orders;
+	vector<OrderWidget*> order;
+	HourglassWidget* hourglass;
+	ScoreWidget* score;
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;

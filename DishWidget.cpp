@@ -1,6 +1,6 @@
 #include "DishWidget.h"
 DishWidget::DishWidget(Level* _level, const DishType& _type)
-	:ImageWidget(_level, RectangleShapeData(Vector2f(40.0f, 40.0f), "/Dish/spritesheet", PNG))
+	:ImageWidget(_level, RectangleShapeData(Vector2f(40.0f, 40.0f), "/Recipes/spritesheet", PNG))
 {
 	SetRect(IntRect(Vector2i(124 * _type, 0), Vector2i(124, 124)));
 	type = _type;

@@ -71,7 +71,7 @@ public:
 	}
 
 public:	
-	OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, vector<IngredientType> _ingredient, const string& _name = "Orders", const float _time = 10.0f);
+	OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, vector<IngredientType> _ingredient, const string& _name = "Orders", const float _time = 25.0f);
 	OrderWidget(const OrderWidget& _other);
 	~OrderWidget();
 

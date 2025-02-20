@@ -39,6 +39,10 @@ namespace UI
 		MeshComponent* image;
 
 	public:
+		FORCEINLINE MeshComponent* GetImage()
+		{
+			return image;
+		}
 		FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
 		{
 			UpdatePosition(_position);
