@@ -59,10 +59,9 @@ void HandSocket::PickUp()
 
 void HandSocket::DropObject()
 {
-	if (!object) return;
+	if (!nearestBlock->EnterAction(GetCarriedObject(), isDish)) return;
 
-	if (!nearestBlock->EnterAction(object, isDish)) return;
-
+	object = nullptr;
 	RemoveObject();
 	isNearCounter = false;
 }
@@ -159,7 +158,7 @@ void HandSocket::Tick(const float _deltaTime)
 	const Vector2f& _position = _parent->GetPosition();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 30.0f, 40.0f });
+	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 50.0f, 70.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
 }
 

@@ -15,7 +15,7 @@ GarbageCan::GarbageCan(const GarbageCan& _other)
 
 bool GarbageCan::EnterAction(Actor* _object, const bool _isDish)
 {
-	//_object->SetToDelete();
+	_object->SetToDelete();
 
 	return true;
 }
