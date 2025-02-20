@@ -26,8 +26,6 @@ void IngredientWidget::InitState()
 	{isCookable = true;}
 }
 
-}
-
 void IngredientWidget::Reuse(const IngredientType& _type)
 {
 	SetRect(IntRect(Vector2i(124 * _type, 0), Vector2i(124, 124)));
