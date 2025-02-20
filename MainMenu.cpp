@@ -254,7 +254,7 @@ void MainMenu::ChooseScreen(const int _index)
 	if ((*currentScreen).first == ST_FIRST && _index < 0) return;
 	if ((*currentScreen).first == ST_CAMPAIGN)
 	{
-		Level_2_1* _mainMenu = new Level_2_1();
+		Level_5_1* _mainMenu = new Level_5_1();
 		M_LEVEL.SetLevel(_mainMenu);
 		return;
 	}

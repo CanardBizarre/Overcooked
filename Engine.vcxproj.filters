@@ -1008,6 +1008,9 @@
     <Text Include="LevelsData\BackGround_3-1.txt">
       <Filter>Overcooked</Filter>
     </Text>
+    <Text Include="LevelsData\BackGround_4-1.txt">
+      <Filter>Overcooked</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
