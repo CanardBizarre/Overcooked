@@ -1,13 +1,13 @@
 #include "RigidBodyComponent.h"
 #include "Actor.h"
-#include "DebugLevel.h"
+#include "GameplayLevel.h"
 
 RigidBodyComponent::RigidBodyComponent(Actor* _owner) : Component(_owner)
 {
 	mass = 20.0f;
+	GameplayLevel* _level = Cast<GameplayLevel>(_owner->GetLevel());
 	high = 100.0f;
 	isFall = false;
-	DebugLevel* _level = Cast<DebugLevel>(owner->GetLevel());
 	gravity = _level->GetGravity();
 	roughness = 0.5f;
 	elasticity = 0.5f;
@@ -21,7 +21,7 @@ RigidBodyComponent::RigidBodyComponent(Actor* _owner, const RigidBodyComponent& 
 	mass = _other.mass;
 	high = _other.high;
 	isFall = _other.isFall;
-	DebugLevel* _level = Cast<DebugLevel>(owner->GetLevel());
+	GameplayLevel* _level = Cast<GameplayLevel>(owner->GetLevel());
 	gravity = _level->GetGravity();
 	roughness = _other.roughness;
 	elasticity = _other.elasticity;

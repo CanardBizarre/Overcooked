@@ -7,13 +7,13 @@ using namespace Input;
 PlayerPawn::PlayerPawn(Level* _level) 
 	: Pawn(_level, "Keyboard")
 {
-	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(20.0f, 20.0f), "Ball_2", PNG));
+
+	mesh = CreateComponent<MeshComponent>(CircleShapeData(25.0f, "/Characters/Clothes/spritesheet", IntRect(Vector2i(), Vector2i(124, 124))));
+	//mesh = CreateComponent<MeshComponent>(RectangleShapeData({ 50.0f,50.0f }, "/Characters/Clothes/spritesheeta", PNG, false ,IntRect(Vector2i(), Vector2i(124, 124))));
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
-	collision->SetInformation("PlayerPawn", IS_ALL, CT_BLOCK);
-	collision->AddResponses({ { "RigidProp", CT_BLOCK } });
-	SetLayerType(WORLD_DYNAMIC);
 	movement->SetVelocity({ 200.0f,200.0f });
+	InitCollision();
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -23,9 +23,22 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
 }
 
+void PlayerPawn::InitCollision()
+{
+	collision->SetInformation("Player", IS_ALL, CT_BLOCK);
+	collision->AddResponses(
+	{ 
+		//TODO CHANGE BLOCK 
+		{ "KitchenBlock", CT_OVERLAP },
+		{ "RigidProp", CT_BLOCK },
+	});
+	SetLayerType(WORLD_DYNAMIC);
+}
+
 void PlayerPawn::Construct()
 {
 	Super::Construct();
+	SetZOrder(2);
 	mesh->SetOriginAtMiddle();
 	GetHand();
 }
@@ -77,7 +90,7 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 			}),
 			new Action("TakeObject", ActionData(KeyPressed, E), [&]()
 			{
-				hand->Action();
+				hand->HandAction();
 			}),
 		});
 	
@@ -113,15 +126,46 @@ Actor* PlayerPawn::GetHand()
 
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
 {
-	if (_data.other->GetLayerType() == WORLD_STATIC)
+	/*if (_data.other->GetLayerType() == PROP)
 	{
-		if (_data.channelName == "RigidProp")
+		if (_data.channelName == "KitchenBlock")
 		{
 			if (_data.response == CT_BLOCK)
 			{
-				//movement->SetDirection(-movement->GetDiretion());
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
 			}
 		}
-	}
+	}*/
+}
+
+void PlayerPawn::CollisionUpdate(const CollisionData& _data)
+{
+	/*if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "KitchenBlock")
+		{
+			if (_data.response == CT_BLOCK)
+			{
+				LOG(Warning, "Collision");
+				Move(movement->GetDirection() * -1.5f);
+			}
+		}
+	}*/
+}
+
+void PlayerPawn::CollisionExit(const CollisionData& _data)
+{
+	//if (_data.other->GetLayerType() == PROP)
+	//{
+	//	if (_data.channelName == "KitchenBlock")
+	//	{
+	//		if (_data.response == CT_BLOCK)
+	//		{
+	//			LOG(Error, "Exit");
+	//			//Move(movement->GetDirection() * -1.5f);
+	//		}
+	//	}
+	//}
 }
 

@@ -62,10 +62,10 @@ void CollisionComponent::ComputeCollisions()
 
 	CollisionManager* _collisionManager = &owner->GetLevel()->GetCollisionManager();
 	const set<CollisionComponent*>& _allComponent = _collisionManager->GetAllCollisionComponents();
+	UpdateBounds();
 
 	for (CollisionComponent* _otherComponent : _allComponent)
 	{
-		UpdateBounds();
 		_otherComponent->UpdateBounds();
 		if (_otherComponent == this) continue;
 		if (_collisionManager->ContainsPair(owner, _otherComponent->owner)) continue;
@@ -106,7 +106,7 @@ void CollisionComponent::ComputeCollisions()
 
 CollisionStep CollisionComponent::ComputeStep(Actor* _other, const CollisionStep& _step)
 {
-	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER || _step != CS_EXIT && othersStep[_other] == CS_UPDATE)
+	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER ||_step != CS_EXIT && othersStep[_other] == CS_UPDATE)
 	{
 		othersStep[_other] = CS_UPDATE;
 	}

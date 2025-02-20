@@ -3,18 +3,22 @@
 #include "RigidBodyComponent.h"
 #include "MovementComponent.h"
 
+#include "TestDummy.h"
+#include "Actor.h"
 using namespace Layer;
 
 
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
-	:Actor(_level, "Hand", 
-		TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
+	:Actor(_level, "Hand", TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
 {
 	handOffSet = _handOffSet;
 	collision = CreateComponent<CollisionComponent>();
-	
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(40.0f, 40.0f), 
+		"Characters/Hands/spritesheet_opened", PNG, false, IntRect(Vector2i(),Vector2i(124,124))));
+	isNearCounter = false;
 	object = nullptr;
+
 	InitCollision();
 }
 
@@ -22,7 +26,9 @@ HandSocket::HandSocket(Level* _level, HandSocket* _other)
 	:Actor(_level)
 {
 	handOffSet = _other->handOffSet;
+	isNearCounter = _other->isNearCounter;
 	collision = CreateComponent<CollisionComponent>(*_other->collision);
+	mesh = CreateComponent<MeshComponent>(*_other->mesh);
 	object = _other->object;
 }
 
@@ -33,6 +39,8 @@ void HandSocket::InitCollision()
 	vector<pair<string, CollisionType>> _reponses
 	{
 		{"Test", CT_OVERLAP},
+		{"Counter", CT_OVERLAP},
+		{"KitchenBlock", CT_OVERLAP},
 	};
 	collision->AddResponses(_reponses);
 	SetLayerType(PLAYER);
@@ -47,6 +55,8 @@ void HandSocket::PickUp()
 		RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
 		_rigidbody->SetIsFall(false);
 		_rigidbody->SetHigh(100.0f);
+
+		if (isNearCounter) nearestBlock->RemoveChild(object);
 	}
 }
 
@@ -60,17 +70,24 @@ void HandSocket::DropObject()
 	_movement->SetDirection(_forward);
 	_rigidbody->SetVelocity({ 200.0f, 200.0f });
 	_rigidbody->SetIsFall(true);
+	if (!object) return;
+
+	nearestBlock->DoAction(object);
 	RemoveObject();
+	isNearCounter = false;
 }
 
 void HandSocket::ThrowObject()
 {
-
-	RemoveObject();
+	Actor* _current = RemoveObject();
+	if (TestDummy* _dummy= Cast<TestDummy>(_current))
+	{
+		_dummy->Throw(GetParent()->GetForwardVector());
+	}
 	// TODO Jeter l'objet
 }
 
-void HandSocket::Action()
+void HandSocket::HandAction()
 {
 	if (IsCarryingAnObject())
 	{
@@ -85,22 +102,35 @@ void HandSocket::Action()
 
 void HandSocket::CollisionEnter(const CollisionData& _data)
 {
+	/*if (_data.other->GetLayerType() == PROP)
+	{
+		if (_data.channelName == "Test")
+		{
+			object = _data.other;
+		}
+		if (_data.channelName == "KitchenBlock")
+		{
+			nearestBlock = Cast<KitchenBlock>(_data.other);
+			isNearCounter = true;
+		}
+
+	}*/
+}
+
+void HandSocket::CollisionUpdate(const CollisionData& _data)
+{
 	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "Test")
 		{
 			object = _data.other;
 		}
-		if (_data.channelName == "Counter")
+		if (_data.channelName == "KitchenBlock")
 		{
+			nearestBlock = Cast<KitchenBlock>(_data.other);
 			isNearCounter = true;
 		}
 	}
-}
-
-void HandSocket::CollisionUpdate(const CollisionData& _data)
-{
-
 }
 
 void HandSocket::CollisionExit(const CollisionData& _data)
@@ -112,12 +142,11 @@ void HandSocket::CollisionExit(const CollisionData& _data)
 		{
 			object = nullptr;
 		}
-		if (_data.channelName == "Counter")
+		if (_data.channelName == "KitchenBlock")
 		{
 			isNearCounter = false;
 		}
 	}
-	
 }
 
 void HandSocket::Tick(const float _deltaTime)
@@ -130,4 +159,12 @@ void HandSocket::Tick(const float _deltaTime)
 
 	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 20.0f, 20.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
+}
+
+void HandSocket::Construct()
+{
+	Super::Construct();
+
+	SetZOrder(3);
+	mesh->SetOriginAtMiddle();
 }

@@ -1,9 +1,9 @@
 #pragma once
-#include "Level.h"
+#include "GameplayLevel.h"
 #include "PlayerPawn.h"
 using namespace Camera;
 
-class DebugLevel :  public Level
+class DebugLevel : public GameplayLevel
 {
 	PlayerPawn* player;
 	float gravity;

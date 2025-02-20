@@ -3,6 +3,7 @@
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
+#include "Particle.h"
 
 #include "HandSocket.h"
 
@@ -60,13 +61,14 @@ private:
 	Actor* GetHand();
 
 public:
+	void InitCollision();
 	virtual void Construct() override;
 	virtual void SetupInputController(Input::InputManager& _inputManager) override;
 	void ProcessInput(const Vector2f& _vectorDirection);
 	void ComputeRotation();
 
 	virtual void CollisionEnter(const CollisionData& _data);
-	virtual void CollisionUpdate(const CollisionData& _data) {}
-	virtual void CollisionExit(const CollisionData& _data){}
+	virtual void CollisionUpdate(const CollisionData& _data);
+	virtual void CollisionExit(const CollisionData& _data);
 };
 

@@ -23,6 +23,11 @@ void TestDummy::InitCollision()
 	SetLayerType(PROP);
 }
 
+void TestDummy::Throw(const Vector2f& _direction)
+{
+	move->SetDirection(_direction);
+}
+
 void TestDummy::CollisionEnter(const CollisionData& _data)
 {
 }

@@ -30,6 +30,9 @@ public:
 	RigidActor(Level* _level, const RectangleShapeData& _data, const string& _name = "RigidActor");
 	RigidActor(const RigidActor& _other);
 
-	virtual void Tick(const float _deltaTime) override;
+	virtual void Tick(const float _deltaTime) override
+	{
+		Super::Tick(_deltaTime);
+	}
 };
 

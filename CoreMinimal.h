@@ -11,3 +11,4 @@
 #define M_LEVEL LevelManager::GetInstance()
 #define M_COLLISION CollisionManager::GetInstance()
 #define M_FILE FileManager::GetInstance()
+#define M_LEVELLOADER LevelLoader::GetInstance()

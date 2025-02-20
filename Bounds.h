@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 
 class Actor;
+class MeshActor;
 
 struct BoundsData
 {

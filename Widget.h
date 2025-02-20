@@ -31,6 +31,10 @@ namespace UI
 		{
 			return type;
 		}
+		FORCEINLINE VisibilityType GetVisibility() const
+		{
+			return visibility;
+		}
 		FORCEINLINE virtual void AddSlot(Slot* _slot)
 		{
 			slot = _slot;
