@@ -20,7 +20,7 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 
 	dish = hud->SpawnWidget<DishWidget>(_dishType);
 	AddChild(dish);
-	dish->SetPosition(dish->GetPosition() + Vector2f(_offSet * _ingredienSize / 3.5f, 30.0f));
+	dish->SetPosition(dish->GetPosition() + Vector2f(size.x / 2.5f, 20.0f));
 
 	for (IngredientType _currentType : _ingredient)
 	{
@@ -100,11 +100,11 @@ void OrderWidget::Reuse(const DishType& _dish, const vector<IngredientType>& _in
 void OrderWidget::ComputeIngredientPos()
 {
 	int _index = 0;
-	float _lastPos = 0;
+	float _lastPos = 15.0f;
 	for (IngredientWidget* _widget : ingredient)
 	{
 		const Vector2f& _size = _widget->GetSize();
-		_widget->SetPosition(Vector2f(_lastPos + 5.0f, 62.0f));
+		_widget->SetPosition(Vector2f(_lastPos, 62.0f));
 		_lastPos = _lastPos + _size.x + 0.5f * ingredient.size();
 		_index++;
 	}
@@ -116,8 +116,7 @@ void OrderWidget::ComputeIngredientPos(const vector<IngredientType>& _ingredient
 	{
 		_currentWidget->SetPosition(Vector2f(1000.0f, 1000.0f));
 	}
-
-	float _lastPos = 0;
+	float _lastPos = 15.0f;
 	const int _ingredientsWidgets = CAST(int, _ingredients.size());
 	for (int _index = 0; _index < _ingredientsWidgets; _index++)
 	{
@@ -125,8 +124,8 @@ void OrderWidget::ComputeIngredientPos(const vector<IngredientType>& _ingredient
 		_widget->Reuse(_ingredients[_index]);
 
 		const Vector2f& _size = _widget->GetSize();
-		_widget->SetPosition(Vector2f(_lastPos + 25.0f, 62.0f));
-		_lastPos = _lastPos + _size.x + 25.0f;
+		_widget->SetPosition(Vector2f(_lastPos + 30.0f, 62.0f));
+		_lastPos = _lastPos + _size.x + 30.0f;
 
 	}
 }
