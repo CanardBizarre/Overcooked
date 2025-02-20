@@ -31,6 +31,7 @@ struct CollisionData
 	Bounds impact;
 	CollisionStep step;
 	string channelName;
+	vector<Vector2f> edgeIntersect;
 };
 
 class CollisionComponent : public Component

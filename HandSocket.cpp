@@ -44,7 +44,6 @@ void HandSocket::InitCollision()
 	};
 	collision->AddResponses(_reponses);
 	SetLayerType(PLAYER);
-	collision->GetBounds()->SetIsUpdated(false);
 }
 
 void HandSocket::PickUp()

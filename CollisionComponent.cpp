@@ -89,8 +89,8 @@ void CollisionComponent::ComputeCollisions()
 		if (Bounds* _intersection = bounds->FindIntersections(_otherComponent->bounds))
 		{
 			const CollisionStep& _step = ComputeStep(_other, CS_ENTER);
-			const CollisionData& _ownerData = { owner, _ownerResponse, *_intersection, _step, channelName };
-			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
+			const CollisionData& _ownerData = { owner, _ownerResponse, *_intersection, _step, channelName, bounds->GetEdgeIntersect() };
+			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName, _otherComponent->bounds->GetEdgeIntersect()};
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
 		else if (othersStep.contains(_otherComponent->owner))

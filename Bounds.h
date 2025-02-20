@@ -45,7 +45,6 @@ struct CircleBoundsData : public BoundsData
 class Bounds
 {
 	BoundsData* data;
-	bool isUpdated;
 	vector<Vector2f> edgeIntersect;
 
 public:
@@ -93,18 +92,19 @@ public:
 	{
 		return data;
 	}
-	FORCEINLINE void SetIsUpdated(const bool _isUpdated)
-	{
-		isUpdated = _isUpdated;
-	}
+
 	FORCEINLINE void SetEdgeIntersect(const Vector2f& _first, const Vector2f& second)
 	{
 		edgeIntersect = { _first ,second };
 	}
+	FORCEINLINE vector<Vector2f> GetEdgeIntersect() const
+	{
+		return edgeIntersect;
+	}
 
 public:
 	Bounds() = default;
-	Bounds(BoundsData* _data, const bool _isUpdated = true);
+	Bounds(BoundsData* _data);
 	Bounds(const Bounds& _bounds);
 
 private:

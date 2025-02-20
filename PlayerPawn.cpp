@@ -1,6 +1,7 @@
 #include "PlayerPawn.h"
 #include "Level.h"
 #include "InputManager.h"
+#include "RigidBodyComponent.h"
 
 using namespace Input;
 
@@ -12,7 +13,9 @@ PlayerPawn::PlayerPawn(Level* _level)
 	mesh = CreateComponent<MeshComponent>(RectangleShapeData({ 50.0f,50.0f }, "/Characters/Clothes/spritesheeta", PNG, false ,IntRect(Vector2i(), Vector2i(124, 124))));
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
-	movement->SetVelocity({ 200.0f,200.0f });
+	rigidBody = CreateComponent<RigidBodyComponent>();
+	rigidBody->SetVelocity({ 200.0f,200.0f });
+	movement->SetDirection(Vector2f());
 	InitCollision();
 }
 
@@ -20,6 +23,7 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
+	rigidBody = CreateComponent<RigidBodyComponent>(*_other.rigidBody);
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
 }
 
@@ -29,7 +33,7 @@ void PlayerPawn::InitCollision()
 	collision->AddResponses(
 	{ 
 		//TODO CHANGE BLOCK 
-		{ "KitchenBlock", CT_OVERLAP },
+		{ "KitchenBlock", CT_BLOCK },
 		{ "RigidProp", CT_BLOCK },
 	});
 	SetLayerType(WORLD_DYNAMIC);
@@ -133,6 +137,11 @@ void PlayerPawn::CollisionEnter(const CollisionData& _data)
 			if (_data.response == CT_BLOCK)
 			{
 				LOG(Warning, "Collision");
+				RigidBodyComponent* _rigid = _data.other->GetComponent<RigidBodyComponent>();
+				if(_rigid)
+				{
+					rigidBody->ApplyBounce(_data.edgeIntersect, _rigid->GetVelocity());
+				}
 				//Move(movement->GetDirection() * -1.5f);
 			}
 		}

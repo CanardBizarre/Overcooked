@@ -3,6 +3,7 @@
 #include "MeshComponent.h"
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
+#include "RigidBodyComponent.h"
 #include "Particle.h"
 
 #include "HandSocket.h"
@@ -14,6 +15,7 @@ class PlayerPawn : public Pawn
 	MeshComponent* mesh;
 	PlayerMovementComponent* movement;
 	CollisionComponent* collision;
+	//RigidBodyComponent* rigidBody;
 	HandSocket* hand;
 	
 public:
@@ -70,5 +72,12 @@ public:
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data);
 	virtual void CollisionExit(const CollisionData& _data);
+
+	virtual void Tick(const float _deltaTime) override
+	{
+		Super::Tick(_deltaTime);
+		//movement->SetVelocity(rigidBody->GetVelocity());
+		//rigidBody->SetVelocity(movement->GetVelocity());
+	}
 };
 

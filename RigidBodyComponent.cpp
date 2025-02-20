@@ -33,7 +33,7 @@ void RigidBodyComponent::ComputeVelocity(const float _deltaTime)
 {
 	if (isFall)
 	{
-		DiscreaseHigh(_deltaTime);
+		//DiscreaseHigh(_deltaTime);
 	}
 
 	Vector2f _velocity = velocity * gravity * mass * _deltaTime;
@@ -43,7 +43,7 @@ void RigidBodyComponent::ComputeVelocity(const float _deltaTime)
 
 	if (high == 1)
 	{
-		ApplyBounce({}, Vector2f(0, 0));
+		//ApplyBounce({}, Vector2f(0, 0));
 	}
 }
 
@@ -64,7 +64,7 @@ void RigidBodyComponent::Rescale()
 void RigidBodyComponent::Tick(const float _deltaTime)
 {
 	ComputeVelocity(_deltaTime);
-	Rescale();
+	//Rescale();
 }
 
 void RigidBodyComponent::ApplyBounce(const vector<Vector2f>& _edge, const Vector2f& _otherVelocity)
@@ -97,6 +97,7 @@ void RigidBodyComponent::ApplyBounce(const vector<Vector2f>& _edge, const Vector
 
 Vector2f RigidBodyComponent::ComputeEdgeNormal(const vector<Vector2f>& _edge)
 {
+	if (_edge.empty()) return Vector2f();
 	Vector2f _first = _edge[0];
 	Vector2f _second = _edge[1];
 
