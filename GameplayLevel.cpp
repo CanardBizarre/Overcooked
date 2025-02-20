@@ -29,9 +29,6 @@ void GameplayLevel::ComputeOrdersPos()
 void GameplayLevel::InitLevel()
 {
 	Super::InitLevel();
-	//_dummy->GetMesh()->SetOriginAtMiddle();
-	//_dummy->SetPosition((Vector2f(window.getSize()) / 2.0f) + Vector2f(10.0f, 0.0f));
-
 	hud = GetGameMode()->GetHUD();
 
 	canvas = hud->SpawnWidget<CanvasWidget>();
@@ -39,7 +36,11 @@ void GameplayLevel::InitLevel()
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 
 
+	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
+	canvas->AddChild(hourglass);
 
+	score = hud->SpawnWidget<ScoreWidget>(hud, "Score");
+	canvas->AddChild(score);
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
@@ -70,6 +71,7 @@ void GameplayLevel::MakeOrderWidget(const DishType& _dish, const vector<Ingredie
 	}
 
 	const int _orderSize = (int)orders.size();
+
 	OrderWidget* _recipe = hud->SpawnWidget<OrderWidget>(hud, _dish, _ingredients, "Order_" + to_string(_orderSize));
 	canvas->AddChild(_recipe);
 	orders.insert(_recipe);

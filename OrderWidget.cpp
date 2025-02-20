@@ -5,8 +5,7 @@
 OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, vector<IngredientType> _ingredient, const string& _name, const float _time)
 	:CanvasWidget(_level, _name)
 {
-	const int _ingredienSize = CAST(int,_ingredient.size());
-
+	const int _ingredientSize = CAST(int,_ingredient.size());
 	const int _offSet = 50.0f;
 	size.x = _offSet * _ingredienSize / 1.75f;
 	size.y = 77.0f;
@@ -14,13 +13,14 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 
 	progressBar = hud->SpawnWidget<ProgressBarWidget>(PT_LEFT, RectangleShapeData(Vector2f(size.x, 10.0f), "/UI/progress_bar"), _time * _ingredienSize);
 	progressBar->SetZOrder(10);
-	progressBar->SetPosition({ 10.0f, 10.0f });
+	progressBar->SetPosition({ 100.0f, 100.0f });
 	progressBar->GetForeground()->SetFillColor(Color::Green);
 	AddChild(progressBar);
 
 	dish = hud->SpawnWidget<DishWidget>(_dishType);
 	AddChild(dish);
 	dish->SetPosition(dish->GetPosition() + Vector2f(size.x / 2.5f, 20.0f));
+
 
 	for (IngredientType _currentType : _ingredient)
 	{
@@ -29,6 +29,7 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 		ingredient.push_back(_ingredientWidget);
 	}
 	ComputeIngredientPos();
+
 
 	chrono = new Chronometer(_time * _ingredienSize);
 	timer = new Timer([&]()

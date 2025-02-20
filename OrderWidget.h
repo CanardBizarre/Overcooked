@@ -21,6 +21,7 @@ class OrderWidget : public CanvasWidget
 	Vector2f size;
 
 
+
 public:
 	FORCEINLINE void ReuseAllIngredientWidget(const vector<IngredientType>& _ingredients)
 	{
