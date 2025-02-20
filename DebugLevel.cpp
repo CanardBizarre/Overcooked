@@ -3,11 +3,12 @@
 #include "TestDummy.h"
 #include "LevelLoader.h"
 #include "FileManager.h"
+#include "FoodSpawner.h"
+
 using namespace File;
 
-DebugLevel::DebugLevel() : GameplayLevel("Debug")
+DebugLevel::DebugLevel() : GameplayLevel("DebugLevel")
 {
-	player = nullptr;
 }
 
 void DebugLevel::InitLevel()
@@ -21,9 +22,10 @@ void DebugLevel::InitLevel()
 
 	M_LEVELLOADER.InterpretString(_texts);
 
+	for (FoodSpawner* _foodSpawner : foodSpawners)
+	{
+		_foodSpawner->SetType(IT_MUSHROOM);
+	}
 
-	FoodSpawner* _spawner = SpawnActor<FoodSpawner>(Vector2f(50.0f, 50.0f), 
-		Vector2f(GetWindowSize() / 2.0f) , Angle(degrees(0)), BT_FOOD_SPAWNER, "IngredientSpawner");
-
-	Ingredient* appleSpawner = _spawner->SpawnIngredient(IT_TORTILLA, IS_RAW, "Tortilla");
+	//Ingredient* appleSpawner = _spawner->SpawnIngredient(IT_TORTILLA, "Tortilla");
 }

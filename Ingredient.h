@@ -104,12 +104,11 @@ class Ingredient : public Seizable
 
 
 public:
-	Ingredient(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const string& _path, const string& _name,
+	Ingredient() = default;
+	Ingredient(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const string& _name,
 				const IngredientType& _ingredientData, const IngredientState& _ingredientState = IS_RAW);
-	~Ingredient();
 
 public:
-	void Draw(RenderWindow& window);
 	virtual void Construct() override;
 
 

@@ -4,6 +4,7 @@
 #include "Actor.h"
 #include "RigidBodyComponent.h"
 #include "MovementComponent.h"
+#include "Seizable.h"
 
 using namespace Layer;
 
@@ -38,13 +39,11 @@ void HandSocket::InitCollision()
 	collision->SetInformation("Hand", IS_ALL, CT_OVERLAP);
 	vector<pair<string, CollisionType>> _reponses
 	{
-		{"Test", CT_OVERLAP},
-		{"Dish", CT_OVERLAP},
+		{"Seizable", CT_OVERLAP},
 		{"KitchenBlock", CT_OVERLAP},
 	};
 	collision->AddResponses(_reponses);
 	SetLayerType(PLAYER);
-
 }
 
 void HandSocket::PickUp()
@@ -55,6 +54,7 @@ void HandSocket::PickUp()
 
 		if (isNearCounter) nearestBlock->ExitAction(object);
 	}
+	
 }
 
 void HandSocket::DropObject()
@@ -65,21 +65,12 @@ void HandSocket::DropObject()
 
 	RemoveObject();
 	isNearCounter = false;
-
-	// TODO Lacher l'objet
-	// MovementComponent* _movement = object->GetComponent<MovementComponent>();
-	// RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
-
-	// Vector2f _forward = GetParent()->GetForwardVector();
-	// _movement->SetDirection(_forward);
-	// _rigidbody->SetVelocity({ 100.0f, 100.0f });
-	// RemoveObject();
 }
 
 void HandSocket::ThrowObject()
 {
 	Actor* _current = RemoveObject();
-	if (TestDummy* _dummy= Cast<TestDummy>(_current))
+	if (Seizable* _dummy= Cast<Seizable>(_current))
 	{
 		_dummy->Throw(GetParent()->GetForwardVector());
 	}
@@ -94,9 +85,13 @@ void HandSocket::HandAction()
 		if (isNearCounter) return DropObject();
 		ThrowObject();
 	}
-	else if (object)
+	else if (!IsCarryingAnObject() && object)
 	{
 		PickUp();
+	}
+	else if (!IsCarryingAnObject() && !object)
+	{
+		if (isNearCounter) nearestBlock->ActionWithoutObject(this);
 	}
 }
 
@@ -121,17 +116,17 @@ void HandSocket::CollisionUpdate(const CollisionData& _data)
 {
 	if (_data.other->GetLayerType() == PROP)
 	{
-		if (_data.channelName == "Test")
+		if (_data.channelName == "Seizable")
 		{
 			object = _data.other;
 			isDish = false;
 		}
-		if (_data.channelName == "Dish")
+		else if (_data.channelName == "Dish")
 		{
 			object = _data.other;
 			isDish = true;
 		}
-		if (_data.channelName == "KitchenBlock")
+		else if (_data.channelName == "KitchenBlock")
 		{
 			nearestBlock = Cast<KitchenBlock>(_data.other);
 			isNearCounter = true;
@@ -144,12 +139,13 @@ void HandSocket::CollisionExit(const CollisionData& _data)
 	if (_data.other->GetLayerType() == PROP)
 	{
 		// TODO changer le channel name
-		if (_data.channelName == "Test")
+		if (_data.channelName == "Seizable")
 		{
 			object = nullptr;
 		}
 		if (_data.channelName == "KitchenBlock")
 		{
+			nearestBlock = nullptr;
 			isNearCounter = false;
 		}
 	}
@@ -163,7 +159,7 @@ void HandSocket::Tick(const float _deltaTime)
 	const Vector2f& _position = _parent->GetPosition();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 20.0f, 20.0f });
+	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 30.0f, 40.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
 }
 

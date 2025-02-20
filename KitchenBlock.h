@@ -1,6 +1,7 @@
 #pragma once
 #include "RigidProp.h"
 
+class HandSocket;
 
 enum BlockType
 {
@@ -33,6 +34,7 @@ public:
 	void InitCollision();
 	virtual bool EnterAction(Actor* _object, const bool _isDish) { return true; };
 	virtual bool ExitAction(Actor* _object) { return true; };
+	virtual bool ActionWithoutObject(HandSocket* _hand) { return true; };
 
 	virtual void CollisionEnter(const CollisionData& _data) override;
 	virtual void CollisionUpdate(const CollisionData& _data) override;

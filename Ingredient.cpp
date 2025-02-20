@@ -1,45 +1,12 @@
 #include "Ingredient.h"
 
 Ingredient::Ingredient(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, 
-	const string& _path, const string& _name, const IngredientType& _ingredientType, const IngredientState& _ingredientState)
-	: Seizable(_level, _size, _position, _angle, ST_INGREDIENT, _path, _name)
+	 const string& _name, const IngredientType& _ingredientType, const IngredientState& _ingredientState)
+	: Seizable(_level, _size, _position, _angle, ST_INGREDIENT, "Ingredients/IngredientsSpritesheet", _name)
 {
 	ingredientData = _ingredientType;
 	ingredientState = _ingredientState;
 	SetTextureRect(IntRect(Vector2i(124 * _ingredientType, 124 * _ingredientState), Vector2i(124, 124)));
-}
-
-Ingredient::~Ingredient()
-{
-}
-
-void Ingredient::Draw(RenderWindow& window)
-{
-	static Texture texture;
-	if (!texture.loadFromFile("Ingredients/ingredients_spritesheet.png")) {
-		
-		std::cerr << "Erreur de chargement de la texture !" << std::endl;
-		return;
-	}
-
-
-	Sprite sprite(texture);
-
-	
-	auto textureRegion = InitTextureUVMap(ingredientData);
-
-
-	auto region = textureRegion[ingredientData];
-
-	
-	sprite.setTextureRect(IntRect(
-		region.position,
-		region.size	
-	));
-
-	
-	sprite.setPosition(Vector2f(600.0f, 800.0f));
-
 }
 
 void Ingredient::Construct()
