@@ -25,7 +25,9 @@ void TestDummy::InitCollision()
 
 void TestDummy::Throw(const Vector2f& _direction)
 {
-	move->SetDirection(_direction);
+	movement->SetDirection(_direction);
+	rigidBody->SetVelocity({ 200.0f, 200.0f });
+	rigidBody->SetIsFall(true);
 }
 
 void TestDummy::CollisionEnter(const CollisionData& _data)

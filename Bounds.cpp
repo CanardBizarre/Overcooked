@@ -46,11 +46,6 @@ CircleBoundsData::CircleBoundsData(const float _radius, const Vector2f& _positio
 	pointsCount = _pointsCount;
 }
 
-Bounds::Bounds()
-{
-	data = nullptr;
-}
-
 Bounds::Bounds(BoundsData* _data, const bool _isUpdated)
 {
 	data = _data;

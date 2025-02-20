@@ -63,13 +63,6 @@ void HandSocket::PickUp()
 void HandSocket::DropObject()
 {
 	// TODO Lacher l'objet
-	MovementComponent* _movement = object->GetComponent<MovementComponent>();
-	RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
-
-	Vector2f _forward = GetParent()->GetForwardVector();
-	_movement->SetDirection(_forward);
-	_rigidbody->SetVelocity({ 200.0f, 200.0f });
-	_rigidbody->SetIsFall(true);
 	if (!object) return;
 
 	nearestBlock->DoAction(object);
@@ -102,7 +95,7 @@ void HandSocket::HandAction()
 
 void HandSocket::CollisionEnter(const CollisionData& _data)
 {
-	/*if (_data.other->GetLayerType() == PROP)
+	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "Test")
 		{
@@ -114,7 +107,7 @@ void HandSocket::CollisionEnter(const CollisionData& _data)
 			isNearCounter = true;
 		}
 
-	}*/
+	}
 }
 
 void HandSocket::CollisionUpdate(const CollisionData& _data)
