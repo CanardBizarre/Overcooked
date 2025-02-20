@@ -105,8 +105,11 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 	case BT_CHAIR:
 		_level->SpawnActor<Chair>(_size, _position, _angle);
 		break;
-	case BT_GROUND:
-		_level->SpawnActor<Ground>(_size, _position, _angle);
+	case BT_BLUE_GROUND:
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/ground");
+		break;
+	case BT_WHITE_GROUND:
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/GreyGround");
 		break;
 	case BT_PLANT:
 		_level->SpawnActor<Plant>(_size, _position, _angle);
@@ -146,7 +149,8 @@ BlockType LevelLoader::GetBlockTypeByText(const string& _text) const
 	else if (_text == "BT_WALL") return BT_WALL;
 	else if (_text == "BT_TABLE") return BT_TABLE;
 	else if (_text == "BT_CHAIR") return BT_CHAIR;
-	else if (_text == "BT_GROUND") return BT_GROUND;
+	else if (_text == "BT_BLUE_GROUND") return BT_BLUE_GROUND;
+	else if (_text == "BT_WHITE_GROUND") return BT_WHITE_GROUND;
 	else if (_text == "BT_PLANT") return BT_PLANT;
 
 	LOG(Error, "Invalid Text !!!");

@@ -16,8 +16,10 @@ void Level_2_1::InitLevel()
 
 	const string& _folders = "LevelsData/";
 	const string& _path = _folders + "Level_2-1";
+	const string& _pathBg = _folders + "BackGround_2-1";
 
 	const vector<string>& _texts = M_FILE.ReadFile(_path.c_str());
+	const vector<string>& _textsBg = M_FILE.ReadFile(_pathBg.c_str());
 
 	M_LEVELLOADER.InterpretString(_texts);
 }
