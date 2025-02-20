@@ -15,10 +15,6 @@ enum BlockType
 	BT_COUNT
 };
 
-
-
-
-
 class KitchenBlock : public RigidProp
 {
 	BlockType type;
@@ -35,7 +31,8 @@ public:
 
 public:
 	void InitCollision();
-	virtual void DoAction(Actor* _object) {};
+	virtual bool EnterAction(Actor* _object, const bool _isDish) { return true; };
+	virtual bool ExitAction(Actor* _object) { return true; };
 
 	virtual void CollisionEnter(const CollisionData& _data) override;
 	virtual void CollisionUpdate(const CollisionData& _data) override;

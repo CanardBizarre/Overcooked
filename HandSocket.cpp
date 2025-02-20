@@ -34,7 +34,7 @@ void HandSocket::InitCollision()
 	vector<pair<string, CollisionType>> _reponses
 	{
 		{"Test", CT_OVERLAP},
-		{"Counter", CT_OVERLAP},
+		{"Dish", CT_OVERLAP},
 		{"KitchenBlock", CT_OVERLAP},
 	};
 	collision->AddResponses(_reponses);
@@ -48,7 +48,7 @@ void HandSocket::PickUp()
 	{
 		AddChild(object, AT_SNAP_TO_TARGET);
 
-		if (isNearCounter) nearestBlock->RemoveChild(object);
+		if (isNearCounter) nearestBlock->ExitAction(object);
 	}
 }
 
@@ -56,7 +56,8 @@ void HandSocket::DropObject()
 {
 	if (!object) return;
 
-	nearestBlock->DoAction(object);
+	if (!nearestBlock->EnterAction(object, isDish)) return;
+
 	RemoveObject();
 	isNearCounter = false;
 }
@@ -108,6 +109,12 @@ void HandSocket::CollisionUpdate(const CollisionData& _data)
 		if (_data.channelName == "Test")
 		{
 			object = _data.other;
+			isDish = false;
+		}
+		if (_data.channelName == "Dish")
+		{
+			object = _data.other;
+			isDish = true;
 		}
 		if (_data.channelName == "KitchenBlock")
 		{

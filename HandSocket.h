@@ -8,6 +8,7 @@ class HandSocket : public Actor
 {
 	float handOffSet; 
 	bool isNearCounter; 
+	bool isDish; 
 	MeshComponent* mesh;
 	CollisionComponent* collision;
 	Actor* object;

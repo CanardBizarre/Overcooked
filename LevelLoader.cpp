@@ -97,20 +97,6 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 		return;
 	}
 
-	/*const vector<BlockType>& _verbosityColors =
-	{
-		BT_WORK_PLAN,
-		BT_GARBAGE_CAN,
-		BT_CHOPPING_STATION,
-		BT_STOVE,
-		BT_FOOD_SPAWNER,
-		BT_PLATE_SPAWNER,
-		BT_CONVEYOR,
-		BT_SINK,
-		BT_COUNT
-	};
-
-	_level->SpawnActor<_verbosityColors[_type]>(_size, _position, _angle);*/
 }
 
 BlockType LevelLoader::GetBlockTypeByText(const string& _text) const

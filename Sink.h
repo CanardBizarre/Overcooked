@@ -9,5 +9,6 @@ public:
 	Sink(const Sink& _other);
 
 	virtual void Tick(const float _deltaTime) override;
+	virtual bool EnterAction(Actor* _object, const bool _isDish) override;
 };
 
