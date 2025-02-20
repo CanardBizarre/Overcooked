@@ -106,10 +106,10 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 		_level->SpawnActor<Chair>(_size, _position, _angle);
 		break;
 	case BT_BLUE_GROUND:
-		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/ground");
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/JSPFRR");
 		break;
 	case BT_WHITE_GROUND:
-		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/GreyGround");
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/Marbre");
 		break;
 	case BT_PLANT:
 		_level->SpawnActor<Plant>(_size, _position, _angle);
