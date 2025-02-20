@@ -13,6 +13,12 @@ enum BlockType
 	BT_PLATE_SPAWNER,
 	BT_CONVEYOR,
 	BT_SINK,
+	BT_WALL,
+	BT_TABLE,
+	BT_CHAIR,
+	BT_PLANT,
+	BT_BLUE_GROUND,
+	BT_WHITE_GROUND,
 	BT_COUNT
 };
 
@@ -27,7 +33,7 @@ public:
 	}
 
 public:
-	KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const BlockType& _type, const string& _name = "KitchenBlock");
+	KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, const BlockType& _type, const string& _name = "KitchenBlock", const string& _texture = "/Blocks/BlocksSpritesheet");
 	KitchenBlock(const KitchenBlock& _other);
 
 public:

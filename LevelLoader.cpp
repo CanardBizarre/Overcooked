@@ -11,6 +11,11 @@
 #include "PlateSpawner.h"
 #include "GameplayLevel.h"
 #include "Conveyor.h"
+#include "Wall.h"
+#include "Table.h"
+#include "Chair.h"
+#include "Ground.h"
+#include "Plant.h"
 
 LevelLoader::LevelLoader()
 {
@@ -102,6 +107,24 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 	case BT_SINK:
 		_level->SpawnActor<Sink>(_size, _position, _angle);
 		break;
+	case BT_WALL:
+		_level->SpawnActor<Wall>(_size, _position, _angle);
+		break;
+	case BT_TABLE:
+		_level->SpawnActor<Table>(_size, _position, _angle);
+		break;
+	case BT_CHAIR:
+		_level->SpawnActor<Chair>(_size, _position, _angle);
+		break;
+	case BT_BLUE_GROUND:
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/JSPFRR");
+		break;
+	case BT_WHITE_GROUND:
+		_level->SpawnActor<Ground>(_size, _position, _angle, "Blocks/Marbre");
+		break;
+	case BT_PLANT:
+		_level->SpawnActor<Plant>(_size, _position, _angle);
+		break;
 	case BT_COUNT:
 	default:
 		LOG(Error, "Invalid Type !!!");
@@ -120,6 +143,12 @@ BlockType LevelLoader::GetBlockTypeByText(const string& _text) const
 	else if (_text == "BT_PLATE_SPAWNER") return BT_PLATE_SPAWNER;
 	else if (_text == "BT_CONVEYOR") return BT_CONVEYOR;
 	else if (_text == "BT_SINK") return BT_SINK;
+	else if (_text == "BT_WALL") return BT_WALL;
+	else if (_text == "BT_TABLE") return BT_TABLE;
+	else if (_text == "BT_CHAIR") return BT_CHAIR;
+	else if (_text == "BT_BLUE_GROUND") return BT_BLUE_GROUND;
+	else if (_text == "BT_WHITE_GROUND") return BT_WHITE_GROUND;
+	else if (_text == "BT_PLANT") return BT_PLANT;
 
 	LOG(Error, "Invalid Text !!!");
 	return BT_COUNT;

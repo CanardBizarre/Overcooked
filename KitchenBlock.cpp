@@ -1,7 +1,8 @@
 #include "KitchenBlock.h"
 
-KitchenBlock::KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle, 
-	const BlockType& _type, const string& _name) : RigidProp(_level, RectangleShapeData(_size, "Blocks/spritesheet", PNG), _name)
+KitchenBlock::KitchenBlock(Level* _level, const Vector2f& _size, const Vector2f& _position, 
+	const Angle& _angle, const BlockType& _type, const string& _name, const string& _texture)
+	: RigidProp(_level, RectangleShapeData(_size, _texture, PNG), _name)
 {
 	type = _type;
 	mesh->SetOriginAtMiddle();

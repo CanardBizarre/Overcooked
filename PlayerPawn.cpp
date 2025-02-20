@@ -38,7 +38,7 @@ void PlayerPawn::InitCollision()
 void PlayerPawn::Construct()
 {
 	Super::Construct();
-	SetZOrder(2);
+	SetZOrder(10);
 	mesh->SetOriginAtMiddle();
 	GetHand();
 }

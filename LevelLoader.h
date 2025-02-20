@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "KitchenBlock.h"
 #include "FoodSpawner.h"
+#include "DecorBlock.h"
 
 
 class LevelLoader : public Singleton<LevelLoader>
