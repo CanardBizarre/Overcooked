@@ -106,7 +106,7 @@ void CollisionComponent::ComputeCollisions()
 
 CollisionStep CollisionComponent::ComputeStep(Actor* _other, const CollisionStep& _step)
 {
-	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER ||_step != CS_EXIT && othersStep[_other] == CS_UPDATE)
+	if (othersStep.contains(_other) && othersStep[_other] == CS_ENTER || _step != CS_EXIT && othersStep[_other] == CS_UPDATE)
 	{
 		othersStep[_other] = CS_UPDATE;
 	}

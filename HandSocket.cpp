@@ -2,7 +2,12 @@
 #include "Bounds.h"
 #include "TestDummy.h"
 #include "Actor.h"
+#include "RigidBodyComponent.h"
+#include "MovementComponent.h"
+
 using namespace Layer;
+
+
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
 	:Actor(_level, "Hand", TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
@@ -60,6 +65,15 @@ void HandSocket::DropObject()
 
 	RemoveObject();
 	isNearCounter = false;
+
+	// TODO Lacher l'objet
+	// MovementComponent* _movement = object->GetComponent<MovementComponent>();
+	// RigidBodyComponent* _rigidbody = object->GetComponent<RigidBodyComponent>();
+
+	// Vector2f _forward = GetParent()->GetForwardVector();
+	// _movement->SetDirection(_forward);
+	// _rigidbody->SetVelocity({ 100.0f, 100.0f });
+	// RemoveObject();
 }
 
 void HandSocket::ThrowObject()
@@ -69,6 +83,7 @@ void HandSocket::ThrowObject()
 	{
 		_dummy->Throw(GetParent()->GetForwardVector());
 	}
+	RemoveObject();
 	// TODO Jeter l'objet
 }
 
@@ -148,7 +163,7 @@ void HandSocket::Tick(const float _deltaTime)
 	const Vector2f& _position = _parent->GetPosition();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition(), { 20.0f, 20.0f });
+	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 20.0f, 20.0f });
 	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
 }
 
