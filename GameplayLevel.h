@@ -4,6 +4,7 @@
 #include "CanvasWidget.h"
 #include "OrderWidget.h"
 #include "HorizontalBox.h"
+#include "FoodSpawner.h"
 
 using namespace Camera;
 
@@ -12,10 +13,19 @@ class GameplayLevel : public Level
 	HUD* hud;
 	CanvasWidget* canvas; 
 	unordered_set<OrderWidget*> orders;
+
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;
+
+protected:
+	vector<FoodSpawner*> foodSpawners;
+
 public:
+	FORCEINLINE void AddFoodSpawner(FoodSpawner* _foodSpawner)
+	{
+		foodSpawners.push_back(_foodSpawner);
+	}
 	FORCEINLINE float GetGravity() const
 	{
 		return gravity;

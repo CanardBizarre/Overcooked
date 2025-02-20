@@ -8,8 +8,6 @@
 
 using namespace Layer;
 
-
-
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
 	:Actor(_level, "Hand", TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
 {

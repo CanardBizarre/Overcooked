@@ -38,19 +38,19 @@ void GameplayLevel::InitLevel()
 	canvas->SetDebugMode(true);
 	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
 
-	const vector<IngredientType>& _food = {IT_APPLE, IT_BACON};
+
 
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
 
 	
-	const vector<IngredientType>& _ingredient = { IngredientType::IT_APPLE, IngredientType::IT_BACON };
-	MakeOrderWidget(DT_BEEF_BURRITO, _ingredient);
-	const vector<IngredientType>& _ingredient2 = { IngredientType::IT_APPLE, IngredientType::IT_BACON, IngredientType::IT_APPLE};
+	const vector<IngredientType>& _ingredient = { IngredientType::IT_CHICKEN, IngredientType::IT_TORTILLA };
+	MakeOrderWidget(DT_SALAD_LETTUCE_AND_TOMATO, _ingredient);
+	const vector<IngredientType>& _ingredient2 = { IngredientType::IT_CUCUMBER, IngredientType::IT_FISH, IngredientType::IT_LETTUCE };
 	MakeOrderWidget(DT_BEEF_BURRITO, _ingredient2);
-	const vector<IngredientType>& _ingredient3 = { IngredientType::IT_APPLE, IngredientType::IT_BACON, IngredientType::IT_APPLE, IngredientType::IT_APPLE };
-	MakeOrderWidget(DT_BEEF_BURRITO, _ingredient3);
+	const vector<IngredientType>& _ingredient3 = { IngredientType::IT_MEAT, IngredientType::IT_MUSHROOM, IngredientType::IT_PRAWN, IngredientType::IT_RICE };
+	MakeOrderWidget(DT_SUSHI_FISH_AND_PRAWN, _ingredient3);
 		
 
 

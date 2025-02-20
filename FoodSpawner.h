@@ -3,6 +3,7 @@
 #include "KitchenBlock.h"
 #include "Ingredient.h"
 #include "HandSocket.h"
+#include "IngredientType.h"
 
 class FoodSpawner : public KitchenBlock
 {

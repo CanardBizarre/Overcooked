@@ -74,9 +74,9 @@ public:
 private:
 	void PickUp();
 	void DropObject();
-	void ThrowObject();
 
 public:
+	void ThrowObject();
 	void InitCollision();
 	void HandAction();
 

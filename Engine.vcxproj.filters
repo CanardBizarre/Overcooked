@@ -633,6 +633,12 @@
     <ClCompile Include="DishWidget.cpp">
       <Filter>Overcooked\Actor\Widget\Dish</Filter>
     </ClCompile>
+    <ClCompile Include="Ingredient.cpp">
+      <Filter>Overcooked</Filter>
+    </ClCompile>
+    <ClCompile Include="Seizable.cpp">
+      <Filter>Overcooked</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Singleton.h">
@@ -1000,6 +1006,12 @@
     </ClInclude>
     <ClInclude Include="DishWidget.h">
       <Filter>Overcooked\Actor\Widget\Dish</Filter>
+    </ClInclude>
+    <ClInclude Include="Ingredient.h">
+      <Filter>Overcooked</Filter>
+    </ClInclude>
+    <ClInclude Include="Seizable.h">
+      <Filter>Overcooked</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
