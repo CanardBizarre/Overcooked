@@ -41,6 +41,7 @@ Actor::Actor(const Actor& _other)
 		children.insert(new Actor(*_child));
 	}
 	level = _other.level;
+	layer = _other.GetLayerType();
 }
 
 Actor::~Actor()

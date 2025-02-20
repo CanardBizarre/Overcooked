@@ -33,8 +33,6 @@ void PlayerPawn::InitCollision()
 		{ "RigidProp", CT_BLOCK },
 	});
 	SetLayerType(PLAYER);
-	collision->GetBounds()->SetSize(Vector2f(10000.0f,10000.0f));
-	collision->GetBounds()->SetPosition(GetPosition() / 2.0f);
 }
 
 void PlayerPawn::Construct()
