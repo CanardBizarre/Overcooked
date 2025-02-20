@@ -11,8 +11,7 @@ class GameplayLevel : public Level
 {
 	HUD* hud;
 	CanvasWidget* canvas; 
-	HorizontalBox* orders;
-	vector<OrderWidget*> _order;
+	unordered_set<OrderWidget*> orders;
 	PlayerPawn* player1;
 	PlayerPawn* player2;
 	float gravity;
@@ -28,7 +27,8 @@ public:
 public:
 	GameplayLevel(const string& _name);
 
-
+private:
+	void ComputeOrdersPos();
 protected:
 	virtual void InitLevel() override;
 	virtual void MakeOrderWidget(const DishType& _dish, const vector<IngredientType>& _ingredients);

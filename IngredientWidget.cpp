@@ -11,3 +11,10 @@ IngredientWidget::IngredientWidget(const IngredientWidget& _other)
 {
 	type = _other.type;
 }
+
+void IngredientWidget::Reuse(const IngredientType& _type)
+{
+	SetRect(IntRect(Vector2i(124 * _type, 0), Vector2i(124, 124)));
+	type = _type;
+}
+

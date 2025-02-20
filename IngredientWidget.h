@@ -10,5 +10,8 @@ class IngredientWidget : public ImageWidget
 public:
 	IngredientWidget(Level* _level, const IngredientType& _type);
 	IngredientWidget(const IngredientWidget& _other);
+
+public:
+	void Reuse(const IngredientType& _type);
 };
 

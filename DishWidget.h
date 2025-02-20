@@ -10,5 +10,8 @@ class DishWidget : public ImageWidget
 public:
 	DishWidget(Level* _level, const DishType& _type);
 	DishWidget(const DishWidget& _other);
+
+public:
+	void Reuse(const DishType& _type);
 };
 
