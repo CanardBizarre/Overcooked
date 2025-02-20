@@ -45,6 +45,7 @@ class Bounds
 {
 	BoundsData* data;
 	bool isUpdated;
+	vector<Vector2f> edgeIntersect;
 
 public:
 	FORCEINLINE void SetBoundsData(BoundsData* _data)
@@ -95,6 +96,10 @@ public:
 	{
 		isUpdated = _isUpdated;
 	}
+	FORCEINLINE void SetEdgeIntersect(const Vector2f& _first, const Vector2f& second)
+	{
+		edgeIntersect = { _first ,second };
+	}
 
 public:
 	Bounds() = default;
@@ -102,8 +107,9 @@ public:
 	Bounds(const Bounds& _bounds);
 
 private:
-	bool Contains(const Vector2f& _point, RectangleBoundsData* _data) const;
+	bool Contains(const Vector2f& _point, RectangleBoundsData* _data);
 	bool Contains(const Vector2f& _point, CircleBoundsData* _data) const;
+
 
 	#pragma region Utilities
 
@@ -137,6 +143,6 @@ private:
 
 public:
 	void UpdateBounds(Actor* _actor);
-	bool Contains(const Vector2f& _point) const;
+	bool Contains(const Vector2f& _point);
 	Bounds* FindIntersections(Bounds* _other) const;
 };

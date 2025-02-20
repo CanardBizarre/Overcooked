@@ -51,20 +51,23 @@ Bounds::Bounds(BoundsData* _data, const bool _isUpdated)
 {
 	data = _data;
 	isUpdated = _isUpdated;
+	edgeIntersect = {};
 }
 
 Bounds::Bounds(const Bounds& _bounds)
 {
 	data = _bounds.data;
+	isUpdated = _bounds.isUpdated;
+	edgeIntersect = _bounds.edgeIntersect;
 }
 
 
-bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
+bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data)
 {
-	if (!((int)_data->rotation.asDegrees() % 90))
-	{
-		return FloatRect(_data->position + _data->size / 2.0f, _data->size).contains(_point);
-	}
+	//if (!((int)_data->rotation.asDegrees() % 90))
+	//{
+	//	return FloatRect(_data->position + _data->size / 2.0f, _data->size).contains(_point);
+	//}
 
 	const vector<Vector2f>& _cornerPoints = GetPoints();
 
@@ -86,6 +89,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInUnderTheDownLeftTangent(_point, _bottom, _left))
 		{
+			SetEdgeIntersect(_bottom , _left);
 			return false;
 		}
 	}
@@ -93,7 +97,8 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	if (CheckIfInTheDownRightCorner(_point, _bottom.x, _right.y))
 	{
 		if (CheckIfInUnderTheDownRightTangent(_point, _bottom, _right))
-		{
+		{;
+			SetEdgeIntersect(_bottom, _right);
 			return false;
 		}
 	}
@@ -102,6 +107,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInAboveTheTopRightTangent(_point, _top, _right))
 		{
+			SetEdgeIntersect(_top, _right);
 			return false;
 		}
 	}
@@ -110,6 +116,7 @@ bool Bounds::Contains(const Vector2f& _point, RectangleBoundsData* _data) const
 	{
 		if (CheckIfInAboveTheTopLeftTangent(_point, _top, _left))
 		{
+			SetEdgeIntersect(_top, _left);
 			return false;
 		}
 	}
@@ -299,7 +306,7 @@ void Bounds::UpdateBounds(Actor* _actor)
 	}
 }
 
-bool Bounds::Contains(const Vector2f& _point) const
+bool Bounds::Contains(const Vector2f& _point)
 {
 	if (RectangleBoundsData* _data = Cast<RectangleBoundsData>(data)) return Contains(_point, _data);
 	if (CircleBoundsData* _data = Cast<CircleBoundsData>(data)) return Contains(_point, _data);

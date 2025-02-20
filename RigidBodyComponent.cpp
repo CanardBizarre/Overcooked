@@ -43,7 +43,7 @@ void RigidBodyComponent::ComputeVelocity(const float _deltaTime)
 
 	if (high == 1)
 	{
-		ApplyBounce(Vector2f(0, 0), Vector2f(0,0));
+		ApplyBounce({}, Vector2f(0, 0));
 	}
 }
 
@@ -71,10 +71,10 @@ void RigidBodyComponent::Tick(const float _deltaTime)
 	Rescale();
 }
 
-
-void RigidBodyComponent::ApplyBounce(const Vector2f& _normal, const Vector2f& _otherVelocity)
+void RigidBodyComponent::ApplyBounce(const vector<Vector2f>& _edge, const Vector2f& _otherVelocity)
 {
 	// Calculer la projection de la vitesse sur la normale
+	Vector2f _normal = ComputeEdgeNormal(_edge);
 	float _dotProduct = (velocity.x + _otherVelocity.x ) * _normal.x + (velocity.y + _otherVelocity.y) * _normal.y;
 	high *= _dotProduct;
 	// Appliquer le rebond : inverser la composante normale de la vitesse
@@ -97,4 +97,13 @@ void RigidBodyComponent::ApplyBounce(const Vector2f& _normal, const Vector2f& _o
 		velocity.y = 0.0f;
 	}
 	
+}
+
+Vector2f RigidBodyComponent::ComputeEdgeNormal(const vector<Vector2f>& _edge)
+{
+	Vector2f _first = _edge[0];
+	Vector2f _second = _edge[1];
+
+	Vector2f _normal = { -(_second.y - _first.y),_second.x - _first.y };
+	return _normal.normalized();
 }

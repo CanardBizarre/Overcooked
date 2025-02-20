@@ -46,8 +46,9 @@ public:
 
 public:
 	virtual void Tick(const float _deltaTime) override;
-	void ApplyBounce(const Vector2f& _normal, const Vector2f& _otherVelocity);
+	void ApplyBounce(const vector<Vector2f>& _edge, const Vector2f& _otherVelocity);
 private:
+	Vector2f ComputeEdgeNormal(const vector<Vector2f>& _edge);
 	void ComputeVelocity(const float _deltaTime);
 
 	void DiscreaseHigh(const float _deltaTime);

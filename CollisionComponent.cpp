@@ -18,7 +18,7 @@ CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent& 
 	type = _other.type;
 	status = _other.status;
 	responses = _other.responses;
-	*bounds = *_other.bounds;
+	bounds = new Bounds(*_other.bounds);
 }
 
 CollisionComponent::~CollisionComponent()
