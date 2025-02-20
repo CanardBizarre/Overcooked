@@ -42,7 +42,7 @@ namespace UI
 		{
 			Super::SetOrigin(_origin);
 			foreground->SetOrigin(_origin);
-			
+
 			UpdateOriginAndPosition(size);
 		}
 		FORCEINLINE virtual void SetOriginAtMiddle()
@@ -74,7 +74,7 @@ namespace UI
 		FORCEINLINE virtual void SetZOrder(const int _zOrder)
 		{
 			Super::SetZOrder(_zOrder);
-			foreground->SetZOrder(_zOrder+1);
+			foreground->SetZOrder(_zOrder + 1);
 		}
 
 		FORCEINLINE void SetType(const ProgressType& _type)
@@ -111,6 +111,10 @@ namespace UI
 		{
 			return maxValue;
 		}
+		FORCEINLINE void SetMaxValue(const float _maxValue)
+		{
+			maxValue = _maxValue;
+		}
 		FORCEINLINE ImageWidget* GetForeground() const
 		{
 			return foreground;
@@ -118,8 +122,8 @@ namespace UI
 
 	public:
 		ProgressBarWidget(Level* _level, const ProgressType& _type, const RectangleShapeData& _data,
-						  const float _maxValue = 100.0f, const string _name = "ProgressBar",
-						  const RenderType& _renderType = Screen);
+			const float _maxValue = 100.0f, const string _name = "ProgressBar",
+			const RenderType& _renderType = Screen);
 
 	private:
 		void Update();

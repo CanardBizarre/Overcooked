@@ -1,6 +1,6 @@
 #include "HorizontalBox.h"
 
-UI::HorizontalBox::HorizontalBox(Level* _level, const BoxData& _data) : Box(_level, _data)
+UI::HorizontalBox::HorizontalBox(Level* _level, const BoxData& _data, const string& _name) : Box(_level, _data, _name)
 {
 	if (data.spaceBetween == -1.0f)
 	{
