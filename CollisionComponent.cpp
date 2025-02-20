@@ -62,18 +62,19 @@ void CollisionComponent::ComputeCollisions()
 
 	CollisionManager* _collisionManager = &owner->GetLevel()->GetCollisionManager();
 	const set<CollisionComponent*>& _allComponent = _collisionManager->GetAllCollisionComponents();
-	UpdateBounds();
 
 	for (CollisionComponent* _otherComponent : _allComponent)
 	{
+		UpdateBounds();
 		_otherComponent->UpdateBounds();
 		if (_otherComponent == this) continue;
 		if (_collisionManager->ContainsPair(owner, _otherComponent->owner)) continue;
 
 		const string& _otherName = _otherComponent->GetChannelName();
 		if (!responses.contains(_otherName)) continue;
-		CollisionType _ownerResponse;
+
 		const CollisionType& _otherResponse = responses.at(_otherName);
+		CollisionType _ownerResponse;
 		if (_otherComponent->responses.contains(channelName))
 		{
 			_ownerResponse = _otherComponent->responses.at(channelName);
@@ -93,13 +94,14 @@ void CollisionComponent::ComputeCollisions()
 			const CollisionData& _otherData = { _other, _otherResponse, *_intersection, _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
 		}
+
 		else if (othersStep.contains(_otherComponent->owner))
 		{
+			othersStep.erase(_other);
 			const CollisionStep& _step = ComputeStep(_other, CS_EXIT);
 			const CollisionData& _ownerData = { owner, _ownerResponse, Bounds(), _step, channelName };
 			const CollisionData& _otherData = { _other, _otherResponse, Bounds(), _step, _otherComponent->channelName };
 			_collisionManager->Collide(_ownerData, _otherData);
-			othersStep.erase(_other);
 		}
 	}
 }

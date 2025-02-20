@@ -11,3 +11,9 @@ WorkPlan::WorkPlan(const WorkPlan& _other) : KitchenBlock(_other)
 {
 	SetTextureRect(IntRect(Vector2i(124 * BT_WORK_PLAN, 0), Vector2i(124, 124)));
 }
+
+void WorkPlan::DoAction(Actor* _object)
+{
+	AddChild(_object, AT_KEEP_RELATIVE);
+	_object->SetPosition(GetPosition());
+}

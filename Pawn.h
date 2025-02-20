@@ -19,10 +19,7 @@ public:
 	Pawn(const Pawn& _other);
 
 protected:
-	virtual void SetupInputController(Input::InputManager& _inputManager) 
-	{
-	
-	};
+	virtual void SetupInputController(Input::InputManager& _inputManager) {};
 
 public:
 	virtual void Construct() override;

@@ -32,6 +32,13 @@ void UI::Widget::Construct()
 
 void UI::Widget::BindViewport()
 {
+	for (Actor* _actor : GetChildren())
+	{
+		if (Widget* _widget = Cast<Widget>(_actor))
+		{
+			_widget->BindViewport();
+		}
+	}
 	const RenderData& _data = RenderData(bind(&Widget::Render, this, _1), type);
 	renderToken = level->GetCameraManager().BindOnRenderWindow(_data, zOrder);
 }

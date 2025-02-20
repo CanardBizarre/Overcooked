@@ -283,6 +283,27 @@
     <Filter Include="Overcooked\Level\GameplayLevel">
       <UniqueIdentifier>{c5636b47-338c-48d6-8920-e08acc0e0344}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Overcooked\Actor\Prop\KitchenBlock">
+      <UniqueIdentifier>{70dc1269-4706-44af-a287-e67716666fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Level\GameplayLevel\World 1">
+      <UniqueIdentifier>{a7355921-93b7-4f64-a053-5343a217d516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Widget">
+      <UniqueIdentifier>{7c9eea69-8e54-424c-8a66-ef5afcd1317c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Widget\Recipe">
+      <UniqueIdentifier>{633d5f94-974f-48e9-9116-78cce1ff1932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Widget\Ingredient">
+      <UniqueIdentifier>{a56e99c6-0420-4d7e-8293-c33ed75fab5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Utilities">
+      <UniqueIdentifier>{91381789-bd5a-40e8-adb2-1a1d3798cb9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Overcooked\Actor\Widget\Dish">
+      <UniqueIdentifier>{7dcfa37c-84a2-4cc8-ae42-ec6baa9d94ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextObject.cpp">
@@ -510,9 +531,6 @@
     <ClCompile Include="HandSocket.cpp">
       <Filter>Overcooked\Actor\Socket</Filter>
     </ClCompile>
-    <ClCompile Include="KitchenBlock.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClCompile>
     <ClCompile Include="Prop.cpp">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
@@ -530,9 +548,6 @@
     </ClCompile>
     <ClCompile Include="LevelLoader.cpp">
       <Filter>Overcooked\Custom Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkPlan.cpp">
-      <Filter>Overcooked\Actor\Prop</Filter>
     </ClCompile>
     <ClCompile Include="DebugLevel.cpp">
       <Filter>Overcooked\Level\Debug</Filter>
@@ -561,44 +576,62 @@
     <ClCompile Include="MainMenuPlayerController.cpp">
       <Filter>Overcooked\Level\MainMenu\GameController</Filter>
     </ClCompile>
+    <ClCompile Include="KitchenBlock.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkPlan.cpp">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClCompile>
     <ClCompile Include="ChoppingStation.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="Conveyor.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="FoodSpawner.cpp">
-      <Filter>Overcooked</Filter>
-    </ClCompile>
-    <ClCompile Include="GameplayLevel.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="GarbageCan.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="PlateSpawner.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="Sink.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="Stove.cpp">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClCompile>
     <ClCompile Include="Level_1_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_2_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_3_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_4_1.cpp">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
     </ClCompile>
     <ClCompile Include="Level_5_1.cpp">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayLevel.cpp">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderWidget.cpp">
+      <Filter>Overcooked\Actor\Widget\Recipe</Filter>
+    </ClCompile>
+    <ClCompile Include="IngredientWidget.cpp">
+      <Filter>Overcooked\Actor\Widget\Ingredient</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometer.cpp">
+      <Filter>Overcooked\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="DishWidget.cpp">
+      <Filter>Overcooked\Actor\Widget\Dish</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -860,9 +893,6 @@
     <ClInclude Include="HandSocket.h">
       <Filter>Overcooked\Actor\Socket</Filter>
     </ClInclude>
-    <ClInclude Include="KitchenBlock.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
-    </ClInclude>
     <ClInclude Include="Prop.h">
       <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
@@ -880,9 +910,6 @@
     </ClInclude>
     <ClInclude Include="LevelLoader.h">
       <Filter>Overcooked\Custom Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="WorkPlan.h">
-      <Filter>Overcooked\Actor\Prop</Filter>
     </ClInclude>
     <ClInclude Include="DebugLevel.h">
       <Filter>Overcooked\Level\Debug</Filter>
@@ -911,44 +938,68 @@
     <ClInclude Include="MainMenuPlayerController.h">
       <Filter>Overcooked\Level\MainMenu\GameController</Filter>
     </ClInclude>
-    <ClInclude Include="ChoppingStation.h">
-      <Filter>Overcooked</Filter>
+    <ClInclude Include="KitchenBlock.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
-    <ClInclude Include="Conveyor.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="FoodSpawner.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="GameplayLevel.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="GarbageCan.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="PlateSpawner.h">
-      <Filter>Overcooked</Filter>
-    </ClInclude>
-    <ClInclude Include="Sink.h">
-      <Filter>Overcooked</Filter>
+    <ClInclude Include="WorkPlan.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
     <ClInclude Include="Stove.h">
-      <Filter>Overcooked</Filter>
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
-    <ClInclude Include="Level_1_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClInclude Include="ChoppingStation.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
-    <ClInclude Include="Level_2_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClInclude Include="Conveyor.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
-    <ClInclude Include="Level_3_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClInclude Include="FoodSpawner.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
-    <ClInclude Include="Level_4_1.h">
-      <Filter>Overcooked\Level\GameplayLevel</Filter>
+    <ClInclude Include="GarbageCan.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="PlateSpawner.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="Sink.h">
+      <Filter>Overcooked\Actor\Prop\KitchenBlock</Filter>
     </ClInclude>
     <ClInclude Include="Level_5_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_1_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_2_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_3_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_4_1.h">
+      <Filter>Overcooked\Level\GameplayLevel\World 1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayLevel.h">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderWidget.h">
+      <Filter>Overcooked\Actor\Widget\Recipe</Filter>
+    </ClInclude>
+    <ClInclude Include="IngredientWidget.h">
+      <Filter>Overcooked\Actor\Widget\Ingredient</Filter>
+    </ClInclude>
+    <ClInclude Include="DishType.h">
+      <Filter>Overcooked</Filter>
+    </ClInclude>
+    <ClInclude Include="IngredientType.h">
+      <Filter>Overcooked</Filter>
+    </ClInclude>
+    <ClInclude Include="Chronometer.h">
+      <Filter>Overcooked\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="DishWidget.h">
+      <Filter>Overcooked\Actor\Widget\Dish</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

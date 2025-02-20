@@ -25,7 +25,8 @@ int main()
 	ChooseMapLevel* _level = new ChooseMapLevel();
 	M_LEVEL.SetLevel(_level);
 
-	Engine::GetInstance().Start();
+	Engine _engine;
+	_engine.Start();
 
 	return EXIT_SUCCESS;
 }

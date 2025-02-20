@@ -40,6 +40,7 @@ public:
 
 public:
 	void InitCollision();
+	virtual void DoAction(Actor* _object) {};
 
 	virtual void CollisionEnter(const CollisionData& _data) override;
 	virtual void CollisionUpdate(const CollisionData& _data) override;

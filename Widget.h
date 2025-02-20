@@ -31,7 +31,7 @@ namespace UI
 		{
 			return type;
 		}
-		FORCEINLINE VisibilityType GetVisibility() const
+		FORCEINLINE VisibilityType GetVisibilityType() const
 		{
 			return visibility;
 		}
