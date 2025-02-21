@@ -27,7 +27,7 @@ HandSocket::HandSocket(Level* _level, HandSocket* _other)
 {
 	handOffSet = _other->handOffSet;
 	isNearCounter = _other->isNearCounter;
-	collision = CreateComponent<CollisionComponent>(_other->collision);
+	collision = CreateComponent<CollisionComponent>(*_other->collision);
 	mesh = CreateComponent<MeshComponent>(*_other->mesh);
 	object = _other->object;
 }

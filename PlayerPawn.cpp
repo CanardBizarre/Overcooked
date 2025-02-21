@@ -152,7 +152,7 @@ void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 				Move(movement->GetDirection() * -1.5f);
 			}
 		}
-	}*/
+	}
 }
 
 void PlayerPawn::CollisionExit(const CollisionData& _data)

@@ -21,7 +21,7 @@ ChooseMapPawn::ChooseMapPawn(const ChooseMapPawn& _other) : Pawn(_other)
 {
 	movement = CreateComponent<CarMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
-	collision = CreateComponent<CollisionComponent>(_other.collision);
+	collision = CreateComponent<CollisionComponent>(*_other.collision);
 
 	currentTriggerBox = _other.currentTriggerBox;
 }

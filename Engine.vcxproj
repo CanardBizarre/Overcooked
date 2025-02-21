@@ -179,6 +179,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMPlayerController.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DecorBlock.cpp" />
+    <ClCompile Include="Dish.cpp" />
     <ClCompile Include="DishWidget.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -250,6 +251,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="TargetCameraComponent.cpp" />
     <ClCompile Include="TestProp.cpp" />
     <ClCompile Include="TriggerBox.cpp" />
+    <ClCompile Include="Utensil.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WorkPlan.cpp" />
     <ClCompile Include="TestDummy.cpp" />
@@ -307,6 +309,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMPlayerController.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="DecorBlock.h" />
+    <ClInclude Include="Dish.h" />
     <ClInclude Include="DishType.h" />
     <ClInclude Include="DishWidget.h" />
     <ClInclude Include="FileManager.h" />
@@ -373,6 +376,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="TargetCameraComponent.h" />
     <ClInclude Include="TestProp.h" />
     <ClInclude Include="TriggerBox.h" />
+    <ClInclude Include="Utensil.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="WorkPlan.h" />
     <ClInclude Include="SubclassOf.h" />

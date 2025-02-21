@@ -12,13 +12,13 @@ CollisionComponent::CollisionComponent(Actor* _owner, const string& _channelName
 	bounds = new Bounds();
 }
 
-CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent* _other) : Component(_owner)
+CollisionComponent::CollisionComponent(Actor* _owner, const CollisionComponent& _other) : Component(_owner)
 {
-	channelName = _other->channelName;
-	type = _other->type;
-	status = _other->status;
-	responses = _other->responses;
-	bounds = new Bounds(*_other->bounds);
+	channelName = _other.channelName;
+	type = _other.type;
+	status = _other.status;
+	responses = _other.responses;
+	bounds = new Bounds(*_other.bounds);
 }
 
 CollisionComponent::~CollisionComponent()
