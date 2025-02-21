@@ -1,10 +1,14 @@
 #include "Plant.h"
 
 Plant::Plant(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle)
-	: KitchenBlock(_level, _size, _position, _angle, BT_PLANT, "Work_Plan", "/Blocks/Plant")
+	: Prop(_level, RectangleShapeData(_size, "/Blocks/Plant"), "Plant")
 {
+	mesh->SetOriginAtMiddle();
+	SetPosition(_position);
+	mesh->SetOriginAtMiddle();
+	SetRotation(_angle);
 }
 
-Plant::Plant(const Plant& _other) : KitchenBlock(_other)
+Plant::Plant(const Plant& _other) : Prop(_other)
 {
 }

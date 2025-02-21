@@ -8,6 +8,7 @@ float DegToRad(const float _degrees);
 float RadToDeg(const float _radians);
 float Lerp(const float _start, const float _end, const float _time);
 float Lerp_Constant(const float _start, const float _end, const float _time);
+Vector2f SmoothDamp(const Vector2f& _current, Vector2f _target, Vector2f& _currentVelocity, float _smoothTime, const float _deltaTime, const float _maxSpeed);
 float DotProduct(const Vector2f& _direction, const Vector2f& _normal);
 float EaseOutQuart(const float _time);
 Vector2f ComputeNormal(const FloatRect& _rect);

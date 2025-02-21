@@ -17,6 +17,7 @@
 #include "Ground.h"
 #include "Plant.h"
 
+
 LevelLoader::LevelLoader()
 {
 
@@ -85,6 +86,12 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 	case BT_WORK_PLAN:
 		_level->SpawnActor<WorkPlan>(_size, _position, _angle);
 		break;
+	case BT_WORK_PLAN_NOC:
+		{
+			WorkPlan* _nc_WorkPlan =_level->SpawnActor<WorkPlan>(_size, _position, _angle);
+			_nc_WorkPlan->RemoveComponent(_nc_WorkPlan->GetCollision());
+			break;
+		}
 	case BT_GARBAGE_CAN:
 		_level->SpawnActor<GarbageCan>(_size, _position, _angle);
 		break;
@@ -136,6 +143,7 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 BlockType LevelLoader::GetBlockTypeByText(const string& _text) const
 {
 	if (_text == "BT_WORK_PLAN") return BT_WORK_PLAN;
+	else if (_text == "BT_WORK_PLAN_NOC") return BT_WORK_PLAN_NOC;
 	else if (_text == "BT_GARBAGE_CAN") return BT_GARBAGE_CAN;
 	else if (_text == "BT_CHOPPING_STATION") return BT_CHOPPING_STATION;
 	else if (_text == "BT_STOVE") return BT_STOVE;

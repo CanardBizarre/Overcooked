@@ -17,9 +17,14 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 	progressBar->GetForeground()->SetFillColor(Color::Green);
 	AddChild(progressBar);
 
+	bg = hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(size.x, 100.0f), "/UI/recipe"));
+	AddChild(bg);
+	bg->SetOriginAtMiddle();
+	bg->SetPosition(Vector2f(size.x / 2.0f, 60.0f));
+
 	dish = hud->SpawnWidget<DishWidget>(_dishType);
 	AddChild(dish);
-	dish->SetPosition(dish->GetPosition() + Vector2f(size.x / 2.0f, 20.0f));
+	dish->SetPosition(dish->GetPosition() + Vector2f(size.x / 2.0f, 25.0f));
 	dish->SetZOrder(32);
 
 

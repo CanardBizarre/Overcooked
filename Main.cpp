@@ -8,6 +8,7 @@
 #include "Level_3_1.h"
 #include "Level_4_1.h"
 #include "Level_5_1.h"
+#include "ChooseMapLevel.h"
 
 void InitConfig()
 {
@@ -21,6 +22,7 @@ int main()
 	InitConfig();
 
 	MainMenu* _level = new MainMenu();
+	//ChooseMapLevel* _level = new ChooseMapLevel();
 	M_LEVEL.SetLevel(_level);
 
 	Engine::GetInstance().Start();

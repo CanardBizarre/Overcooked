@@ -1,7 +1,7 @@
 #pragma once
-#include "KitchenBlock.h"
+#include "Prop.h"
 
-class Table : public KitchenBlock
+class Table : public Prop
 {
 public:
 	Table(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle = Angle());

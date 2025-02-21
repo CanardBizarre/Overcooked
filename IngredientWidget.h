@@ -33,7 +33,7 @@ public:
 	}
 
 public:
-	IngredientWidget(Level* _level, const IngredientType& _type, const float _size = 40.0f);
+	IngredientWidget(Level* _level, const IngredientType& _type, const float _size = 30.0f);
 	IngredientWidget(const IngredientWidget& _other);
 
 public:
