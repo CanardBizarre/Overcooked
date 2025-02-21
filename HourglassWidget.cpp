@@ -13,7 +13,7 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 	label->SetFillColor(Color::White);
 	label->SetFont("Overcooked", TTF);
 	label->SetCharacterSize(48);
-	label->SetZOrder(9);
+	label->SetZOrder(31);
 	/*label->SetPosition({ 985.0f, 485.0f });
 
 	AddChild(hourglass);
@@ -28,11 +28,11 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 
 	AddChild(hourglass);
 	hourglass->SetPosition(Vector2f(115.0f, 0.0f));
-	hourglass->SetZOrder(10);
+	hourglass->SetZOrder(33);
 
 	AddChild(slide);
 	slide->SetPosition(Vector2f(0.0f, 20.0f));
-	slide->SetZOrder(8);
+	slide->SetZOrder(30);
 
 	new Timer([&]()
 		{

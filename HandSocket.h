@@ -86,4 +86,7 @@ public:
 
 	void Tick(const float _deltaTime);
 	virtual void Construct() override;
+
+	virtual void SetZOrder(const int _zOrder) override;
+	
 };

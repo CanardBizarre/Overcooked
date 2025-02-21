@@ -7,12 +7,12 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 {
 	const int _ingredientSize = CAST(int, _ingredient.size());
 	const int _offSet = 50.0f;
-	size.x = _offSet * _ingredientSize / 1.75f;
+	size.x = _offSet * _ingredientSize / 1.75f * 2.0f;
 	size.y = 77.0f;
 	hud = _hud;
 
-	progressBar = hud->SpawnWidget<ProgressBarWidget>(PT_LEFT, RectangleShapeData(Vector2f(size.x, 10.0f), "/UI/progress_bar"), _time * _ingredientSize);
-	progressBar->SetZOrder(21);
+	progressBar = hud->SpawnWidget<ProgressBarWidget>(PT_LEFT, RectangleShapeData(Vector2f(size.x, 20.0f), "/UI/progress_bar"), _time * _ingredientSize);
+	progressBar->SetZOrder(31);
 	progressBar->SetPosition({ 100.0f, 100.0f });
 	progressBar->GetForeground()->SetFillColor(Color::Green);
 	AddChild(progressBar);
@@ -20,7 +20,7 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 	dish = hud->SpawnWidget<DishWidget>(_dishType);
 	AddChild(dish);
 	dish->SetPosition(dish->GetPosition() + Vector2f(size.x / 2.0f, 20.0f));
-	dish->SetZOrder(22);
+	dish->SetZOrder(32);
 
 
 	for (IngredientType _currentType : _ingredient)
@@ -28,7 +28,7 @@ OrderWidget::OrderWidget(Level* _level, HUD* _hud, const DishType& _dishType, ve
 		IngredientWidget* _ingredientWidget = hud->SpawnWidget<IngredientWidget>(_currentType);
 		AddChild(_ingredientWidget);
 		ingredient.push_back(_ingredientWidget);
-		_ingredientWidget->SetZOrder(23);
+		_ingredientWidget->SetZOrder(33);
 	}
 	ComputeIngredientPos();
 
@@ -90,7 +90,7 @@ void OrderWidget::Reuse(const DishType& _dish, const vector<IngredientType>& _in
 			IngredientWidget* _ingredientWidget = hud->SpawnWidget<IngredientWidget>(IT_COUNT);
 			AddChild(_ingredientWidget);
 			ingredient.push_back(_ingredientWidget);
-			_ingredientWidget->SetZOrder(23);
+			_ingredientWidget->SetZOrder(33);
 		}
 		ComputeIngredientPos();
 	}
@@ -104,13 +104,14 @@ void OrderWidget::Reuse(const DishType& _dish, const vector<IngredientType>& _in
 
 void OrderWidget::ComputeIngredientPos()
 {
-	int _index = 0;
-	float _lastPos = 15.0f;
+	int _index = 0.0f;
+	const int _offset = 0.5f * ingredient.size() + 5.0f;
+	float _lastPos = _offset;
 	for (IngredientWidget* _widget : ingredient)
 	{
 		const Vector2f& _size = _widget->GetSize();
-		_widget->SetPosition(Vector2f(_lastPos, 62.0f));
-		_lastPos = _lastPos + _size.x + 0.5f * ingredient.size() + 5.0f;
+		_widget->SetPosition(Vector2f(_lastPos + _offset, 62.0f));
+		_lastPos = _lastPos + _size.x + _offset;
 		_index++;
 	}
 }

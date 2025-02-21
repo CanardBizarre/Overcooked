@@ -5,6 +5,7 @@
 #include "RigidBodyComponent.h"
 #include "MovementComponent.h"
 #include "Seizable.h"
+#include "Level.h"
 
 using namespace Layer;
 
@@ -19,7 +20,6 @@ HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOff
 	object = nullptr;
 
 	InitCollision();
-	SetZOrder(70);
 }
 
 HandSocket::HandSocket(Level* _level, HandSocket* _other)
@@ -165,6 +165,14 @@ void HandSocket::Tick(const float _deltaTime)
 void HandSocket::Construct()
 {
 	Super::Construct();
-
 	mesh->SetOriginAtMiddle();
+	SetZOrder(21);
+
+}
+
+void HandSocket::SetZOrder(const int _zOrder)
+{
+	Super::SetZOrder(_zOrder);
+
+	GetLevel()->GetCameraManager().SetZOrder(mesh->GetRenderMeshToken(), zOrder);
 }

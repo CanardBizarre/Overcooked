@@ -14,7 +14,6 @@ PlayerPawn::PlayerPawn(Level* _level)
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
-	SetZOrder(71);
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -41,6 +40,8 @@ void PlayerPawn::Construct()
 	Super::Construct();
 	mesh->SetOriginAtMiddle();
 	GetHand();
+	SetZOrder(21);
+
 }
 
 void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
@@ -167,5 +168,12 @@ void PlayerPawn::CollisionExit(const CollisionData& _data)
 	//		}
 	//	}
 	//}
+}
+
+void PlayerPawn::SetZOrder(const int _zOrder)
+{
+	Super::SetZOrder(_zOrder);
+
+	GetLevel()->GetCameraManager().SetZOrder(mesh->GetRenderMeshToken(), zOrder);
 }
 

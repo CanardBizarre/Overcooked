@@ -5,11 +5,16 @@
 using namespace UI;
 class IngredientWidget : public ImageWidget
 {
+	float sizeF;
 	IngredientType type;
 	IngredientState state;
 	bool isCookable;
 
 public:
+	FORCEINLINE float GetSizeF()
+	{
+		return sizeF;
+	}
 	FORCEINLINE void IsRaw()
 	{
 		state = IS_RAW;
@@ -28,7 +33,7 @@ public:
 	}
 
 public:
-	IngredientWidget(Level* _level, const IngredientType& _type);
+	IngredientWidget(Level* _level, const IngredientType& _type, const float _size = 40.0f);
 	IngredientWidget(const IngredientWidget& _other);
 
 public:

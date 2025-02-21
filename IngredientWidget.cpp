@@ -1,7 +1,8 @@
 #include "IngredientWidget.h"
-IngredientWidget::IngredientWidget(Level* _level, const IngredientType& _type)
-	:ImageWidget(_level, RectangleShapeData(Vector2f(15.0f, 15.0f), "/Ingredients/spritesheet", PNG))
+IngredientWidget::IngredientWidget(Level* _level, const IngredientType& _type, const float _size)
+	:ImageWidget(_level, RectangleShapeData(Vector2f(_size, _size), "/Ingredients/spritesheet", PNG))
 {
+	sizeF = _size;
 	type = _type;
 	state = IS_RAW;
 	SetRect(IntRect(Vector2i(124 * type, 124 * state), Vector2i(124, 124)));

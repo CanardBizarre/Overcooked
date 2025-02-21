@@ -25,10 +25,9 @@ void GameplayLevel::ComputeOrdersPos()
 	{
 		if (_widget->IsUsedState())
 		{
-			_widget->Scale({2.0f,2.0f});
 			const Vector2f& _size = _widget->GetSize();
-			_widget->SetPosition(Vector2f(_lastPos + 15.0f, 0.0f));
-			_lastPos = _lastPos + _size.x +15.0f;
+			_widget->SetPosition(Vector2f(_lastPos + _size.x, 0.0f));
+			_lastPos = _lastPos + _size.x + 15.0f;
 			_index++;
 		}
 	}
@@ -54,7 +53,7 @@ void GameplayLevel::InitLevel()
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
-	player1->SetZOrder(70);
+	player1->SetZOrder(20);
 
 
 	const vector<IngredientType>& _ingredient = { IngredientType::IT_CHICKEN, IngredientType::IT_TORTILLA };
