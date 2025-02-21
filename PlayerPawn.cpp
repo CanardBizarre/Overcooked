@@ -88,7 +88,7 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 
 			new Action("Dash", ActionData(KeyHold, Space), [&]()
 			{
-				movement->Dash();
+				SpawnDashEffect();
 			}),
 			new Action("TakeObject", ActionData(KeyPressed, E), [&]()
 			{
@@ -124,6 +124,8 @@ Actor* PlayerPawn::GetHand()
 		AddChild(hand, AT_KEEP_RELATIVE);
 	}
 	return GetChildrenAtIndex(0);
+
+	
 }
 
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
@@ -169,5 +171,25 @@ void PlayerPawn::CollisionExit(const CollisionData& _data)
 	//		}
 	//	}
 	//}
+}
+
+void PlayerPawn::SpawnDashEffect()
+{
+	if(!movement->Dash()) return;
+
+	Level* _level = M_LEVEL.GetCurrentLevel();
+
+	effect = _level->SpawnActor<DashEffect>(RectangleShapeData(Vector2f(80, 80), "Effects/DashEffect"), "dash");
+	AddChild(effect, AT_KEEP_RELATIVE);
+
+	effect->SetPosition(GetPosition() - movement->GetDirection() * 30.0f);
+	effect->SetRotation(GetRotation()- degrees(180));
+	effect->SetZOrder(1);
+
+	new Timer([&]()
+		{
+			RemoveChild(effect);
+			effect->SetToDelete();
+		}, seconds(0.3f), true, false);
 }
 

@@ -1,8 +1,7 @@
 #include "PlayerMovement.h"
 #include "TimerManager.h"
 #include "Actor.h"
-#include "LevelManager.h"
-#include "DashEffect.h"
+
 
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const Vector2f& _velocity, const Vector2f& _direction)
@@ -24,11 +23,10 @@ PlayerMovementComponent::~PlayerMovementComponent()
 {
 }
 
-void PlayerMovementComponent::Dash()
+bool PlayerMovementComponent::Dash()
 {
 	if (!dodgeLaunch && !IsDirectionNull())
 	{
-		SpawnDashEffect();
 		SetLaunchState(true);
 		SetCanMoveState(false);
 		new Timer([&]()
@@ -38,7 +36,9 @@ void PlayerMovementComponent::Dash()
 				ResetX();
 				ResetY();
 			}, seconds(0.2f), true, false);
+		return true;
 	}
+	return false;
 }
 
 void PlayerMovementComponent::Move(const float _deltaTime)
@@ -72,12 +72,5 @@ void PlayerMovementComponent::ProcessInput(const Vector2f& _inputOffSet)
 
 }
 
-void PlayerMovementComponent::SpawnDashEffect()
-{
-	Level* _level = M_LEVEL.GetCurrentLevel();
 
-	DashEffect* _effect = _level->SpawnActor<DashEffect>(RectangleShapeData(Vector2f(100,100), "Effects/DashEffect"), "dash");
-	_effect->SetPosition(GetOwner()->GetPosition());
-	_effect->SetRotation(GetOwner()->GetRotation());
-}
 

@@ -4,6 +4,7 @@
 #include "PlayerMovement.h"
 #include "CollisionComponent.h"
 #include "Particle.h"
+#include "DashEffect.h"
 
 #include "HandSocket.h"
 
@@ -15,6 +16,7 @@ class PlayerPawn : public Pawn
 	PlayerMovementComponent* movement;
 	CollisionComponent* collision;
 	HandSocket* hand;
+	DashEffect* effect;
 	
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -70,5 +72,6 @@ public:
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data);
 	virtual void CollisionExit(const CollisionData& _data);
+	void SpawnDashEffect();
 };
 
