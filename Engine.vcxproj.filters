@@ -613,6 +613,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Wall.cpp">
+    <ClCompile Include="DashEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -981,6 +982,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wall.h">
+    <ClInclude Include="DashEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

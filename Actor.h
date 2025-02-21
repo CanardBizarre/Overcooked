@@ -337,6 +337,11 @@ public:
 			_child->Scale(_factor);
 		}
 	}
+	FORCEINLINE virtual void SetLifeSpan(const float _lifespan) 
+	{
+		lifeSpan = _lifespan;
+	}
+
 
 	#pragma endregion
 

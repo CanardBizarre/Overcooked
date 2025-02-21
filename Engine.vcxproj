@@ -174,6 +174,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMMesh.cpp" />
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
+    <ClCompile Include="DashEffect.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
     <ClCompile Include="DecorBlock.cpp" />
     <ClCompile Include="DishWidget.cpp" />
@@ -296,6 +297,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMMesh.h" />
     <ClInclude Include="CUSTOMPawn.h" />
     <ClInclude Include="CUSTOMPlayerController.h" />
+    <ClInclude Include="DashEffect.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="DecorBlock.h" />
     <ClInclude Include="DishType.h" />

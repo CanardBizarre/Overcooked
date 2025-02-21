@@ -2,12 +2,14 @@
 #include "TimerManager.h"
 #include "Actor.h"
 
+
+
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const Vector2f& _velocity, const Vector2f& _direction)
 	: MovementComponent(_owner, _velocity, _direction)
 {
 	canMove = true;
 	dodgeLaunch = false;
-	dodgeMultiplicater = 1.5f;
+	dodgeMultiplicater = 2.0f;
 }
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner, const PlayerMovementComponent& _other)
@@ -21,7 +23,7 @@ PlayerMovementComponent::~PlayerMovementComponent()
 {
 }
 
-void PlayerMovementComponent::Dash()
+bool PlayerMovementComponent::Dash()
 {
 	if (!dodgeLaunch && !IsDirectionNull())
 	{
@@ -33,8 +35,10 @@ void PlayerMovementComponent::Dash()
 				SetCanMoveState(true);
 				ResetX();
 				ResetY();
-			}, seconds(0.7f), true, false);
+			}, seconds(0.2f), true, false);
+		return true;
 	}
+	return false;
 }
 
 void PlayerMovementComponent::Move(const float _deltaTime)
@@ -67,3 +71,6 @@ void PlayerMovementComponent::ProcessInput(const Vector2f& _inputOffSet)
 	}
 
 }
+
+
+
