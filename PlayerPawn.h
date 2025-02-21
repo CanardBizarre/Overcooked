@@ -74,7 +74,6 @@ public:
 	virtual void CollisionExit(const CollisionData& _data);
 	virtual void SetZOrder(const int _zOrder) override;
 	
-
 	void SpawnDashEffect();
 };
 

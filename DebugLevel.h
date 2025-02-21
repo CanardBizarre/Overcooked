@@ -8,7 +8,7 @@ class DebugLevel : public GameplayLevel
 
 public:
 	DebugLevel();
-
+	virtual ~DebugLevel(){}
 protected:
 	virtual void InitLevel() override;
 };

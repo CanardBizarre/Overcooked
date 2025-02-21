@@ -600,19 +600,6 @@
     <ClCompile Include="Level_5_1.cpp">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
     </ClCompile>
-    <ClCompile Include="Chair.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Plant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Table.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall.cpp">
     <ClCompile Include="DashEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -966,53 +953,12 @@
     <ClInclude Include="Level_5_1.h">
       <Filter>Overcooked\Level\GameplayLevel</Filter>
     </ClInclude>
-    <ClInclude Include="Chair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DecorBlock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Plant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
     <ClInclude Include="DashEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
-    <Text Include="LevelsData\BackGround_1-1.txt" />
-    <Text Include="LevelsData\BackGround_2-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_1-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_2-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_3-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_4-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\Level_5-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\BackGround_3-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
-    <Text Include="LevelsData\BackGround_4-1.txt">
-      <Filter>Overcooked</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

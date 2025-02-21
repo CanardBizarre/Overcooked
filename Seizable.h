@@ -5,7 +5,7 @@ enum SeizableType
 {
 	ST_DISH,
 	ST_INGREDIENT,
-	ST_CONTAINER,
+	ST_UTENSIL,
 	ST_COUNT,
 };
 

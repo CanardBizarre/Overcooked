@@ -1,7 +1,7 @@
 #pragma once
-#include "KitchenBlock.h"
+#include "Prop.h"
 
-class Plant : public KitchenBlock
+class Plant : public Prop
 {
 public:
 	Plant(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle = Angle());

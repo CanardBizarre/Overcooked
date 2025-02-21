@@ -192,7 +192,7 @@ namespace UI
 		PanelWidget(Level* _level, const string& _name = "Panel", const RenderType& _type = Screen);
 		virtual ~PanelWidget()
 		{
-			LOG(Display, "Destruction PanelWidget !");
+			
 		}
 
 	private:

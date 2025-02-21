@@ -16,6 +16,7 @@ class OrderWidget : public CanvasWidget
 	Timer<Seconds>* timer;
 	ProgressBarWidget* progressBar;
 	DishWidget* dish;
+	ImageWidget* bg;
 	vector<IngredientWidget*> ingredient;
 	function<void(OrderWidget* _this)> callbacks;
 	Vector2f size;

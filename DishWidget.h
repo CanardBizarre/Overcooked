@@ -13,7 +13,7 @@ public:
 		return sizeF;
 	}
 public:
-	DishWidget(Level* _level, const DishType& _type, const float _size = 80.0f);
+	DishWidget(Level* _level, const DishType& _type, const float _size = 60.0f);
 	DishWidget(const DishWidget& _other);
 
 public:

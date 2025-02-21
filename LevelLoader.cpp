@@ -17,6 +17,7 @@
 #include "Ground.h"
 #include "Plant.h"
 
+
 LevelLoader::LevelLoader()
 {
 
@@ -127,7 +128,8 @@ void LevelLoader::SpawnBlockByType(Level* _level, const Vector2f& _size, const V
 		break;
 	case BT_COUNT:
 	default:
-		LOG(Error, "Invalid Type !!!");
+		
+		(Error, "Invalid Type !!!");
 		return;
 	}
 

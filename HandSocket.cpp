@@ -5,17 +5,20 @@
 #include "RigidBodyComponent.h"
 #include "MovementComponent.h"
 #include "Seizable.h"
-#include "Level.h"
+#include "Ingredient.h"
+
 
 using namespace Layer;
+
+
 
 HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOffSet)
 	:Actor(_level, "Hand", TransformData(Vector2f(20.0f, 20.0f), _pos, degrees(0.0f)))
 {
 	handOffSet = _handOffSet;
 	collision = CreateComponent<CollisionComponent>();
-	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(40.0f, 40.0f),
-		"Characters/Hands/spritesheet_opened", PNG, false, IntRect(Vector2i(), Vector2i(124, 124))));
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(40.0f, 40.0f), 
+		"Characters/Hands/spritesheet_opened", PNG, false, IntRect(Vector2i(),Vector2i(124,124))));
 	isNearCounter = false;
 	object = nullptr;
 
@@ -53,15 +56,14 @@ void HandSocket::PickUp()
 
 		if (isNearCounter) nearestBlock->ExitAction(object);
 	}
-
+	
 }
 
 void HandSocket::DropObject()
 {
-	if (!object) return;
+	if (!nearestBlock->EnterAction(GetCarriedObject(), isDish)) return;
 
-	if (!nearestBlock->EnterAction(object, isDish)) return;
-
+	object = nullptr;
 	RemoveObject();
 	isNearCounter = false;
 }
@@ -69,7 +71,7 @@ void HandSocket::DropObject()
 void HandSocket::ThrowObject()
 {
 	Actor* _current = RemoveObject();
-	if (Seizable* _dummy = Cast<Seizable>(_current))
+	if (Seizable* _dummy= Cast<Seizable>(_current))
 	{
 		_dummy->Throw(GetParent()->GetForwardVector());
 	}
@@ -118,12 +120,9 @@ void HandSocket::CollisionUpdate(const CollisionData& _data)
 		if (_data.channelName == "Seizable")
 		{
 			object = _data.other;
-			isDish = false;
-		}
-		else if (_data.channelName == "Dish")
-		{
-			object = _data.other;
-			isDish = true;
+
+			if(Cast<Ingredient>(object)) isDish = false;
+			else isDish = true;
 		}
 		else if (_data.channelName == "KitchenBlock")
 		{
@@ -158,16 +157,16 @@ void HandSocket::Tick(const float _deltaTime)
 	const Vector2f& _position = _parent->GetPosition();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 30.0f, 40.0f });
-	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
+	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 50.0f, 70.0f });
+	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect,GetPosition(), Angle()));
 }
 
 void HandSocket::Construct()
 {
 	Super::Construct();
-	mesh->SetOriginAtMiddle();
-	SetZOrder(21);
 
+	SetZOrder(3);
+	mesh->SetOriginAtMiddle();
 }
 
 void HandSocket::SetZOrder(const int _zOrder)
