@@ -135,9 +135,9 @@ void PlayerPawn::CollisionEnter(const CollisionData& _data)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
+			LOG(Warning, "Collision");
 			if (_data.response == CT_BLOCK)
 			{
-				LOG(Warning, "Collision");
 				Move(movement->GetDirection() * -1.5f);
 			}
 		}
@@ -150,9 +150,9 @@ void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
+			LOG(Warning, "Collision");
 			if (_data.response == CT_BLOCK)
 			{
-				LOG(Warning, "Collision");
 				Move(movement->GetDirection() * -1.5f);
 			}
 		}
