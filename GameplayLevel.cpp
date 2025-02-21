@@ -21,13 +21,14 @@ void GameplayLevel::ComputeOrdersPos()
 {
 	int _index = 0;
 	float _lastPos = 0;
+	const float _offset = orders.size() * 0.5f + 15.0f;
 	for (OrderWidget* _widget : orders)
 	{
 		if (_widget->IsUsedState())
 		{
 			const Vector2f& _size = _widget->GetSize();
-			_widget->SetPosition(Vector2f(_lastPos + _size.x, 0.0f));
-			_lastPos = _lastPos + _size.x + 15.0f;
+			_widget->SetPosition(Vector2f(_lastPos + _offset, 3.0f));
+			_lastPos = _lastPos + _size.x + _offset;
 			_index++;
 		}
 	}
