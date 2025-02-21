@@ -1,10 +1,15 @@
 #include "Wall.h"
 
 Wall::Wall(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle)
-	: KitchenBlock(_level, _size, _position, _angle, BT_WALL, "Work_Plan", "/Blocks/wall")
+	: Prop(_level, RectangleShapeData(_size, "/Blocks/wall"), "Wall")
 {
+	mesh->SetOriginAtMiddle();
+	SetPosition(_position);
+	mesh->SetOriginAtMiddle();
+	SetRotation(_angle);
 }
 
-Wall::Wall(const Wall& _other) : KitchenBlock(_other)
+Wall::Wall(const Wall& _other) : Prop(_other)
 {
+
 }
