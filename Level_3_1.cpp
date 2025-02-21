@@ -20,4 +20,10 @@ void Level_3_1::InitLevel()
 	const vector<string>& _texts = M_FILE.ReadFile(_path.c_str());
 
 	M_LEVELLOADER.InterpretString(_texts);
+
+	foodSpawners[0]->SetType(IT_TOMATO);
+	foodSpawners[1]->SetType(IT_MEAT);
+	foodSpawners[2]->SetType(IT_TORTILLA);
+	foodSpawners[3]->SetType(IT_LETTUCE);
+
 }
