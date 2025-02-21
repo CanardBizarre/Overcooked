@@ -33,7 +33,7 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 	slide->SetPosition(Vector2f(0.0f, 20.0f));
 	slide->SetZOrder(30);
 
-	timer = new Timer<>([&]()
+	timer = new Timer([&]()
 		{
 			chrono->DecrementCurrentTime();
 			label->SetText(chrono->GetTime());
