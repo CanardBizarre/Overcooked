@@ -27,6 +27,10 @@ void Level_3_1::InitLevel()
 	_backGround->SetPosition(Vector2f(-100, -110));
 	_backGround->SetZOrder(0);
 
+	M_LEVELLOADER.InterpretString(_textsBg);
+	M_LEVELLOADER.InterpretString(_texts);
+
+
 	foodSpawners[0]->SetType(IT_TOMATO);
 	foodSpawners[1]->SetType(IT_MEAT);
 	foodSpawners[2]->SetType(IT_TORTILLA);
