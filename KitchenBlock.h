@@ -6,7 +6,6 @@ class HandSocket;
 enum BlockType
 {
 	BT_WORK_PLAN,
-	BT_WORK_PLAN_NOC,
 	BT_GARBAGE_CAN,
 	BT_CHOPPING_STATION,
 	BT_STOVE,
