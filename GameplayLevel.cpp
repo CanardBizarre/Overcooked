@@ -25,9 +25,10 @@ void GameplayLevel::ComputeOrdersPos()
 	{
 		if (_widget->IsUsedState())
 		{
+			_widget->Scale({2.0f,2.0f});
 			const Vector2f& _size = _widget->GetSize();
 			_widget->SetPosition(Vector2f(_lastPos + 15.0f, 0.0f));
-			_lastPos = _lastPos + _size.x + 15.0f;
+			_lastPos = _lastPos + _size.x +15.0f;
 			_index++;
 		}
 	}
@@ -37,20 +38,23 @@ void GameplayLevel::InitLevel()
 {
 	Super::InitLevel();
 	hud = GetGameMode()->GetHUD();
-
+	const Vector2f& _windozSize = CAST(Vector2f, GetWindowSize());
 	canvas = hud->SpawnWidget<CanvasWidget>();
 	canvas->SetDebugMode(true);
-	canvas->SetSize(CAST(Vector2f, GetWindowSize()));
+	canvas->SetSize(_windozSize);
 
 
-	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass", 90.0f);
+	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass");
 	canvas->AddChild(hourglass);
+	hourglass->SetPosition(_windozSize * 0.8f);
 
 	score = hud->SpawnWidget<ScoreWidget>(hud, "Score");
 	canvas->AddChild(score);
+	score->SetPosition(Vector2f(_windozSize.x * 0.1f, _windozSize.y * 0.8f));
 
 	player1 = SpawnActor<PlayerPawn>();
 	player1->SetPosition(Vector2f(window.getSize()) / 2.0f);
+	player1->SetZOrder(70);
 
 
 	const vector<IngredientType>& _ingredient = { IngredientType::IT_CHICKEN, IngredientType::IT_TORTILLA };

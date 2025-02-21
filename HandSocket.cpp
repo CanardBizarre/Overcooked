@@ -19,6 +19,7 @@ HandSocket::HandSocket(Level* _level, const Vector2f& _pos, const float _handOff
 	object = nullptr;
 
 	InitCollision();
+	SetZOrder(70);
 }
 
 HandSocket::HandSocket(Level* _level, HandSocket* _other)
@@ -165,6 +166,5 @@ void HandSocket::Construct()
 {
 	Super::Construct();
 
-	SetZOrder(3);
 	mesh->SetOriginAtMiddle();
 }

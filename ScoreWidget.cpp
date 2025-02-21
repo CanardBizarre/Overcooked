@@ -5,8 +5,8 @@
 ScoreWidget::ScoreWidget(Level* _level, HUD* _hud, const string& _name)
 	: CanvasWidget(_level, _name)
 {
-	combo = 2;
-	score = 1000;
+	combo = 0;
+	score = 0;
 
 	slide = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(170.0f, 70.0f), "UI/blue_slide"));
     coin = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(90.0f, 90.0f), "UI/Sprites/coin"));
@@ -14,11 +14,11 @@ ScoreWidget::ScoreWidget(Level* _level, HUD* _hud, const string& _name)
 	comboLabel = _hud->SpawnWidget<LabelWidget>("x" + to_string(combo));
 
 	AddChild(slide);
-	slide->SetPosition(Vector2f(50.0f, 480.0f));
+	slide->SetPosition(Vector2f(40.0f, 10.0f));
 	slide->SetZOrder(8);
 
 	AddChild(coin);
-	coin->SetPosition(Vector2f(10.0f, 470.0f));
+	coin->SetPosition(Vector2f(0.0f, 0.0f));
 	coin->SetZOrder(10);
 
 	AddChild(scoreLabel);
@@ -26,14 +26,14 @@ ScoreWidget::ScoreWidget(Level* _level, HUD* _hud, const string& _name)
 	scoreLabel->SetFont("Overcooked", TTF);
 	scoreLabel->SetCharacterSize(40);
 	scoreLabel->SetZOrder(9);
-	scoreLabel->SetPosition({ 105, 480.0f });
+	scoreLabel->SetPosition({ 95.0f, 10.0f });
 
 	AddChild(comboLabel);
 	comboLabel->SetFillColor(Color::White);
 	comboLabel->SetFont("Overcooked", TTF);
 	comboLabel->SetCharacterSize(25);
 	comboLabel->SetZOrder(9);
-	comboLabel->SetPosition({ 175.0f, 517.0f });
+	comboLabel->SetPosition({ 165.0f, 47.0f });
 
 	new Timer([&]()
 		{

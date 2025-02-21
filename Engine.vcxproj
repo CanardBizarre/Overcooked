@@ -158,6 +158,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Chair.cpp" />
     <ClCompile Include="CheckBoxWidget.cpp" />
     <ClCompile Include="ChoppingStation.cpp" />
+    <ClCompile Include="Chronometer.cpp" />
     <ClCompile Include="CircleActor.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -174,6 +175,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="CUSTOMPawn.cpp" />
     <ClCompile Include="CUSTOMPlayerController.cpp" />
     <ClCompile Include="DebugLevel.cpp" />
+    <ClCompile Include="DecorBlock.cpp" />
+    <ClCompile Include="DishWidget.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="FoodSpawner.cpp" />
@@ -184,8 +187,11 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="HandSocket.cpp" />
     <ClCompile Include="HorizontalBox.cpp" />
+    <ClCompile Include="HourglassWidget.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
+    <ClCompile Include="Ingredient.cpp" />
+    <ClCompile Include="IngredientWidget.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KitchenBlock.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
@@ -199,6 +205,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="MainMenuHUD.cpp" />
     <ClCompile Include="MainMenuPawn.cpp" />
     <ClCompile Include="MainMenuPlayerController.cpp" />
+    <ClCompile Include="OrderWidget.cpp" />
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="PlateSpawner.cpp" />
     <ClCompile Include="PlayerPawn.cpp" />
@@ -225,6 +232,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClCompile Include="RigidProp.cpp" />
     <ClCompile Include="RootComponent.cpp" />
     <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="ScoreWidget.cpp" />
+    <ClCompile Include="Seizable.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="Sink.cpp" />
     <ClCompile Include="SliderWidget.cpp" />
@@ -270,6 +279,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Chair.h" />
     <ClInclude Include="CheckBoxWidget.h" />
     <ClInclude Include="ChoppingStation.h" />
+    <ClInclude Include="Chronometer.h" />
     <ClInclude Include="CircleActor.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -288,6 +298,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="CUSTOMPlayerController.h" />
     <ClInclude Include="DebugLevel.h" />
     <ClInclude Include="DecorBlock.h" />
+    <ClInclude Include="DishType.h" />
+    <ClInclude Include="DishWidget.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="Engine.h" />
@@ -299,8 +311,12 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="Ground.h" />
     <ClInclude Include="HandSocket.h" />
     <ClInclude Include="HorizontalBox.h" />
+    <ClInclude Include="HourglassWidget.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ImageWidget.h" />
+    <ClInclude Include="Ingredient.h" />
+    <ClInclude Include="IngredientType.h" />
+    <ClInclude Include="IngredientWidget.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KitchenBlock.h" />
     <ClInclude Include="LevelLoader.h" />
@@ -314,6 +330,7 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="MainMenuHUD.h" />
     <ClInclude Include="MainMenuPawn.h" />
     <ClInclude Include="MainMenuPlayerController.h" />
+    <ClInclude Include="OrderWidget.h" />
     <ClInclude Include="Plant.h" />
     <ClInclude Include="PlateSpawner.h" />
     <ClInclude Include="PlayerPawn.h" />
@@ -336,6 +353,8 @@ xcopy /y /d "..\..\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(OutDir)"
     <ClInclude Include="RigidBodyComponent.h" />
     <ClInclude Include="RigidProp.h" />
     <ClInclude Include="Sample.h" />
+    <ClInclude Include="ScoreWidget.h" />
+    <ClInclude Include="Seizable.h" />
     <ClInclude Include="Sink.h" />
     <ClInclude Include="SliderWidget.h" />
     <ClInclude Include="Slot.h" />

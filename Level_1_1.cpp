@@ -25,6 +25,7 @@ void Level_1_1::InitLevel()
 	Level* _level = M_LEVEL.GetCurrentLevel();
 	MeshActor* _backGround = _level->SpawnActor<MeshActor>(RectangleShapeData(Vector2f(1435.5, 1138.5), "Blocks/BG1"));
 	_backGround->SetPosition(Vector2f(-45, -45));
+	_backGround->SetZOrder(0);
 
 	M_LEVELLOADER.InterpretString(_textsBg);
 	M_LEVELLOADER.InterpretString(_texts);

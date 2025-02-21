@@ -14,6 +14,7 @@ PlayerPawn::PlayerPawn(Level* _level)
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
+	SetZOrder(71);
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -38,7 +39,6 @@ void PlayerPawn::InitCollision()
 void PlayerPawn::Construct()
 {
 	Super::Construct();
-	SetZOrder(10);
 	mesh->SetOriginAtMiddle();
 	GetHand();
 }

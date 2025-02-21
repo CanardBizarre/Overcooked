@@ -27,8 +27,8 @@ public:
 
 	FORCEINLINE int AddScore(int _score)
 	{
-		score += _score * (1+combo);
-		if (score > 9999) score = 9999;
+		score += _score * (1 + combo);
+		score = score > 9999 ?  9999 : score;
 	}
 
 	FORCEINLINE int IncrementCombo()
