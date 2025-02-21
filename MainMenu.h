@@ -14,14 +14,14 @@ enum ScreenType
 	ST_CREDIT,
 };
 
-class MainMenu :  public Level
+class MainMenu : public Level
 {
 	using IteratorOption = vector<Widget*>::iterator;
 	using IteratorAllScreen = map<ScreenType, vector<Widget*>>::iterator;
 
 	CanvasWidget* canvas;
 
-	map<ScreenType,vector<Widget*>> allScreen;
+	map<ScreenType, vector<Widget*>> allScreen;
 	IteratorAllScreen currentScreen;
 
 	vector<Widget*> firstScreen;
@@ -38,7 +38,7 @@ public:
 	}
 	FORCEINLINE bool IsLastChoice()
 	{
-		return currentChoice == --choices.end() ;
+		return currentChoice == --choices.end();
 	}
 	FORCEINLINE bool IsFirstChoice()
 	{
@@ -50,22 +50,19 @@ public:
 	virtual ~MainMenu();
 
 private:
-	void ChangeScreen(const int _increment = 1);
 	void ChangeOption(const int _index);
-	void SetupFirstScreen();
 	void SetupOption();
 
 
 public:
 	virtual void InitLevel() override;
 	// init de tous les widgets des screens
-	void InitFirstScreen(HUD* _hud);
 	void InitSecondScreen(HUD* _hud);
-	void InitCampaign(HUD* _hud);
 
-	void ChooseScreen(const int _index);
+	void ChooseScreen();
 	void ChooseChoices(const int _index);
-	
-	
+	void Exit();
+
+
 };
 
