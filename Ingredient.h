@@ -1,12 +1,28 @@
 #pragma once
 #include "Seizable.h"
-#include "IngredientType.h"
 
-
-struct TextureRegion
+enum IngredientType
 {
-	Vector2i position;
-	Vector2i size;
+	IT_TORTILLA = 0,
+	IT_CHICKEN,
+	IT_CUCUMBER,
+	IT_FISH,
+	IT_LETTUCE,
+	IT_MEAT,
+	IT_MUSHROOM,
+	IT_PRAWN,
+	IT_RICE,
+	IT_SEAWEED,
+	IT_TOMATO,
+	IT_COUNT
+};
+
+enum IngredientState
+{
+	IS_RAW = 0,
+	IS_CUT,
+	IS_COOKED,
+	IS_BURNT
 };
 
 class Ingredient : public Seizable
@@ -14,7 +30,6 @@ class Ingredient : public Seizable
 	IngredientType ingredientData;
 	IngredientState ingredientState;
 	bool isSlinced;
-	TextureRegion texture;
 
 
 public:
@@ -25,9 +40,5 @@ public:
 public:
 	virtual void Construct() override;
 
-
-public: 
-
-	map<IngredientType, TextureRegion> InitTextureUVMap(const IngredientType& _ingredientData);
 };
 
