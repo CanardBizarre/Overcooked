@@ -4,6 +4,7 @@
 #include "MainMenuPawn.h"
 #include "MainMenuHUD.h"
 
+#include "ChooseMapLevel.h"
 #include "DebugLevel.h"
 #include "Level_1_1.h"
 #include "Level_2_1.h"
@@ -254,8 +255,8 @@ void MainMenu::ChooseScreen(const int _index)
 	if ((*currentScreen).first == ST_FIRST && _index < 0) return;
 	if ((*currentScreen).first == ST_CAMPAIGN)
 	{
-		Level_5_1* _mainMenu = new Level_5_1();
-		M_LEVEL.SetLevel(_mainMenu);
+		ChooseMapLevel* _hub = new ChooseMapLevel();
+		M_LEVEL.SetLevel(_hub);
 		return;
 	}
 

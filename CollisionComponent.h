@@ -68,12 +68,12 @@ public:
 
 	FORCEINLINE virtual Component* Clone(Actor* _owner) const override
 	{
-		return new CollisionComponent(_owner, *this);
+		return new CollisionComponent(_owner, this);
 	}
 
 public:
 	CollisionComponent(Actor* _owner, const string& _channelName = "NONE", const int _status = IS_NONE, const CollisionType& _type = CT_NONE);
-	CollisionComponent(Actor* _owner, const CollisionComponent& _other);
+	CollisionComponent(Actor* _owner, const CollisionComponent* _other);
 	~CollisionComponent();
 
 protected:

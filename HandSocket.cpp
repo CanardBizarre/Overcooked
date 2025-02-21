@@ -27,7 +27,7 @@ HandSocket::HandSocket(Level* _level, HandSocket* _other)
 {
 	handOffSet = _other->handOffSet;
 	isNearCounter = _other->isNearCounter;
-	collision = CreateComponent<CollisionComponent>(*_other->collision);
+	collision = CreateComponent<CollisionComponent>(_other->collision);
 	mesh = CreateComponent<MeshComponent>(*_other->mesh);
 	object = _other->object;
 }
@@ -156,10 +156,11 @@ void HandSocket::Tick(const float _deltaTime)
 	Actor* _parent = GetParent();
 	const Vector2f& _foward = _parent->GetForwardVector();
 	const Vector2f& _position = _parent->GetPosition();
+	const Vector2f& _origine = _parent->GetOrigin();
 	SetPosition(_position + handOffSet * _foward);
 
-	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 30.0f, 40.0f });
-	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
+	const FloatRect& _rect = FloatRect(GetPosition(), { 20.0f, 20.0f });
+	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, { 0, _origine.y }, Angle()));
 }
 
 void HandSocket::Construct()

@@ -7,9 +7,8 @@ using namespace Input;
 PlayerPawn::PlayerPawn(Level* _level) 
 	: Pawn(_level, "Keyboard")
 {
-
-	mesh = CreateComponent<MeshComponent>(CircleShapeData(25.0f, "/Characters/Clothes/spritesheet", IntRect(Vector2i(), Vector2i(124, 124))));
-	//mesh = CreateComponent<MeshComponent>(RectangleShapeData({ 50.0f,50.0f }, "/Characters/Clothes/spritesheeta", PNG, false ,IntRect(Vector2i(), Vector2i(124, 124))));
+	mesh = CreateComponent<MeshComponent>(RectangleShapeData(Vector2f(50.0f, 50.0f), "/Characters/Clothes/spritesheet", PNG, false, IntRect(Vector2i(), Vector2i(124,124))));
+	mesh->SetOriginAtMiddle();
 	movement = CreateComponent<PlayerMovementComponent>();
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
@@ -21,6 +20,7 @@ PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
 	movement = CreateComponent<PlayerMovementComponent>(*_other.movement);
 	mesh = CreateComponent<MeshComponent>(*_other.mesh);
 	collision = CreateComponent<CollisionComponent>(*_other.collision);
+
 }
 
 void PlayerPawn::InitCollision()
@@ -32,7 +32,7 @@ void PlayerPawn::InitCollision()
 		{ "KitchenBlock", CT_OVERLAP },
 		{ "RigidProp", CT_BLOCK },
 	});
-	SetLayerType(WORLD_DYNAMIC);
+	SetLayerType(PLAYER);
 }
 
 void PlayerPawn::Construct()
@@ -127,7 +127,7 @@ Actor* PlayerPawn::GetHand()
 
 void PlayerPawn::CollisionEnter(const CollisionData& _data)
 {
-	/*if (_data.other->GetLayerType() == PROP)
+	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
@@ -137,12 +137,12 @@ void PlayerPawn::CollisionEnter(const CollisionData& _data)
 				Move(movement->GetDirection() * -1.5f);
 			}
 		}
-	}*/
+	}
 }
 
 void PlayerPawn::CollisionUpdate(const CollisionData& _data)
 {
-	/*if (_data.other->GetLayerType() == PROP)
+	if (_data.other->GetLayerType() == PROP)
 	{
 		if (_data.channelName == "KitchenBlock")
 		{
