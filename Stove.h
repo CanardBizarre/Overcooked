@@ -5,7 +5,6 @@
 
 class Stove : public KitchenBlock
 {
-	Timer<Seconds>* timer;
 
 public:
 	Stove(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle = Angle());
@@ -15,6 +14,5 @@ public:
 	virtual bool EnterAction(Actor* _object, const bool _isDish) override;
 	virtual bool ExitAction(Actor* _object) override;
 	virtual void Construct() override;
-	void FinishChopping();
 };
 

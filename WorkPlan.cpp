@@ -1,5 +1,6 @@
 #include "WorkPlan.h"
 #include "TextureManager.h"
+#include "Dish.h"
 
 WorkPlan::WorkPlan(Level* _level, const Vector2f& _size, const Vector2f& _position, const Angle& _angle)
 				: KitchenBlock(_level, _size, _position, _angle, BT_WORK_PLAN, "Work_Plan")
@@ -14,10 +15,20 @@ WorkPlan::WorkPlan(const WorkPlan& _other) : KitchenBlock(_other)
 
 bool WorkPlan::EnterAction(Actor* _object, const bool _isDish)
 {
+	if (Ingredient* _ingredient = Cast<Ingredient>(_object))
+	{
+		set<Actor*> _children = GetChildren();
+		for (Actor* _child : _children)
+		{
+			if (Dish* _dish = Cast<Dish>(_child))
+			{
+				_dish->AddIngredient(_ingredient);
+				return true;
+			}
+		}
+	}
 	AddChild(_object, AT_KEEP_RELATIVE);
 	_object->SetPosition(GetPosition());
-
-	// TODO AddChild lorsque dish et aliment sur le même workPlan
 
 	return true;
 }

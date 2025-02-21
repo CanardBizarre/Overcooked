@@ -4,6 +4,8 @@
 #include "LevelLoader.h"
 #include "FileManager.h"
 #include "FoodSpawner.h"
+#include "Dish.h"
+#include "Utensil.h"
 
 using namespace File;
 
@@ -26,6 +28,7 @@ void DebugLevel::InitLevel()
 	{
 		_foodSpawner->SetType(IT_MUSHROOM);
 	}
+
 
 	//Ingredient* appleSpawner = _spawner->SpawnIngredient(IT_TORTILLA, "Tortilla");
 }
