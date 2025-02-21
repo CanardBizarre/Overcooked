@@ -20,7 +20,7 @@ FoodSpawner::FoodSpawner(const FoodSpawner& _other) : KitchenBlock(_other)
 
 Ingredient* FoodSpawner::SpawnIngredient(const IngredientType type, const string& _name)
 {
-	return level->SpawnActor<Ingredient>(Vector2f(40.0f, 40.0f), GetPosition(), Angle(), _name, type, IS_RAW);
+	return level->SpawnActor<Ingredient>(Vector2f(30.0f, 30.0f), GetPosition(), Angle(), _name, type, IS_RAW);
 }
 
 void FoodSpawner::Construct()

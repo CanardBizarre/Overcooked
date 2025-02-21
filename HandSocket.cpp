@@ -5,6 +5,8 @@
 #include "RigidBodyComponent.h"
 #include "MovementComponent.h"
 #include "Seizable.h"
+#include "Ingredient.h"
+
 
 using namespace Layer;
 
@@ -118,12 +120,9 @@ void HandSocket::CollisionUpdate(const CollisionData& _data)
 		if (_data.channelName == "Seizable")
 		{
 			object = _data.other;
-			isDish = false;
-		}
-		else if (_data.channelName == "Dish")
-		{
-			object = _data.other;
-			isDish = true;
+
+			if(Cast<Ingredient>(object)) isDish = false;
+			else isDish = true;
 		}
 		else if (_data.channelName == "KitchenBlock")
 		{
