@@ -6,6 +6,7 @@
 
 #include "DebugLevel.h"
 #include "Level_1_1.h"
+#include "ChooseMapLevel.h"
 
 #include "LevelManager.h"
 
@@ -145,7 +146,7 @@ void MainMenu::ChooseScreen()
 {
 	if ((*currentChoice) == choices[0])
 	{
-		Level_1_1* _mainMenu = new Level_1_1();
+		ChooseMapLevel* _mainMenu = new ChooseMapLevel();
 		M_LEVEL.SetLevel(_mainMenu);
 		return;
 	}
