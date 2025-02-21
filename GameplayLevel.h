@@ -43,6 +43,7 @@ public:
 
 private:
 	void ComputeOrdersPos();
+	void InitEnd();
 protected:
 	virtual void InitLevel() override;
 	virtual void MakeOrderWidget(const DishType& _dish, const vector<IngredientType>& _ingredients);

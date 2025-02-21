@@ -50,8 +50,7 @@ public:
 	void FinishChopping();
 	void FinishBoiling();
 
-
+	virtual void SetZOrder(const int _zOrder) override;
 public:
-
 	map<IngredientType, TextureRegion> InitTextureUVMap(const IngredientType& _ingredientData);
 };

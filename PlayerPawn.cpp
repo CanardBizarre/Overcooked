@@ -15,6 +15,7 @@ PlayerPawn::PlayerPawn(Level* _level)
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
+	currentRotation = GetRotation().asRadians();
 }
 
 PlayerPawn::PlayerPawn(const PlayerPawn& _other) : Pawn(_other)
@@ -103,7 +104,7 @@ void PlayerPawn::SetupInputController(Input::InputManager& _inputManager)
 void PlayerPawn::ProcessInput(const Vector2f& _vectorDirection)
 {
 	movement->ProcessInput(_vectorDirection);
-	ComputeRotation();
+	
 }
 
 void PlayerPawn::ComputeRotation()
@@ -179,6 +180,12 @@ void PlayerPawn::SetZOrder(const int _zOrder)
 	GetLevel()->GetCameraManager().SetZOrder(mesh->GetRenderMeshToken(), zOrder);
 }
 
+void PlayerPawn::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+	RotatePlayer(movement->GetDirection(), _deltaTime);
+}
+
 void PlayerPawn::SpawnDashEffect()
 {
 	if(!movement->Dash()) return;
@@ -199,3 +206,17 @@ void PlayerPawn::SpawnDashEffect()
 		}, seconds(0.3f), true, false);
 }
 
+void PlayerPawn::RotatePlayer(const Vector2f& _direction, const float _deltaTime)
+{
+	if (_direction == Vector2f()) return;
+
+	const float _targetRotation = atan2(_direction.x, -_direction.y) * 180.0f / pi;
+	const float _rotationSpeed = 15.0f;
+
+	const float delta = fmod((_targetRotation - currentRotation) + 540.0f, 360.0f) - 270.0f;
+
+	currentRotation += delta * _rotationSpeed * _deltaTime;
+
+
+	SetRotation(degrees(currentRotation));
+}

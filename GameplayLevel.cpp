@@ -3,6 +3,8 @@
 #include "IngredientWidget.h"
 #include "TimerManager.h"
 #include "Box.h"
+#include "LevelManager.h"
+#include "ChooseMapLevel.h"
 
 GameplayLevel::GameplayLevel(const string& _name) : Level(_name)
 {
@@ -34,6 +36,12 @@ void GameplayLevel::ComputeOrdersPos()
 	}
 }
 
+void GameplayLevel::InitEnd()
+{
+	ChooseMapLevel* _level = new ChooseMapLevel();
+	M_LEVEL.SetLevel(_level);
+}
+
 void GameplayLevel::InitLevel()
 {
 	Super::InitLevel();
@@ -47,6 +55,8 @@ void GameplayLevel::InitLevel()
 	hourglass = hud->SpawnWidget<HourglassWidget>(hud, "Hourglass");
 	canvas->AddChild(hourglass);
 	hourglass->SetPosition(_windozSize * 0.8f);
+
+	hourglass->SetCallBack([&]() {InitEnd(); });
 
 	score = hud->SpawnWidget<ScoreWidget>(hud, "Score");
 	canvas->AddChild(score);

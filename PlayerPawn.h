@@ -17,6 +17,7 @@ class PlayerPawn : public Pawn
 	CollisionComponent* collision;
 	HandSocket* hand;
 	DashEffect* effect;
+	float currentRotation;
 	
 public:
 	FORCEINLINE virtual void SetPosition(const Vector2f& _position) override
@@ -73,7 +74,8 @@ public:
 	virtual void CollisionUpdate(const CollisionData& _data);
 	virtual void CollisionExit(const CollisionData& _data);
 	virtual void SetZOrder(const int _zOrder) override;
-	
+	virtual void Tick(const float _deltaTime) override;
 	void SpawnDashEffect();
+	void RotatePlayer(const Vector2f& _direction, const float _deltaTime);
 };
 

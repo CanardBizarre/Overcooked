@@ -17,7 +17,7 @@ void Ingredient::Construct()
 
 	choppingTimer = new Timer([&]() { FinishChopping(); }, seconds(3), false, true);
 	boilingTimer = new Timer([&]() { FinishBoiling(); }, seconds(3), false, true);
-
+	SetZOrder(5.0f);
 	choppingTimer->Reset();
 	boilingTimer->Reset();
 }
@@ -34,4 +34,11 @@ void Ingredient::FinishBoiling()
 {
 	state == IS_COOKED ? SetState(IS_BURNT) : SetState(IS_COOKED);
 
+}
+
+void Ingredient::SetZOrder(const int _zOrder)
+{
+	Super::SetZOrder(_zOrder);
+
+	GetLevel()->GetCameraManager().SetZOrder(mesh->GetRenderMeshToken(), zOrder);
 }

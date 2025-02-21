@@ -12,7 +12,7 @@ ChooseMapPawn::ChooseMapPawn(Level* _level) : Pawn(_level, "Car")
 	collision = CreateComponent<CollisionComponent>();
 	movement->SetVelocity({ 200.0f,200.0f });
 	InitCollision();
-
+	currentRotation = GetRotation().asDegrees();
 	SetZOrder(2);
 	currentTriggerBox = nullptr;
 }
@@ -130,8 +130,29 @@ void ChooseMapPawn::CollisionExit(const CollisionData& _data)
 	}
 }
 
+void ChooseMapPawn::Tick(const float _deltaTime)
+{
+	Super::Tick(_deltaTime);
+	RotatePlayer(movement->GetDirection(), _deltaTime);
+}
+
 void ChooseMapPawn::interactWithTriggerBox()
 {
 	if (!currentTriggerBox) return;
 	currentTriggerBox->GetCallback()();
+}
+
+void ChooseMapPawn::RotatePlayer(const Vector2f& _direction, const float _deltaTime)
+{
+	if (_direction == Vector2f()) return;
+
+	const float _targetRotation = atan2(_direction.x, -_direction.y) * 180.0f / pi;
+	const float _rotationSpeed = 15.0f;
+
+	const float delta = fmod((_targetRotation - currentRotation) + 540.0f, 360.0f) - 270.0f;
+
+	currentRotation += delta * _rotationSpeed * _deltaTime;
+
+
+	SetRotation(degrees(currentRotation));
 }

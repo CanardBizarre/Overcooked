@@ -34,12 +34,17 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 	slide->SetPosition(Vector2f(0.0f, 20.0f));
 	slide->SetZOrder(30);
 
-	new Timer([&]()
+	Timer<Seconds>* _timer = new Timer([&]()
 		{
 			chrono->DecrementCurrentTime();
 			label->SetText(chrono->GetTime());
 			if (chrono->GetCurrentTime() < ((chrono->GetMaxTime() * 2) / 3))  label->SetFillColor(Color::Yellow);
 			if (chrono->GetCurrentTime() < chrono->GetMaxTime() / 3)  label->SetFillColor(Color::Red);
+			if (IsCanceled())
+			{
+				callback();
+				_timer->Stop();
+			}
 		}, seconds(1), true, true);
 }
 

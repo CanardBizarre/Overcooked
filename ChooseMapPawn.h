@@ -11,7 +11,7 @@ class ChooseMapPawn : public Pawn
 	MeshComponent* mesh;
 	CarMovementComponent* movement;
 	CollisionComponent* collision;
-
+	float currentRotation;
 	TriggerBox* currentTriggerBox;
 
 public:
@@ -66,8 +66,12 @@ public:
 	virtual void CollisionEnter(const CollisionData& _data);
 	virtual void CollisionUpdate(const CollisionData& _data){}
 	virtual void CollisionExit(const CollisionData& _data);
+	void Tick(const float _deltaTime);
+	
 
 private:
 	void interactWithTriggerBox();
+	void RotatePlayer(const Vector2f& _direction, const float _deltaTime);
+
 };
 
