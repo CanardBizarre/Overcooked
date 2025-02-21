@@ -30,9 +30,10 @@ void Level_3_1::InitLevel()
 	M_LEVELLOADER.InterpretString(_textsBg);
 	M_LEVELLOADER.InterpretString(_texts);
 
-	foodSpawners[0]->SetType(IT_TOMATO);
-	foodSpawners[1]->SetType(IT_MEAT);
-	foodSpawners[2]->SetType(IT_TORTILLA);
-	foodSpawners[3]->SetType(IT_LETTUCE);
+
+	foodSpawners[0]->SetType(IT_RICE);
+	foodSpawners[1]->SetType(IT_FISH);
+	foodSpawners[2]->SetType(IT_CUCUMBER);
+	foodSpawners[3]->SetType(IT_SEAWEED);
 
 }

@@ -23,12 +23,12 @@ void MainMenuPawn::SetupInputController(Input::InputManager& _inputManager)
 		{
 			new Action("Enter", ActionData(KeyHold, Enter), [&]()
 			{
-				Cast<MainMenu>(level)->ChooseScreen(1);
+				Cast<MainMenu>(level)->ChooseScreen();
 			}),
 
 			new Action("Backspace", ActionData(KeyHold, Backspace), [&]()
 			{
-				Cast<MainMenu>(level)->ChooseScreen(-1);
+				Cast<MainMenu>(level)->ChooseScreen();
 			}),
 
 			new Action("Up", ActionData(KeyHold, Z), [&]()
@@ -41,7 +41,10 @@ void MainMenuPawn::SetupInputController(Input::InputManager& _inputManager)
 				Cast<MainMenu>(level)->ChooseChoices(1);
 			}),
 
-
+			new Action("Quit", ActionData(KeyHold, Escape), [&]()
+			{
+				Cast<MainMenu>(level)->Exit();
+			}),
 
 		});
 	_menuInput->Enable();
