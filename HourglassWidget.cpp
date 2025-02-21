@@ -1,6 +1,5 @@
 #include "HourglassWidget.h"
 #include "Level.h"
-#include "TimerManager.h"
 
 HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, const float _time)
 	:CanvasWidget(_level, _name)
@@ -34,7 +33,7 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 	slide->SetPosition(Vector2f(0.0f, 20.0f));
 	slide->SetZOrder(30);
 
-	Timer<Seconds>* _timer = new Timer([&]()
+	timer = new Timer<>([&]()
 		{
 			chrono->DecrementCurrentTime();
 			label->SetText(chrono->GetTime());
@@ -43,7 +42,7 @@ HourglassWidget::HourglassWidget(Level* _level, HUD* _hud, const string& _name, 
 			if (IsCanceled())
 			{
 				callback();
-				_timer->Stop();
+				timer->Pause();
 			}
 		}, seconds(1), true, true);
 }

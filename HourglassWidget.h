@@ -1,10 +1,12 @@
 #pragma once
 #include "Chronometer.h"
+#include "TimerManager.h"
 
 using namespace UI;
 class HourglassWidget : public CanvasWidget
 {
 	Chronometer* chrono;
+	Timer<Seconds>* timer;
 	ImageWidget* hourglass;
 	ImageWidget* slide;
 	LabelWidget* label;
