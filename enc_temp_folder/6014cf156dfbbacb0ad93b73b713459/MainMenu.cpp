@@ -130,11 +130,11 @@ void MainMenu::InitLevel()
 
 void MainMenu::InitFirstScreen(HUD* _hud)
 {
-	ImageWidget* _firstBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "UI/Menu/Background", JPG));
+	ImageWidget* _firstBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "Ui/Menu/Background", JPG));
 	canvas->AddChild(_firstBackGround);
 	_firstBackGround->SetZOrder(0);
 
-	ImageWidget* _logo = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(534.0f, 284.0f), "UI/Menu/Overcooked_logo"));
+	ImageWidget* _logo = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(534.0f, 284.0f), "Ui/Menu/Overcooked_logo"));
 	canvas->AddChild(_logo);
 	_logo->SetOriginAtMiddle();
 	_logo->SetPosition(Vector2f(GetWindowSize().x / 2.0f, GetWindowSize().y * 0.3f));
@@ -157,11 +157,11 @@ void MainMenu::InitFirstScreen(HUD* _hud)
 
 void MainMenu::InitSecondScreen(HUD* _hud)
 {
-	ImageWidget* _secondBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "UI/Menu/Table", JPG));
+	ImageWidget* _secondBackGround = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(GetWindowSize(), "Ui/Menu/Table", JPG));
 	canvas->AddChild(_secondBackGround);
 	_secondBackGround->SetZOrder(0);
 
-	ImageWidget* _book = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(800.0f, 541.4f), "UI/Menu/Book"));
+	ImageWidget* _book = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(800.0f, 541.4f), "Ui/Menu/Book"));
 	canvas->AddChild(_book);
 	_book->SetOriginAtMiddle();
 	_book->SetPosition(Vector2f(GetWindowSize().x / 2.0f - 100.0f, GetWindowSize().y / 2.0f));
@@ -190,20 +190,20 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 	_credits->SetZOrder(2);
 
 
-	ImageWidget* _option1 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "UI/Menu/Arrow"));
+	ImageWidget* _option1 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "Ui/Menu/Arrow"));
 	canvas->AddChild(_option1);
 	_option1->SetOriginAtMiddle();
 	_option1->SetPosition(Vector2f(GetWindowSize().x * 0.45f, GetWindowSize().y * 0.23f));
 	_option1->SetZOrder(2);
 
 
-	ImageWidget* _option2 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "UI/Menu/Arrow"));
+	ImageWidget* _option2 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "Ui/Menu/Arrow"));
 	canvas->AddChild(_option2);
 	_option2->SetOriginAtMiddle();
 	_option2->SetPosition(Vector2f(GetWindowSize().x * 0.45f, GetWindowSize().y * 0.43f));
 	_option2->SetZOrder(2);
 
-	ImageWidget* _option3 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "UI/Menu/Arrow"));
+	ImageWidget* _option3 = _hud->SpawnWidget<ImageWidget>(RectangleShapeData(Vector2f(22.5f, 22.5f), "Ui/Menu/Arrow"));
 	canvas->AddChild(_option3);
 	_option3->SetOriginAtMiddle();
 	_option3->SetPosition(Vector2f(GetWindowSize().x * 0.45f, GetWindowSize().y * 0.63f));
