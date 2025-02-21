@@ -27,7 +27,7 @@ bool GarbageCan::EnterAction(Actor* _object, const bool _isDish)
 		return false;
 	}
 
-	_object->SetToDelete();
+	_object->SetZOrder(-1);
 	
 	return true;
 }

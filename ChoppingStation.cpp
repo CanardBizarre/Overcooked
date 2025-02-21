@@ -26,14 +26,11 @@ bool ChoppingStation::EnterAction(Actor* _object, const bool _isDish)
 	AddChild(_object, AT_KEEP_RELATIVE);
 	_object->SetPosition(GetPosition());
 
-	LOG(Display, "Enter");
-
 	return true;
 }
 
 bool ChoppingStation::ExitAction(Actor* _object)
 {
-	LOG(Display, "Exit");
 
 	RemoveChild(_object);
 	if (Ingredient* _ingredient = Cast<Ingredient>(_object))

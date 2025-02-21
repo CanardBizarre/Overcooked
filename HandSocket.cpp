@@ -158,7 +158,7 @@ void HandSocket::Tick(const float _deltaTime)
 	SetPosition(_position + handOffSet * _foward);
 
 	const FloatRect& _rect = FloatRect(GetPosition() + Vector2f(0.0f, -10.0f), { 50.0f, 70.0f });
-	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect, Angle()));
+	collision->GetBounds()->SetBoundsData(new RectangleBoundsData(_rect,GetPosition(), Angle()));
 }
 
 void HandSocket::Construct()
@@ -167,4 +167,11 @@ void HandSocket::Construct()
 
 	SetZOrder(3);
 	mesh->SetOriginAtMiddle();
+}
+
+void HandSocket::SetZOrder(const int _zOrder)
+{
+	Super::SetZOrder(_zOrder);
+
+	GetLevel()->GetCameraManager().SetZOrder(mesh->GetRenderMeshToken(), zOrder);
 }

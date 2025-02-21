@@ -27,11 +27,11 @@ void Ingredient::FinishChopping()
 	SetState(IS_CUT);
 	isSliced = true;
 	choppingTimer->Pause();
-	LOG(Warning, "Done Chopping");
+
 }
 
 void Ingredient::FinishBoiling()
 {
 	state == IS_COOKED ? SetState(IS_BURNT) : SetState(IS_COOKED);
-	LOG(Warning, "Done Boiling");
+
 }
