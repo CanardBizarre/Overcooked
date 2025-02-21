@@ -144,7 +144,7 @@ void MainMenu::InitFirstScreen(HUD* _hud)
 	LabelWidget* _pressToPlay = _hud->SpawnWidget<LabelWidget>("Press enter to play");
 	canvas->AddChild(_pressToPlay);
 	_pressToPlay->SetOriginAtMiddle();
-	_pressToPlay->SetFont("segoe-ui-black", TTF);
+	_pressToPlay->SetFont("Overcookedk", TTF);
 	_pressToPlay->SetFillColor(Color(77, 88, 105));
 	_pressToPlay->SetPosition(Vector2f(GetWindowSize().x / 2.0f, GetWindowSize().y * 0.6f));
 	_pressToPlay->SetZOrder(1);
@@ -170,21 +170,21 @@ void MainMenu::InitSecondScreen(HUD* _hud)
 
 	LabelWidget* _campaign = _hud->SpawnWidget<LabelWidget>("CAMPAIGN");
 	canvas->AddChild(_campaign);
-	_campaign->SetFont("segoe-ui-black", TTF);
+	_campaign->SetFont("Overcookedk", TTF);
 	_campaign->SetFillColor(Color(77, 88, 105));
 	_campaign->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.2f));
 	_campaign->SetZOrder(2);
 
 	LabelWidget* _option = _hud->SpawnWidget<LabelWidget>("OPTION");
 	canvas->AddChild(_option);
-	_option->SetFont("segoe-ui-black", TTF);
+	_option->SetFont("Overcookedk", TTF);
 	_option->SetFillColor(Color(77, 88, 105));
 	_option->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.4f));
 	_option->SetZOrder(2);
 
 	LabelWidget* _credits = _hud->SpawnWidget<LabelWidget>("CREDITS");
 	canvas->AddChild(_credits);
-	_credits->SetFont("segoe-ui-black", TTF);
+	_credits->SetFont("Overcookedk", TTF);
 	_credits->SetFillColor(Color(77, 88, 105));
 	_credits->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.6f));
 	_credits->SetZOrder(2);
@@ -234,14 +234,14 @@ void MainMenu::InitCampaign(HUD* _hud)
 {
 	LabelWidget* _continue = _hud->SpawnWidget<LabelWidget>("CONTINUE");
 	canvas->AddChild(_continue);
-	_continue->SetFont("segoe-ui-black", TTF);
+	_continue->SetFont("Overcookedk", TTF);
 	_continue->SetFillColor(Color(77, 88, 105));
 	_continue->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.2f));
 	_continue->SetZOrder(2);
 
 	LabelWidget* _newGame = _hud->SpawnWidget<LabelWidget>("NEW GAME");
 	canvas->AddChild(_newGame);
-	_newGame->SetFont("segoe-ui-black", TTF);
+	_newGame->SetFont("Overcookedk", TTF);
 	_newGame->SetFillColor(Color(77, 88, 105));
 	_newGame->SetPosition(Vector2f(GetWindowSize().x * 0.5f, GetWindowSize().y * 0.3f));
 	_newGame->SetZOrder(2);
